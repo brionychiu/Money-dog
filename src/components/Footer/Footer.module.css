@@ -1,0 +1,13 @@
+.footer{
+    min-height:75px;
+    background: #fafafa;
+    color: #636363;
+    font-size: 13px;
+    line-height: 200%;
+    text-align: left;
+    border-top: 1px solid #e3e3e3;
+    padding: 10px;
+}
+.footer h3 {
+    text-align: center;
+}

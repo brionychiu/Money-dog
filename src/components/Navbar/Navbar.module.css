@@ -1,0 +1,160 @@
+/* navbar styles */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 1024px) 1fr;  
+    height:58px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 15px;
+  }
+.navi-wrapper{
+    grid-column: 2/3;
+    display: inline-grid;
+    grid-template-columns: 300px 220px auto;
+    align-items: center;
+    padding: 0px 20px;
+  }
+  /* leftbar */
+  .leftBar{
+    grid-column: 1/2;
+    display: flex;
+  }
+  .logo{
+    width: 36px;
+    height: 36px;
+    border: 2px solid #ffb703;
+  }
+  .leftBar li:nth-child(1){
+    margin: 6px 7.5px;
+  }
+  .leftBar li:nth-child(-n+4):nth-child(n+2){
+    align-self: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 19px 7.5px 15px;
+    border-bottom: 3px solid transparent;
+  }
+  .leftBar li:nth-child(-n+4):nth-child(n+2) a{
+    color: #636363;
+  }
+  .leftBar li:nth-child(-n+4):nth-child(n+2):hover{
+    border-bottom: 3px solid #ffb703;
+  }
+  .leftBar li:nth-child(-n+4):nth-child(n+2):hover a{
+    color: #0386f4;
+  }
+  .leftBar li:nth-child(1):hover{
+    border-bottom: 3px solid transparent;
+  }
+  /* searchBar */
+  .searchBar{
+    width: 204px;
+    height: 36px;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    color: #434343;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0px 0px 3px #e9e9e9 inset;
+    background-color: #fafafa;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 3px;
+  }
+  .searchInput{
+    width: 160px;
+    height: 36px;
+    padding: 9px;
+    grid-column: 1/2;
+    border:none;
+    outline: none;
+    background-color: transparent;
+  }
+  .searchIcon{
+    grid-column: 2/3;
+    align-self: center;
+    width: 25px;
+    height:25px;
+    opacity:0.6;
+    cursor: pointer;
+  }
+  .searchIcon:hover{
+    opacity:1;
+  }
+  /* rightBar */
+  .rightBar{
+    grid-column:3/4;
+    justify-self: end;
+    align-items: center;
+    display: flex;
+  }
+  .rightBar a {
+    display: inline-flex;
+    align-items: center;
+    color: #636363;
+    font-size: 15px;
+    font-weight: bold;
+    padding-right: 10px;
+  }
+  .trackingIcon{
+    width: 25px;
+    height: 25px;
+  }
+  .rightBar li{
+    padding: 17px 7.5px 8px;
+    border-bottom: 3px solid transparent;
+  }
+  .rightBar li:hover a{
+    color: #0386f4;
+  }
+  .rightBar li:hover{
+    border-bottom: 3px solid #ffb703;
+  }
+  /* 未穩定作用 , 在tracking頁面focus */
+  .rightBar li a:focus{
+    color: #0386f4;
+  }
+  /* loginBar */
+  .loginBar{
+    grid-column:3/4;
+    justify-self: end;
+    align-items: center;
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    color: #434343;
+  }
+  .loginBar li a{
+    color: #434343;
+  }
+     .loginBar li:hover a{
+        color: #0386f4;
+      }
+    .navbar .loginBar .signup {
+      background-color: #0386f4;
+      padding: 7px 15px;
+      border-radius: 3px;
+      transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
+    }
+
+    .navbar .loginBar .signup:hover{
+      background-color: #0862BB;
+      box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+    }
+    .navbar .loginBar .signup a{
+      color: #ffffff;
+    }
+    .navbar .loginBar .login{
+      margin-right: 10px;
+      padding: 7px 15px;
+      transition: all 0.8s;
+    } 
+    /* :hover 同時觸發兩個顏色變化 */
+    .navbar .loginBar .login:hover{
+      border-radius: 3px;
+      background-color: #636363;
+    } 
+    .navbar .loginBar .login:hover a{
+      color: #ffffff;
+    } 
