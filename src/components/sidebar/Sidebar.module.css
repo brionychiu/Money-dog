@@ -1,0 +1,31 @@
+.sidebar-container{
+    width: 120px;
+    height:228px;
+}
+.sidebar-container li{
+    display: grid;
+    justify-items: center;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    margin: 5px 3px 15px;
+    padding-left: 8px;
+    font-size: 15px;
+}
+.sidebar-container li:hover{
+    border-left: 3px solid  #0386f4;
+}
+.sidebar-container li a{
+    display: grid;
+    justify-items:center;
+    color: #434343;
+}
+.sidebar-container li a:hover{
+    color: #0386f4;
+}
+
+.sidebar-container li a img{
+    margin-bottom: 5px;
+    width:30px;
+    height:30px;
+    justify-self: center;
+}

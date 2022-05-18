@@ -20,12 +20,12 @@
     display: flex;
   }
   .logo{
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border: 2px solid #ffb703;
   }
   .leftBar li:nth-child(1){
-    margin: 6px 7.5px;
+    align-self:center;
   }
   .leftBar li:nth-child(-n+4):nth-child(n+2){
     align-self: center;
@@ -64,7 +64,6 @@
   }
   .searchInput{
     width: 160px;
-    height: 36px;
     padding: 9px;
     grid-column: 1/2;
     border:none;

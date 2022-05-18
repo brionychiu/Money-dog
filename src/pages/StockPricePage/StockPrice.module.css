@@ -1,0 +1,19 @@
+.price-container{
+    display: grid;
+    grid-template-rows: 360px 360px;
+    row-gap: 10px;
+}
+.k-SVG{
+    grid-row: 1/2;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    color: #434343;
+}
+.volume-SVG{
+    grid-row: 2/3;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    color: #434343;
+}

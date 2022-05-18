@@ -1,0 +1,19 @@
+.YoY-container{
+    display: grid;
+    grid-template-rows: 465px 250px;
+    row-gap: 10px;
+}
+.YoY-SVG{
+    grid-row: 1/2;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    color: #434343;
+}
+.YoY-report{
+    grid-row: 2/3;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    color: #434343;
+}

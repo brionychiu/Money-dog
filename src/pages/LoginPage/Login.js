@@ -6,8 +6,8 @@ import { useLogin } from '../../hooks/useLogin'
 import styles from './Login.module.css'
 
 //components
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
+import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
 
 const Login = () => {
     const [ email , setEmail ] = useState('')

@@ -45,7 +45,7 @@ export const useLogin = () => {
         return () => setIsCancelled(true)
     },[])
     
-    // facebook login 
+    // facebook login ---一問題待解決，如果先登入google->fb->google->就不能再用fb
     const fbLogin = async () => {
         const fbProvider = new FacebookAuthProvider();
         setError(null)

@@ -4,32 +4,32 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 
 // components
 import Settings from './Settings'
-import logoIcon from '../Img/logo_icon.jpg'
-import trackingIcon from '../Img/tracking_icon.svg'
-import searchIcon from '../Img/search_icon.png'
+import logoIcon from '../img/logo_icon.jpg'
+import trackingIcon from '../img/tracking_icon.svg'
+import searchIcon from '../img/search_icon.png'
 
 // styles
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
     const { user } = useAuthContext()
-    const [ stockNumber , setStockNumber ] = useState('')
+    const [ stockId , setStockId ] = useState('')
     return ( 
         <div className={styles.navbar}>
             <div className={styles['navi-wrapper']}>
                 <ul className={styles.leftBar}>
                     <li><Link to="/"><img className={styles.logo} src={logoIcon} alt='logo'/></Link></li> 
-                    <li><Link to="/stockPrice">每日動態</Link></li> 
-                    <li><Link to="/PEratio">個股分析</Link></li>
-                    <li><Link to="/stockIndex">大盤產業</Link></li>
+                    <li><Link to="/analysis/stockPrice">最新動態</Link></li> 
+                    <li><Link to="/analysis/PEratio">個股分析</Link></li>
+                    <li><Link to="/taiex">大盤產業</Link></li>
                 </ul>
                 {user && (
                     <form className={styles.searchBar}>
                         <input  
                             className={styles.searchInput} 
-                            type="search" 
-                            value={stockNumber}
-                            onChange={(e) => setStockNumber(e.target.value)}
+                            type='text' 
+                            value={stockId}
+                            onChange={(e) => setStockId(e.target.value)}
                         />
                         <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
                     </form>

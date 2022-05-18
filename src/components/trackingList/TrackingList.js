@@ -1,6 +1,6 @@
 
 // components
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../navbar/Navbar';
 
 // styles
 import styles from './TrackingList.module.css'

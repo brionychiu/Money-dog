@@ -4,7 +4,7 @@ import { useLogin } from '../../hooks/useLogin'
 import { useSignup } from '../../hooks/useSignup'
 
 // components
-import logoIcon from '../../components/Img/logo_icon.jpg'
+import logoIcon from '../../components/img/logo_icon.jpg'
 
 //styles
 import styles from './Signup.module.css'

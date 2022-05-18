@@ -1,16 +1,16 @@
-.PERatio-container{
+.EPS-container{
     display: grid;
     grid-template-rows: 465px 250px;
     row-gap: 10px;
 }
-.PERatio-SVG{
+.EPS-SVG{
     grid-row: 1/2;
     background: #fff;
     border-radius: 3px;
     border: 1px solid #dfdfdf;
     color: #434343;
 }
-.PERatio-report{
+.EPS-report{
     grid-row: 2/3;
     background: #fff;
     border-radius: 3px;

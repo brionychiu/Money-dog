@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext'
 
 // components
-import Footer from '../../components/Footer/Footer'
-import logoIcon from '../../components/Img/logo_icon.jpg'
-import searchIcon from '../../components/Img/search_icon.png'
-import trackingIcon from '../../components/Img/tracking_icon.svg'
-import Settings from '../../components/Navbar/Settings';
+import Footer from '../../components/footer/Footer'
+import logoIcon from '../../components/img/logo_icon.jpg'
+import searchIcon from '../../components/img/search_icon.png'
+import trackingIcon from '../../components/img/tracking_icon.svg'
+import Settings from '../../components/navbar/Settings';
 
 //styles
 import styles from './Home.module.css' 
 
 const Home = () => {
-    const [ stockNumber , setStockNumber ] = useState('')
+    const [ stockId , setStockId ] = useState('')
     const { user } = useAuthContext()
+
     const handleSubmit = (e) => {
         e.preventDefault()
-       
     }
 
     return ( 
@@ -26,9 +26,12 @@ const Home = () => {
             <div className={styles['homePage-1']}>
                 <div className={styles.navbar}>
                     <ul className={styles.leftBar}>
-                        <li><Link to="/stockPrice">每日動態</Link></li>
-                        <li><Link to="/PEratio">個股分析</Link></li>
-                        <li><Link to="/stockIndex">大盤產業</Link></li>
+                        <li><Link to="/analysis/2330">最新動態</Link></li>
+                        {user ? 
+                            <li><Link to="/analysis/2330/PEratio">個股分析</Link></li>
+                            :<li><Link to="/login">個股分析</Link></li>
+                        }
+                        <li><Link to="/taiex">大盤產業</Link></li>
                     </ul>
                     {!user && (
                         <ul className={styles.loginBar}> 
@@ -53,9 +56,9 @@ const Home = () => {
                 <form onSubmit={handleSubmit}>
                     <input 
                         className={styles.searchBar} 
-                        type="text" 
-                        value={stockNumber}
-                        onChange={(e) => setStockNumber(e.target.value)}
+                        type='text'
+                        value={stockId}
+                        onChange={(e) => setStockId(e.target.value)}
                         />
                     <button className={styles.searchBtn}>
                         <img className={styles.searchImg} src={searchIcon} alt='search'/>

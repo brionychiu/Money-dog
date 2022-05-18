@@ -3,17 +3,12 @@ import { useAuthContext } from './hooks/useAuthContext'
 
 // components
 import Home from './pages/HomePage/Home'
-import StockPrice from './pages/StockPricePage/StockPrice'
-import PERatio from './pages/PERatioPage/PERatio'
-import EPS from './pages/EPSPage/EPS'
-import YoY from './pages/YoYPage/YoY'
-import BasicInfo from './pages/BasicInfoPage/BasicInfo'
-import StockIndex from './pages/StockIndexPage/StockIndex'
+import Taiex from './pages/TaiexPage/Taiex'
 import Login from './pages/LoginPage/Login'
 import Signup from './pages/SignupPage/Signup'
+import Analysis from './pages/MainPage/Analysis'
 import TrackingList from './components/trackingList/TrackingList'
-// 之後要刪掉
-import Navbar from './components/Navbar/Navbar'
+
 
 
 
@@ -37,27 +32,15 @@ function App() {
               path='/signup' 
               element={ user ? <Navigate to="/"/> : <Signup /> } 
             />
-            <Route path='/stockPrice' element={ <StockPrice /> } />
             <Route 
-              path='/PEratio' 
-              element={ user ? <PERatio /> : <Navigate to="/login"/> } 
+              path='/analysis/:id' 
+              element={ <Analysis /> } 
             />
-            <Route
-              path='/EPS' 
-              element={ user ? <EPS />  : <Navigate to="/login"/> } 
-            />
-            <Route 
-              path='/YoY' 
-              element={ user ? <YoY /> : <Navigate to="/login"/> } 
-            />
-            <Route path='/basicInfo' element={ <BasicInfo /> } />
-            <Route path='/stockIndex' element={ <StockIndex /> }  />  
+            <Route path='/taiex' element={ <Taiex /> }  />  
             <Route 
               path='/trckingList' 
               element={ user ? <TrackingList /> : <Navigate to="/login"/> } 
-            />
-            {/* 之後要刪掉 */}
-            <Route path='/navbar' element={ <Navbar /> }  />  
+            /> 
         </Routes>
         </BrowserRouter>
       )}
