@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 
 // components
@@ -14,24 +14,34 @@ import styles from './Navbar.module.css'
 const Navbar = () => {
     const { user } = useAuthContext()
     const [ stockId , setStockId ] = useState('')
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        navigate(`/analysis/${stockId}`)
+        setStockId('')
+    }
+
     return ( 
         <div className={styles.navbar}>
             <div className={styles['navi-wrapper']}>
                 <ul className={styles.leftBar}>
                     <li><Link to="/"><img className={styles.logo} src={logoIcon} alt='logo'/></Link></li> 
-                    <li><Link to="/analysis/stockPrice">最新動態</Link></li> 
-                    <li><Link to="/analysis/PEratio">個股分析</Link></li>
+                    <li><Link to="/analysis/2330">最新動態</Link></li> 
+                    <li><Link to="/analysis/2330/PEratio">個股分析</Link></li>
                     <li><Link to="/taiex">大盤產業</Link></li>
                 </ul>
                 {user && (
-                    <form className={styles.searchBar}>
-                        <input  
+                    <form className={styles.searchBar} onSubmit={handleSubmit}>
+                        <input
                             className={styles.searchInput} 
                             type='text' 
                             value={stockId}
                             onChange={(e) => setStockId(e.target.value)}
                         />
-                        <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
+                        <button>
+                            <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
+                        </button>
                     </form>
                     
                 )}

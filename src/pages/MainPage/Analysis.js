@@ -1,12 +1,7 @@
-import { Route, Routes ,Navigate } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
 
 // components
-import StockPrice from '../StockPricePage/StockPrice'
-import PERatio from '../PERatioPage/PERatio'
-import EPS from '../EPSPage/EPS'
-import YoY from '../YoYPage/YoY'
-import BasicInfo from '../BasicInfoPage/BasicInfo'
 import Navbar from "../../components/navbar/Navbar"
 import Footer from '../../components/footer/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
@@ -16,7 +11,7 @@ import styles from './Analysis.module.css'
 
 
 const Analysis = () => {
-    const { authIsReady, user } = useAuthContext()
+    const { authIsReady } = useAuthContext()
 
     return ( 
         <div className={styles['analysis-container']}>
@@ -35,22 +30,9 @@ const Analysis = () => {
                 </div>
                 <div className={styles.mainContent}>
                     {authIsReady && (
-                    <Routes>
-                        <Route path='' element={ <StockPrice /> } />
-                        <Route 
-                        path='PEratio' 
-                        element={ user ? <PERatio /> : <Navigate to="/login"/> } 
-                        />
-                        <Route
-                        path='EPS' 
-                        element={ user ? <EPS />  : <Navigate to="/login"/> } 
-                        />
-                        <Route 
-                        path='YoY' 
-                        element={ user ? <YoY /> : <Navigate to="/login"/> } 
-                        />
-                        <Route path='/basicInfo' element={ <BasicInfo /> } />
-                    </Routes>
+                        // 這邊要怎麼寫才會有analysis/{id}/EPS的效果
+                        // 現在這樣寫只有/anayisis/EPS網址才會顯示
+                    <Outlet />  
                     )}
                 </div>
             </div>

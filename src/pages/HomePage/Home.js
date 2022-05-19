@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext'
 
 // components
@@ -15,9 +15,11 @@ import styles from './Home.module.css'
 const Home = () => {
     const [ stockId , setStockId ] = useState('')
     const { user } = useAuthContext()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        navigate(`/analysis/${stockId}`)
     }
 
     return ( 

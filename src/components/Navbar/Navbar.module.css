@@ -48,7 +48,6 @@
   }
   /* searchBar */
   .searchBar{
-    width: 204px;
     height: 36px;
     grid-column: 2/3;
     display: grid;
@@ -70,13 +69,18 @@
     outline: none;
     background-color: transparent;
   }
-  .searchIcon{
-    grid-column: 2/3;
+  .searchBar button{
+    display: grid;
+    justify-content: center;
     align-self: center;
-    width: 25px;
+    grid-column: 2/3;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .searchIcon{
     height:25px;
     opacity:0.6;
-    cursor: pointer;
   }
   .searchIcon:hover{
     opacity:1;

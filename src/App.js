@@ -8,9 +8,12 @@ import Login from './pages/LoginPage/Login'
 import Signup from './pages/SignupPage/Signup'
 import Analysis from './pages/MainPage/Analysis'
 import TrackingList from './components/trackingList/TrackingList'
-
-
-
+import Error from './pages/ErrorPage/Error'
+import PERatio from './pages/PERatioPage/PERatio'
+import EPS from './pages/EPSPage/EPS'
+import YoY from './pages/YoYPage/YoY'
+import BasicInfo from './pages/BasicInfoPage/BasicInfo'
+import StockPrice from './pages/StockPricePage/StockPrice'
 
 // styles
 import './App.css';
@@ -32,15 +35,31 @@ function App() {
               path='/signup' 
               element={ user ? <Navigate to="/"/> : <Signup /> } 
             />
-            <Route 
-              path='/analysis/:id' 
-              element={ <Analysis /> } 
-            />
+            <Route path='/analysis/:id' element={ <Analysis /> }>
+                <Route 
+                  path='' 
+                  element={ <StockPrice /> } 
+                />
+               <Route 
+                  path='PEratio' 
+                  element={ user ? <PERatio /> : <Navigate to="/login"/> } 
+                />
+                <Route
+                  path='EPS' 
+                  element={ user ? <EPS />  : <Navigate to="/login"/> } 
+                />
+                <Route 
+                  path='YoY' 
+                  element={ user ? <YoY /> : <Navigate to="/login"/> } 
+                />
+                <Route path='basicInfo' element={ <BasicInfo /> } />
+            </Route>
             <Route path='/taiex' element={ <Taiex /> }  />  
             <Route 
               path='/trckingList' 
               element={ user ? <TrackingList /> : <Navigate to="/login"/> } 
             /> 
+            <Route path='*' element={ <Error /> }  />  
         </Routes>
         </BrowserRouter>
       )}
