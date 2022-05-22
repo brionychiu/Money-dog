@@ -1,5 +1,7 @@
-import { Outlet } from "react-router-dom"
+import { useEffect } from "react"
+import { Outlet, useParams } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useCollection } from "../../hooks/useCollection"
 
 // components
 import Navbar from "../../components/navbar/Navbar"
@@ -12,7 +14,20 @@ import styles from './Analysis.module.css'
 
 const Analysis = () => {
     const { authIsReady } = useAuthContext()
-
+    const { stockId } = useParams()
+    const { documents:stockData } = useCollection(
+        'test',
+        ['id', '==', stockId]
+    ) 
+    const { documents:basicInfo } = useCollection(
+        'basicInfo',
+        ['id', '==', stockId]
+    ) 
+    console.log(basicInfo)
+    useEffect(() => {
+       
+    },[stockId])
+    
     return ( 
         <div className={styles['analysis-container']}>
             <Navbar className={styles.navbar}/>
@@ -20,18 +35,18 @@ const Analysis = () => {
                 <div className={styles.sidebar}>
                     <Sidebar />
                 </div>
-                <div className={styles.stockInfo}>    
+                {stockData & basicInfo && (
+                    <div className={styles.stockInfo}>    
                     <ul>
-                        <li>台積電(2330)</li>
-                        <li>台灣5/18收盤價</li>
-                        <li>538.0元</li>
+                        <li>{basicInfo[0].sname}{stockData[0].id}</li>
+                        <li>台灣5/20收盤價</li>
+                        <li>{stockData[0].Close}元</li>
                     </ul>
                     <button>+ 追蹤</button>
                 </div>
+            )}
                 <div className={styles.mainContent}>
                     {authIsReady && (
-                        // 這邊要怎麼寫才會有analysis/{id}/EPS的效果
-                        // 現在這樣寫只有/anayisis/EPS網址才會顯示
                     <Outlet />  
                     )}
                 </div>

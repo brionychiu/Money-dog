@@ -35,7 +35,7 @@ function App() {
               path='/signup' 
               element={ user ? <Navigate to="/"/> : <Signup /> } 
             />
-            <Route path='/analysis/:id' element={ <Analysis /> }>
+            <Route path='/analysis/:stockId' element={ <Analysis /> }>
                 <Route 
                   path='' 
                   element={ <StockPrice /> } 
