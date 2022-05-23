@@ -1,7 +1,8 @@
 .PERatio-container{
     display: grid;
-    grid-template-rows: 465px 250px;
+    grid-template-rows: 465px minmax(250px,auto);
     row-gap: 10px;
+    margin-bottom: 30px;
 }
 .PERatio-SVG{
     grid-row: 1/2;
@@ -49,22 +50,30 @@
 }
 .explain{
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 50px auto;
     grid-template-rows: 40px auto;
     column-gap:20px;
     justify-items: center;
     font-size: 14px;
-    padding: 30px;
+    padding: 20px;
+    margin: 10px 0px;
+    border: 1px solid #e9e9e9;
+    background-color: #f6f8fa;
 }
 .explain div{
+    margin-top: 2px;
     grid-column: 1/2;
     justify-self: end;
-    font-size: bold;
+    font-weight: 700;
 }
 .explain strong,.explain span{
     grid-column: 2/3;
     justify-self: start;
     line-height: 200%;
+}
+.detail{
+    border: 1px solid #e9e9e9;
+    background-color: #f6f8fa;
 }
 /* background: #0386f4;
 border-color: #0386f4;
