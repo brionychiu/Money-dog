@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, } from "react"
 import { Outlet, useParams } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from "../../hooks/useCollection"
@@ -11,23 +11,27 @@ import Sidebar from '../../components/sidebar/Sidebar'
 // sytles
 import styles from './Analysis.module.css'
 
-
 const Analysis = () => {
     const { authIsReady } = useAuthContext()
     const { stockId } = useParams()
+    console.log(stockId)
     const { documents:stockData } = useCollection(
-        'test',
+        'dailyPrice',
         ['id', '==', stockId]
     ) 
     const { documents:basicInfo } = useCollection(
         'basicInfo',
         ['id', '==', stockId]
     ) 
-    console.log(basicInfo)
-    useEffect(() => {
-       
-    },[stockId])
-    
+    useEffect(() =>{
+
+    }
+    ,[])
+
+
+    // console.log("newStockId",newStockId)
+    // console.log(stockData)
+    // console.log(basicInfo)
     return ( 
         <div className={styles['analysis-container']}>
             <Navbar className={styles.navbar}/>
@@ -35,7 +39,7 @@ const Analysis = () => {
                 <div className={styles.sidebar}>
                     <Sidebar />
                 </div>
-                {stockData & basicInfo && (
+                {stockData && basicInfo && (
                     <div className={styles.stockInfo}>    
                     <ul>
                         <li>{basicInfo[0].sname}{stockData[0].id}</li>

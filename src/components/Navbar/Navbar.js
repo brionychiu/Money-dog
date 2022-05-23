@@ -13,13 +13,13 @@ import styles from './Navbar.module.css'
 
 const Navbar = () => {
     const { user } = useAuthContext()
-    const [ stockId , setStockId ] = useState('')
-    const navigate = useNavigate()
+    const [ stockName , setStockName ] = useState('')
+    const navigate = useNavigate()   
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate(`/analysis/${stockId}`)
-        setStockId('')
+        navigate(`/analysis/${stockName}`)
+        setStockName('')
     }
 
     return ( 
@@ -36,8 +36,8 @@ const Navbar = () => {
                         <input
                             className={styles.searchInput} 
                             type='text' 
-                            value={stockId}
-                            onChange={(e) => setStockId(e.target.value)}
+                            value={stockName}
+                            onChange={(e) => setStockName(e.target.value)}
                         />
                         <button>
                             <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
