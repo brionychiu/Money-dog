@@ -157,13 +157,13 @@
     filter: invert(100%);
     width: 36px;
 }
-.homePage-1 .stockItems{
+.stockItems{
     grid-row:5/6;
     grid-column: 2/3;
     display: inline-flex;
     justify-content: center;
 }
-.homePage-1 .stockItems .Item{
+.stockItems li{
     width:122px;
     height:40px;
     margin: 0px 15px;
@@ -171,14 +171,18 @@
     border-radius: 20px;
     text-align: center;
     line-height:40px;
-    color: #fff;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.8s, color 0.8s;
 }
-.homePage-1 .stockItems .Item:hover{
-    color: #153356;
+.stockItems li:hover{
     background-color: #fff;
+}
+.stockItems li a{
+    color: #fff;
+}
+.stockItems li:hover a{
+    color: #153356;
 }
 /* 失敗welcome banner 之後做好 */
 .logo,.slogan,.searchBar,.searchBtn,.stockItems{

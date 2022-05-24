@@ -1,6 +1,6 @@
 .analysis-container{
     display: grid;
-    grid-template-rows: auto minmax(824px, 800px) auto;
+    grid-template-rows: auto minmax(824px, 880px) auto;
 }
 .navbar{
     grid-row: 1/2;
@@ -61,6 +61,7 @@
 .wrapper .mainContent{
     grid-column: 3/4;
     grid-row: 2/3;
+    margin-bottom: 30px;
 }
 .footer{
     grid-row: 3/4;

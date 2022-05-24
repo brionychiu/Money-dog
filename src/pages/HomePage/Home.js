@@ -66,11 +66,17 @@ const Home = () => {
                         <img className={styles.searchImg} src={searchIcon} alt='search'/>
                     </button>
                 </form>
-                <div className={styles.stockItems}>
-                    <span className={styles.Item}>台積電</span>
-                    <span className={styles.Item}>長榮</span>
-                    <span className={styles.Item}>聯發科</span>
-                </div>
+                <ul className={styles.stockItems}>
+                    <li>
+                        <Link to="/analysis/2330">台積電</Link>
+                    </li>
+                    <li>
+                        <Link to="/analysis/2317">鴻海</Link>
+                    </li>
+                    <li>
+                        <Link to="/analysis/2454">聯發科</Link>    
+                    </li>
+                </ul>
             </div>
             
             <div className={styles['homePage-2']}>

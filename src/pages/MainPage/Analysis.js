@@ -1,4 +1,3 @@
-import { useEffect,useState } from "react"
 import { Outlet, useParams } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from "../../hooks/useCollection"
@@ -15,7 +14,7 @@ const Analysis = () => {
     const { authIsReady } = useAuthContext()
     const { stockId } = useParams()
 
-    console.log(stockId)
+    // console.log(stockId)
     const { documents:stockData } = useCollection(
         'dailyPrice',
         stockId
@@ -35,7 +34,7 @@ const Analysis = () => {
                     <div className={styles.stockInfo}>    
                     <ul>
                         <li>{basicInfo[0].sname}{stockData[0].id}</li>
-                        <li>台灣5/20收盤價</li>
+                        <li>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
                         <li>{stockData[0].Close}元</li>
                     </ul>
                     <button>+ 追蹤</button>

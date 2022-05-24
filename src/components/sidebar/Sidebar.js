@@ -15,31 +15,31 @@ const Sidebar = () => {
         <ul className={styles['sidebar-container']}>
             <li>
                 <Link to="">
-                    <img src={newestIcon} alt='紅喇叭'/>
+                    <img src={newestIcon} alt='最新動態'/>
                     <p>最新動態</p>
                 </Link>
             </li>
             <li>
                 <Link to="PEratio">
-                    <img src={PEratioIcon} alt='藍天平'/>
+                    <img src={PEratioIcon} alt='價值評估'/>
                     <p>價值評估</p>
                 </Link>
             </li>
             <li>
                 <Link to="YoY">
-                    <img src={YoYiIcon} alt='橘格子'/>
+                    <img src={YoYiIcon} alt='成長力分析'/>
                     <p>成長力分析</p>
                 </Link>
             </li>
             <li>
                 <Link to="EPS">
-                    <img src={EPSIcon} alt='綠文件'/>
+                    <img src={EPSIcon} alt='財務報表'/>
                     <p>財務報表</p>
                 </Link>
             </li>
             <li>
                 <Link to="basicInfo">
-                    <img src={infoIcon} alt='紫基本資料'/>
+                    <img src={infoIcon} alt='基本資料'/>
                     <p>基本資料</p>
                 </Link>
             </li>

@@ -22,7 +22,14 @@
 .sidebar-container li a:hover{
     color: #0386f4;
 }
-
+/* 無效果 */
+.sidebar-container li a:active{
+    color: #0386f4;
+}
+.sidebar-container li a:active li{
+    border-left: 3px solid  #0386f4;
+}
+/*  */
 .sidebar-container li a img{
     margin-bottom: 5px;
     width:30px;
