@@ -57,7 +57,18 @@
 .wrapper .stockInfo button:hover{
     background-color: #2ca1fc;
 }
-
+.tracked{
+    width: 92px;
+    height:34.3px;
+    border: 1px solid #d3d3d3;
+    background: #ededed;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    color: #636363;
+    cursor: pointer;
+    transition:  0.5s;
+}
 .wrapper .mainContent{
     grid-column: 3/4;
     grid-row: 2/3;

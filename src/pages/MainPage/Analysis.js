@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react"
 import { Outlet, useParams } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from "../../hooks/useCollection"
+import { useFirestore } from "../../hooks/useFirestore"
 
 // components
 import Navbar from "../../components/navbar/Navbar"
@@ -11,10 +13,13 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import styles from './Analysis.module.css'
 
 const Analysis = () => {
-    const { authIsReady } = useAuthContext()
-    const { stockId } = useParams()
+    const [tracking, setTracking] = useState(false)
 
-    // console.log(stockId)
+    const { authIsReady, user } = useAuthContext()
+    const uid = user.uid
+    const { stockId } = useParams()
+    const { addDocument , response } = useFirestore('stockList')
+
     const { documents:stockData } = useCollection(
         'dailyPrice',
         stockId
@@ -23,6 +28,22 @@ const Analysis = () => {
         'basicInfo',
         stockId
     ) 
+    const addlist = {
+        uid,
+        stockId
+    }
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        await addDocument(addlist)
+        // setTracking(true)
+    }
+    
+    useEffect(() => { 
+        if(response.success){
+            setTracking(true)  
+        }
+    },[response.success])
+
     return ( 
         <div className={styles['analysis-container']}>
             <Navbar className={styles.navbar}/>
@@ -37,8 +58,11 @@ const Analysis = () => {
                         <li>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
                         <li>{stockData[0].Close}元</li>
                     </ul>
-                    <button>+ 追蹤</button>
-                </div>
+                    {tracking ? <button className={styles.tracked}>已追蹤</button>:
+                    <form onSubmit={handleSubmit}>  
+                        <button type="submit">+ 追蹤</button>
+                    </form>}
+            </div>
             )}
                 <div className={styles.mainContent}>
                     {authIsReady && (
