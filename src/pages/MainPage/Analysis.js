@@ -14,7 +14,8 @@ import styles from './Analysis.module.css'
 
 const Analysis = () => {
     const [tracking, setTracking] = useState(false)
-
+    const [addTrackingList, setAddTrackingList] = useState(false)
+    const [listName, setListName] = useState('')
     const { authIsReady, user } = useAuthContext()
     const uid = user.uid
     const { stockId } = useParams()
@@ -32,17 +33,29 @@ const Analysis = () => {
         uid,
         stockId
     }
+    const clickTrackBtn = async(e) => {
+        e.preventDefault()
+        await addDocument(addlist)
+        console.log(response)
+        if(!response.error){
+            setTracking(true)  
+        }
+        // setAddTrackingList(true)
+    }
     const handleSubmit = async(e) => {
         e.preventDefault()
         await addDocument(addlist)
-        // setTracking(true)
-    }
-    
-    useEffect(() => { 
-        if(response.success){
+        if(!response.error){
             setTracking(true)  
         }
-    },[response.success])
+        console.log(response)
+    }
+    // 待 fix -- 回傳response = pending的response,不是成addDoc的
+    // useEffect(() => { 
+    //     if(response.success){
+    //         setTracking(true)  
+    //     }
+    // },[response.success])
 
     return ( 
         <div className={styles['analysis-container']}>
@@ -59,9 +72,26 @@ const Analysis = () => {
                         <li>{stockData[0].Close}元</li>
                     </ul>
                     {tracking ? <button className={styles.tracked}>已追蹤</button>:
-                    <form onSubmit={handleSubmit}>  
-                        <button type="submit">+ 追蹤</button>
+                    <form onSubmit={clickTrackBtn}>  
+                        <button className={styles.untracked} type="submit">+ 追蹤</button>
                     </form>}
+                        {/* {addTrackingList && (
+                        <div>
+                            <input type="checkbox" value="" ></input>
+                            <label>Default checkbox</label>
+                            <form onSubmit={handleSubmit}>
+                                <label>
+                                <span>建立個人專屬清單</span>
+                                <input
+                                    type='text'
+                                    required
+                                    onChange={(e) => setListName(e.target.value)}
+                                    value={listName}
+                                />
+                                </label>
+                                <button>建立</button>
+                            </form>
+                        </div>)} */}
             </div>
             )}
                 <div className={styles.mainContent}>

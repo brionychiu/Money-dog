@@ -19,13 +19,13 @@ const firestoreReducer = (state,action) => {
             return { isPending:true, document:null, error:null, success:false}
         case 'ADDED_DOCUMENT':
             // 因為我們操作每個物件，所以就不需要...state(Spread syntax)
-            return {...state, isPending:false, document:action.payload, success:true, error:null}
+            return { isPending:false, document:action.payload, success:true, error:null}
         case 'DELETED_DOCUMENT':
-            return {isPending:false, document:null, success:true, error:null}
+            return { isPending:false, document:null, success:true, error:null}
         case 'UPDATE_DOCUMENT':
-            return {isPending:false, document:action.payload, success:true, error:null}
+            return { isPending:false, document:action.payload, success:true, error:null}
         case 'ERROR':
-            return {isPending:false, document:null, success:false, error:action.payload}
+            return { isPending:false, document:null, success:false, error:action.payload}
         default:
             return state
     }
@@ -44,7 +44,9 @@ export const useFirestore = (col) => {
     // 因為每次做動作之前，都要先check isCancalled = true ，所以寫成一個function
     const dispatchIfNotCanaelled = (action) => {
         if(!isCancelled){
+            console.log(response)     
             dispatch(action)
+            console.log(action)
         }
     }
 
@@ -92,6 +94,7 @@ export const useFirestore = (col) => {
     }
     // cleanup function
     useEffect(() =>{
+        setIsCancelled(false)
         return() => setIsCancelled(true)
     },[])
 

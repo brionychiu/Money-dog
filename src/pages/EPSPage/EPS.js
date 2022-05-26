@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom"
 import { useState } from 'react';
 import { useCollection } from "../../hooks/useCollection";
 
+// components
+import { EPSdrawSVG } from '../../components/SVG/EPSdrawSVG'
 // styles
 import styles from './EPS.module.css'
 
@@ -13,7 +15,7 @@ const EPS = () => {
     ) 
     return ( 
         <div className={styles['EPS-container']}>
-            <div className={styles['EPS-SVG']}>每月EPS直條圖/折線圖看月均價</div>
+            <EPSdrawSVG className={styles['EPS-SVG']}></EPSdrawSVG>
             <div className={styles['EPS-report']}>
                 <ul className={styles.toggleMenu}>
                     <li onClick={()=>setShow(false)}>詳細數據</li>

@@ -42,7 +42,7 @@
     margin: 4px 5px;
 }
 
-.wrapper .stockInfo button{
+.untracked{
     width: 92px;
     height:34.3px;
     border: 1px solid #0386f4;
@@ -54,7 +54,7 @@
     cursor: pointer;
     transition:  0.5s;
 }
-.wrapper .stockInfo button:hover{
+.untracked:hover{
     background-color: #2ca1fc;
 }
 .tracked{
