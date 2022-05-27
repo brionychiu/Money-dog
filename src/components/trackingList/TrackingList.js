@@ -4,7 +4,6 @@ import { useFirestore } from '../../hooks/useFirestore';
 
 // components
 import Navbar from '../navbar/Navbar';
-import { EPSdrawSVG } from '../SVG/EPSdrawSVG'
 
 // styles
 import styles from './TrackingList.module.css'
@@ -21,7 +20,6 @@ const TrackingList = () => {
     return ( 
     <div className={styles}>
         <Navbar />
-        <EPSdrawSVG />
         tracking
         {stockList && (
         <ul>

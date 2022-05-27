@@ -1,6 +1,6 @@
 .EPS-container{
     display: grid;
-    grid-template-rows: 465px minmax(200px,auto);
+    grid-template-rows: 580px minmax(200px,auto);
     row-gap: 10px;
 }
 .EPS-SVG{
@@ -9,6 +9,50 @@
     border-radius: 3px;
     border: 1px solid #dfdfdf;
     color: #434343;
+    display: grid;
+}
+.EPS-SVG div{
+    margin-top: 10px;
+   justify-self: center;
+   display: flex;
+   align-items: center; 
+}
+.orange{
+    margin: 0px 0px 10px 10px;
+    width: 5px;
+    height: 2px;
+    border: 5px solid rgb(232,175,0);
+}
+.red{
+    margin: 0px 0px 10px 10px;
+    width: 5px;
+    height: 2px;
+    border: 5px solid #CB4B4B;;
+}
+.EPS-SVG div span:nth-child(3),.EPS-SVG div span:nth-child(5){
+    margin-left: 5px;
+    font-size: smaller;
+    color: #636363;
+}
+.EPS-SVG div span:nth-child(1){
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.EPS-SVG p label{
+    font-size: 13px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+.EPS-SVG p input{
+    margin-left: 13px;
+    cursor: pointer;
+}
+.checkbox{
+    justify-self: center;
+}
+.checkbox input{
+    margin-left: 20px;
 }
 .EPS-report{
     grid-row: 2/3;
@@ -100,7 +144,7 @@
     grid-column: 2/3;
     overflow-x: auto;
     overflow-y: visible;
-    font-size: 13px;
+    font-size: 14px;
 }
 .EPS-table table{
     border-collapse: collapse;

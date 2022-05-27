@@ -1,6 +1,6 @@
 .YoY-container{
     display: grid;
-    grid-template-rows: 465px minmax(200px,auto);
+    grid-template-rows: 580px minmax(200px,auto);
     row-gap: 10px;
 }
 .YoY-SVG{
@@ -78,7 +78,7 @@
 .detail{
     background-color: #f6f8fa;
     display: grid;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 1.5fr 8fr;
 }
 .detail ul{
     grid-column: 1/2;
@@ -101,7 +101,7 @@
     grid-column: 2/3;
     overflow-x: auto;
     overflow-y: visible;
-    font-size: 13px;
+    font-size: 14px;
 }
 .YoY-table table{
     border-collapse: collapse;

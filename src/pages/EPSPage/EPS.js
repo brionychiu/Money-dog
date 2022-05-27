@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useCollection } from "../../hooks/useCollection";
 
 // components
-import { EPSdrawSVG } from '../../components/SVG/EPSdrawSVG'
+import { EPSdrawSVG } from './EPSdrawSVG'
+
 // styles
 import styles from './EPS.module.css'
 
@@ -15,7 +16,7 @@ const EPS = () => {
     ) 
     return ( 
         <div className={styles['EPS-container']}>
-            <EPSdrawSVG className={styles['EPS-SVG']}></EPSdrawSVG>
+            {Q_EPS && (<EPSdrawSVG Q_EPS={Q_EPS[0].EPS}></EPSdrawSVG>)}
             <div className={styles['EPS-report']}>
                 <ul className={styles.toggleMenu}>
                     <li onClick={()=>setShow(false)}>詳細數據</li>

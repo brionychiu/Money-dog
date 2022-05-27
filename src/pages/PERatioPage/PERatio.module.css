@@ -1,6 +1,6 @@
 .PERatio-container{
     display: grid;
-    grid-template-rows: 465px minmax(200px,auto);
+    grid-template-rows: 580px minmax(200px,auto);
     row-gap: 10px;
     margin-bottom: 30px;
 }
@@ -103,7 +103,7 @@
     grid-column: 2/3;
     overflow-x: auto;
     overflow-y: visible;
-    font-size: 13px;
+    font-size: 14px;
 }
 .PE-table table{
     border-collapse: collapse;
