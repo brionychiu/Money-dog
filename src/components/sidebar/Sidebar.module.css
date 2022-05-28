@@ -19,7 +19,7 @@
     justify-items:center;
     color: #434343;
 }
-.sidebar-container li a:hover{
+.sidebar-container li:hover a{
     color: #0386f4;
 }
 /* 無效果 */

@@ -14,9 +14,18 @@ const EPS = () => {
     const { documents:Q_EPS } = useCollection(
         'Q-EPS',stockId
     ) 
+    const { documents:monthPrice } = useCollection(
+        'monthPrice',stockId
+    ) 
+    console.log(monthPrice)
     return ( 
         <div className={styles['EPS-container']}>
-            {Q_EPS && (<EPSdrawSVG Q_EPS={Q_EPS[0].EPS}></EPSdrawSVG>)}
+            {Q_EPS && monthPrice && (
+            <EPSdrawSVG 
+                Q_EPS={Q_EPS[0].EPS}
+                M_Price={monthPrice[0].monthPrice}>
+            </EPSdrawSVG>
+            )}
             <div className={styles['EPS-report']}>
                 <ul className={styles.toggleMenu}>
                     <li onClick={()=>setShow(false)}>詳細數據</li>

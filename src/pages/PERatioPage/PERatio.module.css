@@ -4,13 +4,59 @@
     row-gap: 10px;
     margin-bottom: 30px;
 }
+/*  */
 .PERatio-SVG{
     grid-row: 1/2;
     background: #fff;
     border-radius: 3px;
     border: 1px solid #dfdfdf;
     color: #434343;
+    display: grid;
 }
+.PERatio-SVG div{
+    margin-top: 10px;
+    justify-self: center;
+    display: flex;
+    align-items: center; 
+}
+.orange{
+    margin: 0px 0px 10px 10px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid rgb(232,175,0);
+}
+.red{
+    margin: 0px 0px 10px 10px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid #CB4B4B;;
+}
+.PERatio-SVG div span:nth-child(3),.PERatio-SVG div span:nth-child(5){
+    margin-left: 5px;
+    font-size: smaller;
+    color: #636363;
+}
+.PERatio-SVG div span:nth-child(1){
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.PERatio-SVG span label{
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+.PERatio-SVG p input{
+    margin-left: 13px;
+    cursor: pointer;
+}
+.checkbox{
+    justify-self: center;
+}
+.checkbox input{
+    margin-left: 20px;
+}
+/*  */
 .PERatio-report{
     grid-row: 2/3;
     display: grid;

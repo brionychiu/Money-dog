@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom"
 import { useState } from 'react';
 import { useCollection } from "../../hooks/useCollection";
+
+// components
+import { PEdrawSVG } from './PEdrawSVG'
+
 // styles
 import styles from './PERatio.module.css'
 
@@ -10,9 +14,18 @@ const PERatio = () => {
     const { documents:longPEratio } = useCollection(
         'longPEratio',stockId
     ) 
+    const { documents:monthPrice } = useCollection(
+        'monthPrice',stockId
+    ) 
+    console.log(longPEratio)
     return ( 
     <div className={styles['PERatio-container']}>
-        <div className={styles['PERatio-SVG']}>每月本益比折線圖</div>
+         {longPEratio && monthPrice && (
+            <PEdrawSVG 
+                longPEratio={longPEratio[0].PEratio}
+                M_Price={monthPrice[0].monthPrice}>
+            </PEdrawSVG>
+         )}
         <div className={styles['PERatio-report']}>
             <ul className={styles.toggleMenu}>
                 <li onClick={()=>setShow(false)}>詳細數據</li>

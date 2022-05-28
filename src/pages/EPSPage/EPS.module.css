@@ -3,6 +3,7 @@
     grid-template-rows: 580px minmax(200px,auto);
     row-gap: 10px;
 }
+/* ------ */
 .EPS-SVG{
     grid-row: 1/2;
     background: #fff;
@@ -13,19 +14,19 @@
 }
 .EPS-SVG div{
     margin-top: 10px;
-   justify-self: center;
-   display: flex;
-   align-items: center; 
+    justify-self: center;
+    display: flex;
+    align-items: center; 
 }
 .orange{
     margin: 0px 0px 10px 10px;
-    width: 5px;
+    width: 6px;
     height: 2px;
     border: 5px solid rgb(232,175,0);
 }
 .red{
     margin: 0px 0px 10px 10px;
-    width: 5px;
+    width: 6px;
     height: 2px;
     border: 5px solid #CB4B4B;;
 }
@@ -39,8 +40,8 @@
     font-weight: 700;
     letter-spacing: 1.5px;
 }
-.EPS-SVG p label{
-    font-size: 13px;
+.EPS-SVG span label{
+    font-size: 16px;
     margin-right: 5px;
     font-weight: 700;
 }
@@ -54,6 +55,7 @@
 .checkbox input{
     margin-left: 20px;
 }
+/* ----- */
 .EPS-report{
     grid-row: 2/3;
     display: grid;

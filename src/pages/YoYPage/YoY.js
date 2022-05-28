@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom"
-import { useState } from 'react';
-import { useCollection } from "../../hooks/useCollection";
+import { useState } from 'react'
+import { useCollection } from "../../hooks/useCollection"
+
+// components
+import { YoYdrawSVG } from "./YoYdrawSVG"
 
 // styles
 import styles from './YoY.module.css'
@@ -11,9 +14,17 @@ const YoY = () => {
     const { documents:longYoY } = useCollection(
         'longYoY',stockId
     ) 
+    const { documents:monthPrice } = useCollection(
+        'monthPrice',stockId
+    ) 
     return ( 
     <div className={styles['YoY-container']}>
-        <div className={styles['YoY-SVG']}>單月營收年增率/單月營收月增率</div>
+        {longYoY && monthPrice && (
+            <YoYdrawSVG 
+                longYoY={longYoY[0].YoY}
+                M_Price={monthPrice[0].monthPrice}>
+            </YoYdrawSVG>
+        )}
         <div className={styles['YoY-report']}>
             <ul className={styles.toggleMenu}>
                 <li onClick={()=>setShow(false)}>詳細數據</li>
