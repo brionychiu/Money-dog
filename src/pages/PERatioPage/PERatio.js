@@ -17,7 +17,6 @@ const PERatio = () => {
     const { documents:monthPrice } = useCollection(
         'monthPrice',stockId
     ) 
-    console.log(longPEratio)
     return ( 
     <div className={styles['PERatio-container']}>
          {longPEratio && monthPrice && (

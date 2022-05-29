@@ -14,7 +14,7 @@ const Error = () => {
                 <h2>很抱歉，您要尋找的頁面不存在</h2>
                 <h3>下一步...</h3>
                 <ul>
-                    <li>▷ 請檢查您輸入的網址是否正確喔</li>
+                    <li>▷ 請檢查您輸入的網址是否正確</li>
                     <li>▷ 回到招財狗首頁，找找您想要功能</li>
                 </ul>
                 <Link  to="/" className={styles.home}><button>回首頁</button></Link>

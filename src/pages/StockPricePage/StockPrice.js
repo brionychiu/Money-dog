@@ -1,14 +1,24 @@
+import { useParams } from "react-router-dom"
+import { useCollection } from "../../hooks/useCollection";
 
 //components
+import { StockPriceSVG } from './StockPriceSVG';
 
 // styles
 import styles from './StockPrice.module.css'
 
 const StockPrice = () => {
+    const { stockId } = useParams()
+    const { documents:HY_price } = useCollection(
+        'HY-price',stockId
+    ) 
     return ( 
-    <div className={styles['price-container']}>
-       <div className={styles['k-SVG']}>股價趨勢圖</div>
-       <div className={styles['volume-SVG']}>每日成交量</div>
+    <div>
+        {HY_price && (
+            <StockPriceSVG
+                HY_price={HY_price[0]}>
+            </StockPriceSVG> 
+        )}
     </div> 
     );
 }

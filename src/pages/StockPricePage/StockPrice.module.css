@@ -1,15 +1,108 @@
 .price-container{
     display: grid;
-    grid-template-rows: 360px 360px;
+    grid-template-rows: 700px 200px;
     row-gap: 10px;
 }
+/* K線圖 */
 .k-SVG{
     grid-row: 1/2;
     background: #fff;
     border-radius: 3px;
     border: 1px solid #dfdfdf;
     color: #434343;
+    display: grid;
+    grid-template-rows: 80px 50px 510px 60px;
 }
+.price-detail{
+    display: flex;
+    font-size: smaller;
+    color: #636363;
+}
+.price-detail span{
+    margin-left: 20px;
+    font-weight: 700;
+}
+.k-SVG .title{
+    margin-top: 10px;
+    justify-self: center;
+    display: flex;
+    align-items: center; 
+}
+.orange{
+    margin: 0px 2px 0px 10px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid #ff6d00;
+    /* rgb(255, 109, 0) */
+}
+.blue{
+    margin: 0px 2px 0px 10px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid #abdff4;
+    /* rgb(38, 198, 218) */
+}
+.yellow{
+    margin: 0px 2px 0px 10px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid #fbc02d;
+    /* 	rgb(251, 192, 45) */
+}
+.purple{
+    margin: 0px 2px 0px 10px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid #673ab7;
+    /* rgb(103, 58, 183) */
+}
+.k-SVG .title span:nth-child(3),.k-SVG .title span:nth-child(5),
+.title span:nth-child(7), .title span:nth-child(9){
+    margin-left: 5px;
+    font-size: smaller;
+    color: #636363;
+}
+.k-SVG .title span:nth-child(1){
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.k-SVG span label{
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+.k-SVG p input{
+    margin-left: 13px;
+    cursor: pointer;
+}
+.checkbox{
+    margin-top: 20px;
+    justify-self: center;
+}
+.checkbox input{
+    margin-left: 20px;
+}
+/* k-chart */
+.kChart{
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+::-webkit-scrollbar {
+    height: 12px;              /* height of horizontal scrollbar ← You're missing this */
+    width: 15px;               /* width of vertical scrollbar */
+    border: 3px solid #dfdfdf;
+  }
+::-webkit-scrollbar-track {
+    border-radius: 3;
+    background: #dfdfdf;
+  }
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 3;
+    background: #c6c6c6;
+  }
+/* 成交量長條圖 */
 .volume-SVG{
     grid-row: 2/3;
     background: #fff;
