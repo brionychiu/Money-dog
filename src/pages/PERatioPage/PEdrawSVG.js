@@ -14,13 +14,14 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
     let nn = Math.floor(Math.min(...M_Price))
     let NN = Math.ceil(Math.max(...M_Price))
     let roundDecimal = (val, precision) => {
-    return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0))
+        return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0))
     }
     let rightIndex = (nn,NN,M_Price) => {
         const rightIndexValue = []
         const lineY = []
+        const lineX = []
         const btw = roundDecimal(((NN-nn)/8),1)
-        let yNum
+        let yNum, xNum
         for (let i = 0 ; i < 9 ; i++){
             let a = nn + btw*i
             a = a.toFixed(0)
@@ -30,11 +31,16 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
             yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
             yNum= (410-yNum).toFixed(1)
             lineY.push(yNum)
+            xNum = 62+(1*i)
+            lineX.push(xNum)
         }
-        return({rightIndexValue,lineY})
+        return{rightIndexValue,lineY,lineX}
     }
     const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
     const lineY = rightIndex(nn,NN,M_Price).lineY
+    const lineX = rightIndex(nn,NN,M_Price).lineX
+    console.log(rightIndexValue)
+    // console.log(lineX) 這個數值沒有用到，但是第一個line btw是17，要保留
 
     // ---------- long PERatio -----------
     let newPEratio = longPEratio.map(e => {
@@ -78,15 +84,13 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
             circleR.push(3)
         }
     }
-    return [{leftIndexValue,circleCy,strokeWidth,circleR}]
+    return {leftIndexValue,circleCy,strokeWidth,circleR}
     
 }
-    const leftIndexValue = leftIndex(newPEratio)[0].leftIndexValue
-    const circleCy = leftIndex(newPEratio)[0].circleCy
-    const strokeWidth = leftIndex(newPEratio)[0].strokeWidth
-    const circleR = leftIndex(newPEratio)[0].circleR
-    console.log(circleCy)
-    console.log(strokeWidth)
+    const leftIndexValue = leftIndex(newPEratio).leftIndexValue
+    const circleCy = leftIndex(newPEratio).circleCy
+    const strokeWidth = leftIndex(newPEratio).strokeWidth
+    const circleR = leftIndex(newPEratio).circleR
 
     return(
         <div className={styles['PERatio-SVG']}>
@@ -114,14 +118,9 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                 <line x1="60" y1="360" x2="840" y2="360" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(234,182,182)' strokeWidth='2' />
                 <text x="35" y="15" fill="rgb(106,106,106)" fontWeight="bold">倍</text>
-                <text x="35" y="415" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[0]}</text>
-                <text x="35" y="365" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[1]}</text>
-                <text x="35" y="315" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[2]}</text>
-                <text x="35" y="265" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[3]}</text>
-                <text x="35" y="215" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[4]}</text>
-                <text x="35" y="165" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[5]}</text>
-                <text x="35" y="115" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[6]}</text>
-                <text x="35" y="65" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[7]}</text>
+                {leftIndexValue.map((item,index) => (
+                    <text x="35" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                ))}
 
                 {/* year index */}
                 <line x1="289" y1="10" x2="289" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
@@ -134,14 +133,17 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
 
                 {/* month price index */}
                 <text x="850" y="15" fill="rgb(106,106,106)" fontWeight="bold">股價</text>
-                <text x="850" y="415" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[0]}</text>
+                {rightIndexValue.map((item,index) => (
+                    <text x="850" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                ))}
+                {/* <text x="850" y="415" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[0]}</text>
                 <text x="850" y="365" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[1]}</text>
                 <text x="850" y="315" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[2]}</text>
                 <text x="850" y="265" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[3]}</text>
                 <text x="850" y="215" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[4]}</text>
                 <text x="850" y="165" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[5]}</text>
                 <text x="850" y="115" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[6]}</text>
-                <text x="850" y="65" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[7]}</text>
+                <text x="850" y="65" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[7]}</text> */}
 
                  {/* month price */}
                  {monthPrice && (

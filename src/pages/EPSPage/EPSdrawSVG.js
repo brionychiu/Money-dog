@@ -50,7 +50,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                     rectangleHeight.push(heightNum)
                 }
             }
-            return [{leftIndexValue,rectangleHeight,rectangleY1}]
+            return {leftIndexValue,rectangleHeight,rectangleY1}
         }else if(mm<0 && MM<0){
             difference = Math.abs(mm - 0)
             btw = roundDecimal(difference/8,1)
@@ -68,7 +68,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 rectangleY1.push(y1Num)
                 rectangleHeight.push(heightNum)
             }
-            return [{leftIndexValue,rectangleHeight,rectangleY1}]
+            return {leftIndexValue,rectangleHeight,rectangleY1}
         }else{
             difference = Math.abs(MM - 0)
             btw = roundDecimal(difference/8,1)
@@ -87,12 +87,12 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 rectangleY1.push(y1Num)
                 rectangleHeight.push(heightNum)
             }
-            return [{leftIndexValue,rectangleHeight,rectangleY1}]
+            return {leftIndexValue,rectangleHeight,rectangleY1}
         }
     }
-    const leftIndexValue = leftIndex(mm,MM,Q_EPS)[0].leftIndexValue
-    const rectangleHeight = leftIndex(mm,MM,Q_EPS)[0].rectangleHeight
-    const rectangleY1 = leftIndex(mm,MM,Q_EPS)[0].rectangleY1
+    const leftIndexValue = leftIndex(mm,MM,Q_EPS).leftIndexValue
+    const rectangleHeight = leftIndex(mm,MM,Q_EPS).rectangleHeight
+    const rectangleY1 = leftIndex(mm,MM,Q_EPS).rectangleY1
 
     // ------------ M_Price & right index --------------
     let nn = Math.floor(Math.min(...M_Price))
@@ -112,7 +112,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
             cyNum= (410-cyNum).toFixed(1)
             circleCy.push(cyNum)
         }
-        return({rightIndexValue,circleCy})
+        return{rightIndexValue,circleCy}
     }
     const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
     const circleCy = rightIndex(nn,NN,M_Price).circleCy
@@ -145,26 +145,17 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 <line x1="60" y1="310" x2="840" y2="310" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="360" x2="840" y2="360" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(232,175,0)' strokeWidth='1' />
-                <text x="35" y="15" fill="rgb(106,106,106)" fontWeight="bold">元</text>
-                <text x="35" y="415" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[0]}</text>
-                <text x="35" y="365" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[1]}</text>
-                <text x="35" y="315" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[2]}</text>
-                <text x="35" y="265" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[3]}</text>
-                <text x="35" y="215" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[4]}</text>
-                <text x="35" y="165" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[5]}</text>
-                <text x="35" y="115" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[6]}</text>
-                <text x="35" y="65" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[7]}</text>
+                <text x="60" y="15" fill="rgb(106,106,106)" fontSize='13'>EPS單位:元</text>
+                {leftIndexValue.map((item,index) => (
+                    <text key={index} x="35" y={415-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                ))}
+                
 
                 {/* month price index */}
-                <text x="850" y="15" fill="rgb(106,106,106)" fontWeight="bold">股價</text>
-                <text x="850" y="415" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[0]}</text>
-                <text x="850" y="365" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[1]}</text>
-                <text x="850" y="315" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[2]}</text>
-                <text x="850" y="265" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[3]}</text>
-                <text x="850" y="215" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[4]}</text>
-                <text x="850" y="165" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[5]}</text>
-                <text x="850" y="115" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[6]}</text>
-                <text x="850" y="65" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[7]}</text>
+                <text x="800" y="15" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
+                {rightIndexValue.map((item,index) => (
+                     <text key={index} x="850" y={415-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                ))}
 
                 {/* year index */}
                 <line x1="289" y1="10" x2="289" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
@@ -177,49 +168,18 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
 
                 {/* eps value */}
                 {qEPS && (
-                <>
-                    <rect  x="75" y={rectangleY1[0]} width="30" height={rectangleHeight[0]} 
+                    <>
+                    {rectangleY1.map((item,index) => (
+                        <rect  key={index} x={75+57*index} y={item} width="30" height={rectangleHeight[index]} 
                         fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
                         fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="132" y={rectangleY1[1]} width="30" height={rectangleHeight[1]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="189" y={rectangleY1[2]} width="30" height={rectangleHeight[2]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="246" y={rectangleY1[3]} width="30" height={rectangleHeight[3]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="303" y={rectangleY1[4]} width="30" height={rectangleHeight[4]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="360" y={rectangleY1[5]} width="30" height={rectangleHeight[5]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="417" y={rectangleY1[6]} width="30" height={rectangleHeight[6]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="474" y={rectangleY1[7]} width="30" height={rectangleHeight[7]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="531" y={rectangleY1[8]} width="30" height={rectangleHeight[8]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="588" y={rectangleY1[9]} width="30" height={rectangleHeight[9]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="645" y={rectangleY1[10]} width="30" height={rectangleHeight[10]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="702" y={rectangleY1[11]} width="30" height={rectangleHeight[11]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                    <rect  x="760" y={rectangleY1[12]} width="30" height={rectangleHeight[12]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
-                </>
+                    ))}
+                    </>
                 )}
                 {monthPrice && (
+                    {circleCy.map((item,index) => (
+                        <line  key={index} x1={62+19*index} y1={circleCy[index]} x2={81+19*index} y2={circleCy[index+1]} stroke="rgb(203,75,75)" strokeWidth="3" />
+                    ))}
                 <>
                     {/* <circle cx="62" cy={circleCy[0]} r="1" strokeWidth="4" stroke="rgb(203,75,75)" fill="rgb(203,75,75)"/> */}
                     <line x1="62" y1={circleCy[0]} x2="79" y2={circleCy[1]} stroke="rgb(203,75,75)" strokeWidth="3" />

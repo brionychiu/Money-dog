@@ -1,6 +1,6 @@
 .price-container{
     display: grid;
-    grid-template-rows: 700px 200px;
+    grid-template-rows: 810px;
     row-gap: 10px;
 }
 /* K線圖 */
@@ -11,7 +11,7 @@
     border: 1px solid #dfdfdf;
     color: #434343;
     display: grid;
-    grid-template-rows: 80px 50px 510px 60px;
+    grid-template-rows: 80px 50px 620px 60px;
 }
 .price-detail{
     display: flex;
@@ -102,11 +102,3 @@
     border-radius: 3;
     background: #c6c6c6;
   }
-/* 成交量長條圖 */
-.volume-SVG{
-    grid-row: 2/3;
-    background: #fff;
-    border-radius: 3px;
-    border: 1px solid #dfdfdf;
-    color: #434343;
-}

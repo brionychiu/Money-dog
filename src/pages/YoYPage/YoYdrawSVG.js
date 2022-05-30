@@ -29,7 +29,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             yNum= (410-yNum).toFixed(1)
             lineY.push(yNum)
         }
-        return({rightIndexValue,lineY})
+        return{rightIndexValue,lineY}
     }
     const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
     const lineY = rightIndex(nn,NN,M_Price).lineY
@@ -69,7 +69,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                     circleCy.push(cyNum)
                 }
             }
-            return [{leftIndexValue,circleCy}]
+            return {leftIndexValue,circleCy}
         }else if(mm<0 && MM<0){
             difference = Math.abs(mm - 0)
             btw = roundDecimal(difference/8,1)
@@ -85,7 +85,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 cyNum= (10+cyNum).toFixed(1)
                 circleCy.push(cyNum)
              }
-            return [{leftIndexValue}]
+            return (leftIndexValue)
         }else{
             difference = Math.abs(MM - 0)
             btw = roundDecimal(difference/8,1)
@@ -102,11 +102,11 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 circleCy.push(cyNum)
             }
 
-            return [{leftIndexValue,circleCy}]
+            return {leftIndexValue,circleCy}
         }
     }
-    const leftIndexValue = leftIndex(mm,MM,longYoY)[0].leftIndexValue
-    const circleCy = leftIndex(mm,MM,longYoY)[0].circleCy
+    const leftIndexValue = leftIndex(mm,MM,longYoY).leftIndexValue
+    const circleCy = leftIndex(mm,MM,longYoY).circleCy
     // console.log(leftIndexValue)
     // console.log(circleCy)
 
