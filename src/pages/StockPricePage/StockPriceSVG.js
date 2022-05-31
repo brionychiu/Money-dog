@@ -242,10 +242,12 @@ export const StockPriceSVG = ({HY_price}) => {
     const MA_30pathX = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathX
 
     // -------- trading volume index & rectangle-----------
-
+    console.log(Math.min(...volume))
     let tradingVolmeIndex = (volume) => {
-        let maxV =  Math.max(...volume)+1000
-        let minV = Math.min(...volume)-1000
+        let maxV =  Math.max(...volume)
+        maxV = maxV + maxV*0.1
+        let minV = Math.min(...volume)
+        minV = minV - minV*0.1
         const difference = maxV - minV
         let btw =  Math.round(difference/3)
         // trading volume index
@@ -272,6 +274,9 @@ export const StockPriceSVG = ({HY_price}) => {
     const volumeIndex = tradingVolmeIndex(volume).volumeIndex
     const volumeHeight = tradingVolmeIndex(volume).volumeHeight
     const volumeRect = tradingVolmeIndex(volume).volumeRect
+
+    console.log(volumeIndex[0])
+    console.log()
 
     // ------- checkbox ----------
     const [fiveMA,setFiveMA] = useState(true)
@@ -336,18 +341,15 @@ export const StockPriceSVG = ({HY_price}) => {
                         <text x="1555" y="440" fill="rgb(106,106,106)" fontSize='13'>5月</text>
 
                         {/* daily price index */}
-                        {/* horizontal line */}
-                        {horiLine.map((item,index) => (
-                            <line key={index} x1="50" y1={item} x2="1950" y2={item} stroke='rgb(226,226,226)' strokeWidth='1' />
-                        ))}
-                        {/* straight line */}
+                        {/* horizontal + straight line */}
                         <line x1="50" y1="10" x2="50" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
                         <line x1="1950" y1="10" x2="1950" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
                         {horiLine.map((item,index) => (
-                            <text key={item} x="10" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
-                        ))}
-                        {horiLine.map((item,index) => (
-                            <text key={item} x="1960" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
+                            <g key={item}>
+                                <line x1="50" y1={item} x2="1950" y2={item} stroke='rgb(226,226,226)' strokeWidth='1' />
+                                <text x="10" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
+                                <text x="1960" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
+                            </g>
                         ))}
                         {/* <path d="M 147 357.2 l 20 5.6 M 167 362.8 l 20 -5.6 M 187 357.2 l 20 -5.6 M 207 351.6 l 20 -5.6 M 227 346.0" stroke='rgb(255, 109, 0)' strokeWidth='2'/> */}
                         {monthMA && (

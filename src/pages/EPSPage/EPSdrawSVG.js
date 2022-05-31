@@ -18,10 +18,12 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
         const leftIndexValue = []
         const rectangleY1 = []
         const rectangleHeight = []
-        let num1, y1Num, heightNum, difference, btw
+        const minusValue = []
+        let num1, y1Num, heightNum, difference, btw, minusHeight, minusStrokeWidth
+
         if (mm<0 && MM>0){
-            const topDifference = Math.abs(MM - 0)
-            const downDifference = Math.abs(mm - 0)
+            const topDifference = Math.abs(MM)
+            const downDifference = Math.abs(mm)
             const topbtw = roundDecimal(topDifference/4,1)
             const downbtw = roundDecimal(downDifference/4,1)
             for (let i = 1 ; i < 5 ; i++){
@@ -50,7 +52,13 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                     rectangleHeight.push(heightNum)
                 }
             }
-            return {leftIndexValue,rectangleHeight,rectangleY1}
+            // ----------minus zero line 
+            minusHeight = '200'
+            minusStrokeWidth = '3'
+            minusValue.push(minusHeight,minusStrokeWidth)
+
+            return {leftIndexValue,rectangleHeight,rectangleY1,minusValue}
+
         }else if(mm<0 && MM<0){
             difference = Math.abs(mm - 0)
             btw = roundDecimal(difference/8,1)
@@ -68,7 +76,13 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 rectangleY1.push(y1Num)
                 rectangleHeight.push(heightNum)
             }
-            return {leftIndexValue,rectangleHeight,rectangleY1}
+            // ----------minus zero line 
+            minusHeight = "400"
+            minusStrokeWidth ="3"
+            minusValue.push(minusHeight,minusStrokeWidth)
+
+            return {leftIndexValue,rectangleHeight,rectangleY1,minusValue}
+
         }else{
             difference = Math.abs(MM - 0)
             btw = roundDecimal(difference/8,1)
@@ -87,12 +101,19 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 rectangleY1.push(y1Num)
                 rectangleHeight.push(heightNum)
             }
-            return {leftIndexValue,rectangleHeight,rectangleY1}
+            // ----------minus zero line 
+            minusHeight = "0"
+            minusStrokeWidth ="0"
+            minusValue.push(minusHeight,minusStrokeWidth)
+
+            return {leftIndexValue,rectangleHeight,rectangleY1,minusValue}
         }
     }
     const leftIndexValue = leftIndex(mm,MM,Q_EPS).leftIndexValue
     const rectangleHeight = leftIndex(mm,MM,Q_EPS).rectangleHeight
     const rectangleY1 = leftIndex(mm,MM,Q_EPS).rectangleY1
+    const minusValue = leftIndex(mm,MM,Q_EPS).minusValue
+    console.log(minusValue)
 
     // ------------ M_Price & right index --------------
     let nn = Math.floor(Math.min(...M_Price))
@@ -145,7 +166,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 <line x1="60" y1="310" x2="840" y2="310" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="360" x2="840" y2="360" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(232,175,0)' strokeWidth='1' />
-                <text x="60" y="15" fill="rgb(106,106,106)" fontSize='13'>EPS單位:元</text>
+                <text x="70" y="15" fill="rgb(106,106,106)" fontSize='13'>EPS單位:元</text>
                 {leftIndexValue.map((item,index) => (
                     <text key={index} x="35" y={415-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
@@ -165,6 +186,11 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 <text x="280" y="430" fill="rgb(106,106,106)" fontSize='14'>2020</text>
                 <text x="510" y="430" fill="rgb(106,106,106)" fontSize='14'>2021</text>
                 <text x="740" y="430" fill="rgb(106,106,106)" fontSize='14'>2022</text>
+                
+                {/* minus rectangle */}
+                <rect x="60" y={410-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
+                    strokeWidth='2' fillOpacity='0.2'/>
+                <line x1="60" y1={410-minusValue[0]} x2="840" y2={410-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
 
                 {/* eps value */}
                 {qEPS && (
@@ -177,9 +203,12 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                     </>
                 )}
                 {monthPrice && (
-                    {circleCy.map((item,index) => (
-                        <line  key={index} x1={62+19*index} y1={circleCy[index]} x2={81+19*index} y2={circleCy[index+1]} stroke="rgb(203,75,75)" strokeWidth="3" />
-                    ))}
+                    // 待解決:只要render40次(map有41次)
+                    // <>
+                    // {circleCy.map((item,index) => (
+                    //     <line  key={index} x1={62+19*index} y1={circleCy[index]} x2={81+19*index} y2={circleCy[index+1]} stroke="rgb(203,75,75)" strokeWidth="3" />
+                    // ))}
+                    // </>
                 <>
                     {/* <circle cx="62" cy={circleCy[0]} r="1" strokeWidth="4" stroke="rgb(203,75,75)" fill="rgb(203,75,75)"/> */}
                     <line x1="62" y1={circleCy[0]} x2="79" y2={circleCy[1]} stroke="rgb(203,75,75)" strokeWidth="3" />

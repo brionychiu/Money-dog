@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 // styles
 import styles from './YoY.module.css'
@@ -40,7 +40,8 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
      let leftIndex = (mm,MM,longYoY) => {
         const leftIndexValue = []
         const circleCy = []
-        let cyNum, difference, btw
+        const minusValue = []
+        let cyNum, difference, btw, minusHeight, minusStrokeWidth
         if (mm<0 && MM>0){
             const topDifference = Math.abs(MM - 0)
             const downDifference = Math.abs(mm - 0)
@@ -57,6 +58,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 b = b.toFixed(0);
                 leftIndexValue.push(b)
             }
+
             // ---------- create circle of YoY
             for (let i = 0 ; i < 40 ; i++){
                 if(longYoY[i]> 0){
@@ -69,7 +71,12 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                     circleCy.push(cyNum)
                 }
             }
-            return {leftIndexValue,circleCy}
+            // ----------minus zero line 
+            minusHeight = '200'
+            minusStrokeWidth = '3'
+            minusValue.push(minusHeight,minusStrokeWidth)
+
+            return {leftIndexValue,circleCy,minusValue}
         }else if(mm<0 && MM<0){
             difference = Math.abs(mm - 0)
             btw = roundDecimal(difference/8,1)
@@ -80,12 +87,18 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             }
             leftIndexValue.push(0)
              // ---------- create circle of YoY
-             for (let i = 0 ; i < 40 ; i++){
+            for (let i = 0 ; i < 40 ; i++){
                 cyNum = Math.abs(((longYoY[i])/btw)*50)
                 cyNum= (10+cyNum).toFixed(1)
                 circleCy.push(cyNum)
              }
-            return (leftIndexValue)
+
+            // ----------minus zero line 
+            minusHeight = "400"
+            minusStrokeWidth ="3"
+            minusValue.push(minusHeight,minusStrokeWidth)
+
+            return {leftIndexValue,circleCy,minusValue}
         }else{
             difference = Math.abs(MM - 0)
             btw = roundDecimal(difference/8,1)
@@ -101,13 +114,17 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 cyNum= (410-cyNum).toFixed(1)
                 circleCy.push(cyNum)
             }
-
-            return {leftIndexValue,circleCy}
+            // ----------minus zero line 
+            minusHeight = "0"
+            minusStrokeWidth ="0"
+            minusValue.push(minusHeight,minusStrokeWidth)
+             
+            return {leftIndexValue,circleCy,minusValue}
         }
     }
     const leftIndexValue = leftIndex(mm,MM,longYoY).leftIndexValue
     const circleCy = leftIndex(mm,MM,longYoY).circleCy
-    // console.log(leftIndexValue)
+    const minusValue = leftIndex(mm,MM,longYoY).minusValue
     // console.log(circleCy)
 
 
@@ -136,15 +153,10 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 <line x1="60" y1="310" x2="840" y2="310" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="360" x2="840" y2="360" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="35" y="15" fill="rgb(106,106,106)" fontWeight="bold">%</text>
-                <text x="35" y="415" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[0]}</text>
-                <text x="35" y="365" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[1]}</text>
-                <text x="35" y="315" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[2]}</text>
-                <text x="35" y="265" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[3]}</text>
-                <text x="35" y="215" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[4]}</text>
-                <text x="35" y="165" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[5]}</text>
-                <text x="35" y="115" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[6]}</text>
-                <text x="35" y="65" fill="rgb(106,106,106)" fontSize='14'>{leftIndexValue[7]}</text>
+                <text x="70" y="15" fill="rgb(106,106,106)" fontSize='13'>年增率:%</text>
+                {leftIndexValue.map((item,index) => (
+                    <text  key={index} x="35" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                ))}
 
                 {/* year index */}
                 <line x1="289" y1="10" x2="289" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
@@ -156,19 +168,25 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 <text x="740" y="430" fill="rgb(106,106,106)" fontSize='14'>2022</text>
                 
                 {/* month price index */}
-                <text x="850" y="15" fill="rgb(106,106,106)" fontWeight="bold">股價</text>
-                <text x="850" y="415" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[0]}</text>
-                <text x="850" y="365" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[1]}</text>
-                <text x="850" y="315" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[2]}</text>
-                <text x="850" y="265" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[3]}</text>
-                <text x="850" y="215" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[4]}</text>
-                <text x="850" y="165" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[5]}</text>
-                <text x="850" y="115" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[6]}</text>
-                <text x="850" y="65" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[7]}</text>
+                <text x="800" y="15" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
+                {rightIndexValue.map((item,index) => (
+                    <text key={index} x="850" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                ))}
 
+                {/* minus rectangle */}
+                <rect x="60" y={410-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
+                    strokeWidth='2' fillOpacity='0.2'/>
+                <line x1="60" y1={410-minusValue[0]} x2="840" y2={410-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
+                
                 {/* month price */}
                 {monthPrice && (
-                <>
+                    // <>
+                    // {lineY.map((item,index) => {
+                    //     if(index === lineY.length-2) return strokeWidth="0"
+                    //     return <line key={index} x1={60+index*19} y1={item} x2={79+index*19} y2={lineY[index+1]} stroke="rgb(203,75,75)" strokeWidth="3" /> 
+                    // })}
+                    // </>
+                    <>
                     <line x1="62" y1={lineY[0]} x2="79" y2={lineY[1]} stroke="rgb(203,75,75)" strokeWidth="3" />                 
                     <line x1="79" y1={lineY[1]} x2="98" y2={lineY[2]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
                     <line x1="98" y1={lineY[2]} x2="117" y2={lineY[3]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
@@ -209,8 +227,10 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                     <line x1="763" y1={lineY[37]} x2="782" y2={lineY[38]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
                     <line x1="782" y1={lineY[38]} x2="801" y2={lineY[39]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
                     <line x1="801" y1={lineY[39]} x2="820" y2={lineY[40]} stroke="rgb(203,75,75)" strokeWidth="3" />
-                </>)
+                </>
+                )
                 }
+
                 {/* long YoY */}
                 {YoY && (<>
                     <circle cx="62" cy={circleCy[0]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/> 

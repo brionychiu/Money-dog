@@ -27,7 +27,7 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
             a = a.toFixed(0)
             rightIndexValue.push(a)
         }
-        for (let i = 0 ; i < 42 ; i++){
+        for (let i = 0 ; i < M_Price.length ; i++){
             yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
             yNum= (410-yNum).toFixed(1)
             lineY.push(yNum)
@@ -39,7 +39,7 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
     const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
     const lineY = rightIndex(nn,NN,M_Price).lineY
     const lineX = rightIndex(nn,NN,M_Price).lineX
-    console.log(rightIndexValue)
+    console.log(lineY)
     // console.log(lineX) 這個數值沒有用到，但是第一個line btw是17，要保留
 
     // ---------- long PERatio -----------
@@ -51,22 +51,24 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
     });
     console.log(newPEratio)
     let leftIndex = (newPEratio) => {
-    const mm = Math.floor(Math.min(...newPEratio))
-    const MM = Math.ceil(Math.max(...newPEratio))
+    let mm = Math.floor(Math.min(...newPEratio))
+    mm = mm - (mm*0.01)
+    let MM = Math.ceil(Math.max(...newPEratio))
+    MM = MM + (MM*0.01)
     const leftIndexValue = []
     const circleCy = []
     const strokeWidth = []
     const circleR = []
     const difference = Math.abs(MM - mm)
     const btw = roundDecimal(difference/8,1)
-    for (let i = 0 ; i < 8 ; i++){
+    for (let i = 0 ; i < 9 ; i++){
         let a = mm + btw*i
         a = a.toFixed(0)
         leftIndexValue.push(a)
     }
 
     // ---------- create circle & line of PERatio
-    for (let i = 0 ; i < 42 ; i++){
+    for (let i = 0 ; i < newPEratio.length ; i++){
         let cyNum
         if (newPEratio[i] === 0){
             cyNum = 410
@@ -117,7 +119,7 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                 <line x1="60" y1="310" x2="840" y2="310" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="360" x2="840" y2="360" stroke='rgb(226,226,226)' strokeWidth='1' />
                 <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(234,182,182)' strokeWidth='2' />
-                <text x="35" y="15" fill="rgb(106,106,106)" fontWeight="bold">倍</text>
+                <text x="70" y="15" fill="rgb(106,106,106)" fontSize='13'>本益比:倍</text>
                 {leftIndexValue.map((item,index) => (
                     <text x="35" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
@@ -132,18 +134,10 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                 <text x="740" y="430" fill="rgb(106,106,106)" fontSize='14'>2022</text>
 
                 {/* month price index */}
-                <text x="850" y="15" fill="rgb(106,106,106)" fontWeight="bold">股價</text>
+                <text x="800" y="15" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
                 {rightIndexValue.map((item,index) => (
                     <text x="850" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
-                {/* <text x="850" y="415" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[0]}</text>
-                <text x="850" y="365" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[1]}</text>
-                <text x="850" y="315" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[2]}</text>
-                <text x="850" y="265" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[3]}</text>
-                <text x="850" y="215" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[4]}</text>
-                <text x="850" y="165" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[5]}</text>
-                <text x="850" y="115" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[6]}</text>
-                <text x="850" y="65" fill="rgb(106,106,106)" fontSize='14'>{rightIndexValue[7]}</text> */}
 
                  {/* month price */}
                  {monthPrice && (
@@ -271,6 +265,8 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                     <circle cx="782" cy={circleCy[38]} r={circleR[38]} strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
                     <line x1="782" y1={circleCy[38]} x2="801" y2={circleCy[39]} stroke="rgb(232,194,0)" strokeWidth={strokeWidth[38]} />
                     <circle cx="801" cy={circleCy[39]} r={circleR[39]} strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/> 
+                    <line x1="801" y1={circleCy[39]} x2="820" y2={circleCy[40]} stroke="rgb(232,194,0)" strokeWidth={strokeWidth[39]} />
+                    <circle cx="820" cy={circleCy[40]} r={circleR[40]} strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/> 
             </>)}
 
 

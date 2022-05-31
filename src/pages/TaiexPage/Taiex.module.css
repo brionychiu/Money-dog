@@ -1,0 +1,130 @@
+.taiex-bk{
+    z-index: -1;
+    background: #ededed;
+}
+.background{
+    position: absolute;
+    top: 58px;
+    width: 100%;
+    padding: 54px 0 510px;
+    overflow: hidden;
+    background-color: #0386f4;
+    background-size: 100%;
+    background-image: linear-gradient(136deg, #0386f4 0%, #2fae90 90%);
+    transform-origin: 0 50%;
+    transform: skewY(-9deg);
+    z-index: 0;
+}
+.taiex-container{
+    display: grid;
+    grid-template-rows: 59px 160px minmax(614px,auto) 600px;
+    z-index: 1;
+}
+.slogan{
+    color: #fff;
+    z-index: 1;
+    text-align: center;
+    padding-top: 54px
+}
+.slogan h1{
+    font-size: 2.25em;
+    font-weight: bold;
+}
+.slogan li{
+    margin: 12px auto;
+    line-height: 180%;
+}
+.market-container{
+    grid-row: 3/4;
+    display: grid;
+    grid-template-columns: 1fr minmax(360px, 1200px) 1fr;
+    grid-template-rows: minmax(584px,auto) 30px;
+}
+.market-info{
+    margin: 0px 50px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-rows: 145px auto;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 15%);
+    z-index: 1;
+}
+.summary{
+    grid-row: 1/2;
+    display: inline-flex;
+    padding: 18px 0px;
+    align-items: center;
+    border-bottom: 1px solid #e9e9e9;
+    background-color: #fafafa;
+    color: #434343;
+}
+.summary ul{
+    text-align: center;
+    width: 20%;
+}
+.summary ul:nth-child(2),.summary ul:nth-child(4){
+    border-left: 1px solid #e9e9e9;
+    border-right: 1px solid #e9e9e9;
+}
+.summary ul li:nth-child(1){
+    font-size: 0.875em;
+    font-weight: bold;
+    line-height: 180%;
+}
+.summary ul li:nth-child(2){
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 180%;
+}
+.summary ul li:nth-child(3){
+    font-size: 0.875em;
+    line-height: 180%;
+}
+.summary ul:nth-child(1) li:nth-child(2){
+    color: #ea5e5b;
+}
+.index-area{
+    display: grid;
+    grid-template-columns: 670px auto;
+}
+.index-svg{
+    grid-column: 1/2;    
+}
+.color{
+    display: flex;
+    margin: 20px 0px 0px 20px;
+}
+.color span{
+    font-size: smaller;
+    color: #636363;
+}
+.blue{
+    margin: 3px 8px 0px 11px;
+    width: 6px;
+    height: 2px;
+    border: 5px solid rgb(3,143,244);
+}
+.red{
+    margin: 3px 8px 0px 11px;
+    width: 6px;
+    height: 2px;	
+    border: 5px solid rgb(220,57,18);
+
+}
+.index-describe{
+    grid-column: 2/3;
+    padding: 18px 24px 24px;
+}
+.index-describe h2{
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 180%;
+    margin-bottom: 3px;
+}
+.index-describe div{
+    font-size: 1em;
+    line-height: 180%;
+    margin-bottom: 18px;
+}
