@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useLogout } from '../../hooks/useLogout'
 
 // components
-import Settings from './Settings'
 import logoIcon from '../img/logo_icon.jpg'
-import trackingIcon from '../img/tracking_icon.svg'
+import trackingIcon from '../img/tracking_icon.png'
+import hoverTrackingIcon from '../img/tracking_icon_blue.png'
 import searchIcon from '../img/search_icon.png'
+import logoutIcon from '../img/logout_icon.png'
+import logoutIconHover from '../img/logout_icon_blue.png'
 
 // styles
 import styles from './Navbar.module.css'
@@ -14,11 +17,12 @@ import styles from './Navbar.module.css'
 const Navbar = () => {
     const { user } = useAuthContext()
     const [ stockName , setStockName ] = useState('')
-    const navigate = useNavigate()   
+    const navigate = useNavigate() 
+    const { logout } = useLogout()  
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate(`/analysis/${stockName}`)
+        navigate(`/analysis/${stockName}/basicInfo`)
         setStockName('')
     }
 
@@ -53,13 +57,23 @@ const Navbar = () => {
                 )}
                 {user && (
                     <ul className={styles.rightBar}>
-                        <li>
+                        <li className={styles.tracking}>
                             <Link to="/trckingList">
-                                <img className={styles.trackingIcon} src={trackingIcon} alt='logo'/>
-                                我的追蹤
+                                <img className={styles.trackingIcon} src={trackingIcon} alt='logo'
+                                // 待解決:如何在.tracking:hover時，icon一起變色(偵測到icon的e)
+                                    onMouseOver={e => e.currentTarget.src = hoverTrackingIcon}
+                                    onMouseOut={e => e.currentTarget.src = trackingIcon}/>
+                                <span>我的追蹤</span>
                             </Link>
                         </li>
-                        <li><Settings /></li>
+                        <li className={styles.logout}>
+                            <img 
+                                src={logoutIcon} 
+                                alt='settings'
+                                onClick={logout}
+                                onMouseOver={e => e.currentTarget.src = logoutIconHover}
+                                onMouseOut={e => e.currentTarget.src = logoutIcon}/>
+                        </li>
                     </ul>
                 )}
             </div>

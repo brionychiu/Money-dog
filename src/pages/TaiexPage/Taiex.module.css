@@ -17,7 +17,7 @@
 }
 .taiex-container{
     display: grid;
-    grid-template-rows: 59px 160px minmax(614px,auto) 600px;
+    grid-template-rows: 59px 160px minmax(614px,auto) 75px;
     z-index: 1;
 }
 .slogan{
@@ -82,7 +82,7 @@
     font-size: 0.875em;
     line-height: 180%;
 }
-.summary ul:nth-child(1) li:nth-child(2){
+.givecolor{
     color: #ea5e5b;
 }
 .index-area{

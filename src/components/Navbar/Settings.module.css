@@ -1,6 +1,6 @@
 .settingsIcon{
-    width: 25px;
-    height:25px;
+    width: 23px;
+    height: 23px;
     cursor: pointer;
   }
   
@@ -11,4 +11,29 @@
     right:2px;
     cursor: pointer;
   }
-
+.settings-menu{
+  position: absolute;
+  top:53px;
+  right:160px;
+  width: 104px;
+  height: 116px;
+  background: #fff;
+  border: 1px solid #dfdfdf;
+  padding: 9px 0;
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgb(0 0 0 / 10%);
+  text-align: center;
+}
+.settings-menu li{
+  padding: 12px 10px !important;
+  color: #636363;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 100%;
+  cursor: pointer;
+}
+.settings-menu li:hover{
+  color: #fff ;
+  background: #0386f4 ;
+}

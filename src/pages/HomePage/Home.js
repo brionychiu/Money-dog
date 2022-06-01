@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useLogout } from '../../hooks/useLogout'
 
 // components
 import Footer from '../../components/footer/Footer'
 import logoIcon from '../../components/img/logo_icon.jpg'
 import searchIcon from '../../components/img/search_icon.png'
-import trackingIcon from '../../components/img/tracking_icon.svg'
-import Settings from '../../components/navbar/Settings';
+import trackingIcon from '../../components/img/tracking_icon.png'
 
 //styles
 import styles from './Home.module.css' 
@@ -15,6 +15,7 @@ import styles from './Home.module.css'
 const Home = () => {
     const [ stockId , setStockId ] = useState('')
     const { user } = useAuthContext()
+    const { logout } = useLogout()
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
@@ -49,7 +50,7 @@ const Home = () => {
                                     我的追蹤
                                 </Link>
                             </li>
-                            <li><Settings /></li>
+                            <li onClick={logout} className={styles.logout}>登出</li>
                     </ul>
                     )}
                 </div>

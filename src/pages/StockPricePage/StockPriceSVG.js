@@ -62,10 +62,10 @@ export const StockPriceSVG = ({HY_price}) => {
         let height, numy 
         for(let i=0 ; i<open.length ; i++){
             // rect X 
-            const recx = 60+(i*20)
+            const recx = 110+(i*20)
             rectX.push(recx)
             // line X
-            const linex = 67+(i*20)
+            const linex = 117+(i*20)
             lineX.push(linex)
 
             if (open[i]>close[i]){
@@ -318,37 +318,37 @@ export const StockPriceSVG = ({HY_price}) => {
                 <div className={styles.kChart}>
                     <svg 
                         id='k-svg'
-                        width="2100" height="600"
-                        viewBox="0 0 2000 600"
+                        width="2170" height="600"
+                        viewBox="0 0 2170 600"
                         xmlns="<http://www.w3.org/2000/svg>"
                         overflow="visisble"> 
                         {/* unit */}
-                        <text x="100" y="30" fill="rgb(106,106,106)" fontSize='13'>單位:元</text>
-                        <text x="100" y="430" fill="rgb(106,106,106)" fontSize='13'>單位:百萬</text>
-                        <text x="1850" y="30" fill="rgb(106,106,106)" fontSize='13'>單位:元</text>
-                        <text x="1850" y="430" fill="rgb(106,106,106)" fontSize='13'>單位:百萬</text>
+                        <text x="130" y="30" fill="rgb(106,106,106)" fontSize='13'>單位:元</text>
+                        <text x="130" y="430" fill="rgb(106,106,106)" fontSize='13'>單位:百萬</text>
+                        <text x="1988" y="30" fill="rgb(106,106,106)" fontSize='13'>單位:元</text>
+                        <text x="1988" y="430" fill="rgb(106,106,106)" fontSize='13'>單位:百萬</text>
 
                         {/* date line */}
-                        <line x1="67" y1="400" x2="67" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="55" y="440" fill="rgb(106,106,106)" fontSize='13'>1月</text>
-                        <line x1="427" y1="400" x2="427" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="415" y="440" fill="rgb(106,106,106)" fontSize='13'>2月</text>
-                        <line x1="727" y1="400" x2="727" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="715" y="440" fill="rgb(106,106,106)" fontSize='13'>3月</text>
-                        <line x1="1187" y1="400" x2="1187" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="1175" y="440" fill="rgb(106,106,106)" fontSize='13'>4月</text>
-                        <line x1="1567" y1="400" x2="1567" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="1555" y="440" fill="rgb(106,106,106)" fontSize='13'>5月</text>
+                        <line x1="117" y1="400" x2="117" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <text x="105" y="440" fill="rgb(106,106,106)" fontSize='13'>1月</text>
+                        <line x1="487" y1="400" x2="487" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <text x="465" y="440" fill="rgb(106,106,106)" fontSize='13'>2月</text>
+                        <line x1="777" y1="400" x2="777" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <text x="765" y="440" fill="rgb(106,106,106)" fontSize='13'>3月</text>
+                        <line x1="1237" y1="400" x2="1237" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <text x="1225" y="440" fill="rgb(106,106,106)" fontSize='13'>4月</text>
+                        <line x1="1617" y1="400" x2="1617" y2="420" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <text x="1605" y="440" fill="rgb(106,106,106)" fontSize='13'>5月</text>
 
                         {/* daily price index */}
                         {/* horizontal + straight line */}
-                        <line x1="50" y1="10" x2="50" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="1950" y1="10" x2="1950" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="80" y1="10" x2="80" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="2068" y1="10" x2="2068" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
                         {horiLine.map((item,index) => (
                             <g key={item}>
-                                <line x1="50" y1={item} x2="1950" y2={item} stroke='rgb(226,226,226)' strokeWidth='1' />
-                                <text x="10" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
-                                <text x="1960" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
+                                <line x1="80" y1={item} x2="2068" y2={item} stroke='rgb(226,226,226)' strokeWidth='1' />
+                                <text x="40" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
+                                <text x="2078" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
                             </g>
                         ))}
                         {/* <path d="M 147 357.2 l 20 5.6 M 167 362.8 l 20 -5.6 M 187 357.2 l 20 -5.6 M 207 351.6 l 20 -5.6 M 227 346.0" stroke='rgb(255, 109, 0)' strokeWidth='2'/> */}
@@ -395,24 +395,24 @@ export const StockPriceSVG = ({HY_price}) => {
                                 width="15" height={rectHeight[index]} fill={fillColor[index]}/>
                         ))}
                         {/* trading volume index */}
-                        <line x1="50" y1="580" x2="1950" y2="580" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="50" y1="400" x2="50" y2="580" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="1950" y1="400" x2="1950" y2="580" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="45" y1="468" x2="55" y2="468" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="45" y1="524" x2="55" y2="524" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="1945" y1="468" x2="1955" y2="468" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <line x1="1945" y1="524" x2="1955" y2="524" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="15" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
-                        <text x="15" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
-                        <text x="15" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
-                        <text x="1965" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
-                        <text x="1965" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
-                        <text x="1965" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
+                        <line x1="80" y1="580" x2="2068" y2="580" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="80" y1="400" x2="80" y2="580" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="2068" y1="400" x2="2068" y2="580" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="75" y1="468" x2="85" y2="468" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="75" y1="524" x2="85" y2="524" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="2063" y1="468" x2="2073" y2="468" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <line x1="2063" y1="524" x2="2073" y2="524" stroke='rgb(226,226,226)' strokeWidth='1' />
+                        <text x="45" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
+                        <text x="45" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
+                        <text x="45" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
+                        <text x="2078" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
+                        <text x="2078" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
+                        <text x="2078" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
                         
                         {/* trading volume rectangle */}
                         {volumeHeight.map((item,index) => (
                             <rect key={index} 
-                            x={60+index*20} y={volumeRect[index]} 
+                            x={110+index*20} y={volumeRect[index]} 
                             width="18" height={item} fill={fillColor[index]}/>
                         ))}
                     </svg>

@@ -2,6 +2,7 @@ import { useCollection } from "../../hooks/useCollection"
 
 // components
 import Navbar from "../../components/navbar/Navbar"
+import Footer from '../../components/footer/Footer'
 import { TaiexSVG } from "./TaiexSVG"
 
 // styles
@@ -14,7 +15,11 @@ const Taiex = () => {
     const { documents:otc } = useCollection(
         'taiex','0001'
     )
-    console.log(otc)
+    // 待做:判斷上面的指數是紅色還是黑色
+    // const otcClose = otc[0].otcClose
+    // const otcOpen = otc[0].otcOpen
+    // console.log(otcClose)
+    
     return ( 
         <div className={styles['taiex-bk']}>
             <div className={styles['taiex-container']}>
@@ -29,13 +34,13 @@ const Taiex = () => {
                         <div className={styles.summary}>
                             <ul>
                                 <li>上市指數收盤</li>
-                                <li>166610.62</li>
-                                <li>+344.4(+2.03%)</li>
+                                <li className={styles.givecolor}>166610.62</li>
+                                <li className={styles.givecolor}>+344.4(+2.03%)</li>
                             </ul>
                             <ul>
                                 <li>櫃買指數收盤</li>
-                                <li>201.2</li>
-                                <li>+4.21(+2.05%)</li>
+                                <li className={styles.givecolor}>201.2</li>
+                                <li className={styles.givecolor}>+4.21(+2.05%)</li>
                             </ul>
                             <ul>
                                 <li>台股成交金額</li>
@@ -68,6 +73,7 @@ const Taiex = () => {
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
             
         </div> 

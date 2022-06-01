@@ -93,26 +93,37 @@
     align-items: center;
     display: flex;
   }
-  .rightBar a {
-    display: inline-flex;
-    align-items: center;
+  .logout{
+    cursor: pointer;
+  }
+  .logout img{
+    width: 23px;
+    height:23px;
+    margin-top: 12px;
+  }
+  .tracking{
+    padding: 17px 7.5px 6px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    margin-right: 19px;
+  }
+  .tracking a{
     color: #636363;
     font-size: 15px;
     font-weight: bold;
-    padding-right: 10px;
+    display: inline-flex;
+    align-items: center;
+  
   }
   .trackingIcon{
-    width: 25px;
-    height: 25px;
-  }
-  .rightBar li{
-    padding: 17px 7.5px 8px;
-    border-bottom: 3px solid transparent;
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
   }
   .rightBar li:hover a{
     color: #0386f4;
   }
-  .rightBar li:hover{
+  .tracking:hover{
     border-bottom: 3px solid #ffb703;
   }
   /* 未穩定作用 , 在tracking頁面focus */

@@ -42,31 +42,38 @@
     display: inline-flex;
 }
 .rightBar li:nth-child(1) a{
-    margin: 11px 10px 0px;
-    padding-bottom: 8px;
+    margin: 25px 10px 0px;
+    padding-bottom: 13px;
     border-bottom: 3px solid transparent;
 }
 .rightBar li:nth-child(1) a:hover{
     border-bottom: 3px solid #fff;
 }
-.rightBar  li:nth-child(1) a {
+.rightBar  li:nth-child(1) a{
     display: inline-flex;
     align-items: center;
     color: #fff;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
     padding-right: 10px;
   }
-.rightBar  li:nth-child(1) a img{
+  .trackingIcon{
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
     filter: invert(100%);
 }
-.rightBar  li:nth-child(2) img{
-    padding-bottom: 8px;
+.logout{
+    margin: 25px 0px 42px;
     border-bottom: 3px solid transparent;
-    margin: 22px 0px 0px;
-} 
-.rightBar  li:nth-child(2) img{
-    filter: invert(100%);
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.logout:hover{
+    border-bottom: 3px solid #fff;
 }
 /* loginBar */
 .loginBar{
@@ -147,6 +154,7 @@
     background-color: #0386f4;
     border-radius: 5px;
     border:0 none;
+    cursor: pointer;
 }
 .searchBtn:hover{
     background-color: #0862BB
