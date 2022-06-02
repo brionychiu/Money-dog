@@ -52,12 +52,15 @@
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
-    transition:  0.5s;
+    transition:.5s;
 }
 .untracked:hover{
     background-color: #2ca1fc;
 }
 .tracked{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 92px;
     height:34.3px;
     border: 1px solid #d3d3d3;
@@ -68,6 +71,11 @@
     color: #636363;
     cursor: pointer;
     transition:  0.5s;
+}
+.check{
+    width:20px;
+    height:22px;
+    margin-right: 3px;
 }
 .wrapper .mainContent{
     grid-column: 3/4;

@@ -7,8 +7,8 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
     // ------------checkbox
     const [PEratio, setPEratio] = useState(true)
     const [monthPrice, setmonthPrice] = useState(true)
-    console.log(longPEratio)
-    console.log(M_Price)
+    // console.log(longPEratio)
+    // console.log(M_Price)
 
     // ------------ M_Price --------------
     let nn = Math.floor(Math.min(...M_Price))
@@ -39,7 +39,6 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
     const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
     const lineY = rightIndex(nn,NN,M_Price).lineY
     const lineX = rightIndex(nn,NN,M_Price).lineX
-    console.log(lineY)
     // console.log(lineX) 這個數值沒有用到，但是第一個line btw是17，要保留
 
     // ---------- long PERatio -----------
@@ -49,7 +48,6 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
         }
         return e 
     });
-    console.log(newPEratio)
     let leftIndex = (newPEratio) => {
     let mm = Math.floor(Math.min(...newPEratio))
     mm = mm - (mm*0.01)
@@ -121,7 +119,7 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                 <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(234,182,182)' strokeWidth='2' />
                 <text x="70" y="15" fill="rgb(106,106,106)" fontSize='13'>本益比:倍</text>
                 {leftIndexValue.map((item,index) => (
-                    <text x="35" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    <text key={index} x="35" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
 
                 {/* year index */}
@@ -136,7 +134,7 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                 {/* month price index */}
                 <text x="800" y="15" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
                 {rightIndexValue.map((item,index) => (
-                    <text x="850" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    <text key={index} x="850" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
 
                  {/* month price */}
