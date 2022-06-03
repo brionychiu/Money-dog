@@ -138,9 +138,10 @@ export const PEdrawSVG = ({longPEratio,M_Price}) => {
                 ))}
 
                  {/* month price */}
+                 {/* 這邊要加 stroke-linecap="round" 讓line不會有斷點*/}
                  {monthPrice && (
                 <>
-                    <line x1="62" y1={lineY[0]} x2="79" y2={lineY[1]} stroke="rgb(203,75,75)" strokeWidth="3" />                 
+                    <line x1="62" y1={lineY[0]} x2="79" y2={lineY[1]} stroke="rgb(203,75,75)" strokeWidth="3" stroke-linecap="round"/>                 
                     <line x1="79" y1={lineY[1]} x2="98" y2={lineY[2]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
                     <line x1="98" y1={lineY[2]} x2="117" y2={lineY[3]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
                     <line x1="117" y1={lineY[3]} x2="136" y2={lineY[4]} stroke="rgb(203,75,75)" strokeWidth="3" />                   

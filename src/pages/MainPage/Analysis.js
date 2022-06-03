@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Outlet, useParams } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from "../../hooks/useCollection"
@@ -20,17 +20,14 @@ const Analysis = () => {
     const uid = user.uid
     const { stockId } = useParams()
     const { addDocument, deleteDocument, response } = useFirestore('trackingList')
-
     const { documents:trackingList } = useCollection(
         'trackingList',
-        uid
+        uid,stockId
     ) 
-
     const { documents:stockData } = useCollection(
         'dailyPrice',
         stockId
     ) 
-    
     const open = stockData? stockData[0].Open: null
     const high = stockData? stockData[0].High: null
     const low = stockData? stockData[0].Low: null
@@ -47,8 +44,14 @@ const Analysis = () => {
     const date = basicInfo? basicInfo[0].date:null
     const sname = basicInfo? basicInfo[0].sname:null
     const listed = basicInfo? basicInfo[0].listed:null
-    //console.log('date',date,'sname',sname,'listed',listed)
-    //console.log('basicInfo',basicInfo)
+
+    useEffect(() => {
+        if(trackingList? trackingList.length!==0:null){
+            setTracking(true)
+        }else{
+            setTracking(false)
+        }
+    },[trackingList])
 
     const clickToTrack = async(e) => {
         e.preventDefault()
@@ -56,7 +59,7 @@ const Analysis = () => {
             const addlist = {
                 uid,
                 date,
-                stockId,
+                id:stockId,
                 sname,
                 listed,
                 open,
@@ -82,8 +85,13 @@ const Analysis = () => {
     const clickTounTrack = async(e) => {
         e.preventDefault()
         console.log('deleting')
-        deleteDocument(trackingList.id)
+        console.log(trackingList)
+        console.log(trackingList.id)
+        // 這裡要解bug , 要找出要的檔案來刪除(用query? where? 還是id?)
+        // deleteDocument('8JMpWgj1qMmHU4pXXt6O')
         console.log('deleted')
+        setTracking(false)
+        console.log(response)
     }
 
     return ( 

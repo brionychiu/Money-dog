@@ -14,12 +14,14 @@ const Sidebar = () => {
     return ( 
         <ul className={styles['sidebar-container']}>
             <li>
+               {/* 待解決---fix頁面&sidebar的樣式，try-用網址去match 三元? */}
                 <Link to="">
                     <img src={newestIcon} alt='最新動態'/>
                     <p>最新動態</p>
                 </Link>
             </li>
             <li>
+                {/* <NavLink to=""  */}
                 <Link to="PEratio">
                     <img src={PEratioIcon} alt='價值評估'/>
                     <p>價值評估</p>

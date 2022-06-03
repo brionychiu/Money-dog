@@ -4,44 +4,20 @@ import { db } from '../firebase/config'
 // firebase imports
 import { collection, onSnapshot, query, where } from 'firebase/firestore'
 
-// initialState 寫在外面是因為不要每次use hook都要init一次
-// let initialState = {
-//     query:null,
-//     isPending:false,
-//     error:null,
-//     success:null
-// } 
-
-// const collectionReducer = (state,action) => {
-//     switch (action.type){
-//         case 'IS_PENDING':
-//             return { isPending:true, query:null, error:null, success:false}
-//         case 'SEARCH_BY_UID':
-//             // ...state = initialState , 在把isPending 改 true
-//             return {...state, isPending:false, query:action.payload, error:null, success:false}
-//         case 'SEARCH_BY_STOCKID':
-//             return {...state, isPending:false, query:action.payload, success:true, error:null}
-//         case 'SEARCH_BY_INDUS_ID':
-//             return {...state, isPending:false, query:action.payload, success:true, error:null}
-//         case 'ERROR':
-//             return {isPending:false, query:null, success:false, error:action.payload}
-//         default:
-//             return state
-//     }
-// }
-
-export const useCollection = (col, qu) => {
+export const useCollection = (col, qu1, qu2) => {
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
     // const [response , dispatch] = useReducer(collectionReducer,initialState)
 
 
     useEffect(() => {
-
         let ref = collection(db,col)
 
-        if(qu){
-            ref = query(ref , where("id","==",qu))
+        if(qu1&&!qu2){
+            ref = query(ref , where("id","==",qu1))
+        }
+        if(qu1&&qu2){
+            ref = query(ref , where("uid","==",qu1), where("id","==",qu2))
         }
 
         const unsub = onSnapshot(ref , (snapshot) => {
@@ -58,7 +34,7 @@ export const useCollection = (col, qu) => {
         })
         return () => unsub()
 
-    }, [col, qu])
+    }, [col, qu1, qu2])
     
     return { documents, error }
 }

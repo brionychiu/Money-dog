@@ -1,0 +1,32 @@
+.trackingList-container{
+    display: grid;
+    grid-template-rows: 59px minmax(600px, auto) 99px;
+    background-color: #ededed;
+}
+.root-content{
+    display: grid;
+    grid-template-columns: 1fr minmax(360px, 960px) 1fr;
+    margin: 20px 0px;
+}
+.main-content{
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 15px;
+}
+.right-box{
+    grid-column: 2/3;
+}
+.togglemenu{
+    font-size: 15px;
+    font-weight: bold;
+    color: #434343;
+    display: flex;
+    align-content: center;
+    padding: 12px 12px 12px 9%;
+    cursor: pointer;
+}
+.arrow{
+    width: 20px;
+    height: 20px;
+}

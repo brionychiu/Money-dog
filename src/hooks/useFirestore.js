@@ -2,7 +2,7 @@ import { useReducer , useEffect , useState } from "react";
 import { db, timestamp } from '../firebase/config'
 
 // firebase imports
-import { collection, deleteDoc, addDoc, doc, updateDoc } from 'firebase/firestore'
+import { collection, deleteDoc, addDoc, doc, updateDoc, query, where  } from 'firebase/firestore'
 
 // initialState 寫在外面是因為不要每次use hook都要init一次
 let initialState = {

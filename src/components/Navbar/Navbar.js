@@ -17,11 +17,13 @@ import styles from './Navbar.module.css'
 const Navbar = () => {
     const { user } = useAuthContext()
     const [ stockName , setStockName ] = useState('')
+    const [ tracking , setTracking ] = useState(false)
     const navigate = useNavigate() 
     const { logout } = useLogout()  
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        // 找網址去篩字串-->做前一頁
         navigate(`/analysis/${stockName}/basicInfo`)
         setStockName('')
     }
@@ -30,6 +32,7 @@ const Navbar = () => {
         <div className={styles.navbar}>
             <div className={styles['navi-wrapper']}>
                 <ul className={styles.leftBar}>
+                    {/*  */}
                     <li><Link to="/"><img className={styles.logo} src={logoIcon} alt='logo'/></Link></li> 
                     <li><Link to="/analysis/2330">最新動態</Link></li> 
                     <li><Link to="/analysis/2330/PEratio">個股分析</Link></li>
@@ -57,9 +60,11 @@ const Navbar = () => {
                 )}
                 {user && (
                     <ul className={styles.rightBar}>
-                        <li className={styles.tracking}>
+                        <li className={styles.tracking}
+                        // 把監聽器寫在這邊，用useState作用
+                            >
                             <Link to="/trckingList">
-                                <img className={styles.trackingIcon} src={trackingIcon} alt='logo'
+                                <img className={styles.trackingIcon} src={tracking} alt='logo'
                                 // 待解決:如何在.tracking:hover時，icon一起變色(偵測到icon的e)
                                     onMouseOver={e => e.currentTarget.src = hoverTrackingIcon}
                                     onMouseOut={e => e.currentTarget.src = trackingIcon}/>
