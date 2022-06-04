@@ -7,8 +7,7 @@ import { collection, onSnapshot, query, where } from 'firebase/firestore'
 export const useCollection = (col, qu1, qu2) => {
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
-    // const [response , dispatch] = useReducer(collectionReducer,initialState)
-
+    
 
     useEffect(() => {
         let ref = collection(db,col)

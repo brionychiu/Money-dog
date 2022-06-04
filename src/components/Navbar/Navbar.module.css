@@ -20,10 +20,6 @@
     grid-column: 1/2;
     display: flex;
   }
-  .leftBar li a{
-    display: inline-block;
-    padding: 6px 7.5px 14px;
-  }
   .logo{
     width: 40px;
     height: 40px;
@@ -36,10 +32,11 @@
     align-self: center;
     font-size: 15px;
     font-weight: bold;
-    /* padding: 19px 7.5px 15px; */
     border-bottom: 3px solid transparent;
   }
   .leftBar li:nth-child(-n+4):nth-child(n+2) a{
+    display: inline-block;
+    padding: 19px 7.5px 15px;
     color: #636363;
   }
   .leftBar li:nth-child(-n+4):nth-child(n+2):hover{
@@ -104,15 +101,17 @@
     width: 23px;
     height:23px;
     margin-top: 12px;
+    padding: 6px 7.5px 12px;
   }
   .tracking{
-    padding: 17px 7.5px 6px;
+    /* padding: 17px 7.5px 6px; */
     border-bottom: 3px solid transparent;
     cursor: pointer;
     margin-right: 19px;
   }
   .tracking a{
     color: #636363;
+    padding: 17px 7.5px 12px;
     font-size: 15px;
     font-weight: bold;
     display: inline-flex;

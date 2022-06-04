@@ -16,7 +16,8 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
     }
     let rightIndex = (nn,NN,M_Price) => {
         const rightIndexValue = []
-        const lineY = []
+        const lineY1 = []
+        const lineY2 = []
         const btw = roundDecimal(((NN-nn)/8),1)
         let yNum
         for (let i = 0 ; i < 9 ; i++){
@@ -25,14 +26,24 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             rightIndexValue.push(a)
         }
         for (let i = 0 ; i < 42 ; i++){
-            yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
-            yNum= (410-yNum).toFixed(1)
-            lineY.push(yNum)
+            if(i<M_Price.length-1){
+                // lineY1移除最後一個元素
+                yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
+                yNum= (450-yNum).toFixed(1)
+                lineY1.push(yNum)
+            }
+            if(i!==0){
+                //  lineY2移除第一個元素
+                yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
+                yNum= (450-yNum).toFixed(1)
+                lineY2.push(yNum)
+            }
         }
-        return{rightIndexValue,lineY}
+        return{rightIndexValue,lineY1,lineY2}
     }
     const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
-    const lineY = rightIndex(nn,NN,M_Price).lineY
+    const lineY1 = rightIndex(nn,NN,M_Price).lineY1
+    const lineY2 = rightIndex(nn,NN,M_Price).lineY2
 
     // ---------- long YoY -----------
     let mm = Math.floor(Math.min(...longYoY))
@@ -111,7 +122,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             // ---------- create circle of YoY
             for (let i = 0 ; i < 42 ; i++){
                 cyNum = Math.abs(((longYoY[i])/btw)*50)
-                cyNum= (410-cyNum).toFixed(1)
+                cyNum= (450-cyNum).toFixed(1)
                 circleCy.push(cyNum)
             }
             // ----------minus zero line 
@@ -139,97 +150,53 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             </div>
             <svg
                 id='svg'
-                width="912" height="450"
-                viewBox="0 0 912 450"
+                width="912" height="500"
+                viewBox="0 0 912 500"
                 xmlns="<http://www.w3.org/2000/svg>"
             >
                 {/* YoY index (%)*/}
-                <line x1="60" y1="10" x2="840" y2="10" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="60" x2="840" y2="60" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="110" x2="840" y2="110" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="160" x2="840" y2="160" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="210" x2="840" y2="210" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="260" x2="840" y2="260" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="310" x2="840" y2="310" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="360" x2="840" y2="360" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="410" x2="840" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="70" y="15" fill="rgb(106,106,106)" fontSize='13'>年增率:%</text>
+                <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>年增率:%</text>
                 {leftIndexValue.map((item,index) => (
-                    <text  key={index} x="35" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    <text  key={index} x="35" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
 
                 {/* year index */}
-                <line x1="289" y1="10" x2="289" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="517" y1="10" x2="517" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="746" y1="10" x2="746" y2="410" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="55" y="430" fill="rgb(106,106,106)" fontSize='14'>2019</text>
-                <text x="280" y="430" fill="rgb(106,106,106)" fontSize='14'>2020</text>
-                <text x="510" y="430" fill="rgb(106,106,106)" fontSize='14'>2021</text>
-                <text x="740" y="430" fill="rgb(106,106,106)" fontSize='14'>2022</text>
+                <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
+                <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
+                <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
+                <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
                 
                 {/* month price index */}
-                <text x="800" y="15" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
+                <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
                 {rightIndexValue.map((item,index) => (
-                    <text key={index} x="850" y={415-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    <text key={index} x="850" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                 ))}
 
                 {/* minus rectangle */}
-                <rect x="60" y={410-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
+                <rect x="60" y={450-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
                     strokeWidth='2' fillOpacity='0.2'/>
-                <line x1="60" y1={410-minusValue[0]} x2="840" y2={410-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
+                <line x1="60" y1={450-minusValue[0]} x2="840" y2={450-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
                 
                 {/* month price */}
                 {monthPrice && (
-                    // <>
-                    // {lineY.map((item,index) => {
-                    //     if(index === lineY.length-2) return strokeWidth="0"
-                    //     return <line key={index} x1={60+index*19} y1={item} x2={79+index*19} y2={lineY[index+1]} stroke="rgb(203,75,75)" strokeWidth="3" /> 
-                    // })}
-                    // </>
                     <>
-                    <line x1="62" y1={lineY[0]} x2="79" y2={lineY[1]} stroke="rgb(203,75,75)" strokeWidth="3" />                 
-                    <line x1="79" y1={lineY[1]} x2="98" y2={lineY[2]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="98" y1={lineY[2]} x2="117" y2={lineY[3]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="117" y1={lineY[3]} x2="136" y2={lineY[4]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="136" y1={lineY[4]} x2="155" y2={lineY[5]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="155" y1={lineY[5]} x2="174" y2={lineY[6]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="174" y1={lineY[6]} x2="193" y2={lineY[7]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="193" y1={lineY[7]} x2="212" y2={lineY[8]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="212" y1={lineY[8]} x2="231" y2={lineY[9]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="231" y1={lineY[9]} x2="250" y2={lineY[10]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="250" y1={lineY[10]} x2="269" y2={lineY[11]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="269" y1={lineY[11]} x2="288" y2={lineY[12]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="288" y1={lineY[12]} x2="307" y2={lineY[13]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="307" y1={lineY[13]} x2="326" y2={lineY[14]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="326" y1={lineY[14]} x2="345" y2={lineY[15]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="345" y1={lineY[15]} x2="364" y2={lineY[16]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="364" y1={lineY[16]} x2="383" y2={lineY[17]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="383" y1={lineY[17]} x2="402" y2={lineY[18]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="401" y1={lineY[18]} x2="421" y2={lineY[19]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="421" y1={lineY[19]} x2="440" y2={lineY[20]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="440" y1={lineY[20]} x2="459" y2={lineY[21]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="459" y1={lineY[21]} x2="478" y2={lineY[22]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="478" y1={lineY[22]} x2="497" y2={lineY[23]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="497" y1={lineY[23]} x2="516" y2={lineY[24]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="516" y1={lineY[24]} x2="535" y2={lineY[25]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="535" y1={lineY[25]} x2="554" y2={lineY[26]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="554" y1={lineY[26]} x2="573" y2={lineY[27]} stroke="rgb(203,75,75)" strokeWidth="3" />                 
-                    <line x1="573" y1={lineY[27]} x2="592" y2={lineY[28]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="592" y1={lineY[28]} x2="611" y2={lineY[29]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="611" y1={lineY[29]} x2="630" y2={lineY[30]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="630" y1={lineY[30]} x2="649" y2={lineY[31]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="649" y1={lineY[31]} x2="668" y2={lineY[32]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="668" y1={lineY[32]} x2="687" y2={lineY[33]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="687" y1={lineY[33]} x2="706" y2={lineY[34]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="706" y1={lineY[34]} x2="725" y2={lineY[35]} stroke="rgb(203,75,75)" strokeWidth="3" />                  
-                    <line x1="725" y1={lineY[35]} x2="744" y2={lineY[36]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="744" y1={lineY[36]} x2="763" y2={lineY[37]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="763" y1={lineY[37]} x2="782" y2={lineY[38]} stroke="rgb(203,75,75)" strokeWidth="3" />                   
-                    <line x1="782" y1={lineY[38]} x2="801" y2={lineY[39]} stroke="rgb(203,75,75)" strokeWidth="3" />                    
-                    <line x1="801" y1={lineY[39]} x2="820" y2={lineY[40]} stroke="rgb(203,75,75)" strokeWidth="3" />
-                </>
-                )
-                }
+                    {lineY1.map((item,index) => (
+                        <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" stroke-linecap="round"/>
+                    ))}
+                    </>
+                )}
 
                 {/* long YoY */}
                 {YoY && (<>

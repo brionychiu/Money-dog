@@ -7,6 +7,7 @@ import { collection, onSnapshot, query, where, orderBy} from 'firebase/firestore
 export const useTrackingList = (col, qu) => {
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
+    const [isPending, setIsPending] = useState(false)
 
     useEffect(() => {
 
@@ -21,17 +22,21 @@ export const useTrackingList = (col, qu) => {
             let results = []
             snapshot.docs.forEach(doc => {
                 results.push({...doc.data()})
+                setIsPending(true)
             });
             setDocuments(results)
             setError(null)
+            setIsPending(false)
+            
 
         },(error) => {
+            setIsPending(false)
             console.log(error)
             setError('目前資料無法連線，請稍後再試')
         })
         return () => unsub()
 
-    }, [col, qu])
+    }, [col, qu])    
     
-    return { documents, error }
+    return { documents, error, isPending }
 }

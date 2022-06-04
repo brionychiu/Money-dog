@@ -1,8 +1,7 @@
 .PERatio-container{
     display: grid;
-    grid-template-rows: 580px minmax(200px,auto);
-    row-gap: 10px;
-    margin-bottom: 30px;
+    grid-template-rows: 600px minmax(200px,auto);
+    row-gap: 30px;
 }
 /*  */
 .PERatio-SVG{

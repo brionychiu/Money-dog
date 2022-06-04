@@ -1,7 +1,7 @@
 .EPS-container{
     display: grid;
-    grid-template-rows: 580px minmax(200px,auto);
-    row-gap: 10px;
+    grid-template-rows: 600px minmax(200px,auto);
+    row-gap: 30px;
 }
 /* ------ */
 .EPS-SVG{

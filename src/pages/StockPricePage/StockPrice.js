@@ -4,9 +4,6 @@ import { useCollection } from "../../hooks/useCollection";
 //components
 import { StockPriceSVG } from './StockPriceSVG';
 
-// styles
-import styles from './StockPrice.module.css'
-
 const StockPrice = () => {
     const { stockId } = useParams()
     const { documents:HY_price } = useCollection(
