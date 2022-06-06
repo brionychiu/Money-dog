@@ -193,7 +193,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 {monthPrice && (
                     <>
                     {lineY1.map((item,index) => (
-                        <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" stroke-linecap="round"/>
+                        <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
                     ))}
                     </>
                 )}

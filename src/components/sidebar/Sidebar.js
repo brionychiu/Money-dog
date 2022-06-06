@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 // components
 import newestIcon from '../img/newest-1.svg'
@@ -13,38 +14,41 @@ import styles from './Sidebar.module.css'
 const Sidebar = () => {
     return ( 
         <ul className={styles['sidebar-container']}>
-            <li>
-               {/* 待解決---fix頁面&sidebar的樣式，try-用網址去match 三元? */}
+            <motion.li
+                whileHover={{ scale:1.03, originX:0 }}>
                 <Link to="">
                     <img src={newestIcon} alt='最新動態'/>
                     <p>最新動態</p>
                 </Link>
-            </li>
-            <li>
-                {/* <NavLink to=""  */}
+            </motion.li>
+            <motion.li
+                whileHover={{ scale:1.03, originX:0 }}>
                 <Link to="PEratio">
                     <img src={PEratioIcon} alt='價值評估'/>
                     <p>價值評估</p>
                 </Link>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+                whileHover={{ scale:1.03, originX:0 }}>
                 <Link to="YoY">
                     <img src={YoYiIcon} alt='成長力分析'/>
                     <p>成長力分析</p>
                 </Link>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+                whileHover={{ scale:1.03, originX:0 }}>
                 <Link to="EPS">
                     <img src={EPSIcon} alt='財務報表'/>
                     <p>財務報表</p>
                 </Link>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+                whileHover={{ scale:1.03, originX:0 }}>
                 <Link to="basicInfo">
                     <img src={infoIcon} alt='基本資料'/>
                     <p>基本資料</p>
                 </Link>
-            </li>
+            </motion.li>
         </ul>
     );
 }

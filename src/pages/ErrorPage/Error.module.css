@@ -6,7 +6,7 @@
 }
 .Error{
     max-width: 700px;
-    height:400px;
+    min-height:400px;
     background: #fff;
     border: 1px solid #dfdfdf;
     text-align: center;
@@ -29,12 +29,13 @@
     border-bottom: 1px solid #dfdfdf;
 }
 .Error h3{
-    font: bold 35px simhei;
+    font-size: 35px ;
+    font-weight: bold;
     color: #006aaf;
     margin-bottom: 10px;
 }
 .Error ul li{
-    font: 16px/2 '';
+    font: 16px;
     color: #232323;
     padding: 5px 0px;
 }

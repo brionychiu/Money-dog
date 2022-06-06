@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useLogout } from '../../hooks/useLogout'
+import { useCollection } from '../../hooks/useCollection';
+import { motion } from 'framer-motion'
 
 // components
 import Footer from '../../components/footer/Footer'
@@ -13,20 +15,64 @@ import trackingIcon from '../../components/img/tracking_icon.png'
 import styles from './Home.module.css' 
 
 const Home = () => {
-    const [ stockId , setStockId ] = useState('')
+    const navigate = useNavigate()
     const { user } = useAuthContext()
     const { logout } = useLogout()
-    const navigate = useNavigate()
+    const { documents:stockInfo } = useCollection('basicInfo')
+    const [ stockId , setStockId ] = useState('')
+    const [stockName, setStockName] = useState('')
+    const [filteredData, setFilteredData] = useState([])
+
+    
+    const handleFilter = (e) => {
+        let searchWord = e.target.value
+        setStockName(searchWord)
+        let newFilter
+        let filterId
+        const searchId = Number(searchWord)
+        if(searchId){
+            newFilter = stockInfo.filter((stock) => {
+                return stock.id.includes(searchWord)
+            })
+            filterId = newFilter[0].id
+            
+        }else if(typeof(searchWord)==='string'){
+            newFilter = stockInfo.filter((stock) => {
+                return stock.sname.includes(searchWord)
+            })
+            filterId = newFilter[0].id
+        }
+        if (searchWord === "") {
+            setFilteredData([])
+        } else {
+            setFilteredData(newFilter)
+        }
+        setStockId(filterId)
+    }
+    const clearInput = () => {
+        setFilteredData([])
+        setStockName('')
+        }
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        clearInput()
+        // 找網址去篩字串-->做前一頁
         navigate(`/analysis/${stockId}`)
     }
-
+    const handleClick = () => {
+        clearInput()
+        // 找網址去篩字串-->做前一頁
+        navigate(`/analysis/${stockId}`)
+    }
+    console.log('filteredData',filteredData)
     return ( 
         <div className={styles.container}>
-
-            <div className={styles['homePage-1']}>
+            <motion.div 
+                initial={{ opacity: 0}}
+                animate={{ opacity: 1}}
+                // transition={{ delay:1.5,duration:5 }}
+                className={styles['homePage-1']}>
                 <div className={styles.navbar}>
                     <ul className={styles.leftBar}>
                         <li><Link to="/analysis/2330">最新動態</Link></li>
@@ -54,42 +100,91 @@ const Home = () => {
                     </ul>
                     )}
                 </div>
-                <img className={styles.logo} src={logoIcon} alt='logo'/>
-                <div className={styles.slogan}>挖掘股票價值，創造財富</div>
-                <form onSubmit={handleSubmit}>
+                <motion.img 
+                    initial={{ y:60 }}
+                    animate={{ y:0 }} className={styles.logo} src={logoIcon} alt='logo'/>
+                <motion.div animate={{ y:-60 }} className={styles.slogan}>
+                    挖掘股票價值，創造超額報酬
+                </motion.div>
+                <motion.form animate={{ y:-60 }} onSubmit={handleSubmit}>
                     <input 
                         className={styles.searchBar} 
-                        type='text'
-                        value={stockId}
-                        onChange={(e) => setStockId(e.target.value)}
+                        type='search'
+                        value={stockName}
+                        onChange={handleFilter}
+                        placeholder="輸入台股名稱/代號"
                         />
-                    <button className={styles.searchBtn}>
+                    <motion.button 
+                        whileHover={{ scale:1.02 }}
+                        className={styles.searchBtn}>
                         <img className={styles.searchImg} src={searchIcon} alt='search'/>
-                    </button>
-                </form>
-                <ul className={styles.stockItems}>
-                    <li>
+                    </motion.button>
+                </motion.form>
+                {user && filteredData.length !== 0 && (
+                    <div className={styles['search-data-box']}>
+                        <ul>
+                            <li>查詢個股</li>
+                        {filteredData.slice(0,5).map((data) => {
+                             return (
+                                 <li key={data.id} 
+                                    className={styles.searchitem} 
+                                    onClick={handleClick}>
+                                    <span>{data.id}</span>
+                                    <span>{data.sname}</span>
+                                  </li>
+                              )
+                        })}
+                            
+                        </ul>
+                    </div>
+                )}
+                <motion.ul animate={{ y:-60 }} className={styles.stockItems}>
+                    <motion.li
+                        whileHover={{
+                            scale:1.1,
+                            textShadow:"0px 0px 4px rgb(255,255,255)",
+                            boxShadow:"0px 0px 4px rgb(255,255,255)"
+                        }}>
                         <Link to="/analysis/2330">台積電</Link>
-                    </li>
-                    <li>
+                    </motion.li>
+                    <motion.li
+                        whileHover={{
+                            scale:1.1,
+                            textShadow:"0px 0px 4px rgb(255,255,255)",
+                            boxShadow:"0px 0px 4px rgb(255,255,255)"
+                        }}>
                         <Link to="/analysis/2317">鴻海</Link>
-                    </li>
-                    <li>
+                    </motion.li>
+                    <motion.li
+                        whileHover={{
+                            scale:1.1,
+                            textShadow:"0px 0px 4px rgb(255,255,255)",
+                            boxShadow:"0px 0px 4px rgb(255,255,255)"
+                        }}>
                         <Link to="/analysis/2454">聯發科</Link>    
-                    </li>
-                </ul>
-            </div>
+                    </motion.li>
+                </motion.ul>
+            </motion.div>
             
             <div className={styles['homePage-2']}>
                 <div className={styles.gif}>----gif----</div>
-                <div className={styles.text_1}>即時追蹤股市資訊<br/>幫你找出最有價值的潛力股</div>
-                <div className={styles.linkToStock}><Link to="/stockPrice">查看更多資訊</Link></div>
+                <motion.div className={styles.text_1}>即時追蹤股市資訊<br/>幫你找出最有價值的潛力股</motion.div>
+                <div className={styles.linkToStock}><Link to="/analysis/2330">查看更多資訊</Link></div>
             </div>
+            {user? (
+                <div div className={styles['homePage-3']}>
+                    <h3>眾多媒體報導推薦</h3>
+                </div>
+            ):(
             <div className={styles['homePage-3']}>
                 <img className={styles.logo_2} src={logoIcon} alt='logo'/>
                 <div className={styles.text_2}>馬上註冊招財狗，使用強大的免費功能 !</div>
                 <div className={styles.linkToSignup}><Link to="/signup">馬上免費註冊</Link></div>
             </div>
+            )
+            
+            }
+
             <Footer/>
         </div>
      );

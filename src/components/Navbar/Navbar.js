@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useLogout } from '../../hooks/useLogout'
+import { useCollection } from '../../hooks/useCollection'
 
 // components
 import logoIcon from '../img/logo_icon.jpg'
@@ -15,18 +16,58 @@ import logoutIconHover from '../img/logout_icon_blue.png'
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
-    const { user } = useAuthContext()
-    const [ stockName , setStockName ] = useState('')
-    const [ tracking , setTracking ] = useState(false)
+    const location = useLocation()
     const navigate = useNavigate() 
+    const { user } = useAuthContext()
     const { logout } = useLogout()  
+    const { documents:stockInfo } = useCollection('basicInfo')
+    const [stockName, setStockName] = useState('')
+    const [stockId, setStockId] = useState('')
+    const [filteredData, setFilteredData] = useState([])
+    const [tracking, setTracking] = useState(false)
 
+    const handleFilter = (e) => {
+        let searchWord = e.target.value
+        setStockName(searchWord)
+        let newFilter
+        let filterId
+        const searchId = Number(searchWord)
+        if(searchId){
+            newFilter = stockInfo.filter((stock) => {
+                return stock.id.includes(searchWord)
+            })
+            filterId = newFilter[0].id
+            
+        }else if(typeof(searchWord)==='string'){
+            newFilter = stockInfo.filter((stock) => {
+                return stock.sname.includes(searchWord)
+            })
+            filterId = newFilter[0].id
+        }
+        if (searchWord === "") {
+            setFilteredData([])
+        } else {
+            setFilteredData(newFilter)
+        }
+        setStockId(filterId)
+    }
+    const clearInput = () => {
+        setFilteredData([])
+        setStockName('')
+        }
+    //用location找前一頁
+    const sidebarLink = location.pathname.split('/')
     const handleSubmit = (e) => {
         e.preventDefault()
-        // 找網址去篩字串-->做前一頁
-        navigate(`/analysis/${stockName}/basicInfo`)
-        setStockName('')
+        clearInput()
+        // 找網址去篩字串-->做前一頁(ok!)
+        navigate(`/analysis/${stockId}/${sidebarLink[3]}`)
     }
+    const handleClick = () => {
+        clearInput()
+        navigate(`/analysis/${stockId}/basicInfo`)
+    }
+    console.log('filteredData',filteredData)
     return ( 
         <div className={styles.navbar}>
             <div className={styles['navi-wrapper']}>
@@ -40,15 +81,33 @@ const Navbar = () => {
                     <form className={styles.searchBar} onSubmit={handleSubmit}>
                         <input
                             className={styles.searchInput} 
-                            type='text' 
+                            type='search' 
                             value={stockName}
-                            onChange={(e) => setStockName(e.target.value)}
+                            onChange={handleFilter}
+                            placeholder="輸入台股名稱/代號"
                         />
                         <button>
                             <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
                         </button>
-                    </form>
-                    
+                    </form> 
+                )}
+                {user && filteredData.length !== 0 && (
+                    <div className={styles['search-data-box']}>
+                        <ul>
+                            <li>查詢個股</li>
+                        {filteredData.slice(0, 5).map((data,index) => {
+                             return (
+                                 <li key={index} 
+                                    className={styles.searchitem} 
+                                    onClick={handleClick}>
+                                    <span>{data.id}</span>
+                                    <span>{data.sname}</span>
+                                  </li>
+                              )
+                        })}
+                            
+                        </ul>
+                    </div>
                 )}
                 {!user && (
                     <ul className={styles.loginBar}>

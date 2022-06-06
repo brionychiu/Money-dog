@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes , Navigate} from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate} from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext'
 
 // components
@@ -7,7 +7,7 @@ import Taiex from './pages/TaiexPage/Taiex'
 import Login from './pages/LoginPage/Login'
 import Signup from './pages/SignupPage/Signup'
 import Analysis from './pages/MainPage/Analysis'
-import TrackingList from './components/trackingList/TrackingList'
+import TrackingList from './pages/trackingList/TrackingList'
 import Error from './pages/ErrorPage/Error'
 import PERatio from './pages/PERatioPage/PERatio'
 import EPS from './pages/EPSPage/EPS'
@@ -37,12 +37,12 @@ function App() {
               path='/signup' 
               element={ user ? <Navigate to="/"/> : <Signup /> } 
             />
-            <Route path='/analysis/:stockId' element={ <Analysis /> }>
+            <Route path='/analysis/:stockId' element={user ?   <Analysis />: <Navigate to="/login"/>  }>
                 <Route 
                   path='' 
-                  element={ <StockPrice /> } 
+                  element={user ?  <StockPrice /> : <Navigate to="/login"/> } 
                 />
-               <Route 
+                <Route 
                   path='PEratio' 
                   element={ user ? <PERatio /> : <Navigate to="/login"/> } 
                 />

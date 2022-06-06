@@ -2,7 +2,7 @@ import { useReducer , useEffect , useState } from "react";
 import { db, timestamp } from '../firebase/config'
 
 // firebase imports
-import { collection, deleteDoc, addDoc, doc, updateDoc, query, where  } from 'firebase/firestore'
+import { collection, deleteDoc, addDoc, doc, updateDoc, query, where, getDocs } from 'firebase/firestore'
 
 // initialState 寫在外面是因為不要每次use hook都要init一次
 let initialState = {
@@ -71,11 +71,34 @@ export const useFirestore = (col) => {
     const deleteDocument = async (id) => {
         dispatch({type:'IS_PENDING'})
         try {
-            ref = doc(ref,id)
+            const ref = doc(db, 'trackingList', id)
             // 回傳的deleteDocument就寫undefined,所以上面payload設null就好
             const deleteDocument = await deleteDoc(ref)
             dispatchIfNotCanaelled({type:'DELETED_DOCUMENT',payload:deleteDocument})
         } catch (err) {
+            console.log(err.message)
+            dispatchIfNotCanaelled({type:'ERROR',payload : 'could not delete'})
+        }
+    }
+    // cancel tracking
+    const cancelTracking = async (uid,stockId) => {
+        dispatch({type:'IS_PENDING'})
+        try {
+            // 找出對應的uid和要取消的stockId
+            let ref = collection(db,'trackingList')
+            ref = query(ref, where("uid","==",uid), where("stockId", "==", stockId))
+            const docSnap = await getDocs(ref);
+            let results
+            docSnap.docs.forEach(doc => {
+                results={id:doc.id}
+            });
+            // 找到的doc.id --> 刪除那個id
+            ref = doc(db, 'trackingList', results.id)
+            const deleteDocument = await deleteDoc(ref)
+            dispatchIfNotCanaelled({type:'DELETED_DOCUMENT',payload:deleteDocument})
+
+        } catch (err) {
+            console.log(err.message)
             dispatchIfNotCanaelled({type:'ERROR',payload : 'could not delete'})
         }
     }
@@ -98,5 +121,5 @@ export const useFirestore = (col) => {
         return() => setIsCancelled(true)
     },[])
 
-    return { addDocument, deleteDocument, updateDocument, response }
+    return { addDocument, deleteDocument, updateDocument, cancelTracking, response }
 }

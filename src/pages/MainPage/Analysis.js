@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import { Outlet, useParams } from "react-router-dom"
+import { Outlet, useParams, Navigate } from "react-router-dom"
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from "../../hooks/useCollection"
+import { useTrackingList } from "../../hooks/useTrackingList"
 import { useFirestore } from "../../hooks/useFirestore"
+import { motion } from 'framer-motion'
 
 // components
 import Navbar from "../../components/navbar/Navbar"
@@ -17,13 +19,14 @@ import styles from './Analysis.module.css'
 const Analysis = () => {
     const [tracking, setTracking] = useState(false)
     const { authIsReady, user } = useAuthContext()
-    const uid = user.uid
+    const uid = user?  user.uid: <Navigate to="/login"/> 
     const { stockId } = useParams()
-    const { addDocument, deleteDocument, response } = useFirestore('trackingList')
-    const { documents:trackingList } = useCollection(
+    const { addDocument, cancelTracking, response } = useFirestore('trackingList')
+    const { documents:trackingList } = useTrackingList(
         'trackingList',
         uid,stockId
     ) 
+    console.log('trackingList',trackingList)
     const { documents:stockData } = useCollection(
         'dailyPrice',
         stockId
@@ -46,9 +49,9 @@ const Analysis = () => {
     const listed = basicInfo? basicInfo[0].listed:null
 
     useEffect(() => {
-        if(trackingList? trackingList.length!==0:null){
+        if(trackingList&& trackingList.length!==0){
             setTracking(true)
-        }else{
+        }else if(trackingList&& trackingList.length===0){
             setTracking(false)
         }
     },[trackingList])
@@ -56,10 +59,10 @@ const Analysis = () => {
     const clickToTrack = async(e) => {
         e.preventDefault()
         if (date && sname && listed && open && high && low && close && change && tradeValue && transaction){
-            const addlist = {
+            const addlist = ({
                 uid,
                 date,
-                id:stockId,
+                'stockId':stockId,
                 sname,
                 listed,
                 open,
@@ -69,11 +72,10 @@ const Analysis = () => {
                 change,
                 tradeValue,
                 transaction
-            }
+            })
             const res = addDocument(addlist)
-            console.log(res)
             res.then(() => {
-                console.log('success')
+                console.log('successful added!')
                 setTracking(true)
             },(error) => {
                 console.log(error)
@@ -84,14 +86,8 @@ const Analysis = () => {
     }
     const clickTounTrack = async(e) => {
         e.preventDefault()
-        console.log('deleting')
-        console.log(trackingList)
-        console.log(trackingList.id)
-        // 這裡要解bug , 要找出要的檔案來刪除(用query? where? 還是id?)
-        // deleteDocument('8JMpWgj1qMmHU4pXXt6O')
-        console.log('deleted')
+        cancelTracking(uid,stockId)
         setTracking(false)
-        console.log(response)
     }
 
     return ( 
@@ -109,15 +105,24 @@ const Analysis = () => {
                         <li>{stockData[0].Close}元</li>
                     </ul>
                     {tracking ? 
-                    <form onSubmit={clickTounTrack}>
+                    <motion.form 
+                        whileHover={{ scale:1.02 }} 
+                        onSubmit={clickTounTrack}>
                         <button className={styles.tracked}>
-                            <img className={styles.check} src={check} alt="check add tracking list" />
+                            <motion.img 
+                                initial={{ scale: 0.1}}
+                                animate={{ scale: 1}}
+                                className={styles.check} 
+                                src={check} 
+                                alt="check add tracking list" />
                             <span>已追蹤</span>
                         </button>
-                    </form>:
-                    <form onSubmit={clickToTrack}>  
+                    </motion.form>:
+                    <motion.form 
+                        whileHover={{ scale:1.02 }}
+                        onSubmit={clickToTrack}>  
                         <button className={styles.untracked} type="submit">+ 追蹤</button>
-                    </form>}
+                    </motion.form>}
                     {/* <img src={checkGif} alt="check add tracking list" /> */}
             </div>
             )}

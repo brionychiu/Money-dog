@@ -5,14 +5,14 @@ import styles from './StockPrice.module.css'
 
 export const StockPriceSVG = ({HY_price}) => {
     // data
-    const name = HY_price.name
-    const open = HY_price.open
-    const high = HY_price.high
-    const low = HY_price.low
-    const close = HY_price.close
-    const date = HY_price.date
-    const trancision = HY_price.Transaction
-    const volume = HY_price.TradingVolume
+    const name = HY_price? HY_price.name:null
+    const open =  HY_price? HY_price.open:null
+    const high =  HY_price? HY_price.high:null
+    const low =  HY_price? HY_price.low:null
+    const close =  HY_price? HY_price.close:null
+    const date =  HY_price? HY_price.date:null
+    const trancision =  HY_price? HY_price.Transaction:null
+    const volume =  HY_price? HY_price.TradingVolume:null
 
     // console.log('open:',open)
     // console.log('high:',high)
@@ -242,7 +242,6 @@ export const StockPriceSVG = ({HY_price}) => {
     const MA_30pathX = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathX
 
     // -------- trading volume index & rectangle-----------
-    console.log(Math.min(...volume))
     let tradingVolmeIndex = (volume) => {
         let maxV =  Math.max(...volume)
         maxV = maxV + maxV*0.1
@@ -275,9 +274,6 @@ export const StockPriceSVG = ({HY_price}) => {
     const volumeHeight = tradingVolmeIndex(volume).volumeHeight
     const volumeRect = tradingVolmeIndex(volume).volumeRect
 
-    console.log(volumeIndex[0])
-    console.log()
-
     // ------- checkbox ----------
     const [fiveMA,setFiveMA] = useState(true)
     const [tenMA,setTenMA] = useState(true)
@@ -288,7 +284,7 @@ export const StockPriceSVG = ({HY_price}) => {
         e.target.style.fill = "pink"
     }
     
-    console.log(HY_price)
+    // console.log(HY_price)
     return(
         <div className={styles['price-container']}>
             <div className={styles['k-SVG']}>
@@ -301,7 +297,7 @@ export const StockPriceSVG = ({HY_price}) => {
                     <div className={styles.yellow}></div>
                     <span>20日線</span>
                     <div className={styles.purple}></div>
-                    <span>月線</span>
+                    <span>30日線</span>
                 </div>
                 <div className={styles['price-detail']}>
                     <span>日期：</span>
@@ -402,9 +398,9 @@ export const StockPriceSVG = ({HY_price}) => {
                         <line x1="75" y1="524" x2="85" y2="524" stroke='rgb(226,226,226)' strokeWidth='1' />
                         <line x1="2063" y1="468" x2="2073" y2="468" stroke='rgb(226,226,226)' strokeWidth='1' />
                         <line x1="2063" y1="524" x2="2073" y2="524" stroke='rgb(226,226,226)' strokeWidth='1' />
-                        <text x="45" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
-                        <text x="45" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
-                        <text x="45" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
+                        <text x="30" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
+                        <text x="30" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
+                        <text x="30" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
                         <text x="2078" y="471" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[2]}</text>
                         <text x="2078" y="527" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[1]}</text>
                         <text x="2078" y="580" fill="rgb(106,106,106)" fontSize='13'>{volumeIndex[0]}</text>
@@ -426,7 +422,7 @@ export const StockPriceSVG = ({HY_price}) => {
                     <input id='twentyMA' type='checkbox' vaule='20日線'onChange={() => setTwentyMA(!twentyMA)} defaultChecked={twentyMA}/>
                     <label htmlFor='twentyMA'>20日線</label>
                     <input id='monthMA' type='checkbox' vaule='月線' onChange={() => setMonthMA(!monthMA)} defaultChecked={monthMA} />
-                    <label htmlFor='monthMA'>月線</label>
+                    <label htmlFor='monthMA'>30日線</label>
                 </span>
             
 

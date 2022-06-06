@@ -102,3 +102,15 @@
     border-radius: 3;
     background: #c6c6c6;
   }
+/* no data */
+.nodata{
+    background: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    color: #434343;
+    text-align: center;
+}
+.nodata a{
+    color: #434343;
+    margin: 0px 10px;
+}

@@ -41,13 +41,13 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
             for(let i=0; i<13; i++){
                 if (Q_EPS[i]> 0){
                     heightNum = Math.abs((Q_EPS[i]/topbtw)*50)
-                    y1Num= 210-heightNum
+                    y1Num= 250-heightNum
                     rectangleY1.push(y1Num)
                     rectangleHeight.push(heightNum)
                 }else if(Q_EPS[i]<= 0){
                     num1 = Math.abs(Q_EPS[i])
                     heightNum = Math.abs((num1/downbtw)*50)
-                    y1Num= 210
+                    y1Num= 250
                     rectangleY1.push(y1Num)
                     rectangleHeight.push(heightNum)
                 }
@@ -77,7 +77,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 rectangleHeight.push(heightNum)
             }
             // ----------minus zero line 
-            minusHeight = "400"
+            minusHeight = "450"
             minusStrokeWidth ="3"
             minusValue.push(minusHeight,minusStrokeWidth)
 
@@ -216,7 +216,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 {monthPrice && (
                       <>
                       {lineY1.map((item,index) => (
-                          <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" stroke-linecap="round"/>
+                          <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
                       ))}
                       </>
                 )}

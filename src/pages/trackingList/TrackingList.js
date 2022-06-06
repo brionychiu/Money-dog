@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { useTrackingList } from '../../hooks/useTrackingList'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useFirestore } from '../../hooks/useFirestore'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 // components
-import Navbar from '../navbar/Navbar'
-import Footer from '../footer/Footer'
-import rightArrow from '../img/right_arrow_icon.png'
-import dollarIcon from '../img/dollar_icon.png'
-import dollarGif from '../img/dollar_hover.gif'
+import Navbar from '../../components/navbar/Navbar'
+import Footer from '../../components/footer/Footer'
+import rightArrow from '../../components/img/right_arrow_icon.png'
+import dollarIcon from '../../components/img/dollar_icon.png'
+import dollarGif from '../../components/img/dollar_hover.gif'
+import loadingGif from '../../components/img/loading.gif'
 
 
 // import blueRightArrow from '../img/right_arrow_icon_blue.png'
@@ -23,14 +25,13 @@ const TrackingList = () => {
     // 待解決:設定最後的+/-是紅色還是綠色
     // const [color, setColor] = useState(false)
     const { user } = useAuthContext()
-    const uid = user.uid
-    const { deleteDocument , response } = useFirestore('trackingList')
+    const uid = user?  user.uid: <Navigate to="/login"/> 
+    const { deleteDocument } = useFirestore('trackingList')
 
     const { documents:trackingList, error, isPending} = useTrackingList(
         'trackingList',
         uid
     )
-    console.log(trackingList)
     let priceChange = (trackingList) => {
         const change = []
         const changePercetage = []
@@ -58,7 +59,11 @@ const TrackingList = () => {
         <Navbar />
         <div className={styles['root-content']}>
             <div className={styles['main-content']}>
-                {isPending && (<div>加載中...</div>)}
+                {isPending && (
+                    <div>
+                    <span>加載中</span>
+                    <img src={loadingGif} alt='loading'/>
+                    </div>)}
                 {trackingList && (
                     <div className={styles['left-box']}>
                         <ul className={styles.category}>
@@ -68,14 +73,18 @@ const TrackingList = () => {
                         </ul>
                         <ul className={styles.stockid}>
                         {trackingList.map((item,index) => (
-                            <li key={index}>{item.id}</li>
+                            <li key={index}>{item.stockId}</li>
                         ))}
                         </ul>
                         {daily? 
                         <div className={styles.daily}>
                             {trackingList.map((item,index) => (
                                 <ul key={index}>
-                                    <li><Link to={{pathname:`/analysis/${item.id}/basicInfo`}}>{item.id} {item.sname}</Link></li>
+                                    <motion.li whileHover={{ y:-2 }}>
+                                        <Link to={{pathname:`/analysis/${item.stockId}/basicInfo`}}>
+                                            {item.stockId} {item.sname}
+                                        </Link>
+                                    </motion.li>
                                     <li>開盤價：<span>{item.open}元</span></li>
                                     <li>收盤價：<span>{item.close}元</span></li>
                                     <li>最高價：<span>{item.high}元</span></li>
@@ -87,7 +96,7 @@ const TrackingList = () => {
                         <div className={styles.daily}>
                         {trackingList.map((item,index) => (
                             <ul key={index}>
-                                <li><Link to={{pathname:`/analysis/${item.id}/basicInfo`}}>{item.id} {item.sname}</Link></li>
+                                <li><Link to={{pathname:`/analysis/${item.stockId}/basicInfo`}}>{item.stockId} {item.sname}</Link></li>
                                 <li>成交金額：<span>{item.tradeValue}元</span></li>
                                 <li>成交筆數：<span>{item.transaction}筆</span></li>
                             </ul>
@@ -109,11 +118,11 @@ const TrackingList = () => {
                                     onMouseOut={()=>setHoverGif(false)}>
                                         {hoverGif? <img src={dollarGif} alt='dollar icon hover'/>
                                         :<img src={dollarIcon} alt='dollar icon'/>}
-                                        <Link to={{pathname:`/analysis/${item.id}/basicInfo`}}>{item.id} {item.sname}</Link>
+                                        <Link to={{pathname:`/analysis/${item.stockId}/basicInfo`}}>{item.stockId} {item.sname}</Link>
                                         <p>{item.close}</p>
                                         <p>{change[index]}</p>
                                         <p>{changePercetage[index]}%</p>
-                                        <button onClick={() => deleteDocument(item)}>x</button>
+                                        <button onClick={() => deleteDocument(item.id)}>x</button>
                                     </li>
                                 ))}
                         </ul>
