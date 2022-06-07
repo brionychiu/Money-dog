@@ -1,6 +1,6 @@
 .container {
     display:grid;
-    grid-template-rows: 800px 360px 400px ;
+    grid-template-rows: 800px 360px 500px ;
 }
 .homePage-1{
     grid-row: 1/2;
@@ -259,13 +259,33 @@
     background-color: #fff;
     display: grid;
     grid-template-rows: 0.2fr 3fr 1fr;
-    grid-template-columns: minmax( 360px,700px) auto;
+    grid-template-columns: minmax( 360px,800px) auto;
     padding: 0px 50px; 
 }
 .homePage-2 .gif{
-    grid-row: 2/3;
-    border: 3px solid #0386f4;
-    border-radius: 10px;
+    grid-row: 1/span2;
+    position: relative;
+}
+.giftext_1{
+    position: absolute;
+    left:150px;
+    color:rgb(86,86,86);
+    font-size: 14px;
+    border: 1px solid rgb(86,86,86);
+    border-radius: 3px;
+    display: inline-block;
+    padding: 15px;
+}
+.giftext_2{
+    position: absolute;
+    left: 600px;
+    top:200px;
+    color:rgb(86,86,86);
+    font-size: 14px;
+    border: 1px solid rgb(86,86,86);
+    border-radius: 3px;
+    display: inline-block;
+    padding: 15px;
 }
 .homePage-2 .text_1{
     text-align: center;
@@ -336,7 +356,44 @@ font-size: 2em;
     box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
 }
 /* user page3 */
-.homePage-3 h3{
+.homePage-3-user{
+    grid-row: 3/4;
+    display: grid;
+    grid-template-rows: 1fr 3fr 0.2fr;
+    background-color: #13243b;
+    color:#fff;  
+    justify-items: center;
+}
+.homePage-3-user h3{
     margin-top: 40px;
     text-align: center;
+    font-size: 26px;
+    letter-spacing: 3px;
+}
+.slider{
+    grid-row: 2/3;
+    margin-top: 20px;
+    max-width:800px;
+    max-height:200px;
+    justify-self: center;
+}
+.recommend{
+    font-size: 18px;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    color:#fff;  
+}
+.recommend h6{
+    color: #838383;
+}
+.slider img{
+    position: relative; 
+    left:123px;
+    bottom:24px;
+}
+.magazine{
+    margin: 0px 50px;
+    width:150px;
+    height: 80px;
 }

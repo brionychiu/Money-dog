@@ -10,6 +10,8 @@ import Footer from '../../components/footer/Footer'
 import logoIcon from '../../components/img/logo_icon.jpg'
 import searchIcon from '../../components/img/search_icon.png'
 import trackingIcon from '../../components/img/tracking_icon.png'
+import AutoSlider from '../../components/autoSlider/AutoSlider'
+import HomeSVG from './HomeSVG'
 
 //styles
 import styles from './Home.module.css' 
@@ -102,7 +104,8 @@ const Home = () => {
                 </div>
                 <motion.img 
                     initial={{ y:60 }}
-                    animate={{ y:0 }} className={styles.logo} src={logoIcon} alt='logo'/>
+                    animate={{ y:0 }} 
+                    className={styles.logo} src={logoIcon} alt='logo'/>
                 <motion.div animate={{ y:-60 }} className={styles.slogan}>
                     挖掘股票價值，創造超額報酬
                 </motion.div>
@@ -120,7 +123,7 @@ const Home = () => {
                         <img className={styles.searchImg} src={searchIcon} alt='search'/>
                     </motion.button>
                 </motion.form>
-                {user && filteredData.length !== 0 && (
+                {filteredData.length !== 0 && (
                     <div className={styles['search-data-box']}>
                         <ul>
                             <li>查詢個股</li>
@@ -167,13 +170,14 @@ const Home = () => {
             </motion.div>
             
             <div className={styles['homePage-2']}>
-                <div className={styles.gif}>----gif----</div>
+                <HomeSVG></HomeSVG>
                 <motion.div className={styles.text_1}>即時追蹤股市資訊<br/>幫你找出最有價值的潛力股</motion.div>
                 <div className={styles.linkToStock}><Link to="/analysis/2330">查看更多資訊</Link></div>
             </div>
             {user? (
-                <div div className={styles['homePage-3']}>
+                <div div className={styles['homePage-3-user']}>
                     <h3>眾多媒體報導推薦</h3>
+                    <AutoSlider></AutoSlider>
                 </div>
             ):(
             <div className={styles['homePage-3']}>

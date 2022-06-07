@@ -211,35 +211,35 @@ export const StockPriceSVG = ({HY_price}) => {
     const MA_20pathX = MA_20array(close,maxPrice,lineX,btw)[0].MA_20pathX
 
     //  --------------- 30MA -----------------
-    let MA_30array = (close,maxPrice,lineX,btw) => {
-        let MA_30pathY = []
-        let MA_30pathX = []
-        let b = close.map((e,i,arr) => {
-            return ((arr[i]+arr[i+1]+arr[i+2]+arr[i+3]+arr[i+4]+arr[i+5]+arr[i+6]
-                +arr[i+7]+arr[i+8]+arr[i+9]+arr[i+10]+arr[i+11]+arr[i+12]
-                +arr[i+13]+arr[i+14]+arr[i+15]+arr[i+16]+arr[i+17]+arr[i+18]
-                +arr[i+19]+arr[i+20]+arr[i+21]+arr[i+22]+arr[i+23]+arr[i+24]+arr[i+25]
-                +arr[i+26]+arr[i+27]+arr[i+28]+arr[i+29]+arr[i+30])/30).toFixed(1)
-        })
-        b = b.filter(e =>e !== 'NaN')
-        b.map((e,i,arr) => {
-            // 30MA line-y
-            let pathy = 10+((maxPrice-e)/btw)*50
-            pathy = pathy.toFixed(1)
-            MA_30pathY.push(pathy)
-            // 20MA line-x
-            let pathx = lineX[29]+(20*i)
-            MA_30pathX.push(pathx)
-            return MA_30pathY
-        })
-        // 讓30MA line-y 能stop
-        let length = MA_30pathY.length
-        MA_30pathY.push(MA_30pathY[length-1])
-        return [{MA_30pathY,MA_30pathX}]
-    }
+    // let MA_30array = (close,maxPrice,lineX,btw) => {
+    //     let MA_30pathY = []
+    //     let MA_30pathX = []
+    //     let b = close.map((e,i,arr) => {
+    //         return ((arr[i]+arr[i+1]+arr[i+2]+arr[i+3]+arr[i+4]+arr[i+5]+arr[i+6]
+    //             +arr[i+7]+arr[i+8]+arr[i+9]+arr[i+10]+arr[i+11]+arr[i+12]
+    //             +arr[i+13]+arr[i+14]+arr[i+15]+arr[i+16]+arr[i+17]+arr[i+18]
+    //             +arr[i+19]+arr[i+20]+arr[i+21]+arr[i+22]+arr[i+23]+arr[i+24]+arr[i+25]
+    //             +arr[i+26]+arr[i+27]+arr[i+28]+arr[i+29]+arr[i+30])/30).toFixed(1)
+    //     })
+    //     b = b.filter(e =>e !== 'NaN')
+    //     b.map((e,i,arr) => {
+    //         // 30MA line-y
+    //         let pathy = 10+((maxPrice-e)/btw)*50
+    //         pathy = pathy.toFixed(1)
+    //         MA_30pathY.push(pathy)
+    //         // 20MA line-x
+    //         let pathx = lineX[29]+(20*i)
+    //         MA_30pathX.push(pathx)
+    //         return MA_30pathY
+    //     })
+    //     // 讓30MA line-y 能stop
+    //     let length = MA_30pathY.length
+    //     MA_30pathY.push(MA_30pathY[length-1])
+    //     return [{MA_30pathY,MA_30pathX}]
+    // }
 
-    const MA_30pathY = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathY
-    const MA_30pathX = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathX
+    // const MA_30pathY = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathY
+    // const MA_30pathX = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathX
 
     // -------- trading volume index & rectangle-----------
     let tradingVolmeIndex = (volume) => {
@@ -290,14 +290,12 @@ export const StockPriceSVG = ({HY_price}) => {
             <div className={styles['k-SVG']}>
                 <div className={styles.title}>
                     <span>2022年{name}股價走勢</span>
-                    <div className={styles.orange}></div>
-                    <span>5日線</span>
                     <div className={styles.blue}></div>
-                    <span>10日線</span>
-                    <div className={styles.yellow}></div>
-                    <span>20日線</span>
+                    <span>5日線</span>
                     <div className={styles.purple}></div>
-                    <span>30日線</span>
+                    <span>雙週線</span>
+                    <div className={styles.yellow}></div>
+                    <span>月線</span>
                 </div>
                 <div className={styles['price-detail']}>
                     <span>日期：</span>
@@ -348,14 +346,14 @@ export const StockPriceSVG = ({HY_price}) => {
                             </g>
                         ))}
                         {/* <path d="M 147 357.2 l 20 5.6 M 167 362.8 l 20 -5.6 M 187 357.2 l 20 -5.6 M 207 351.6 l 20 -5.6 M 227 346.0" stroke='rgb(255, 109, 0)' strokeWidth='2'/> */}
-                        {monthMA && (
+                        {/* {monthMA && (
                             <>
                             {MA_30pathX.map((item,index) => (
                                 <line key={index}
                                 x1={item} y1={MA_30pathY[index]} x2={item+20} y2={MA_30pathY[index+1]} stroke='rgb(103,58,183)' strokeWidth='2'/>
                             ))}
                             </>
-                        )}
+                        )} */}
                         {twentyMA && (
                             <>
                             {MA_20pathX.map((item,index) => (
@@ -368,7 +366,7 @@ export const StockPriceSVG = ({HY_price}) => {
                             <>
                             {MA_10pathX.map((item,index) => (
                                 <line key={index}
-                                x1={item} y1={MA_10pathY[index]} x2={item+20} y2={MA_10pathY[index+1]} stroke='rgb(38,198,218)' strokeWidth='2'/>
+                                x1={item} y1={MA_10pathY[index]} x2={item+20} y2={MA_10pathY[index+1]} stroke='rgb(103,58,183)' strokeWidth='2'/>
                             ))}
                             </>
                         )}
@@ -376,7 +374,7 @@ export const StockPriceSVG = ({HY_price}) => {
                             <>
                             {MA_5pathX.map((item,index) => (
                                 <line key={index}
-                                x1={item} y1={MA_5pathY[index]} x2={item+20} y2={MA_5pathY[index+1]} stroke='rgb(255,109,0)' strokeWidth='2'/>
+                                x1={item} y1={MA_5pathY[index]} x2={item+20} y2={MA_5pathY[index+1]} stroke='rgb(38, 198, 218)' strokeWidth='2'/>
                             ))}
                             </>
                         )}

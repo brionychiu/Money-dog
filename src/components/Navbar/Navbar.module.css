@@ -6,7 +6,7 @@
     background-color: #ffffff;
     border-bottom: 1px solid #dfdfdf;
     font-size: 15px;
-    z-index: 1;
+    z-index: 6;
   }
 .navi-wrapper{
     grid-column: 2/3;
@@ -50,6 +50,7 @@
   }
   /* searchBar */
   .searchBar{
+    position: relative;
     height: 36px;
     grid-column: 2/3;
     display: grid;
@@ -89,10 +90,7 @@
   /* search data--filtered */
   .search-data-box{
     position: absolute;
-    display:flex;
-    top:7%;
-    left:36%;
-
+    top:100%;
     width: 220px;
     background: #fff;
     border: 1px solid #dfdfdf;
@@ -112,6 +110,7 @@
     border-bottom: 1px solid #ebebeb;
     font-weight: bold;
     color: #9d9d9d;
+    
   }
   .searchitem{
     padding: 0px 6px;

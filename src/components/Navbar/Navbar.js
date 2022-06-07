@@ -61,12 +61,17 @@ const Navbar = () => {
         e.preventDefault()
         clearInput()
         // 找網址去篩字串-->做前一頁(ok!)
-        navigate(`/analysis/${stockId}/${sidebarLink[3]}`)
+        if(sidebarLink[3]===undefined){
+            navigate(`/analysis/${stockId}/`)
+        }else{
+            navigate(`/analysis/${stockId}/${sidebarLink[3]}`)
+        }   
     }
     const handleClick = () => {
         clearInput()
         navigate(`/analysis/${stockId}/basicInfo`)
     }
+
     console.log('filteredData',filteredData)
     return ( 
         <div className={styles.navbar}>
@@ -89,26 +94,26 @@ const Navbar = () => {
                         <button>
                             <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
                         </button>
+                        {user && filteredData.length !== 0 && (
+                        <div className={styles['search-data-box']}>
+                            <ul>
+                                <li>查詢個股</li>
+                            {filteredData.slice(0, 5).map((data,index) => {
+                                return (
+                                    <li key={index} 
+                                        className={styles.searchitem} 
+                                        onClick={handleClick}>
+                                        <span>{data.id}</span>
+                                        <span>{data.sname}</span>
+                                    </li>
+                                )
+                            })}
+                            </ul>
+                        </div>
+                    )}
                     </form> 
                 )}
-                {user && filteredData.length !== 0 && (
-                    <div className={styles['search-data-box']}>
-                        <ul>
-                            <li>查詢個股</li>
-                        {filteredData.slice(0, 5).map((data,index) => {
-                             return (
-                                 <li key={index} 
-                                    className={styles.searchitem} 
-                                    onClick={handleClick}>
-                                    <span>{data.id}</span>
-                                    <span>{data.sname}</span>
-                                  </li>
-                              )
-                        })}
-                            
-                        </ul>
-                    </div>
-                )}
+               
                 {!user && (
                     <ul className={styles.loginBar}>
                         <li className={styles.login}><Link to="/login">登入</Link></li>

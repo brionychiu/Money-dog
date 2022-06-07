@@ -21,7 +21,7 @@ const Analysis = () => {
     const { authIsReady, user } = useAuthContext()
     const uid = user?  user.uid: <Navigate to="/login"/> 
     const { stockId } = useParams()
-    const { addDocument, cancelTracking, response } = useFirestore('trackingList')
+    const { addDocument, cancelTracking } = useFirestore('trackingList')
     const { documents:trackingList } = useTrackingList(
         'trackingList',
         uid,stockId
