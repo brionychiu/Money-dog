@@ -3,10 +3,10 @@ import { useCollection } from "../../hooks/useCollection"
 import { motion } from 'framer-motion'
 
 //components
-import { StockPriceSVG } from './StockPriceSVG';
-// import sorryIcon from '../../components/img/sorry_icon.png'
+import { StockPriceSVG } from './StockPriceSVG'
 import nodataDogIcon from '../../components/img/no_data_icon.svg'
 import dogBoneIcon from '../../components/img/dog_bone.png'
+import loadingGif from '../../components/img/loading.gif'
 
 // styles
 import styles from './StockPrice.module.css'
@@ -19,6 +19,13 @@ const StockPrice = () => {
     console.log(HY_price)
     return ( 
     <div>
+        {HY_price===null && 
+            <div className={styles.ispending}>
+                <img src={loadingGif} alt='loading...'/>
+                <span>趕緊處理資料中</span>
+                <img src={loadingGif} alt='加載中...'/>
+            </div>
+        }
         {HY_price? (
             HY_price.length===0 ? 
             <div className={styles['nodata-container']}>

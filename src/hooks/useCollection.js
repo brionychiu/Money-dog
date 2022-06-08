@@ -8,7 +8,6 @@ export const useCollection = (col, qu1, qu2) => {
     const [documents, setDocuments] = useState(null)
     const [error, setError] = useState(null)
     
-
     useEffect(() => {
         let ref = collection(db,col)
 

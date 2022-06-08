@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { YoYdrawSVG } from "./YoYdrawSVG"
 import nodataDogIcon from '../../components/img/no_data_icon.svg'
 import dogBoneIcon from '../../components/img/dog_bone.png'
+import loadingGif from '../../components/img/loading.gif'
 
 // styles
 import styles from './YoY.module.css'
@@ -22,6 +23,13 @@ const YoY = () => {
     ) 
     return ( 
     <div className={styles['YoY-container']}>
+        {longYoY ===null && monthPrice===null && 
+            <div className={styles.ispending}>
+                <img src={loadingGif} alt='loading...'/>
+                <span>趕緊處理資料中</span>
+                <img src={loadingGif} alt='加載中...'/>
+            </div>
+        }
         {longYoY && monthPrice? 
             (longYoY.length===0 && monthPrice.length===0 ? 
                 <div className={styles['nodata-container']}>
@@ -147,7 +155,7 @@ const YoY = () => {
             <div className={styles.detail}>
                 {longYoY ? (longYoY.length===0 ?
                 <div className={styles.none}>
-                    <span>資料未取得，請再試試別隻股票喔</span>
+                    {/* <span>資料未取得，請再試試別隻股票喔</span> */}
                 </div>:
                 <>
                     <ul>

@@ -14,13 +14,31 @@ export const StockPriceSVG = ({HY_price}) => {
     const trancision =  HY_price? HY_price.Transaction:null
     const volume =  HY_price? HY_price.TradingVolume:null
 
-    // console.log('open:',open)
-    // console.log('high:',high)
-    // console.log('low:',low)
-    // console.log('close:',close)
-    // console.log('date:',date)
-    // console.log('trancision:',trancision)
+    //---------- init topbar value -------- 
+    const [stockDate ,setStockDate] = useState('')
+    const [stockOpen, setStockOpen] = useState('')
+    const [stockHigh, setStockHigh] = useState('')
+    const [stockLow, setStockLow] = useState('')
+    const [stockClose, setStockClose] = useState('')
+    const [stockTrancision, setStockTrancision] = useState(null)
     
+    // ------------moving line ---------------
+    const [movingX, setMovingX] = useState('')
+
+// --待解決---座標和svg畫布!!!
+    const showTopBar = (e) => {
+        //	建立 SVG 座標點（0, 0）
+        const clientPoint = e.createSVGPoint()
+        //	取得 CTM
+        const CTM = e.getScreenCTM()
+        //  將 SVG 座標點的 x, y 設成 client(x, y)
+        clientPoint.x = e.clientX
+        clientPoint.y = e.clientY
+        //	將 client 的座標點轉成 SVG 座標點
+        const SVGPoint = clientPoint.matrixTransform(CTM.inverse())
+        console.log(SVGPoint)
+        return {SVGPoint}
+    }
     // ----------- horizontal line -------------
     let horizontalLine = () => {
         const horiLine = []
@@ -191,7 +209,7 @@ export const StockPriceSVG = ({HY_price}) => {
                 +arr[i+19])/20).toFixed(1)
         })
         b = b.filter(e =>e !== 'NaN')
-        b.map((e,i,arr) => {
+        b.map((e,i) => {
             // 20MA line-y
             let pathy = 10+((maxPrice-e)/btw)*50
             pathy = pathy.toFixed(1)
@@ -209,37 +227,6 @@ export const StockPriceSVG = ({HY_price}) => {
    
     const MA_20pathY = MA_20array(close,maxPrice,lineX,btw)[0].MA_20pathY
     const MA_20pathX = MA_20array(close,maxPrice,lineX,btw)[0].MA_20pathX
-
-    //  --------------- 30MA -----------------
-    // let MA_30array = (close,maxPrice,lineX,btw) => {
-    //     let MA_30pathY = []
-    //     let MA_30pathX = []
-    //     let b = close.map((e,i,arr) => {
-    //         return ((arr[i]+arr[i+1]+arr[i+2]+arr[i+3]+arr[i+4]+arr[i+5]+arr[i+6]
-    //             +arr[i+7]+arr[i+8]+arr[i+9]+arr[i+10]+arr[i+11]+arr[i+12]
-    //             +arr[i+13]+arr[i+14]+arr[i+15]+arr[i+16]+arr[i+17]+arr[i+18]
-    //             +arr[i+19]+arr[i+20]+arr[i+21]+arr[i+22]+arr[i+23]+arr[i+24]+arr[i+25]
-    //             +arr[i+26]+arr[i+27]+arr[i+28]+arr[i+29]+arr[i+30])/30).toFixed(1)
-    //     })
-    //     b = b.filter(e =>e !== 'NaN')
-    //     b.map((e,i,arr) => {
-    //         // 30MA line-y
-    //         let pathy = 10+((maxPrice-e)/btw)*50
-    //         pathy = pathy.toFixed(1)
-    //         MA_30pathY.push(pathy)
-    //         // 20MA line-x
-    //         let pathx = lineX[29]+(20*i)
-    //         MA_30pathX.push(pathx)
-    //         return MA_30pathY
-    //     })
-    //     // 讓30MA line-y 能stop
-    //     let length = MA_30pathY.length
-    //     MA_30pathY.push(MA_30pathY[length-1])
-    //     return [{MA_30pathY,MA_30pathX}]
-    // }
-
-    // const MA_30pathY = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathY
-    // const MA_30pathX = MA_30array(close,maxPrice,lineX,btw)[0].MA_30pathX
 
     // -------- trading volume index & rectangle-----------
     let tradingVolmeIndex = (volume) => {
@@ -278,12 +265,12 @@ export const StockPriceSVG = ({HY_price}) => {
     const [fiveMA,setFiveMA] = useState(true)
     const [tenMA,setTenMA] = useState(true)
     const [twentyMA,setTwentyMA] = useState(true)
-    const [monthMA,setMonthMA] = useState(true)
 
     const handleClick = (e) => {
         e.target.style.fill = "pink"
+        e.target.style.stroke = "rgb(255,116,140)"
     }
-    
+    //  ------------ 
     // console.log(HY_price)
     return(
         <div className={styles['price-container']}>
@@ -299,19 +286,23 @@ export const StockPriceSVG = ({HY_price}) => {
                 </div>
                 <div className={styles['price-detail']}>
                     <span>日期：</span>
-                    <div>{name}</div>
+                    <div>{stockDate}</div>
                     <span>開盤價：</span>
-                    <div>{name}</div>
+                    <div>{stockOpen}元</div>
                     <span>最高價：</span>
-                    <div>{name}</div>
+                    <div>{stockHigh}元</div>
                     <span>最低價：</span>
-                    <div>{name}</div>
+                    <div>{stockLow}元</div>
                     <span>收盤價：</span>
-                    <div>{name}</div>
+                    <div>{stockClose}元</div>
+                    <span>成交筆數：</span>
+                    <div>{stockTrancision}筆</div>
                 </div>
                 <div className={styles.kChart}>
                     <svg 
                         id='k-svg'
+                        onMouseMove={(e) => {setMovingX(e.clientX)
+                        console.log(e.clientX)}}
                         width="2170" height="600"
                         viewBox="0 0 2170 600"
                         xmlns="<http://www.w3.org/2000/svg>"
@@ -346,19 +337,12 @@ export const StockPriceSVG = ({HY_price}) => {
                             </g>
                         ))}
                         {/* <path d="M 147 357.2 l 20 5.6 M 167 362.8 l 20 -5.6 M 187 357.2 l 20 -5.6 M 207 351.6 l 20 -5.6 M 227 346.0" stroke='rgb(255, 109, 0)' strokeWidth='2'/> */}
-                        {/* {monthMA && (
-                            <>
-                            {MA_30pathX.map((item,index) => (
-                                <line key={index}
-                                x1={item} y1={MA_30pathY[index]} x2={item+20} y2={MA_30pathY[index+1]} stroke='rgb(103,58,183)' strokeWidth='2'/>
-                            ))}
-                            </>
-                        )} */}
                         {twentyMA && (
                             <>
                             {MA_20pathX.map((item,index) => (
                                 <line key={index}
-                                x1={item} y1={MA_20pathY[index]} x2={item+20} y2={MA_20pathY[index+1]} stroke='rgb(251,192,45)' strokeWidth='2'/>
+                                x1={item} y1={MA_20pathY[index]} x2={item+20} y2={MA_20pathY[index+1]} 
+                                stroke='rgb(251,192,45)' strokeWidth='2' strokeLinecap="round"/>
                             ))}
                             </>
                         )}
@@ -366,7 +350,8 @@ export const StockPriceSVG = ({HY_price}) => {
                             <>
                             {MA_10pathX.map((item,index) => (
                                 <line key={index}
-                                x1={item} y1={MA_10pathY[index]} x2={item+20} y2={MA_10pathY[index+1]} stroke='rgb(103,58,183)' strokeWidth='2'/>
+                                x1={item} y1={MA_10pathY[index]} x2={item+20} y2={MA_10pathY[index+1]} 
+                                stroke='rgb(103,58,183)' strokeWidth='2' strokeLinecap="round"/>
                             ))}
                             </>
                         )}
@@ -374,17 +359,28 @@ export const StockPriceSVG = ({HY_price}) => {
                             <>
                             {MA_5pathX.map((item,index) => (
                                 <line key={index}
-                                x1={item} y1={MA_5pathY[index]} x2={item+20} y2={MA_5pathY[index+1]} stroke='rgb(38, 198, 218)' strokeWidth='2'/>
+                                x1={item} y1={MA_5pathY[index]} x2={item+20} y2={MA_5pathY[index+1]} 
+                                stroke='rgb(38, 198, 218)' strokeWidth='2' strokeLinecap="round"/>
                             ))}
                             </>
                         )}
                         
                         {lineX.map((item,index) => (
                             <line key={index}
+                           
                             x1={item} y1={lineY_1[index]} x2={item} y2={lineY_2[index]} stroke='rgb(93, 93, 93)' strokeWidth='2'/>
                         ))}
                         {rectX.map((item,index) => (
                             <rect key={index} 
+                                onMouseMove={() => {
+                                    console.log('item',item)
+                                    setStockDate(date[index]) 
+                                    setStockOpen(open[index])
+                                    setStockHigh(high[index])
+                                    setStockLow(low[index])
+                                    setStockClose(close[index])
+                                    setStockTrancision(trancision[index])
+                                    }}
                                 x={item} y={rectY[index]} onClick={handleClick}
                                 width="15" height={rectHeight[index]} fill={fillColor[index]}/>
                         ))}
@@ -409,18 +405,21 @@ export const StockPriceSVG = ({HY_price}) => {
                             x={110+index*20} y={volumeRect[index]} 
                             width="18" height={item} fill={fillColor[index]}/>
                         ))}
+
+                        {/* moving line */}
+                        <line 
+                            x1={movingX} y1="10" x2={movingX} y2="580" stroke='rgb(81,81,81)' strokeWidth='1'
+                            />
                     </svg>
                 </div>
                 
                 <span className={styles.checkbox}>
                     <input id='fiveMA' type='checkbox' vaule='5日線'onChange={() => setFiveMA(!fiveMA)} defaultChecked={fiveMA}/>
                     <label htmlFor='fiveMA'>5日線</label>
-                    <input id='tenMA' type='checkbox' vaule='10日線' onChange={() => setTenMA(!tenMA)} defaultChecked={tenMA} />
-                    <label htmlFor='tenMA'>10日線</label>
-                    <input id='twentyMA' type='checkbox' vaule='20日線'onChange={() => setTwentyMA(!twentyMA)} defaultChecked={twentyMA}/>
-                    <label htmlFor='twentyMA'>20日線</label>
-                    <input id='monthMA' type='checkbox' vaule='月線' onChange={() => setMonthMA(!monthMA)} defaultChecked={monthMA} />
-                    <label htmlFor='monthMA'>30日線</label>
+                    <input id='tenMA' type='checkbox' vaule='雙週線' onChange={() => setTenMA(!tenMA)} defaultChecked={tenMA} />
+                    <label htmlFor='tenMA'>雙週線</label>
+                    <input id='twentyMA' type='checkbox' vaule='月線'onChange={() => setTwentyMA(!twentyMA)} defaultChecked={twentyMA}/>
+                    <label htmlFor='twentyMA'>月線</label>
                 </span>
             
 

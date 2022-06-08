@@ -13,6 +13,8 @@ const pathVariants = {
         pathLength:1,
         transition:{
             duration:10,
+            repeat: Infinity,
+            repeatType: "loop",
             ease:'easeInOut'
         }
     }
@@ -21,15 +23,22 @@ const circleVariants = {
     hidden:{opacity:0},
     visible:{
         opacity:1,
-        transition:{duration:15}
+        transition:{
+            duration:15,
+            repeat: Infinity,
+            repeatType: "loop"}
     }
 }
 const textVariants = {
     hidden: {opacity: 0},
     visible: { 
         opacity: 1,
-        transition: { duration:15 }
-        },
+        transition: { 
+            duration:15,
+            repeat: Infinity,
+            repeatType: "loop"
+        }
+    },
 }
 
 const HomeSVG = () => {

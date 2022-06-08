@@ -9,7 +9,7 @@
     grid-template-columns: 1fr minmax(300px, 1024px) 1fr;  
     background-image: url(../../components/img/home_bg.svg);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 38%;
     background-size: cover; 
 }
 .navbar{
@@ -217,7 +217,7 @@
     z-index: 1;
   }
   .search-data-box ul{
-    font-size: 13px;
+    font-size: 15px;
     padding: 6px 0px;
   }
   .search-data-box ul li:nth-child(1){
@@ -389,11 +389,11 @@ font-size: 2em;
 }
 .slider img{
     position: relative; 
-    left:123px;
+    left:71px;
     bottom:24px;
 }
 .magazine{
     margin: 0px 50px;
-    width:150px;
+    width:200px;
     height: 80px;
 }

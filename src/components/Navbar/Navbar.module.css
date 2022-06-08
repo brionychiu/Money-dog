@@ -26,7 +26,8 @@
     border: 2px solid #ffb703;
   }
   .leftBar li:nth-child(1){
-    align-self:center;
+    align-self:end;
+    border-bottom: 3px solid transparent;
   }
   .leftBar li:nth-child(-n+4):nth-child(n+2){
     align-self: center;

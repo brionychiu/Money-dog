@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { EPSdrawSVG } from './EPSdrawSVG'
 import nodataDogIcon from '../../components/img/no_data_icon.svg'
 import dogBoneIcon from '../../components/img/dog_bone.png'
-
+import loadingGif from '../../components/img/loading.gif'
 
 // styles
 import styles from './EPS.module.css'
@@ -24,7 +24,14 @@ const EPS = () => {
     console.log(monthPrice)
     return ( 
         <div className={styles['EPS-container']}>
-             {Q_EPS && monthPrice ? 
+        {Q_EPS ===null && monthPrice===null && 
+            <div className={styles.ispending}>
+                <img src={loadingGif} alt='loading...'/>
+                <span>趕緊處理資料中</span>
+                <img src={loadingGif} alt='加載中...'/>
+            </div>
+        }
+            {Q_EPS && monthPrice ? 
             (Q_EPS.length===0 && monthPrice.length===0 ? 
                 <div className={styles['nodata-container']}>
                 <h2>目前尚未有資料</h2>
@@ -148,7 +155,7 @@ const EPS = () => {
                 <div className={styles.detail}>
                     {Q_EPS ? (Q_EPS.length===0 ?
                     <div className={styles.none}>
-                        <span>資料未取得，請再試試別隻股票喔</span>
+                        {/* <span>資料未取得，請再試試別隻股票喔</span> */}
                     </div>:
                     <>
                         <ul>

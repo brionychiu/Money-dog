@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { PEdrawSVG } from './PEdrawSVG'
 import nodataDogIcon from '../../components/img/no_data_icon.svg'
 import dogBoneIcon from '../../components/img/dog_bone.png'
+import loadingGif from '../../components/img/loading.gif'
 
 // styles
 import styles from './PERatio.module.css'
@@ -22,6 +23,13 @@ const PERatio = () => {
     ) 
     return ( 
     <div className={styles['PERatio-container']}>
+        {longPEratio ===null && monthPrice===null && 
+            <div className={styles.ispending}>
+                <img src={loadingGif} alt='loading...'/>
+                <span>趕緊處理資料中</span>
+                <img src={loadingGif} alt='加載中...'/>
+            </div>
+        }
          {longPEratio && monthPrice ? 
             (longPEratio.length===0 && monthPrice.length===0 ? 
                 <div className={styles['nodata-container']}>
@@ -134,7 +142,8 @@ const PERatio = () => {
             </div>:
             <PEdrawSVG 
                 longPEratio={longPEratio[0].PEratio}
-                M_Price={monthPrice[0].monthPrice}>
+                M_Price={monthPrice[0].monthPrice}
+                M_Date={monthPrice[0].month}>
             </PEdrawSVG>)
         :null}
         <div className={styles['PERatio-report']}>

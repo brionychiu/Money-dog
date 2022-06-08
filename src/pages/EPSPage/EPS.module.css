@@ -231,3 +231,21 @@
     height:48px;
     cursor: pointer;
 }
+/* ispending */
+.ispending{
+    position: absolute ;
+    left:50%;
+    top:50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+.ispending span{
+    position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    color: #434343;
+}
+.ispending img{
+    height:50px;
+}

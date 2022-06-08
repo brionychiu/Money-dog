@@ -15,35 +15,35 @@ const Sidebar = () => {
     return ( 
         <ul className={styles['sidebar-container']}>
             <motion.li
-                whileHover={{ scale:1.03, originX:0 }}>
+                whileHover={{ y:5 }}>
                 <Link to="">
                     <img src={newestIcon} alt='最新動態'/>
                     <p>最新動態</p>
                 </Link>
             </motion.li>
             <motion.li
-                whileHover={{ scale:1.03, originX:0 }}>
+                whileHover={{ y:5 }}>
                 <Link to="PEratio">
                     <img src={PEratioIcon} alt='價值評估'/>
                     <p>價值評估</p>
                 </Link>
             </motion.li>
             <motion.li
-                whileHover={{ scale:1.03, originX:0 }}>
+                whileHover={{ y:5 }}>
                 <Link to="YoY">
                     <img src={YoYiIcon} alt='成長力分析'/>
                     <p>成長力分析</p>
                 </Link>
             </motion.li>
             <motion.li
-                whileHover={{ scale:1.03, originX:0 }}>
+                whileHover={{ y:5 }}>
                 <Link to="EPS">
                     <img src={EPSIcon} alt='財務報表'/>
                     <p>財務報表</p>
                 </Link>
             </motion.li>
             <motion.li
-                whileHover={{ scale:1.03, originX:0 }}>
+                whileHover={{ y:5 }}>
                 <Link to="basicInfo">
                     <img src={infoIcon} alt='基本資料'/>
                     <p>基本資料</p>
