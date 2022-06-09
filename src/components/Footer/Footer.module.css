@@ -4,10 +4,14 @@
     color: #636363;
     font-size: 13px;
     line-height: 200%;
-    text-align: left;
+    text-align: center;
     border-top: 1px solid #e3e3e3;
     padding: 10px;
 }
 .footer h3 {
     text-align: center;
+}
+.footer img{
+    height:25px;
+    width:25px;
 }

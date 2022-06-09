@@ -5,7 +5,7 @@
 .homePage-1{
     grid-row: 1/2;
     display: grid;
-    grid-template-rows: 0.5fr 1fr 0.8fr 0.8fr 2fr;
+    grid-template-rows: 0.5fr 1fr 0.8fr 0.8fr 2.3fr;
     grid-template-columns: 1fr minmax(300px, 1024px) 1fr;  
     background-image: url(../../components/img/home_bg.svg);
     background-repeat: no-repeat;
@@ -185,12 +185,12 @@
     width:122px;
     height:40px;
     margin: 0px 15px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(78,78,78,0.5);
+    font-weight: 500;
     border-radius: 20px;
     text-align: center;
     line-height:40px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     cursor: pointer;
     transition: background-color 0.8s, color 0.8s;
 }
@@ -198,6 +198,8 @@
     background-color: #fff;
 }
 .stockItems li a{
+    font-size: 18px;
+    text-align: center;
     color: #fff;
 }
 .stockItems li:hover a{
@@ -206,7 +208,7 @@
 /* search data--filtered */
 .search-data-box{
     position: absolute;
-    left:28%;
+    left:29%;
     top:97%;
     width: 420px;
     background: #fff;
@@ -258,7 +260,6 @@
     grid-row: 2/3;
     background-color: #fff;
     display: grid;
-    grid-template-rows: 0.2fr 3fr 1fr;
     grid-template-columns: minmax( 360px,800px) auto;
     padding: 0px 50px; 
 }
@@ -287,22 +288,20 @@
     display: inline-block;
     padding: 15px;
 }
-.homePage-2 .text_1{
+.text_1{
     text-align: center;
-    grid-row: 2/3;
-    align-self: center;
     line-height: 180%;
     font-size: 24px;
     letter-spacing: 2px;
     margin-left: 30px;
+    margin-top: 40px;
 }
-.homePage-2 .linkToStock {
+.linkToStock {
     grid-column: 2/3;
-    grid-row: 3/4;
-    justify-self: center;
-    margin:10px 50px;
     padding: 10px 30px;
+    margin: 60px auto 0px;
     height:30px;
+    width:100px;
     background-color: #0386f4;
     line-height: 30px;
     font-weight: bold;
@@ -310,10 +309,10 @@
     cursor: pointer;
     transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
 }
-.homePage-2 .linkToStock a{
+.linkToStock a{
     color: #fff;
 }
-.homePage-2 .linkToStock:hover{
+.linkToStock:hover{
     background-color: #0862BB;
     transform: translateY(-2px);
     box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
@@ -328,14 +327,14 @@
     justify-items: center;
 }
 .homePage-3 h3{
-    margin-top: 40px;
+    margin-top: 50px;
     text-align: center;
     font-size: 26px;
     letter-spacing: 3px;
 }
 .slider{
     grid-row: 2/3;
-    margin-top: 20px;
+    margin-top: 30px;
     max-width:800px;
     max-height:200px;
     justify-self: center;
@@ -360,4 +359,19 @@
     margin: 0px 50px;
     width:200px;
     height: 80px;
+}
+/* RWD */
+@media(max-width:1200px){
+    .giftext_1{
+        left:100px;
+        top:230px;
+    }
+    .giftext_2{
+        left: 200px;
+        top:-70px;
+    }
+    .svg{
+        width:500px;
+        height:250px;
+    }
 }

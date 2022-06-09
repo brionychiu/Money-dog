@@ -26,7 +26,7 @@
     padding: 3px;
     border:1px solid #ffb703;
     border-radius: 20px;
-    margin: 0px 10px;
+    margin: -7px 10px;
 }
 .info-box button{
     font-weight: 700;
@@ -60,7 +60,6 @@
     border-radius: 3px;
     transition: all .5s;
     line-height: 27px;
-    cursor: pointer;
 }
 .daily-box li:hover{
     border-color: #0386f4;

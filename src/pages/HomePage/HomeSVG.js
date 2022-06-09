@@ -67,6 +67,7 @@ const HomeSVG = () => {
                 </span>
             </motion.div>
             <motion.svg 
+                className={styles.svg}
                 width="700" height="360"
                 viewBox="0 0 700 360"
                 xmlns="<http://www.w3.org/2000/svg>"

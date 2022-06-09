@@ -171,8 +171,10 @@ const Home = () => {
             
             <div className={styles['homePage-2']}>
                 <HomeSVG></HomeSVG>
-                <motion.div className={styles.text_1}>即時追蹤股市資訊<br/>幫你找出最有價值的潛力股</motion.div>
-                <div className={styles.linkToStock}><Link to="/analysis/2330">查看更多資訊</Link></div>
+                <div>
+                    <motion.div className={styles.text_1}>即時追蹤股市資訊<br/>幫你找出最有價值的潛力股</motion.div>
+                    <div className={styles.linkToStock}><Link to="/analysis/2330">查看更多資訊</Link></div>
+                </div>
             </div>
             <div div className={styles['homePage-3']}>
                     <h3>眾多媒體報導推薦</h3>

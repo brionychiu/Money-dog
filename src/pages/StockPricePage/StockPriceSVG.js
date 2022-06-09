@@ -20,7 +20,8 @@ export const StockPriceSVG = ({HY_price}) => {
     const [stockHigh, setStockHigh] = useState('')
     const [stockLow, setStockLow] = useState('')
     const [stockClose, setStockClose] = useState('')
-    const [stockTrancision, setStockTrancision] = useState(null)
+    const [stockVolume, setStockVolume] = useState('')
+    const [stockTrancision, setStockTrancision] = useState('')
     
     // ------------moving line ---------------
     const [movingX, setMovingX] = useState('')
@@ -269,6 +270,7 @@ export const StockPriceSVG = ({HY_price}) => {
     const handleClick = (e) => {
         e.target.style.fill = "pink"
         e.target.style.stroke = "rgb(255,116,140)"
+        e.target.style.strokeWidth = "3"
     }
     //  ------------ 
     // console.log(HY_price)
@@ -295,12 +297,15 @@ export const StockPriceSVG = ({HY_price}) => {
                     <div>{stockLow}元</div>
                     <span>收盤價：</span>
                     <div>{stockClose}元</div>
+                    <span>成交金額：</span>
+                    <div>{stockVolume}百萬</div>
                     <span>成交筆數：</span>
                     <div>{stockTrancision}筆</div>
                 </div>
                 <div className={styles.kChart}>
                     <svg 
                         id='k-svg'
+                        cursor="pointer"
                         onMouseMove={(e) => {setMovingX(e.clientX)
                         console.log(e.clientX)}}
                         width="2170" height="600"
@@ -379,6 +384,7 @@ export const StockPriceSVG = ({HY_price}) => {
                                     setStockHigh(high[index])
                                     setStockLow(low[index])
                                     setStockClose(close[index])
+                                    setStockVolume(volume[index])
                                     setStockTrancision(trancision[index])
                                     }}
                                 x={item} y={rectY[index]} onClick={handleClick}
@@ -402,6 +408,7 @@ export const StockPriceSVG = ({HY_price}) => {
                         {/* trading volume rectangle */}
                         {volumeHeight.map((item,index) => (
                             <rect key={index} 
+                            onClick={handleClick}
                             x={110+index*20} y={volumeRect[index]} 
                             width="18" height={item} fill={fillColor[index]}/>
                         ))}

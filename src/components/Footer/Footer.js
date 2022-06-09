@@ -1,5 +1,8 @@
 // styles
 import styles from './Footer.module.css'
+
+// components
+import footerIcon from '../img/footer_icon.png'
 const Footer = () => {
     return ( 
         <div className={styles.footer}>
@@ -8,7 +11,9 @@ const Footer = () => {
                 本站提供之分析資料、選股工具僅供參考，不暗示買賣建議，本站對資訊正確、更新延誤或傳輸中斷不負任何責任，
                 依本站資訊交易發生損失需自行負責，請謹慎評估風險。
                 (招財狗免責聲明)
+                <img src={footerIcon} alt='smile face:)'/>
             </div>
+            
         </div> 
     );
 }
