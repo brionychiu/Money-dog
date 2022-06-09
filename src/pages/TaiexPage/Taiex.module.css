@@ -128,3 +128,20 @@
     line-height: 180%;
     margin-bottom: 18px;
 }
+/* ispending */
+.ispending{
+    position: absolute ;
+    left:30%;
+    top:80%;
+    display: flex;
+    align-items: center;
+}
+.ispending span{
+    position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    color: #434343;
+}
+.ispending img{
+    height:30px;
+}

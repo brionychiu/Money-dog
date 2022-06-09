@@ -122,8 +122,7 @@ const Home = () => {
                         className={styles.searchBtn}>
                         <img className={styles.searchImg} src={searchIcon} alt='search'/>
                     </motion.button>
-                </motion.form>
-                {filteredData.length !== 0 && (
+                    {filteredData.length !== 0 && (
                     <div className={styles['search-data-box']}>
                         <ul>
                             <li>查詢個股</li>
@@ -141,6 +140,7 @@ const Home = () => {
                         </ul>
                     </div>
                 )}
+                </motion.form>
                 <motion.ul animate={{ y:-60 }} className={styles.stockItems}>
                     <motion.li
                         whileHover={{
@@ -174,19 +174,10 @@ const Home = () => {
                 <motion.div className={styles.text_1}>即時追蹤股市資訊<br/>幫你找出最有價值的潛力股</motion.div>
                 <div className={styles.linkToStock}><Link to="/analysis/2330">查看更多資訊</Link></div>
             </div>
-            <div div className={styles['homePage-3-user']}>
+            <div div className={styles['homePage-3']}>
                     <h3>眾多媒體報導推薦</h3>
                     <AutoSlider></AutoSlider>
             </div>
-            {/* // 原本是給沒註冊的看
-            // :(
-            // <div className={styles['homePage-3']}>
-            //     <img className={styles.logo_2} src={logoIcon} alt='logo'/>
-            //     <div className={styles.text_2}>馬上註冊招財狗，使用強大的免費功能 !</div>
-            //     <div className={styles.linkToSignup}><Link to="/signup">馬上免費註冊</Link></div>
-            // </div>
-            // )
-            }*/}
 
             <Footer/>
         </div>

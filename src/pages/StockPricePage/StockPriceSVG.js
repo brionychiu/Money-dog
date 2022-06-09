@@ -407,9 +407,9 @@ export const StockPriceSVG = ({HY_price}) => {
                         ))}
 
                         {/* moving line */}
-                        <line 
+                        {/* <line 
                             x1={movingX} y1="10" x2={movingX} y2="580" stroke='rgb(81,81,81)' strokeWidth='1'
-                            />
+                            /> */}
                     </svg>
                 </div>
                 

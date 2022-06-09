@@ -3,10 +3,26 @@ import { useState } from 'react'
 // styles
 import styles from './YoY.module.css'
 
-export const YoYdrawSVG = ({longYoY,M_Price}) => {
+export const YoYdrawSVG = ({longYoY,M_Price,M_Date}) => {
     // ------------checkbox
     const [YoY, setYoY] = useState(true)
     const [monthPrice, setmonthPrice] = useState(true)
+
+     // ---------- set text (hover) -------------
+     const [monthPriceText, setMonthPriceText] = useState('')
+     const [monthDateText, setMonthDateText] = useState('')
+     const [monthText_X, setMonthText_X] = useState(null)
+     const [monthText_Y, setMonthText_Y] = useState(null)
+     const [monthCircle_X, setMonthCircle_X] = useState(null)
+     const [monthCircle_Y, setMonthCircle_Y] = useState(null)
+     const [monthCircleStrokeWidth, setMonthCircleStrokeWidth] = useState('0')
+     const [yoyText, setYoYText] = useState('')
+     const [yoyDateText, setYoYDateText] = useState('')
+     const [yoyText_X, setYoYText_X] = useState(null)
+     const [yoyText_Y, setYoYText_Y] = useState(null)
+     const [yoyCircle_X, setYoYCircle_X] = useState(false)
+     const [yoyCircle_Y, setYoYCircle_Y] = useState(false)
+     const [yoyCircleStrokeWidth, setYoYCircleStrokeWidth] = useState('0') 
 
     // ------------ M_Price --------------
     let nn = Math.floor(Math.min(...M_Price))
@@ -74,11 +90,11 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             for (let i = 0 ; i < 40 ; i++){
                 if(longYoY[i]> 0){
                     cyNum = Math.abs(((longYoY[i])/topbtw)*50)
-                    cyNum= (210-cyNum).toFixed(1)
+                    cyNum= (250-cyNum).toFixed(1)
                     circleCy.push(cyNum)
                 }else{
                     cyNum = Math.abs(((longYoY[i])/downbtw)*50)
-                    cyNum= (210+cyNum).toFixed(1)
+                    cyNum= (250+cyNum).toFixed(1)
                     circleCy.push(cyNum)
                 }
             }
@@ -130,14 +146,13 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             minusStrokeWidth ="0"
             minusValue.push(minusHeight,minusStrokeWidth)
              
-            return {leftIndexValue,circleCy,minusValue}
+            return {leftIndexValue, circleCy, circleCy1, minusValue}
         }
     }
     const leftIndexValue = leftIndex(mm,MM,longYoY).leftIndexValue
     const circleCy = leftIndex(mm,MM,longYoY).circleCy
+    const circleCy1 = circleCy.slice(0,-1)
     const minusValue = leftIndex(mm,MM,longYoY).minusValue
-    // console.log(circleCy)
-
 
     return(
         <div className={styles['YoY-SVG']}>
@@ -150,6 +165,7 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
             </div>
             <svg
                 id='svg'
+                cursor="pointer"
                 width="912" height="500"
                 viewBox="0 0 912 500"
                 xmlns="<http://www.w3.org/2000/svg>"
@@ -193,92 +209,89 @@ export const YoYdrawSVG = ({longYoY,M_Price}) => {
                 {monthPrice && (
                     <>
                     {lineY1.map((item,index) => (
-                        <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
+                        <line  key={index} 
+                        onMouseOver={() => {
+                            setMonthPriceText(M_Price[index])
+                            setMonthDateText(M_Date[index]+'的月均價')
+                            setMonthText_X(62+(19*index))
+                            setMonthText_Y(item-20)
+                            setMonthCircle_X(62+(19*index))
+                            setMonthCircle_Y(item)
+                            setMonthCircleStrokeWidth('3')
+                        }}  
+                        onMouseOut={() => {
+                            setMonthPriceText('')
+                            setMonthDateText('')
+                            setMonthCircleStrokeWidth('0')
+                        }}
+                            x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
                     ))}
                     </>
                 )}
 
                 {/* long YoY */}
                 {YoY && (<>
-                    <circle cx="62" cy={circleCy[0]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/> 
-                    <line x1="62" y1={circleCy[0]} x2="79" y2={circleCy[1]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="79" cy={circleCy[1]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="79" y1={circleCy[1]} x2="98" y2={circleCy[2]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="98" cy={circleCy[2]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="98" y1={circleCy[2]} x2="117" y2={circleCy[3]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="117" cy={circleCy[3]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="117" y1={circleCy[3]} x2="136" y2={circleCy[4]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="136" cy={circleCy[4]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="136" y1={circleCy[4]} x2="155" y2={circleCy[5]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="155" cy={circleCy[5]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="155" y1={circleCy[5]} x2="174" y2={circleCy[6]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="174" cy={circleCy[6]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="174" y1={circleCy[6]} x2="193" y2={circleCy[7]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="193" cy={circleCy[7]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="193" y1={circleCy[7]} x2="212" y2={circleCy[8]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="212" cy={circleCy[8]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="212" y1={circleCy[8]} x2="231" y2={circleCy[9]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="231" cy={circleCy[9]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="231" y1={circleCy[9]} x2="250" y2={circleCy[10]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="250" cy={circleCy[10]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="250" y1={circleCy[10]} x2="269" y2={circleCy[11]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="269" cy={circleCy[11]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="269" y1={circleCy[11]} x2="288" y2={circleCy[12]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="288" cy={circleCy[12]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="288" y1={circleCy[12]} x2="307" y2={circleCy[13]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="307" cy={circleCy[13]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="307" y1={circleCy[13]} x2="326" y2={circleCy[14]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="326" cy={circleCy[14]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="326" y1={circleCy[14]} x2="345" y2={circleCy[15]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="345" cy={circleCy[15]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="345" y1={circleCy[15]} x2="364" y2={circleCy[16]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="364" cy={circleCy[16]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="364" y1={circleCy[16]} x2="383" y2={circleCy[17]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="383" cy={circleCy[17]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="383" y1={circleCy[17]} x2="402" y2={circleCy[18]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="402" cy={circleCy[18]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="402" y1={circleCy[18]} x2="421" y2={circleCy[19]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="421" cy={circleCy[19]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="421" y1={circleCy[19]} x2="440" y2={circleCy[20]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="440" cy={circleCy[20]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="440" y1={circleCy[20]} x2="459" y2={circleCy[21]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="459" cy={circleCy[21]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="459" y1={circleCy[21]} x2="478" y2={circleCy[22]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="478" cy={circleCy[22]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="478" y1={circleCy[22]} x2="497" y2={circleCy[23]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="497" cy={circleCy[23]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="497" y1={circleCy[23]} x2="516" y2={circleCy[24]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="516" cy={circleCy[24]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="516" y1={circleCy[24]} x2="535" y2={circleCy[25]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="535" cy={circleCy[25]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="535" y1={circleCy[25]} x2="554" y2={circleCy[26]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="554" cy={circleCy[26]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="554" y1={circleCy[26]} x2="573" y2={circleCy[27]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="573" cy={circleCy[27]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="573" y1={circleCy[27]} x2="592" y2={circleCy[28]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="592" cy={circleCy[28]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="592" y1={circleCy[28]} x2="611" y2={circleCy[29]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="611" cy={circleCy[29]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="611" y1={circleCy[29]} x2="630" y2={circleCy[30]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="630" cy={circleCy[30]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="630" y1={circleCy[30]} x2="649" y2={circleCy[31]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="649" cy={circleCy[31]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="649" y1={circleCy[31]} x2="668" y2={circleCy[32]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="668" cy={circleCy[32]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="668" y1={circleCy[32]} x2="687" y2={circleCy[33]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="687" cy={circleCy[33]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="687" y1={circleCy[33]} x2="706" y2={circleCy[34]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="706" cy={circleCy[34]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="706" y1={circleCy[34]} x2="725" y2={circleCy[35]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="725" cy={circleCy[35]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="725" y1={circleCy[35]} x2="744" y2={circleCy[36]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="744" cy={circleCy[36]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="744" y1={circleCy[36]} x2="763" y2={circleCy[37]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="763" cy={circleCy[37]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="763" y1={circleCy[37]} x2="782" y2={circleCy[38]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="782" cy={circleCy[38]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
-                    <line x1="782" y1={circleCy[38]} x2="801" y2={circleCy[39]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    <circle cx="801" cy={circleCy[39]} r="3" strokeWidth="4" stroke="rgb(232,194,0)" fill="rgb(232,194,0)"/>
+                    {/* line */}
+                    {circleCy1.map((item,index) => (
+                            <line key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} stroke="rgb(232,194,0)" strokeWidth="3" />
+                    ))}
+                    {/* circle */}
+                    {circleCy.map((item,index) => (
+                        <circle key={index} 
+                        onMouseMove={() => {
+                            setYoYText(longYoY[index])
+                            setYoYDateText(M_Date[index]+'的營收年增率')
+                            setYoYText_X(62+(19*index))
+                            setYoYText_Y(item-20)
+                            setYoYCircle_X(62+(19*index))
+                            setYoYCircle_Y(item)
+                            setYoYCircleStrokeWidth("4")
+
+                        }}  
+                        onMouseOut={() => {
+                            setYoYText('')
+                            setYoYDateText('')
+                            setYoYCircleStrokeWidth("0")
+                        }}
+                        onClick={(e) => {
+                            e.target.style.fill="rgb(138,166,246)"
+                            e.target.style.stroke="rgb(138,166,246)"
+                            setYoYText(longYoY[index])
+                            setYoYDateText(M_Date[index]+'的營收年增率')
+                            setYoYText_X(62+(19*index))
+                            setYoYText_Y(item-20)
+                            setYoYCircle_X(62+(19*index))
+                            setYoYCircle_Y(item)
+                            setYoYCircleStrokeWidth("4")
+                        }}
+                        cx={62+(19*index)} cy={item} r="3" strokeWidth="4" stroke="rgb(232,194,0)" 
+                        fill="rgb(232,194,0)"/>
+                    ))}
+                </>)}
+                 {/* month price up text & circle */}
+                 {monthPrice && (
+                <>
+                    <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{monthPriceText}
+                    </text>
+                    <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{monthDateText}
+                    </text>
+                    <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
+                        strokeWidth={monthCircleStrokeWidth}
+                        stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
+                </>)}
+                 {/* long PERatio text & circle*/}
+              {YoY && (
+                <>
+                    <text x={yoyText_X} y={yoyText_Y}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{yoyText}
+                    </text>
+                    <text x={yoyText_X-25} y={yoyText_Y-15}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{yoyDateText}
+                    </text>
+                    <circle cx={yoyCircle_X} cy={yoyCircle_Y} r="7" strokeWidth={yoyCircleStrokeWidth}
+                        stroke="rgb(255,214,3)" strokeOpacity="50%" fill="none"/>
                 </>)}
             </svg>
             <span className={styles.checkbox}>

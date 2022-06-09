@@ -143,7 +143,9 @@ const EPS = () => {
             </div>:
             <EPSdrawSVG 
                 Q_EPS={Q_EPS[0].EPS}
-                M_Price={monthPrice[0].monthPrice}>
+                Q_Date={Q_EPS[0].quarter}
+                M_Price={monthPrice[0].monthPrice}
+                M_Date={monthPrice[0].month}>
             </EPSdrawSVG>)
         :null}
             <div className={styles['EPS-report']}>

@@ -4,6 +4,7 @@ import { useCollection } from "../../hooks/useCollection"
 import Navbar from "../../components/navbar/Navbar"
 import Footer from '../../components/footer/Footer'
 import { TaiexSVG } from "./TaiexSVG"
+import loadingGif from '../../components/img/loading.gif'
 
 // styles
 import styles from './Taiex.module.css'
@@ -15,10 +16,6 @@ const Taiex = () => {
     const { documents:otc } = useCollection(
         'taiex','0001'
     )
-    // 待做:判斷上面的指數是紅色還是黑色
-    // const otcClose = otc[0].otcClose
-    // const otcOpen = otc[0].otcOpen
-    // console.log(otcClose)
     
     return ( 
         <div className={styles['taiex-bk']}>
@@ -59,6 +56,13 @@ const Taiex = () => {
                             </ul>
                         </div> 
                         <div className={styles['index-area']}>
+                            {!taiex && (
+                                <div className={styles.ispending}>
+                                    <img src={loadingGif} alt='loading...'/>
+                                    <span>趕緊處理資料中</span>
+                                    <img src={loadingGif} alt='加載中...'/>
+                                </div>
+                            )}
                             {taiex && <TaiexSVG 
                                 taiex={taiex}
                                 otc={otc}>

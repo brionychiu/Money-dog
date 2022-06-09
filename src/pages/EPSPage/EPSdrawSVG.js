@@ -3,9 +3,23 @@ import { useState } from 'react';
 // styles
 import styles from './EPS.module.css'
 
-export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
-    // console.log(Q_EPS)
-    // console.log(M_Price)
+export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
+    // ------- checkbox -----------
+    const [qEPS, setqEPS] = useState(true)
+    const [monthPrice, setmonthPrice] = useState(true)
+
+    // ---------- set text (hover) -------------
+    const [monthPriceText, setMonthPriceText] = useState('')
+    const [monthDateText, setMonthDateText] = useState('')
+    const [monthText_X, setMonthText_X] = useState(null)
+    const [monthText_Y, setMonthText_Y] = useState(null)
+    const [monthCircle_X, setMonthCircle_X] = useState(null)
+    const [monthCircle_Y, setMonthCircle_Y] = useState(null)
+    const [monthCircleStrokeWidth, setMonthCircleStrokeWidth] = useState('0')
+    const [epsText, setEPSText] = useState('')
+    const [epsDateText, setEPSDateText] = useState('')
+    const [epsText_X, setEPSText_X] = useState(null)
+    const [epsText_Y, setEPSText_Y] = useState(null)
 
     // -------- left index (eps) ---------- 
     let mm = Math.floor(Math.min(...Q_EPS))
@@ -149,9 +163,6 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
     const lineY1 = rightIndex(nn,NN,M_Price).lineY1
     const lineY2 = rightIndex(nn,NN,M_Price).lineY2
 
-    // ------- checkbox -----------
-    const [qEPS, setqEPS] = useState(true)
-    const [monthPrice, setmonthPrice] = useState(true)
     return(
         <div className={styles['EPS-SVG']}>
             <div>
@@ -163,6 +174,7 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
             </div>
             <svg 
                 id='svg'
+                cursor="pointer"
                 width="912" height="500"
                 viewBox="0 0 912 500"
                 xmlns="<http://www.w3.org/2000/svg>"
@@ -207,7 +219,23 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 {qEPS && (
                     <>
                     {rectangleY1.map((item,index) => (
-                        <rect  key={index} x={75+57*index} y={item} width="30" height={rectangleHeight[index]} 
+                        <rect  key={index} 
+                        onMouseMove={(e) => {
+                            e.target.style.fill="rgb(255,151,2)"
+                            e.target.style.fillOpacity='0.6'
+                            setEPSText(Q_EPS[index])
+                            setEPSDateText(Q_Date[index]+'的EPS')
+                            setEPSText_X(75+57*index)
+                            setEPSText_Y(item)
+
+                        }}  
+                        onMouseOut={(e) => {
+                            e.target.style.fill="rgb(232,194,0)"
+                            e.target.style.fillOpacity='0.3'
+                            setEPSText('')
+                            setEPSDateText('')
+                        }}
+                        x={75+57*index} y={item} width="30" height={rectangleHeight[index]} 
                         fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
                         fillOpacity='0.3' strokeOpacity='0.9'  />
                     ))}
@@ -216,9 +244,47 @@ export const EPSdrawSVG = ({Q_EPS,M_Price}) => {
                 {monthPrice && (
                       <>
                       {lineY1.map((item,index) => (
-                          <line  key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
+                          <line  key={index}
+                          onMouseOver={() => {
+                            setMonthPriceText(M_Price[index])
+                            setMonthDateText(M_Date[index]+'的月均價')
+                            setMonthText_X(62+(19*index))
+                            setMonthText_Y(item-20)
+                            setMonthCircle_X(62+(19*index))
+                            setMonthCircle_Y(item)
+                            setMonthCircleStrokeWidth('3')
+                        }}  
+                        onMouseOut={() => {
+                            setMonthPriceText('')
+                            setMonthDateText('')
+                            setMonthCircleStrokeWidth('0')
+                        }} 
+                            x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
                       ))}
                       </>
+                )}
+                {/* month price up text & circle */}
+                {monthPrice && (
+                <>
+                    <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{monthPriceText}
+                    </text>
+                    <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{monthDateText}
+                    </text>
+                    <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
+                        strokeWidth={monthCircleStrokeWidth}
+                        stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
+                </>)}
+                {qEPS && (
+                <>
+                    <text x={epsText_X} y={epsText_Y-10}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{epsText}
+                    </text>
+                    <text x={epsText_X-30} y={epsText_Y-30}  fill="rgb(106,106,106)" 
+                        fontWeight="600" fontSize='13'>{epsDateText}
+                    </text>
+                </>
                 )}
             </svg>
             <span className={styles.checkbox}>

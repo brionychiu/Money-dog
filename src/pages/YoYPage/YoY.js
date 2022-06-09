@@ -142,7 +142,8 @@ const YoY = () => {
             </div>:
             <YoYdrawSVG 
             longYoY={longYoY[0].YoY}
-            M_Price={monthPrice[0].monthPrice}>
+            M_Price={monthPrice[0].monthPrice}
+            M_Date={monthPrice[0].month}>
             </YoYdrawSVG>)
             
         :null}

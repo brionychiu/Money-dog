@@ -13,29 +13,23 @@ import dollarIcon from '../../components/img/dollar_icon.png'
 import dollarGif from '../../components/img/dollar_hover.gif'
 import loadingGif from '../../components/img/loading.gif'
 
-
-// import blueRightArrow from '../img/right_arrow_icon_blue.png'
-
 // styles
 import styles from './TrackingList.module.css'
 
 const TrackingList = () => {
     const [hoverGif, setHoverGif] = useState(false)
     const [daily, setDaily] = useState(true)
-    // 待解決:設定最後的+/-是紅色還是綠色
-    // const [color, setColor] = useState(false)
     const { user } = useAuthContext()
     const uid = user?  user.uid: <Navigate to="/login"/> 
     const { deleteDocument } = useFirestore('trackingList')
-
-    const { documents:trackingList, error, isPending} = useTrackingList(
+    const { documents:trackingList, error} = useTrackingList(
         'trackingList',
         uid
     )
     let priceChange = (trackingList) => {
         const change = []
         const changePercetage = []
-        // const tradeMill =[]
+        const changeColor = []
         let changeNum, perNum, millNum
         for(let i = 0 ; i < trackingList.length; i++){
             changeNum = trackingList[i].change
@@ -45,25 +39,41 @@ const TrackingList = () => {
             perNum = Number(trackingList[i].change)/Number(trackingList[i].close)*100
             perNum = perNum.toFixed(1)
             changePercetage.push(perNum)
-            // 待解決:把金額縮小至百萬  
-            // millNum = trackingList[i][-1:-6]
-        }
-        return {change,changePercetage}
+            if(change<0){
+                // green
+                changeColor.push('#008000')
+            }else{
+                changeColor.push('#C8280B')
+            }
+        } 
+        // 把成交金額轉為百萬單位
+        millNum = Number(trackingList[0].tradeValue)/1000000
+        millNum = millNum.toFixed(1)
+        return {change,changePercetage,millNum,changeColor}
     }
-    const change = trackingList? priceChange(trackingList).change:isPending
-    const changePercetage = trackingList? priceChange(trackingList).changePercetage:isPending
-    
+
+    const change = trackingList? priceChange(trackingList).change:null
+    const changePercetage = trackingList? priceChange(trackingList).changePercetage:null
+    const millNum = trackingList? priceChange(trackingList).millNum:null
+    const changeColor = trackingList? priceChange(trackingList).changeColor:null
+
+    // ------ topbar onclick ---------------
+    const handleClick = () => {
+        
+    }
 
     return ( 
     <div className={styles['trackingList-container']}>
         <Navbar />
         <div className={styles['root-content']}>
             <div className={styles['main-content']}>
-                {isPending && (
-                    <div>
-                    <span>加載中</span>
-                    <img src={loadingGif} alt='loading'/>
-                    </div>)}
+                {!trackingList  && (
+                    <div className={styles.ispending}>
+                        <img src={loadingGif} alt='loading...'/>
+                        <span>趕緊處理資料中</span>
+                        <img src={loadingGif} alt='加載中...'/>
+                    </div>
+                )}
                 {trackingList && (
                     <div className={styles['left-box']}>
                         <ul className={styles.category}>
@@ -96,8 +106,12 @@ const TrackingList = () => {
                         <div className={styles.daily}>
                         {trackingList.map((item,index) => (
                             <ul key={index}>
-                                <li><Link to={{pathname:`/analysis/${item.stockId}/basicInfo`}}>{item.stockId} {item.sname}</Link></li>
-                                <li>成交金額：<span>{item.tradeValue}元</span></li>
+                                <motion.li 
+                                    whileHover={{ y:-2 }}><Link 
+                                    to={{pathname:`/analysis/${item.stockId}/basicInfo`}}>
+                                        {item.stockId} {item.sname}
+                                    </Link></motion.li>
+                                <li>成交金額：<span>{millNum}百萬</span></li>
                                 <li>成交筆數：<span>{item.transaction}筆</span></li>
                             </ul>
                         ))}
@@ -108,7 +122,7 @@ const TrackingList = () => {
                     <div className={styles['right-box']}>
                         <div className={styles.togglemenu}>
                             <img className={styles.arrow} src={rightArrow} alt='read more'/>
-                            <span>我的股票追蹤清單</span>
+                            <span>我的股票追蹤清單<span className={styles.fontsize}>(今日收盤、今日漲跌)</span></span>
                         </div>
                         <ul className={styles['stock-list']}>
                             {error && <p>{error}</p>}
@@ -120,8 +134,10 @@ const TrackingList = () => {
                                         :<img src={dollarIcon} alt='dollar icon'/>}
                                         <Link to={{pathname:`/analysis/${item.stockId}/basicInfo`}}>{item.stockId} {item.sname}</Link>
                                         <p>{item.close}</p>
-                                        <p>{change[index]}</p>
-                                        <p>{changePercetage[index]}%</p>
+                                        <p style={{ color:changeColor[index]}}>{change[index]}</p>
+                                        <p style={{ color:changeColor[index]}}>{changePercetage[index]}%</p>
+                                        {/* green */}
+                                       
                                         <button onClick={() => deleteDocument(item.id)}>x</button>
                                     </li>
                                 ))}

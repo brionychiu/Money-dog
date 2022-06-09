@@ -19,7 +19,7 @@ const StockPrice = () => {
     console.log(HY_price)
     return ( 
     <div>
-        {HY_price===null && 
+        {!HY_price && 
             <div className={styles.ispending}>
                 <img src={loadingGif} alt='loading...'/>
                 <span>趕緊處理資料中</span>

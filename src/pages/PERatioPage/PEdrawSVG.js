@@ -168,7 +168,7 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                     {lineY1.map((item,index) => (
                         <line  
                         key={index}
-                        onMouseMove={() => {
+                        onMouseOver={() => {
                             setMonthPriceText(M_Price[index])
                             setMonthDateText(M_Date[index]+'的月均價')
                             setMonthText_X(62+(19*index))
@@ -177,6 +177,11 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                             setMonthCircle_Y(item)
                             setMonthCircleStrokeWidth('3')
                         }}  
+                        onMouseOut={() => {
+                            setMonthPriceText('')
+                            setMonthDateText('')
+                            setMonthCircleStrokeWidth('0')
+                        }}
                         x1={62+(19*index)} y1={item} x2={81+(19*index)} 
                         y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" 
                         strokeLinecap="round"/>
@@ -185,11 +190,15 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                 {/* long PERatio */}
                 {PEratio && (
                 <>
+                    {/* line */}
+                    {circleCy1.map((item,index) => (
+                        <line x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} stroke="rgb(232,194,0)" strokeWidth={strokeWidth[index]} />
+                    ))}
                     {circleCy.map((item,index) => (
                         <circle 
                         onMouseMove={() => {
                             setPEText(longPEratio[index])
-                            setPEDateText(longPEratio[index]+'的本益比')
+                            setPEDateText(M_Date[index]+'的本益比')
                             setPEText_X(62+(19*index))
                             setPEText_Y(item-20)
                             setPECircle_X(62+(19*index))
@@ -197,13 +206,25 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                             setPECircleStrokeWidth("4")
 
                         }}  
+                        onMouseOut={() => {
+                            setPEText('')
+                            setPEDateText('')
+                            setPECircleStrokeWidth("0")
+                        }}
+                        onClick={(e) => {
+                            e.target.style.fill="rgb(71, 170, 253)"
+                            e.target.style.stroke="rgb(71, 170, 253)"
+                            setPEText(longPEratio[index])
+                            setPEDateText(M_Date[index]+'的本益比')
+                            setPEText_X(62+(19*index))
+                            setPEText_Y(item-20)
+                            setPECircle_X(62+(19*index))
+                            setPECircle_Y(item)
+                            setPECircleStrokeWidth("4")
+                        }}
                         key={index} cx={62+(19*index)} cy={item} 
                         r={circleR[index]} strokeWidth="4" stroke="rgb(232,194,0)" 
                         fill="rgb(232,194,0)"/> 
-                    ))}
-                    {/* line */}
-                    {circleCy1.map((item,index) => (
-                    <line x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} stroke="rgb(232,194,0)" strokeWidth={strokeWidth[index]} />
                     ))}
                 </>)}
                 {/* month price up text & circle */}
@@ -212,7 +233,7 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                     <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
                         fontWeight="600" fontSize='13'>{monthPriceText}
                     </text>
-                    <text x={monthText_X} y={monthText_Y-15}  fill="rgb(106,106,106)" 
+                    <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
                         fontWeight="600" fontSize='13'>{monthDateText}
                     </text>
                     <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
@@ -225,14 +246,12 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                     <text x={peText_X} y={peText_Y}  fill="rgb(106,106,106)" 
                         fontWeight="600" fontSize='13'>{peText}
                     </text>
-                    <text x={peText_X} y={peText_Y-15}  fill="rgb(106,106,106)" 
+                    <text x={peText_X-25} y={peText_Y-15}  fill="rgb(106,106,106)" 
                         fontWeight="600" fontSize='13'>{peDateText}
                     </text>
                     <circle cx={peCircle_X} cy={peCircle_Y} r="7" strokeWidth={peCircleStrokeWidth}
                         stroke="rgb(255,214,3)" strokeOpacity="50%" fill="none"/>
                 </>)}
-
-
             </svg>
             <span className={styles.checkbox}>
                 <input id='mPEratio' type='checkbox' vaule='每月本益比'onChange={() => setPEratio(!PEratio)} defaultChecked={PEratio}/>
