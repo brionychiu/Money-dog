@@ -1,5 +1,3 @@
-import { val } from 'cheerio/lib/api/attributes'
-import { useState } from 'react'
 
 // styles
 import styles from './Taiex.module.css'
@@ -8,12 +6,10 @@ export const TaiexSVG = ({taiex,otc}) => {
 
     const close = taiex[0].taiexClose
     const otcClose = otc[0].otcClose
-    console.log(otcClose)
     // const date = taiex[0].taiexDate
     // const high = taiex[0].taiexHigh
     // const low = taiex[0].taiexLow
     // const open = taiex[0].taiexOpen
-    console.log(close)
 
     // right price index    
     const mm = Math.floor(Math.min(...close))-100
@@ -62,7 +58,6 @@ export const TaiexSVG = ({taiex,otc}) => {
     }
     const leftIndexValue = leftIndex(nn,NN,otcClose).leftIndexValue
     const otcCloseY = leftIndex(nn,NN,otcClose).otcCloseY
-    console.log(otcCloseY)
 
     return(
         <div  className={styles['index-svg']}>

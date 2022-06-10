@@ -192,7 +192,9 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                 <>
                     {/* line */}
                     {circleCy1.map((item,index) => (
-                        <line x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} stroke="rgb(232,194,0)" strokeWidth={strokeWidth[index]} />
+                        <line key={index} 
+                        x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} 
+                        stroke="rgb(232,194,0)" strokeWidth={strokeWidth[index]} />
                     ))}
                     {circleCy.map((item,index) => (
                         <circle 

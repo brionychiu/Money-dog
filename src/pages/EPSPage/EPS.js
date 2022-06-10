@@ -19,7 +19,6 @@ const EPS = () => {
     const { documents:monthPrice } = useCollection(
         'monthPrice',stockId
     ) 
-    console.log(monthPrice)
     return ( 
         <div className={styles['EPS-container']}>
         {Q_EPS ===null && monthPrice===null && 

@@ -1,7 +1,8 @@
 .trackingList-container{
     display: grid;
-    grid-template-rows: 59px minmax(600px, auto) 99px;
+    grid-template-rows: 59px minmax(1000px, max-content) auto;
     background-color: #ededed;
+    min-height: 100vh;
 }
 .root-content{
     display: grid;
@@ -22,7 +23,6 @@
 .togglemenu{
     font-size: 15px;
     font-weight: bold;
-    display: flex;
     align-content: center;
     padding: 12px 0px;
     color: #434343;
@@ -37,7 +37,9 @@
 }
 .stock-item{
     max-width: 300px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.2fr 3.5fr 2fr 1.5fr 2fr 1.5fr;
+    justify-items: start;
     font-size: 13px;
     padding: 15px 10px;
     align-items: center;
@@ -62,15 +64,10 @@
 .stock-item img{
     width: 20px;
     height: 20px;
-    margin-right: 5px;
-}
-.stock-item p:nth-child(-n+6):nth-child(n+3){
-    margin: 0px 10px;
 }
 .stock-item button{
     border: 0 none;
     cursor: pointer;
-    margin-left: 20px;
 }
 /* left-box */
 .left-box{

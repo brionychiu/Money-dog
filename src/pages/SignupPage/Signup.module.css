@@ -120,3 +120,33 @@
     text-align: center;
     line-height: 52px;
 }
+/* RWD */
+@media(max-width:600px){
+    .signup-form{
+        grid-template-columns: 1fr 360px 1fr;
+    }
+    .signup-form .container{
+        grid-template-rows: repeat(2 , 0.4fr) 0.2fr repeat(3 , 0.4fr) repeat(2 , 0.5fr);
+    }
+    .signup-form .container label{
+        margin: 20px 0px 0px;
+    }
+    .signup-form .container label div{
+        margin: 0px 10px 15px;
+    }
+    .signup-form .container .googleSignin, .fbSignin{
+        width:320px;
+        height:45px;
+        margin: 10px 0px;
+    }
+    .signup-form .container label input{
+        width: 300px;
+        margin: 0px 10px
+    }
+    .signup-form .container .submitBtn{
+        width: 300px;
+    }
+    .error{
+        width:300px;
+    }
+}

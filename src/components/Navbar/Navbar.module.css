@@ -110,8 +110,7 @@
     line-height: 0;
     border-bottom: 1px solid #ebebeb;
     font-weight: bold;
-    color: #9d9d9d;
-    
+    color: #9d9d9d; 
   }
   .searchitem{
     padding: 0px 6px;
@@ -159,7 +158,6 @@
     font-weight: bold;
     display: inline-flex;
     align-items: center;
-  
   }
   .trackingIcon{
     width: 23px;
@@ -219,3 +217,53 @@
     .navbar .loginBar .login:hover a{
       color: #ffffff;
     } 
+/* toggle menu */
+.toggle-menu{
+  display: none;
+}
+/* RWD */
+@media(max-width:800px){
+  .navi-wrapper{
+    display: none;
+  }
+  .toggle-menu{
+    grid-column: 2/3;
+    display: grid;
+    height: 58px;
+    align-items: center;
+    margin:0px 10px;
+  }
+  .cross{
+    width:30px;
+    height:30px;
+    position: absolute;
+    left: 148px;
+    top: 0px;
+    border:1px solid #fff;
+  }
+  .menu-detail{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:150px;
+    height:381px;
+    background-color: #0386f4;
+    z-index: 2;
+    border-radius: 3px;
+    border:1px solid #fff;
+  }
+  .menu-detail li{
+    text-align: center;
+    padding: 20px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border:1px solid #fff;
+  }
+  .menu-detail li a{
+    color: #fff;
+  }
+  .toggle-menu .searchBar{
+    width:220px;
+    justify-content: end;
+  }
+}

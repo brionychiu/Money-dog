@@ -1,12 +1,13 @@
 .container {
     display:grid;
     grid-template-rows: 800px 360px 480px ;
+    overflow-x: hidden;
 }
 .homePage-1{
     grid-row: 1/2;
     display: grid;
     grid-template-rows: 0.5fr 1fr 0.8fr 0.8fr 2.3fr;
-    grid-template-columns: 1fr minmax(300px, 1024px) 1fr;  
+    grid-template-columns: 1fr minmax(300px,1024px) 1fr;  
     background-image: url(../../components/img/home_bg.svg);
     background-repeat: no-repeat;
     background-position: bottom;
@@ -40,6 +41,7 @@
     grid-column:2/3;
     justify-self: end;
     display: inline-flex;
+    padding-right:20px ;
 }
 .rightBar li:nth-child(1) a{
     margin: 25px 10px 0px;
@@ -79,6 +81,7 @@
 .loginBar{
     grid-column:2/3;
     justify-self: end;
+    padding-right:20px ;
     display: inline-flex;
 }
 .loginBar li{
@@ -112,6 +115,10 @@
     border-color: #fff;
     transition: all 0.5s;
 } 
+/* toggle menu */
+.toggle-menu{
+    display: none;
+}
 .homePage-1 .logo{
     grid-column: 2/3;
     grid-row:2/3;
@@ -130,11 +137,18 @@
     font-weight: bold;
     color: #fff;
 }
+.slogan_RWD{
+    display: none;
+}
 .homePage-1 form{
     grid-column: 2/3;
     display: inline-flex;
-    justify-content: center;
+    justify-self: center;
     padding-left: 34px;
+    position: relative;
+    align-self: center;
+    border: none;
+    z-index: 1;
 }
 .homePage-1 form .searchBar{
     height:50px;
@@ -147,12 +161,6 @@
     text-align: center;
     font-weight: bold;
     outline: none;
-}
-.homePage-1 form{
-    position: relative;
-    align-self: center;
-    border: none;
-    z-index: 1;
 }
 .homePage-1 form .searchBtn{
     position: relative;
@@ -208,8 +216,9 @@
 /* search data--filtered */
 .search-data-box{
     position: absolute;
-    left:29%;
+    left:50%;
     top:97%;
+    transform: translateX(-50%);
     width: 420px;
     background: #fff;
     border: 1px solid #dfdfdf;
@@ -249,7 +258,7 @@
     margin-left: 20px;
   }
 /* welcome banner framer-motion */
-.logo,.slogan,.homePage-1 form,.stockItems{
+.logo,.slogan,.slogan_RWD,.homePage-1 form,.stockItems{
     visibility: visible;
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -293,8 +302,8 @@
     line-height: 180%;
     font-size: 24px;
     letter-spacing: 2px;
-    margin-left: 30px;
-    margin-top: 40px;
+    margin: 40px 20px 0px 30px;
+
 }
 .linkToStock {
     grid-column: 2/3;
@@ -335,7 +344,7 @@
 .slider{
     grid-row: 2/3;
     margin-top: 30px;
-    max-width:800px;
+    width:max(360px,800px);
     max-height:200px;
     justify-self: center;
 }
@@ -362,16 +371,102 @@
 }
 /* RWD */
 @media(max-width:1200px){
+    .homePage-2{
+        padding: 0px 20px;
+    }
     .giftext_1{
         left:100px;
         top:230px;
     }
     .giftext_2{
-        left: 200px;
+        left: 300px;
         top:-70px;
     }
-    .svg{
-        width:500px;
-        height:250px;
+}
+@media(max-width:800px){
+    /* page2 larger */
+    .container {
+        grid-template-rows: 800px 600px 480px;
+    }
+    .giftext_1{
+        left:100px;
+        top:270px;
+    }
+    .giftext_2{
+        left: 300px;
+        top:-50px;
+    }
+    /* toggle menu */
+    .navbar{
+        display: none;
+    }
+    .toggle-menu{
+        grid-row: 1/2;
+        grid-column: 1/2;  
+        display: block;
+        padding: 10px 20px;
+    }
+    .menu-detail-container{
+        /* transition: left 0.5s; */
+        Transition-duration : 3s;
+    }
+    .cross{
+        width:40px;
+        height:40px;
+        position: absolute;
+        left: 148px;
+        top: 0px;
+        border:1px solid #fff;
+    }
+    .menu-detail{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width:150px;
+        height:396px;
+        background-color: #ffb703;
+        z-index: 2;
+        border-radius: 3px;
+        /* Transition-duration : 3s; */
+    }
+    .menu-detail li{
+        text-align: center;
+        padding: 20px 30px;
+        font-size: 1.1em;
+        cursor: pointer;
+        border:1px solid #fff;
+    }
+    .menu-detail li a{
+        color: #fff;
+    }
+    .homePage-2{
+        grid-template-columns: minmax( 360px,800px);
+        grid-template-rows: 2fr 0.8fr;
+        justify-items: center;
+    }
+    .linkToStock{
+        margin: 30px auto 30px;
+    }
+}
+@media(max-width:600px){
+    .homePage-1{
+        grid-template-rows: 0.5fr 1fr 0.8fr 0.8fr 2.3fr;
+        grid-template-columns: 1fr minmax(360px,600px) 1fr;
+    }
+    .homePage-1 form .searchBar{
+        width: 300px;
+    }
+    .slogan{
+        display: none;
+    }
+    .slogan_RWD{
+        display: block;
+        grid-column: 2/3;
+        grid-row: 3/4;
+        text-align: center;
+        align-self: end;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #fff;
     }
 }

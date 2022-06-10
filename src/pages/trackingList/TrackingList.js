@@ -26,7 +26,6 @@ const TrackingList = () => {
         'trackingList',
         uid
     )
-        console.log(trackingList)
     let priceChange = (trackingList) => {
         const change = []
         const changePercetage = []
@@ -36,17 +35,17 @@ const TrackingList = () => {
             for(let i = 0 ; i < trackingList.length; i++){
                 changeNum = trackingList[i].change
                 changeNum = Number(changeNum)
-                changeNum = changeNum.toFixed(1)
-                change.push(changeNum)
-                perNum = Number(trackingList[i].change)/Number(trackingList[i].close)*100
-                perNum = perNum.toFixed(1)
-                changePercetage.push(perNum)
-                if(change<0){
+                if(changeNum<0){
                     // green
                     changeColor.push('#008000')
                 }else{
                     changeColor.push('#C8280B')
                 }
+                changeNum = changeNum.toFixed(1)
+                change.push(changeNum)
+                perNum = Number(trackingList[i].change)/Number(trackingList[i].close)*100
+                perNum = perNum.toFixed(1)
+                changePercetage.push(perNum)
             } 
             // 把成交金額轉為百萬單位
             if(trackingList!==[]){

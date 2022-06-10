@@ -17,8 +17,7 @@ const getBasicListedInfo = function () {
             ListedBasicInfo.push({"id":obj["公司代號"],"listed":"台灣上市",
             "name":obj["公司名稱"],"sname":obj["公司簡稱"],
             "industry":obj["產業別"],"date":obj["出表日期"]})
-        });
-        console.log(ListedBasicInfo)
+        })
 
       } catch(err) {
         console.error(err)

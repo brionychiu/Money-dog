@@ -110,12 +110,12 @@ const HomeSVG = () => {
                         animate='visible'/>
                     <motion.circle 
                         cx="150" cy="235" r="10" strokeWidth="4" stroke="rgb(86,86,86)" 
-                        stroke-opacity="50%" fill-opacity="0%" 
+                        strokeOpacity="50%" fill-opacity="0%" 
                         variants={circleVariants}
                         initial='hidden'
                         animate='visible'/>
                     <motion.circle cx="560" cy="75" r="10" strokeWidth="4" 
-                        stroke="rgb(86,86,86)" stroke-opacity="50%" fill-opacity="0%" 
+                        stroke="rgb(86,86,86)" strokeOpacity="50%" fill-opacity="0%" 
                         variants={circleVariants}
                         initial='hidden'
                         animate='visible'/>

@@ -27,7 +27,6 @@ export const useCollection = (col, qu1, qu2) => {
             setError(null)
 
         },(error) => {
-            console.log(error)
             setError('目前資料無法連線，請稍後再試')
         })
         return () => unsub()

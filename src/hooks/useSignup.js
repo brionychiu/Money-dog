@@ -22,7 +22,6 @@ export const useSignup = () => {
            
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password)
-            console.log(res.user)
             
             if (!res) {
                 throw new Error('註冊失敗')
@@ -36,7 +35,6 @@ export const useSignup = () => {
         }
         catch (err) {
             if(!isCancelled){
-                console.log(err.message)
                 setError(err.message)
                 setIsPending(false)
             }

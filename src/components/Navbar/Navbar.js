@@ -11,6 +11,9 @@ import hoverTrackingIcon from '../img/tracking_icon_blue.png'
 import searchIcon from '../img/search_icon.png'
 import logoutIcon from '../img/logout_icon.png'
 import logoutIconHover from '../img/logout_icon_blue.png'
+import menuIcon from '../img/menu_icon_blue.png'
+import menuHoverIcon from '../img/menu_icon_blue.png'
+import crossIcon from '../img/cross_icon_blue.png'
 
 // styles
 import styles from './Navbar.module.css'
@@ -25,6 +28,7 @@ const Navbar = () => {
     const [stockId, setStockId] = useState('')
     const [filteredData, setFilteredData] = useState([])
     const [tracking, setTracking] = useState(false)
+    const [menu, setMenu] = useState(false)
 
     const handleFilter = (e) => {
         let searchWord = e.target.value
@@ -72,7 +76,6 @@ const Navbar = () => {
         navigate(`/analysis/${stockId}/basicInfo`)
     }
 
-    console.log('filteredData',filteredData)
     return ( 
         <div className={styles.navbar}>
             <div className={styles['navi-wrapper']}>
@@ -142,6 +145,74 @@ const Navbar = () => {
                         </li>
                     </ul>
                 )}
+            </div>
+            <div className={styles['toggle-menu']}>
+                    <img src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
+                    {menu &&(
+                        <div>
+                            <img className={styles.cross}
+                                onClick={()=>setMenu(false)}
+                                src={crossIcon} alt='cross'></img>
+                            <ul className={styles['menu-detail']}>
+                                {user && (
+                                    <li ><Link to="/trckingList">我的追蹤</Link></li>  
+                                )}
+                                <li><Link to="/">招財狗首頁</Link></li>
+                                {user?(
+                                    <>
+                                        <li><Link to="/analysis/2330">最新動態</Link></li>
+                                        <li><Link to="/analysis/2330/PEratio">個股分析</Link></li>
+                                    </>
+                                ):(
+                                    <>
+                                    <li><Link to="/login">最新動態</Link></li>
+                                    <li><Link to="/login">個股分析</Link></li>
+                                </>
+                                )}
+                                <li><Link to="/taiex">大盤產業</Link></li>
+                                {!user && (
+                                    <>
+                                        <li><Link to="/login">登入</Link></li>
+                                        <li ><Link to="/signup">立即註冊</Link></li>
+                                    </>
+                                )}
+                                {user && (
+                                    <li onClick={logout}><Link to="/signup">登出</Link></li>
+                                )}
+                            </ul>
+                        </div>
+                    )}
+                    {user && (
+                        <form className={styles.searchBar} onSubmit={handleSubmit}>
+                            <input
+                                className={styles.searchInput} 
+                                type='search' 
+                                value={stockName}
+                                onChange={handleFilter}
+                                placeholder="輸入台股名稱/代號"
+                            />
+                            <button>
+                                <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
+                            </button>
+                            {user && filteredData.length !== 0 && (
+                            <div className={styles['search-data-box']}>
+                                <ul>
+                                    <li>查詢個股</li>
+                                {filteredData.slice(0, 5).map((data,index) => {
+                                    return (
+                                        <li key={index} 
+                                            className={styles.searchitem} 
+                                            onClick={handleClick}>
+                                            <span>{data.id}</span>
+                                            <span>{data.sname}</span>
+                                        </li>
+                                    )
+                                })}
+                                </ul>
+                            </div>
+                        )}
+                        </form> 
+                    )}
             </div>
         </div>
      );

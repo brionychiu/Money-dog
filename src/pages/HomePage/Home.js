@@ -10,6 +10,8 @@ import Footer from '../../components/footer/Footer'
 import logoIcon from '../../components/img/logo_icon.jpg'
 import searchIcon from '../../components/img/search_icon.png'
 import trackingIcon from '../../components/img/tracking_icon.png'
+import menuIcon from '../../components/img/menu_icon.png'
+import crossIcon from '../../components/img/cross_icon.png'
 import AutoSlider from '../../components/autoSlider/AutoSlider'
 import HomeSVG from './HomeSVG'
 
@@ -24,6 +26,7 @@ const Home = () => {
     const [ stockId , setStockId ] = useState('')
     const [stockName, setStockName] = useState('')
     const [filteredData, setFilteredData] = useState([])
+    const [menu, setMenu] = useState(false)
 
     
     const handleFilter = (e) => {
@@ -67,7 +70,6 @@ const Home = () => {
         // 找網址去篩字串-->做前一頁
         navigate(`/analysis/${stockId}`)
     }
-    console.log('filteredData',filteredData)
     return ( 
         <div className={styles.container}>
             <motion.div 
@@ -102,12 +104,52 @@ const Home = () => {
                     </ul>
                     )}
                 </div>
+                <div className={styles['toggle-menu']}>
+                    <img src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
+                    {menu &&(
+                        <div className={styles['menu-detail-container']}>
+                            <img className={styles.cross}
+                                onClick={()=>setMenu(false)}
+                                src={crossIcon} alt='cross'></img>
+                            <ul className={styles['menu-detail']}>
+                                {user && (
+                                    <li ><Link to="/trckingList">我的追蹤</Link></li>  
+                                )}
+                                <li><Link to="/">招財狗首頁</Link></li>
+                                {user?(
+                                    <>
+                                        <li><Link to="/analysis/2330">最新動態</Link></li>
+                                        <li><Link to="/analysis/2330/PEratio">個股分析</Link></li>
+                                    </>
+                                ):(
+                                    <>
+                                    <li><Link to="/login">最新動態</Link></li>
+                                    <li><Link to="/login">個股分析</Link></li>
+                                </>
+                                )}
+                                <li><Link to="/taiex">大盤產業</Link></li>
+                                {!user && (
+                                    <>
+                                        <li><Link to="/login">登入</Link></li>
+                                        <li ><Link to="/signup">立即註冊</Link></li>
+                                    </>
+                                )}
+                                {user && (
+                                    <li onClick={logout}><Link to="/signup">登出</Link></li>
+                                )}
+                            </ul>
+                        </div>
+                    )}
+                </div>
                 <motion.img 
                     initial={{ y:60 }}
                     animate={{ y:0 }} 
                     className={styles.logo} src={logoIcon} alt='logo'/>
                 <motion.div animate={{ y:-60 }} className={styles.slogan}>
                     挖掘股票價值，創造超額報酬
+                </motion.div>
+                <motion.div animate={{ y:-60 }} className={styles.slogan_RWD}>
+                    挖掘股票價值<br/>創造超額報酬
                 </motion.div>
                 <motion.form animate={{ y:-60 }} onSubmit={handleSubmit}>
                     <input 

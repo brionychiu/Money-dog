@@ -43,10 +43,8 @@ export const useFirestore = (col) => {
     // only dispatch is not cancelled 
     // 因為每次做動作之前，都要先check isCancalled = true ，所以寫成一個function
     const dispatchIfNotCanaelled = (action) => {
-        if(!isCancelled){
-            console.log(response)     
+        if(!isCancelled){ 
             dispatch(action)
-            console.log(action)
         }
     }
 
@@ -54,13 +52,11 @@ export const useFirestore = (col) => {
     const addDocument = async (doc) => {
         dispatch({type:'IS_PENDING'})
         try {
-            console.log(doc)
             const createdAt = timestamp.fromDate(new Date())
             // ...doc == name+amount
             const addedDocument = await addDoc(ref,{ ...doc , createdAt:createdAt })
             // paylaod就是要回傳的數值，所以可以把如果寫一個常數addedDocument接收
             // 就可以傳出去，做操作
-            console.log(addedDocument)
             dispatchIfNotCanaelled({type:'ADDED_DOCUMENT',payload : addedDocument})
         } catch (err) {
             dispatchIfNotCanaelled({type:'ERROR',payload : err.message})
@@ -76,7 +72,6 @@ export const useFirestore = (col) => {
             const deleteDocument = await deleteDoc(ref)
             dispatchIfNotCanaelled({type:'DELETED_DOCUMENT',payload:deleteDocument})
         } catch (err) {
-            console.log(err.message)
             dispatchIfNotCanaelled({type:'ERROR',payload : 'could not delete'})
         }
     }
@@ -98,7 +93,6 @@ export const useFirestore = (col) => {
             dispatchIfNotCanaelled({type:'DELETED_DOCUMENT',payload:deleteDocument})
 
         } catch (err) {
-            console.log(err.message)
             dispatchIfNotCanaelled({type:'ERROR',payload : 'could not delete'})
         }
     }

@@ -26,7 +26,6 @@ const Analysis = () => {
         'trackingList',
         uid,stockId
     ) 
-    console.log('trackingList',trackingList)
     const { documents:stockData } = useCollection(
         'dailyPrice',
         stockId
@@ -38,7 +37,6 @@ const Analysis = () => {
     const change = stockData? stockData[0].Change: null
     const tradeValue = stockData? stockData[0].TradeValue: null
     const transaction = stockData? stockData[0].Transaction: null
-    //console.log('open',open,'high',high,'low',low,'close',close,'change',change,'tradeValue',tradeValue,'transaction',transaction)
     
     const { documents:basicInfo } = useCollection(
         'basicInfo',
@@ -75,10 +73,8 @@ const Analysis = () => {
             })
             const res = addDocument(addlist)
             res.then(() => {
-                console.log('successful added!')
                 setTracking(true)
             },(error) => {
-                console.log(error)
                 alert('加入清單失敗，請再次點擊')
             });
         }

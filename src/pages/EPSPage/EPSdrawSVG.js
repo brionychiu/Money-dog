@@ -127,7 +127,6 @@ export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
     const rectangleHeight = leftIndex(mm,MM,Q_EPS).rectangleHeight
     const rectangleY1 = leftIndex(mm,MM,Q_EPS).rectangleY1
     const minusValue = leftIndex(mm,MM,Q_EPS).minusValue
-    console.log(minusValue)
 
     // ------------ M_Price & right index --------------
     let nn = Math.floor(Math.min(...M_Price))

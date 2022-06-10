@@ -20,7 +20,6 @@ export const useLogin = () => {
 
         try{
             const res = await signInWithPopup(auth, googleProvider)
-            console.log(res)
             dispatch({ type: 'LOGIN', payload: res.user })
 
             if (!isCancelled) {
@@ -34,7 +33,6 @@ export const useLogin = () => {
                     setError('密碼或帳號錯誤，請重新輸入。')
                 }else{
                     setError(err.message)
-                    console.log(err.message)
                 }
                 setIsPending(false)
             }
@@ -53,7 +51,6 @@ export const useLogin = () => {
 
         try{
             const res = await signInWithPopup(auth, fbProvider)
-            console.log(res)
             dispatch({ type: 'LOGIN', payload: res.user })
 
             if (!isCancelled) {
@@ -67,7 +64,6 @@ export const useLogin = () => {
                     setError('密碼或帳號錯誤，請重新輸入。')
                 }else{
                     setError(err.message)
-                    console.log(err.message)
                 }
                 setIsPending(false)
             }
@@ -99,7 +95,6 @@ export const useLogin = () => {
                     setError('密碼或帳號錯誤，請重新輸入。')
                 }else{
                     setError(err.message)
-                    console.log(err.message)
                 }
                 setIsPending(false)
             }

@@ -18,14 +18,8 @@ const BasicInfo = () => {
     const { documents:dailyPE } = useCollection(
         'dailyPE',stockId
     ) 
-    // const { documents:industyDescribe } = useCollection(
-    //     'industyInfo', basicInfo[0].industry
-    // ) 
-    // console.log(industyDescribe)
-    // action to trigger the state change
     const [state, dispatch] = useReducer(IndustyReducer,{industry:""})
     const industyInfo = () => { dispatch({type:basicInfo[0].industry})}
-    console.log(state.industry)
     // const { industry } = useSelector((state) => state.industry)
     const handleClick = () => {
         industyInfo()

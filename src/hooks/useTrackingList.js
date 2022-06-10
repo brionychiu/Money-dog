@@ -33,7 +33,6 @@ export const useTrackingList = (col, qu1, qu2) => {
 
         },(error) => {
             setIsPending(false)
-            console.log(error.message)
             setError('目前資料無法連線，請稍後再試')
         })
         return () => unsub()

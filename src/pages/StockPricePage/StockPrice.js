@@ -14,7 +14,6 @@ const StockPrice = () => {
     const { documents:HY_price } = useCollection(
         'HY-price',stockId
     ) 
-    console.log(HY_price)
     return ( 
     <div>
         {!HY_price && 

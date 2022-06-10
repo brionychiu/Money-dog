@@ -37,7 +37,7 @@ export const StockPriceSVG = ({HY_price}) => {
         clientPoint.y = e.clientY
         //	將 client 的座標點轉成 SVG 座標點
         const SVGPoint = clientPoint.matrixTransform(CTM.inverse())
-        console.log(SVGPoint)
+        // console.log(SVGPoint)
         return {SVGPoint}
     }
     // ----------- horizontal line -------------
@@ -272,8 +272,7 @@ export const StockPriceSVG = ({HY_price}) => {
         e.target.style.stroke = "rgb(255,116,140)"
         e.target.style.strokeWidth = "3"
     }
-    //  ------------ 
-    // console.log(HY_price)
+
     return(
         <div className={styles['price-container']}>
             <div className={styles['k-SVG']}>
@@ -307,7 +306,7 @@ export const StockPriceSVG = ({HY_price}) => {
                         id='k-svg'
                         cursor="pointer"
                         onMouseMove={(e) => {setMovingX(e.clientX)
-                        console.log(e.clientX)}}
+                       }}
                         width="2170" height="600"
                         viewBox="0 0 2170 600"
                         xmlns="<http://www.w3.org/2000/svg>"
@@ -378,7 +377,6 @@ export const StockPriceSVG = ({HY_price}) => {
                         {rectX.map((item,index) => (
                             <rect key={index} 
                                 onMouseMove={() => {
-                                    console.log('item',item)
                                     setStockDate(date[index]) 
                                     setStockOpen(open[index])
                                     setStockHigh(high[index])
