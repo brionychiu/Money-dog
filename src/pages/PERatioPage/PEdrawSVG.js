@@ -117,144 +117,148 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
     
     return(
         <div className={styles['PERatio-SVG']}>
-             <div>
+             <div className={styles.topbar}>
                 <span>近三年每月本益比</span>
                 <div className={styles.orange}></div>
                 <span>本益比</span>
                 <div className={styles.red}></div>
                 <span>月均價</span>
             </div>
-            <svg
-                id='svg'
-                width="912" height="480"
-                viewBox="0 0 912 480"
-                xmlns="<http://www.w3.org/2000/svg>"
-                cursor="pointer">
+            <div className={styles['pe-chart']}>
+                <svg
+                    id='svg'
+                    width="912" height="480"
+                    viewBox="0 0 912 480"
+                    xmlns="<http://www.w3.org/2000/svg>"
+                    cursor="pointer"
+                    overflow="visisble">
 
-                {/* PERatio index (倍)*/}
-                <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(234,182,182)' strokeWidth='2' />
-                <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>本益比:倍</text>
-                {leftIndexValue.map((item,index) => (
-                    <text key={index} x="35" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
-                ))}
 
-                {/* year index */}
-                <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
-                <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
-                <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
-                <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
-
-                {/* month price index */}
-                <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
-                {rightIndexValue.map((item,index) => (
-                    <text key={index} x="850" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
-                ))}
-
-                 {/* month price */}
-                 {/* 這邊要加 stroke-linecap="round" 讓line不會有斷點*/}
-                 {monthPrice && (
-                <>
-                    {lineY1.map((item,index) => (
-                        <line  
-                        key={index}
-                        onMouseOver={() => {
-                            setMonthPriceText(M_Price[index])
-                            setMonthDateText(M_Date[index]+'的月均價')
-                            setMonthText_X(62+(19*index))
-                            setMonthText_Y(item-20)
-                            setMonthCircle_X(62+(19*index))
-                            setMonthCircle_Y(item)
-                            setMonthCircleStrokeWidth('3')
-                        }}  
-                        onMouseOut={() => {
-                            setMonthPriceText('')
-                            setMonthDateText('')
-                            setMonthCircleStrokeWidth('0')
-                        }}
-                        x1={62+(19*index)} y1={item} x2={81+(19*index)} 
-                        y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" 
-                        strokeLinecap="round"/>
+                    {/* PERatio index (倍)*/}
+                    <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(234,182,182)' strokeWidth='2' />
+                    <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>本益比:倍</text>
+                    {leftIndexValue.map((item,index) => (
+                        <text key={index} x="35" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                     ))}
-                </>)}
-                {/* long PERatio */}
+
+                    {/* year index */}
+                    <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
+                    <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
+                    <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
+                    <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
+
+                    {/* month price index */}
+                    <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
+                    {rightIndexValue.map((item,index) => (
+                        <text key={index} x="850" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    ))}
+
+                    {/* month price */}
+                    {/* 這邊要加 stroke-linecap="round" 讓line不會有斷點*/}
+                    {monthPrice && (
+                    <>
+                        {lineY1.map((item,index) => (
+                            <line  
+                            key={index}
+                            onMouseOver={() => {
+                                setMonthPriceText(M_Price[index])
+                                setMonthDateText(M_Date[index]+'的月均價')
+                                setMonthText_X(62+(19*index))
+                                setMonthText_Y(item-20)
+                                setMonthCircle_X(62+(19*index))
+                                setMonthCircle_Y(item)
+                                setMonthCircleStrokeWidth('3')
+                            }}  
+                            onMouseOut={() => {
+                                setMonthPriceText('')
+                                setMonthDateText('')
+                                setMonthCircleStrokeWidth('0')
+                            }}
+                            x1={62+(19*index)} y1={item} x2={81+(19*index)} 
+                            y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" 
+                            strokeLinecap="round"/>
+                        ))}
+                    </>)}
+                    {/* long PERatio */}
+                    {PEratio && (
+                    <>
+                        {/* line */}
+                        {circleCy1.map((item,index) => (
+                            <line key={index} 
+                            x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} 
+                            stroke="rgb(232,194,0)" strokeWidth={strokeWidth[index]} />
+                        ))}
+                        {circleCy.map((item,index) => (
+                            <circle 
+                            onMouseMove={() => {
+                                setPEText(longPEratio[index])
+                                setPEDateText(M_Date[index]+'的本益比')
+                                setPEText_X(62+(19*index))
+                                setPEText_Y(item-20)
+                                setPECircle_X(62+(19*index))
+                                setPECircle_Y(item)
+                                setPECircleStrokeWidth("4")
+
+                            }}  
+                            onMouseOut={() => {
+                                setPEText('')
+                                setPEDateText('')
+                                setPECircleStrokeWidth("0")
+                            }}
+                            onClick={(e) => {
+                                e.target.style.fill="rgb(71, 170, 253)"
+                                e.target.style.stroke="rgb(71, 170, 253)"
+                                setPEText(longPEratio[index])
+                                setPEDateText(M_Date[index]+'的本益比')
+                                setPEText_X(62+(19*index))
+                                setPEText_Y(item-20)
+                                setPECircle_X(62+(19*index))
+                                setPECircle_Y(item)
+                                setPECircleStrokeWidth("4")
+                            }}
+                            key={index} cx={62+(19*index)} cy={item} 
+                            r={circleR[index]} strokeWidth="4" stroke="rgb(232,194,0)" 
+                            fill="rgb(232,194,0)"/> 
+                        ))}
+                    </>)}
+                    {/* month price up text & circle */}
+                    {monthPrice && (
+                    <>
+                        <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{monthPriceText}
+                        </text>
+                        <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{monthDateText}
+                        </text>
+                        <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
+                            strokeWidth={monthCircleStrokeWidth}
+                            stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
+                    </>)}
+                {/* long PERatio text & circle*/}
                 {PEratio && (
-                <>
-                    {/* line */}
-                    {circleCy1.map((item,index) => (
-                        <line key={index} 
-                        x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} 
-                        stroke="rgb(232,194,0)" strokeWidth={strokeWidth[index]} />
-                    ))}
-                    {circleCy.map((item,index) => (
-                        <circle 
-                        onMouseMove={() => {
-                            setPEText(longPEratio[index])
-                            setPEDateText(M_Date[index]+'的本益比')
-                            setPEText_X(62+(19*index))
-                            setPEText_Y(item-20)
-                            setPECircle_X(62+(19*index))
-                            setPECircle_Y(item)
-                            setPECircleStrokeWidth("4")
-
-                        }}  
-                        onMouseOut={() => {
-                            setPEText('')
-                            setPEDateText('')
-                            setPECircleStrokeWidth("0")
-                        }}
-                        onClick={(e) => {
-                            e.target.style.fill="rgb(71, 170, 253)"
-                            e.target.style.stroke="rgb(71, 170, 253)"
-                            setPEText(longPEratio[index])
-                            setPEDateText(M_Date[index]+'的本益比')
-                            setPEText_X(62+(19*index))
-                            setPEText_Y(item-20)
-                            setPECircle_X(62+(19*index))
-                            setPECircle_Y(item)
-                            setPECircleStrokeWidth("4")
-                        }}
-                        key={index} cx={62+(19*index)} cy={item} 
-                        r={circleR[index]} strokeWidth="4" stroke="rgb(232,194,0)" 
-                        fill="rgb(232,194,0)"/> 
-                    ))}
-                </>)}
-                {/* month price up text & circle */}
-                {monthPrice && (
-                <>
-                    <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{monthPriceText}
-                    </text>
-                    <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{monthDateText}
-                    </text>
-                    <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
-                        strokeWidth={monthCircleStrokeWidth}
-                        stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
-                </>)}
-              {/* long PERatio text & circle*/}
-              {PEratio && (
-                <>
-                    <text x={peText_X} y={peText_Y}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{peText}
-                    </text>
-                    <text x={peText_X-25} y={peText_Y-15}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{peDateText}
-                    </text>
-                    <circle cx={peCircle_X} cy={peCircle_Y} r="7" strokeWidth={peCircleStrokeWidth}
-                        stroke="rgb(255,214,3)" strokeOpacity="50%" fill="none"/>
-                </>)}
-            </svg>
+                    <>
+                        <text x={peText_X} y={peText_Y}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{peText}
+                        </text>
+                        <text x={peText_X-25} y={peText_Y-15}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{peDateText}
+                        </text>
+                        <circle cx={peCircle_X} cy={peCircle_Y} r="7" strokeWidth={peCircleStrokeWidth}
+                            stroke="rgb(255,214,3)" strokeOpacity="50%" fill="none"/>
+                    </>)}
+                </svg>
+            </div>
             <span className={styles.checkbox}>
                 <input id='mPEratio' type='checkbox' vaule='每月本益比'onChange={() => setPEratio(!PEratio)} defaultChecked={PEratio}/>
                 <label htmlFor='mPEratio'>每月本益比</label>

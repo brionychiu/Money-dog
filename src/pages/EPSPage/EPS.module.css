@@ -12,20 +12,20 @@
     color: #434343;
     display: grid;
 }
-.EPS-SVG div{
+.topbar{
     margin-top: 10px;
     justify-self: center;
     display: flex;
     align-items: center; 
 }
 .orange{
-    margin: 0px 0px 10px 10px;
+    margin: 0px 10px;
     width: 6px;
     height: 2px;
     border: 5px solid rgb(232,175,0);
 }
 .red{
-    margin: 0px 0px 10px 10px;
+    margin: 0px 10px;
     width: 6px;
     height: 2px;
     border: 5px solid #CB4B4B;;
@@ -186,4 +186,27 @@
 }
 .ispending img{
     height:50px;
+}
+/* RWD */
+@media(max-width:1050px){
+    .EPS-container{
+        grid-template-rows: 650px minmax(200px,auto);
+    }
+    .eps-chart{ 
+        overflow-x: auto;
+        overflow-y: hidden;
+    } 
+    .checkbox{
+        margin-top: 20px;
+    }
+}
+@media(max-width:800px){
+    .detail{
+        grid-template-columns: 1fr 4fr;
+    }
+}
+@media(max-width:400px){
+    .detail{
+        grid-template-columns: 1fr 3fr;
+    }
 }

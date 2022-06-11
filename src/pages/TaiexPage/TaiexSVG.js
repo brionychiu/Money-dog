@@ -68,6 +68,7 @@ export const TaiexSVG = ({taiex,otc}) => {
                 <span>上市加權指數</span>
             </div>
             <svg
+                className={styles.svg}
                 width="670" height="480"
                 viewBox="0 0 670 480"
                 xmlns="<http://www.w3.org/2000/svg>">

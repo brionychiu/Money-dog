@@ -156,144 +156,146 @@ export const YoYdrawSVG = ({longYoY,M_Price,M_Date}) => {
 
     return(
         <div className={styles['YoY-SVG']}>
-            <div>
+            <div className={styles.topbar}>
                 <span>近三年單月營收年增率</span>
                 <div className={styles.orange}></div>
                 <span>單月營收年增率</span>
                 <div className={styles.red}></div>
                 <span>月均價</span>
             </div>
-            <svg
-                id='svg'
-                cursor="pointer"
-                width="912" height="500"
-                viewBox="0 0 912 500"
-                xmlns="<http://www.w3.org/2000/svg>"
-            >
-                {/* YoY index (%)*/}
-                <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>年增率:%</text>
-                {leftIndexValue.map((item,index) => (
-                    <text  key={index} x="35" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
-                ))}
+            <div className={styles['yoy-chart']}>
+                <svg
+                    id='svg'
+                    cursor="pointer"
+                    width="912" height="500"
+                    viewBox="0 0 912 500"
+                    xmlns="<http://www.w3.org/2000/svg>"
+                >
+                    {/* YoY index (%)*/}
+                    <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>年增率:%</text>
+                    {leftIndexValue.map((item,index) => (
+                        <text  key={index} x="35" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    ))}
 
-                {/* year index */}
-                <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
-                <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
-                <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
-                <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
-                
-                {/* month price index */}
-                <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
-                {rightIndexValue.map((item,index) => (
-                    <text key={index} x="850" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
-                ))}
+                    {/* year index */}
+                    <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
+                    <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
+                    <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
+                    <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
+                    
+                    {/* month price index */}
+                    <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
+                    {rightIndexValue.map((item,index) => (
+                        <text key={index} x="850" y={450-(50*index)} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    ))}
 
-                {/* minus rectangle */}
-                <rect x="60" y={450-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
-                    strokeWidth='2' fillOpacity='0.2'/>
-                <line x1="60" y1={450-minusValue[0]} x2="840" y2={450-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
-                
-                {/* month price */}
-                {monthPrice && (
+                    {/* minus rectangle */}
+                    <rect x="60" y={450-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
+                        strokeWidth='2' fillOpacity='0.2'/>
+                    <line x1="60" y1={450-minusValue[0]} x2="840" y2={450-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
+                    
+                    {/* month price */}
+                    {monthPrice && (
+                        <>
+                        {lineY1.map((item,index) => (
+                            <line  key={index} 
+                            onMouseOver={() => {
+                                setMonthPriceText(M_Price[index])
+                                setMonthDateText(M_Date[index]+'的月均價')
+                                setMonthText_X(62+(19*index))
+                                setMonthText_Y(item-20)
+                                setMonthCircle_X(62+(19*index))
+                                setMonthCircle_Y(item)
+                                setMonthCircleStrokeWidth('3')
+                            }}  
+                            onMouseOut={() => {
+                                setMonthPriceText('')
+                                setMonthDateText('')
+                                setMonthCircleStrokeWidth('0')
+                            }}
+                                x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
+                        ))}
+                        </>
+                    )}
+
+                    {/* long YoY */}
+                    {YoY && (<>
+                        {/* line */}
+                        {circleCy1.map((item,index) => (
+                                <line key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} stroke="rgb(232,194,0)" strokeWidth="3" />
+                        ))}
+                        {/* circle */}
+                        {circleCy.map((item,index) => (
+                            <circle key={index} 
+                            onMouseMove={() => {
+                                setYoYText(longYoY[index])
+                                setYoYDateText(M_Date[index]+'的營收年增率')
+                                setYoYText_X(62+(19*index))
+                                setYoYText_Y(item-20)
+                                setYoYCircle_X(62+(19*index))
+                                setYoYCircle_Y(item)
+                                setYoYCircleStrokeWidth("4")
+
+                            }}  
+                            onMouseOut={() => {
+                                setYoYText('')
+                                setYoYDateText('')
+                                setYoYCircleStrokeWidth("0")
+                            }}
+                            onClick={(e) => {
+                                e.target.style.fill="rgb(138,166,246)"
+                                e.target.style.stroke="rgb(138,166,246)"
+                                setYoYText(longYoY[index])
+                                setYoYDateText(M_Date[index]+'的營收年增率')
+                                setYoYText_X(62+(19*index))
+                                setYoYText_Y(item-20)
+                                setYoYCircle_X(62+(19*index))
+                                setYoYCircle_Y(item)
+                                setYoYCircleStrokeWidth("4")
+                            }}
+                            cx={62+(19*index)} cy={item} r="3" strokeWidth="4" stroke="rgb(232,194,0)" 
+                            fill="rgb(232,194,0)"/>
+                        ))}
+                    </>)}
+                    {/* month price up text & circle */}
+                    {monthPrice && (
                     <>
-                    {lineY1.map((item,index) => (
-                        <line  key={index} 
-                        onMouseOver={() => {
-                            setMonthPriceText(M_Price[index])
-                            setMonthDateText(M_Date[index]+'的月均價')
-                            setMonthText_X(62+(19*index))
-                            setMonthText_Y(item-20)
-                            setMonthCircle_X(62+(19*index))
-                            setMonthCircle_Y(item)
-                            setMonthCircleStrokeWidth('3')
-                        }}  
-                        onMouseOut={() => {
-                            setMonthPriceText('')
-                            setMonthDateText('')
-                            setMonthCircleStrokeWidth('0')
-                        }}
-                            x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
-                    ))}
-                    </>
-                )}
-
-                {/* long YoY */}
-                {YoY && (<>
-                    {/* line */}
-                    {circleCy1.map((item,index) => (
-                            <line key={index} x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={circleCy[index+1]} stroke="rgb(232,194,0)" strokeWidth="3" />
-                    ))}
-                    {/* circle */}
-                    {circleCy.map((item,index) => (
-                        <circle key={index} 
-                        onMouseMove={() => {
-                            setYoYText(longYoY[index])
-                            setYoYDateText(M_Date[index]+'的營收年增率')
-                            setYoYText_X(62+(19*index))
-                            setYoYText_Y(item-20)
-                            setYoYCircle_X(62+(19*index))
-                            setYoYCircle_Y(item)
-                            setYoYCircleStrokeWidth("4")
-
-                        }}  
-                        onMouseOut={() => {
-                            setYoYText('')
-                            setYoYDateText('')
-                            setYoYCircleStrokeWidth("0")
-                        }}
-                        onClick={(e) => {
-                            e.target.style.fill="rgb(138,166,246)"
-                            e.target.style.stroke="rgb(138,166,246)"
-                            setYoYText(longYoY[index])
-                            setYoYDateText(M_Date[index]+'的營收年增率')
-                            setYoYText_X(62+(19*index))
-                            setYoYText_Y(item-20)
-                            setYoYCircle_X(62+(19*index))
-                            setYoYCircle_Y(item)
-                            setYoYCircleStrokeWidth("4")
-                        }}
-                        cx={62+(19*index)} cy={item} r="3" strokeWidth="4" stroke="rgb(232,194,0)" 
-                        fill="rgb(232,194,0)"/>
-                    ))}
-                </>)}
-                 {/* month price up text & circle */}
-                 {monthPrice && (
-                <>
-                    <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{monthPriceText}
-                    </text>
-                    <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{monthDateText}
-                    </text>
-                    <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
-                        strokeWidth={monthCircleStrokeWidth}
-                        stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
-                </>)}
-                 {/* long PERatio text & circle*/}
-              {YoY && (
-                <>
-                    <text x={yoyText_X} y={yoyText_Y}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{yoyText}
-                    </text>
-                    <text x={yoyText_X-25} y={yoyText_Y-15}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{yoyDateText}
-                    </text>
-                    <circle cx={yoyCircle_X} cy={yoyCircle_Y} r="7" strokeWidth={yoyCircleStrokeWidth}
-                        stroke="rgb(255,214,3)" strokeOpacity="50%" fill="none"/>
-                </>)}
-            </svg>
+                        <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{monthPriceText}
+                        </text>
+                        <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{monthDateText}
+                        </text>
+                        <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
+                            strokeWidth={monthCircleStrokeWidth}
+                            stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
+                    </>)}
+                    {/* long PERatio text & circle*/}
+                {YoY && (
+                    <>
+                        <text x={yoyText_X} y={yoyText_Y}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{yoyText}
+                        </text>
+                        <text x={yoyText_X-25} y={yoyText_Y-15}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{yoyDateText}
+                        </text>
+                        <circle cx={yoyCircle_X} cy={yoyCircle_Y} r="7" strokeWidth={yoyCircleStrokeWidth}
+                            stroke="rgb(255,214,3)" strokeOpacity="50%" fill="none"/>
+                    </>)}
+                </svg>
+            </div>
             <span className={styles.checkbox}>
                 <input id='mYoY' type='checkbox' vaule='營收年增率'onChange={() => setYoY(!YoY)} defaultChecked={YoY}/>
                 <label htmlFor='mYoY'>單月營收年增率</label>

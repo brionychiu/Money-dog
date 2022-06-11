@@ -175,6 +175,7 @@
 .ispending img{
     height:50px;
 }
+/* RWD */
 @media(max-width:800px){
     .price-container{
         grid-template-rows: 1000px;

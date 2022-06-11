@@ -164,128 +164,130 @@ export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
 
     return(
         <div className={styles['EPS-SVG']}>
-            <div>
+             <div className={styles.topbar}>
                 <span>近三年EPS/季</span>
                 <div className={styles.orange}></div>
                 <span>單季EPS</span>
                 <div className={styles.red}></div>
                 <span>月均價</span>
             </div>
-            <svg 
-                id='svg'
-                cursor="pointer"
-                width="912" height="500"
-                viewBox="0 0 912 500"
-                xmlns="<http://www.w3.org/2000/svg>"
-            >
-                {/* eps index */}
-                <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(232,175,0)' strokeWidth='1' />
-                <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>EPS單位:元</text>
-                {leftIndexValue.map((item,index) => (
-                    <text key={index} x="35" y={450-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
-                ))}
-                
-
-                {/* month price index */}
-                <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
-                {rightIndexValue.map((item,index) => (
-                     <text key={index} x="850" y={450-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
-                ))}
-
-                {/* year index */}
-                <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
-                <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
-                <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
-                <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
-                <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
-                
-                {/* minus rectangle */}
-                <rect x="60" y={450-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
-                    strokeWidth='2' fillOpacity='0.2'/>
-                <line x1="60" y1={450-minusValue[0]} x2="840" y2={450-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
-
-                {/* eps value */}
-                {qEPS && (
-                    <>
-                    {rectangleY1.map((item,index) => (
-                        <rect  key={index} 
-                        onMouseMove={(e) => {
-                            e.target.style.fill="rgb(255,151,2)"
-                            e.target.style.fillOpacity='0.6'
-                            setEPSText(Q_EPS[index])
-                            setEPSDateText(Q_Date[index]+'的EPS')
-                            setEPSText_X(75+57*index)
-                            setEPSText_Y(item)
-
-                        }}  
-                        onMouseOut={(e) => {
-                            e.target.style.fill="rgb(232,194,0)"
-                            e.target.style.fillOpacity='0.3'
-                            setEPSText('')
-                            setEPSDateText('')
-                        }}
-                        x={75+57*index} y={item} width="30" height={rectangleHeight[index]} 
-                        fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
-                        fillOpacity='0.3' strokeOpacity='0.9'  />
+            <div className={styles['eps-chart']}>
+                <svg 
+                    id='svg'
+                    cursor="pointer"
+                    width="912" height="500"
+                    viewBox="0 0 912 500"
+                    xmlns="<http://www.w3.org/2000/svg>"
+                >
+                    {/* eps index */}
+                    <line x1="60" y1="50" x2="840" y2="50" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="100" x2="840" y2="100" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="150" x2="840" y2="150" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="200" x2="840" y2="200" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="250" x2="840" y2="250" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="300" x2="840" y2="300" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="350" x2="840" y2="350" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="400" x2="840" y2="400" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="60" y1="450" x2="840" y2="450" stroke='rgb(232,175,0)' strokeWidth='1' />
+                    <text x="70" y="25" fill="rgb(106,106,106)" fontSize='13'>EPS單位:元</text>
+                    {leftIndexValue.map((item,index) => (
+                        <text key={index} x="35" y={450-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
                     ))}
+                    
+
+                    {/* month price index */}
+                    <text x="800" y="25" fill="rgb(106,106,106)" fontSize='13'>股價:元</text>
+                    {rightIndexValue.map((item,index) => (
+                        <text key={index} x="850" y={450-index*50} fill="rgb(106,106,106)" fontSize='14'>{item}</text>
+                    ))}
+
+                    {/* year index */}
+                    <line x1="289" y1="10" x2="289" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="517" y1="10" x2="517" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <line x1="746" y1="10" x2="746" y2="450" stroke='rgb(226,226,226)' strokeWidth='1' />
+                    <text x="55" y="470" fill="rgb(106,106,106)" fontSize='14'>2019</text>
+                    <text x="280" y="470" fill="rgb(106,106,106)" fontSize='14'>2020</text>
+                    <text x="510" y="470" fill="rgb(106,106,106)" fontSize='14'>2021</text>
+                    <text x="740" y="470" fill="rgb(106,106,106)" fontSize='14'>2022</text>
+                    
+                    {/* minus rectangle */}
+                    <rect x="60" y={450-minusValue[0]} width="780" height={minusValue[0]} fill="rgb(239,203,203)" 
+                        strokeWidth='2' fillOpacity='0.2'/>
+                    <line x1="60" y1={450-minusValue[0]} x2="840" y2={450-minusValue[0]} stroke='rgb(239,203,203)' strokeWidth={minusValue[1]} />
+
+                    {/* eps value */}
+                    {qEPS && (
+                        <>
+                        {rectangleY1.map((item,index) => (
+                            <rect  key={index} 
+                            onMouseMove={(e) => {
+                                e.target.style.fill="rgb(255,151,2)"
+                                e.target.style.fillOpacity='0.6'
+                                setEPSText(Q_EPS[index])
+                                setEPSDateText(Q_Date[index]+'的EPS')
+                                setEPSText_X(75+57*index)
+                                setEPSText_Y(item)
+
+                            }}  
+                            onMouseOut={(e) => {
+                                e.target.style.fill="rgb(232,194,0)"
+                                e.target.style.fillOpacity='0.3'
+                                setEPSText('')
+                                setEPSDateText('')
+                            }}
+                            x={75+57*index} y={item} width="30" height={rectangleHeight[index]} 
+                            fill="rgb(255,193,2)" strokeWidth='2' stroke='rgb(232,194,0)' 
+                            fillOpacity='0.3' strokeOpacity='0.9'  />
+                        ))}
+                        </>
+                    )}
+                    {monthPrice && (
+                        <>
+                        {lineY1.map((item,index) => (
+                            <line  key={index}
+                            onMouseOver={() => {
+                                setMonthPriceText(M_Price[index])
+                                setMonthDateText(M_Date[index]+'的月均價')
+                                setMonthText_X(62+(19*index))
+                                setMonthText_Y(item-20)
+                                setMonthCircle_X(62+(19*index))
+                                setMonthCircle_Y(item)
+                                setMonthCircleStrokeWidth('3')
+                            }}  
+                            onMouseOut={() => {
+                                setMonthPriceText('')
+                                setMonthDateText('')
+                                setMonthCircleStrokeWidth('0')
+                            }} 
+                                x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
+                        ))}
+                        </>
+                    )}
+                    {/* month price up text & circle */}
+                    {monthPrice && (
+                    <>
+                        <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{monthPriceText}
+                        </text>
+                        <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{monthDateText}
+                        </text>
+                        <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
+                            strokeWidth={monthCircleStrokeWidth}
+                            stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
+                    </>)}
+                    {qEPS && (
+                    <>
+                        <text x={epsText_X} y={epsText_Y-10}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{epsText}
+                        </text>
+                        <text x={epsText_X-30} y={epsText_Y-30}  fill="rgb(106,106,106)" 
+                            fontWeight="600" fontSize='13'>{epsDateText}
+                        </text>
                     </>
-                )}
-                {monthPrice && (
-                      <>
-                      {lineY1.map((item,index) => (
-                          <line  key={index}
-                          onMouseOver={() => {
-                            setMonthPriceText(M_Price[index])
-                            setMonthDateText(M_Date[index]+'的月均價')
-                            setMonthText_X(62+(19*index))
-                            setMonthText_Y(item-20)
-                            setMonthCircle_X(62+(19*index))
-                            setMonthCircle_Y(item)
-                            setMonthCircleStrokeWidth('3')
-                        }}  
-                        onMouseOut={() => {
-                            setMonthPriceText('')
-                            setMonthDateText('')
-                            setMonthCircleStrokeWidth('0')
-                        }} 
-                            x1={62+(19*index)} y1={item} x2={81+(19*index)} y2={lineY2[index]} stroke="rgb(203,75,75)" strokeWidth="3" strokeLinecap="round"/>
-                      ))}
-                      </>
-                )}
-                {/* month price up text & circle */}
-                {monthPrice && (
-                <>
-                    <text x={monthText_X} y={monthText_Y}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{monthPriceText}
-                    </text>
-                    <text x={monthText_X-25} y={monthText_Y-15}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{monthDateText}
-                    </text>
-                    <circle cx={monthCircle_X} cy={monthCircle_Y} r="6" 
-                        strokeWidth={monthCircleStrokeWidth}
-                        stroke="rgb(209,95,95)" strokeOpacity="50%" fill="none"/>
-                </>)}
-                {qEPS && (
-                <>
-                    <text x={epsText_X} y={epsText_Y-10}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{epsText}
-                    </text>
-                    <text x={epsText_X-30} y={epsText_Y-30}  fill="rgb(106,106,106)" 
-                        fontWeight="600" fontSize='13'>{epsDateText}
-                    </text>
-                </>
-                )}
-            </svg>
+                    )}
+                </svg>
+            </div>
             <span className={styles.checkbox}>
                 <input id='qEPS' type='checkbox' vaule='單季EPS'onChange={() => setqEPS(!qEPS)} defaultChecked={qEPS}/>
                 <label htmlFor='qEPS'>單季EPS</label>

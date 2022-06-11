@@ -11,20 +11,20 @@
     color: #434343;
     display: grid;
 }
-.YoY-SVG div{
+.topbar{
     margin-top: 10px;
     justify-self: center;
     display: flex;
     align-items: center; 
 }
 .orange{
-    margin: 0px 0px 10px 10px;
+    margin: 0px 10px ;
     width: 6px;
     height: 2px;
     border: 5px solid rgb(232,175,0);
 }
 .red{
-    margin: 0px 0px 10px 10px;
+    margin: 0px 10px ;
     width: 6px;
     height: 2px;
     border: 5px solid #CB4B4B;;
@@ -34,7 +34,7 @@
     font-size: smaller;
     color: #636363;
 }
-.YoY-SVG div span:nth-child(1){
+.YoY-SVG .topbar span:nth-child(1){
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -185,4 +185,47 @@
 }
 .ispending img{
     height:50px;
+}
+@media(max-width:1050px){
+    .YoY-container{
+        grid-template-rows: 650px minmax(200px,auto);
+    }
+    .yoy-chart{ 
+        overflow-x: auto;
+        overflow-y: hidden;
+    } 
+    .checkbox{
+        margin-top: 20px;
+    }
+}
+@media(max-width:800px){
+    .detail{
+        grid-template-columns: 1fr 4fr;
+    }
+}
+@media(max-width:600px){
+    .detail{
+        grid-template-columns: 1fr 3fr;
+    }
+}
+@media(max-width:500px){
+    .YoY-SVG .topbar span:nth-child(1){
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .detail{
+        grid-template-columns: 1fr 3fr;
+    }
+}
+@media(max-width:400px){
+    .detail{
+        grid-template-columns: 1fr 2fr;
+    }
+    .orange{
+        margin: 0px;
+    }
+    .red{
+        margin: 0px;
+    }
 }

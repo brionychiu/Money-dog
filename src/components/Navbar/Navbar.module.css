@@ -218,7 +218,7 @@
       color: #ffffff;
     } 
 /* toggle menu */
-.toggle-menu{
+.menu-wrapper{
   display: none;
 }
 /* RWD */
@@ -259,7 +259,6 @@
   }
   .menu-detail li{
     text-align: center;
-    
     font-size: 1.1em;
     cursor: pointer;
     border:1px solid #fff;
