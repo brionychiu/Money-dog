@@ -105,7 +105,7 @@ const Home = () => {
                     )}
                 </div>
                 <div className={styles['toggle-menu']}>
-                    <img src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
+                    <img className={styles.menu} src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
                     {menu &&(
                         <div className={styles['menu-detail-container']}>
                             <img className={styles.cross}
@@ -222,7 +222,7 @@ const Home = () => {
                     <h3>眾多媒體報導推薦</h3>
                     <AutoSlider></AutoSlider>
             </div>
-
+            
             <Footer/>
         </div>
      );

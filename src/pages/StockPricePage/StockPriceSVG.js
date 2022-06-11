@@ -303,7 +303,7 @@ export const StockPriceSVG = ({HY_price}) => {
                 </div>
                 <div className={styles.kChart}>
                     <svg 
-                        id='k-svg'
+                        className={styles['k-svg']}
                         cursor="pointer"
                         onMouseMove={(e) => {setMovingX(e.clientX)
                        }}

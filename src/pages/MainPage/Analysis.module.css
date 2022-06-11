@@ -1,6 +1,7 @@
 .analysis-container{
     display: grid;
-    grid-template-rows: auto minmax(auto, 1000px) auto;
+    grid-template-rows: auto minmax(auto, 1fr) auto;
+    overflow-x: hidden;
 }
 .navbar{
     grid-row: 1/2;
@@ -11,6 +12,7 @@
     grid-template-columns: 1fr 120px minmax(360px, 912px) 1fr;
     grid-template-rows: 80px auto;
     background: #ededed;
+    padding-right: 20px;
 }
 .wrapper .sidebar{
     grid-column: 2/3;
@@ -84,4 +86,45 @@
 }
 .footer{
     grid-row: 3/4;
+}
+@media(max-width:600px){
+    .wrapper{
+        grid-template-columns: 1fr 0px minmax(360px, 912px) 1fr;
+        grid-template-rows: 100px 100px minmax(auto,max-content ) auto;
+        padding-left: 20px;
+    }
+    .sidebar{
+        grid-row: 1/2;
+    }
+    .wrapper .stockInfo{
+        grid-row: 2/3;
+        height:70px;
+    }
+    .wrapper .mainContent{
+        grid-row: 3/4;
+    }
+    .footer{
+        grid-row: 4/5;
+    }
+}
+@media(max-width:465px){
+    .wrapper{
+        grid-template-columns: 1fr 0px minmax(360px, 465px) 1fr;
+        grid-template-rows: 100px 180px minmax(auto,max-content ) auto;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .wrapper .stockInfo{
+        grid-row: 2/3;
+        height:140px;
+    }
+    .wrapper .stockInfo ul{
+        display: block;
+    }
+    .wrapper .stockInfo ul li{
+        margin: 20px 0px;
+    }
+    .wrapper .stockInfo ul li:nth-child(2){
+        margin-left:0px ;
+    }
 }

@@ -146,10 +146,41 @@ const Navbar = () => {
                     </ul>
                 )}
             </div>
-            <div className={styles['toggle-menu']}>
+            <div className={styles['menu-wrapper']}>
                     <img src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
+                    {user && (
+                    <form className={styles.searchBar} onSubmit={handleSubmit}>
+                        <input
+                            className={styles.searchInput} 
+                            type='search' 
+                            value={stockName}
+                            onChange={handleFilter}
+                            placeholder="輸入台股名稱/代號"
+                        />
+                        <button>
+                            <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
+                        </button>
+                        {user && filteredData.length !== 0 && (
+                        <div className={styles['search-data-box']}>
+                            <ul>
+                                <li>查詢個股</li>
+                            {filteredData.slice(0, 5).map((data,index) => {
+                                return (
+                                    <li key={index} 
+                                        className={styles.searchitem} 
+                                        onClick={handleClick}>
+                                        <span>{data.id}</span>
+                                        <span>{data.sname}</span>
+                                    </li>
+                                )
+                            })}
+                            </ul>
+                        </div>
+                    )}
+                    </form> 
+                )}
                     {menu &&(
-                        <div>
+                        <div className={styles['menu-box']}>
                             <img className={styles.cross}
                                 onClick={()=>setMenu(false)}
                                 src={crossIcon} alt='cross'></img>
@@ -182,38 +213,8 @@ const Navbar = () => {
                             </ul>
                         </div>
                     )}
-                    {user && (
-                        <form className={styles.searchBar} onSubmit={handleSubmit}>
-                            <input
-                                className={styles.searchInput} 
-                                type='search' 
-                                value={stockName}
-                                onChange={handleFilter}
-                                placeholder="輸入台股名稱/代號"
-                            />
-                            <button>
-                                <img className={styles.searchIcon}  src={searchIcon} alt='search'/>
-                            </button>
-                            {user && filteredData.length !== 0 && (
-                            <div className={styles['search-data-box']}>
-                                <ul>
-                                    <li>查詢個股</li>
-                                {filteredData.slice(0, 5).map((data,index) => {
-                                    return (
-                                        <li key={index} 
-                                            className={styles.searchitem} 
-                                            onClick={handleClick}>
-                                            <span>{data.id}</span>
-                                            <span>{data.sname}</span>
-                                        </li>
-                                    )
-                                })}
-                                </ul>
-                            </div>
-                        )}
-                        </form> 
-                    )}
             </div>
+           
         </div>
      );
 }

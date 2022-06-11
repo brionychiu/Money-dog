@@ -175,3 +175,29 @@
 .ispending img{
     height:50px;
 }
+@media(max-width:800px){
+    .price-container{
+        grid-template-rows: 1000px;
+    }
+    .k-SVG{
+        grid-template-rows: 80px 180px 620px 60px;
+    }
+    .price-detail{
+        justify-self: center;
+        grid-row: 2/3;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(4,1fr);
+        margin-bottom: 20px;
+    }
+    .price-detail span{
+        margin-left: 10px;
+        font-weight: 700;
+    }
+}
+@media(max-width:465px){
+    .k-SVG .title span:nth-child(1){
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}

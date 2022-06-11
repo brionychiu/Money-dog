@@ -223,47 +223,50 @@
 }
 /* RWD */
 @media(max-width:800px){
+  .navbar {
+    grid-template-columns: 1fr minmax(300px, 1024px) 1fr;  
+  }
   .navi-wrapper{
     display: none;
   }
-  .toggle-menu{
+  .menu-wrapper{
     grid-column: 2/3;
-    display: grid;
-    height: 58px;
+    display: inline-grid;
+    grid-template-columns: 5fr 1fr;
     align-items: center;
-    margin:0px 10px;
+    padding: 0px 20px;
+  }
+  .menu-box{
+    position: relative;
   }
   .cross{
-    width:30px;
-    height:30px;
-    position: absolute;
-    left: 148px;
+    width:40px;
+    height:40px;
+    position: fixed;
+    left: 150px;
     top: 0px;
     border:1px solid #fff;
   }
   .menu-detail{
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     width:150px;
-    height:381px;
+    height:380px;
     background-color: #0386f4;
     z-index: 2;
     border-radius: 3px;
-    border:1px solid #fff;
   }
   .menu-detail li{
     text-align: center;
-    padding: 20px 30px;
+    
     font-size: 1.1em;
     cursor: pointer;
     border:1px solid #fff;
   }
-  .menu-detail li a{
+.menu-detail li a{
     color: #fff;
-  }
-  .toggle-menu .searchBar{
-    width:220px;
-    justify-content: end;
+    display: inline-block;
+    padding: 20px 30px;
   }
 }

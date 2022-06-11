@@ -36,3 +36,26 @@
     height:30px;
     justify-self: center;
 }
+@media(max-width:600px){
+    .sidebar-container{
+        min-width: 360px;
+        height:90px;
+        align-content: center;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+    .sidebar-container li{
+        display: inline-flex;
+        margin: 0px auto;
+    }
+    .sidebar-container li:hover{
+        border-left: 0px solid  #0386f4;
+        border-bottom: 3px solid  #0386f4;
+    }
+}
+@media(max-width:400px){
+.sidebar-container li{
+    font-size: 10px;
+    margin: 0px;
+    }
+}
