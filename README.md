@@ -35,6 +35,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
     + [FireKit](#FireKit)
 + [Contact](#Contact)
 
+<a name="Main Features"></a>
 ## Main Features
 +  **Realtime search**：User search company by stock Id or name.
 +  **Candlestick chart**：show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
@@ -43,9 +44,10 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 +  **Line chart**：show every month averge price in the past three years.
 +  **Basic information**：compony's name, industry introduction.
 +  **Stock market**：include TAIEX and OTC general trend. 
-+  **Tracking list**：users can add stock in tracking list, when login-users check My List, it will show all information of stock price .
-
++  **Tracking list**：users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
+<a name="frontend"></a>
 ## Front-end Technique
+<a name="react"></a>
 ### React
  + Handle the SPA（Single Page Application) routing
  + React Router (version 6)
@@ -61,6 +63,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - useTrackingList：add/delete users tracking items from firestore database
 + Context：AuthContext
 
+<a name="svg"></a>
 ### SVG
   + Candlestick chart、tradingView chart
       - rect, line
@@ -78,7 +81,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - circle, line, text
       - <img src="https://user-images.githubusercontent.com/94620926/173233810-2326a310-ba11-4f7f-8a23-69eafd43a4e1.png" alt="dots line chart" width = "400" height = "250"/>
 
-      
+<a name="framer-motion"></a>
 ### Framer-motion
   + Enmerge
       - <img src="https://user-images.githubusercontent.com/94620926/173234164-1293e50c-0bcb-4652-83de-f7676ebbe1dc.gif" width = "250" height = "200" alt="emerge" />
@@ -92,10 +95,11 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
   + SVG Animation
       - <img src="https://user-images.githubusercontent.com/94620926/173234511-31fa79bd-2539-4149-bef0-3fb12e0a069b.gif" width = "300" height = "200" alt="svg animation" />
 <a name="React-slick"></a>
+<a name="React-slick"></a>
 ### React Slick
   + Auto slider
       - <img src="https://user-images.githubusercontent.com/94620926/173234952-8bd2ae85-a115-4e96-b3ab-10931a13caa9.gif" width = "300" height = "200" alt="svg animation" />
-  
+<a name="rwd"></a>
 ### RWD
   + Desktop 
       - <img src="https://user-images.githubusercontent.com/94620926/173221116-c95ef7fb-d993-490e-96e6-04c9e1b93314.png" width = "300" height = "180" alt="laptop" />
@@ -103,7 +107,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - <img src="https://user-images.githubusercontent.com/94620926/173221276-5f8e6011-4c83-4d4f-9aae-5688199ceb28.png" width = "100" height = "150" alt="tablet" />
   + Mobile phone 
       - <img src="https://user-images.githubusercontent.com/94620926/173221296-c813f019-aa64-4ad5-8939-40717966eed6.png" width = "80" height = "150" alt="phone"/>
-  
+<a name="backend"></a>
 ## Back-end Technique (Firebase Cloud Services)
 <a name="Firebase"></a>
 ### Firebase (version 9)
@@ -111,12 +115,12 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
   + Firestore Database
   + Hoisting
   + Functions
-<a name=""></a> 
-### Social login #social login
+<a name="social login"></a>
+### Social login
   + Support Google sign in.
   + Support Facebook sign in.
     - <img src="https://user-images.githubusercontent.com/94620926/173235044-40fa9e57-e0bd-4686-8135-fedcded4339e.png" width = "150" height = "250" alt="phone"/>
-      
+<a name="Web Crawler"></a>   
 ### Web Crawler
   + Source
     - 台灣證券交易所(TWSE)
@@ -130,7 +134,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 ### FireKit
   + more than 2000 data bulk import files
      - <img src="https://user-images.githubusercontent.com/94620926/173235178-4007de3d-d7cd-4859-b179-44dd4a60eb9b.png" width = "120" height = "60" alt="phone"/>
-
+<a name="contact"></a>
 ## 聯絡我
   + Yu-Chien,Chiu
   + mail：yuikuta0618@gmail.com
