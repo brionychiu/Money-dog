@@ -1,7 +1,8 @@
 # 招財狗 Money dog   
 
 <h3 align="center">
-  Digging for treasure in stock market, and get the new way to RICH.
+  Digging for treasure in stock market<br/>
+    and get the new way to RICH.
 </h3>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173223066-31b830af-39ba-4a8e-801f-592b624c7472.jpg" width = "50"    height = "50" alt="logo" />
