@@ -18,20 +18,20 @@
 
 招財狗是一個**將上市上櫃公司財務數據，以視覺圖表呈現**的股票網站。<br/>
 使用者可以搜尋有興趣的股票代碼/名稱，瀏覽「近半年股價走勢」、「每月本益比」、「營收年增率」、「每季EPS」及「公司簡介」等資訊，且用長條圖、折線圖將數據圖形化，觀察公司經營概況長線趨勢。
-## Table of Contents ##
-+ [核心功能](#main-feature)
-+ [前端技術](#frontend-technique)
+## 內容列表 ##
++ [核心功能](#核心功能)
++ [前端技術](#前端技術)
     + [React](#react)
-    + [SVG](#SVG)
-    + [Framer-motion](#Framer-motion)
-    + [React Slick](#React Slick)
-    + [RWD](#RWD)
-+ [後端技術](#backend-technique)
-    + [Firebase (version 9)](#firebase-version 9)
-    + [整合Firebase Authentication第三方登入](#整合Firebase Authentication第三方登入)
+    + [SVG](#svg)
+    + [Framer-motion](#framer-motion)
+    + [React Slick](#React-slick)
+    + [RWD](#rwd)
++ [後端技術](#後端技術)
+    + [Firebase(version 9)](#Firebase)
+    + [第三方登入](#第三方登入)
     + [資料爬蟲](#資料爬蟲)
     + [FireKit](#FireKit)
-+ [聯絡我](#contact)
++ [聯絡我](#聯絡我)
 
 ## 核心功能
 + 使用者以中/數字搜尋股票名稱/代號
@@ -89,7 +89,7 @@
       - <img src="https://user-images.githubusercontent.com/94620926/173234783-2179c67c-9fc0-473d-a922-b9a6862328e9.gif" width = "300" height = "150" alt="drag" />
   + SVG動畫
       - <img src="https://user-images.githubusercontent.com/94620926/173234511-31fa79bd-2539-4149-bef0-3fb12e0a069b.gif" width = "300" height = "200" alt="svg animation" />
-  
+<a name="React-slick"></a>
 ### React Slick
   + 自動輪播
       - <img src="https://user-images.githubusercontent.com/94620926/173234952-8bd2ae85-a115-4e96-b3ab-10931a13caa9.gif" width = "300" height = "200" alt="svg animation" />
@@ -103,12 +103,13 @@
       - <img src="https://user-images.githubusercontent.com/94620926/173221296-c813f019-aa64-4ad5-8939-40717966eed6.png" width = "80" height = "150" alt="phone"/>
   
 ## 後端技術
+<a name="Firebase"></a>
 ### Firebase (version 9)
   + Authentication
   + Firestore Database
   + Hoisting
   + Functions
-  
+<a name="第三方登入"></a> 
 ### 整合Firebase Authentication第三方登入
   + Google 快速登入
   + Facebook 快速登入
@@ -123,7 +124,7 @@
     - node.js
     - python
     - express
-
+<a name="FireKit"></a>
 ### FireKit
   + 超過2000筆資料大量匯入
      - <img src="https://user-images.githubusercontent.com/94620926/173235178-4007de3d-d7cd-4859-b179-44dd4a60eb9b.png" width = "120" height = "60" alt="phone"/>
