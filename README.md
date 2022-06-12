@@ -21,7 +21,7 @@ Users search stock id or company's name, to browse stock's price in half a year,
 With Bar chart, Line chart to observe the long term situation of corporate business management.
 
 ## Table of Content ##
-+ [Main Features](#Main Features)
++ [Main Features](#main-features)
 + [Front-end Technique](#frontend)
     + [React](#react)
     + [SVG](#svg)
@@ -29,13 +29,13 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
     + [React Slick](#React-slick)
     + [RWD](#rwd)
 + [Back-end Technique](#backend)
-    + [Firebase(version 9)](#Firebase)
-    + [Social Login](#social login)
-    + [Web Crawler](#Web Crawler)
+    + [Firebase(version 9)](#firebase)
+    + [Social Login](#social-login)
+    + [Web Crawler](#web-Crawler)
     + [FireKit](#FireKit)
-+ [Contact](#Contact)
++ [Contact](#contact)
 
-<a name="Main Features"></a>
+<a name="main-features"></a>
 ## Main Features
 +  **Realtime search**：User search company by stock Id or name.
 +  **Candlestick chart**：show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
@@ -109,18 +109,18 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - <img src="https://user-images.githubusercontent.com/94620926/173221296-c813f019-aa64-4ad5-8939-40717966eed6.png" width = "80" height = "150" alt="phone"/>
 <a name="backend"></a>
 ## Back-end Technique (Firebase Cloud Services)
-<a name="Firebase"></a>
+<a name="firebase"></a>
 ### Firebase (version 9)
   + Authentication
   + Firestore Database
   + Hoisting
   + Functions
-<a name="social login"></a>
+<a name="social-login"></a>
 ### Social login
   + Support Google sign in.
   + Support Facebook sign in.
     - <img src="https://user-images.githubusercontent.com/94620926/173235044-40fa9e57-e0bd-4686-8135-fedcded4339e.png" width = "150" height = "250" alt="phone"/>
-<a name="Web Crawler"></a>   
+<a name="web-Crawler"></a>   
 ### Web Crawler
   + Source
     - 台灣證券交易所(TWSE)
@@ -133,7 +133,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 <a name="FireKit"></a>
 ### FireKit
   + more than 2000 data bulk import files
-     - <img src="https://user-images.githubusercontent.com/94620926/173235178-4007de3d-d7cd-4859-b179-44dd4a60eb9b.png" width = "120" height = "60" alt="phone"/>
+     - <img src="https://user-images.githubusercontent.com/94620926/173235178-4007de3d-d7cd-4859-b179-44dd4a60eb9b.png" width = "150" height = "60" alt="phone"/>
 <a name="contact"></a>
 ## 聯絡我
   + Yu-Chien,Chiu
