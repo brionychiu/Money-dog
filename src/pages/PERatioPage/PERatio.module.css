@@ -220,4 +220,9 @@
     .red{
         margin:  0px 5px;
     }
+    .ispending{
+        left:20%;
+        top:60%;
+        transform: translateY(-20%);
+    }
 }

@@ -75,7 +75,8 @@
 }
 .industry-box{
     margin-top: 10px;
-    padding: 10px;
+    padding: 10px 40px; 
+    text-align: justify;
     background: #fff;
     border-radius: 3px;
     border: 1px solid #dfdfdf;
@@ -88,4 +89,37 @@
 }
 .industry-box div{
     line-height: 200%;
+}
+@media(max-width:800px){
+    .info-container{
+        grid-template-columns: minmax(300px,auto) 130px;
+    }
+}
+@media(max-width:500px){
+    .info-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px auto;
+    }
+    .info-box{
+        grid-column: 1/2;
+        grid-row: 2/3;
+        margin-top: 10px;
+    }
+    .daily-box{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        display: flex;
+    }
+    .daily-box div{
+        display: none;
+    } 
+    .daily-box li{
+        width: 100%;
+        margin: 0px 5px;
+    }
+}
+@media(max-width:500px){
+    .daily-box li{
+        margin: 0px 0px;
+    }
 }

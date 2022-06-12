@@ -201,4 +201,9 @@
         font-size: 12px;
         letter-spacing: 1px;
     }
+    .ispending{
+        left:20%;
+        top:60%;
+        transform: translateY(-20%);
+    }
 }

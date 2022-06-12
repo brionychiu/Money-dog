@@ -171,3 +171,61 @@
 .ispending img{
     height:50px;
 }
+/* RWD */
+@media(max-width:900px){
+    .main-content{
+        grid-template-columns: 1.3fr 1fr;
+    }
+}
+@media(max-width:800px){
+    .main-content{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.3fr 1fr;
+    }
+    .right-box{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: center;
+    }
+    .left-box{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+}
+@media(max-width:800px){
+    .main-content{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.3fr 1fr;
+    }
+    .right-box{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: center;
+    }
+    .left-box{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+}
+@media(max-width:500px){
+    .main-content{
+        margin: 0px 0px;
+    }
+    .left-box{
+        grid-template-columns: minmax(360px,500px);
+    }
+    .stockid{
+        display: none;
+    }
+    .category{
+        grid-column: 1/2;
+    }
+    .daily{
+        grid-column: 1/2;
+    }
+    .ispending{
+        left:20%;
+        top:50%;
+        transform: translateY(-50%);
+    }
+}

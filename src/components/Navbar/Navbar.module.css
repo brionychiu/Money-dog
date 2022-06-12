@@ -187,28 +187,28 @@
   .loginBar li a{
     color: #434343;
   }
-     .loginBar li:hover a{
-        color: #0386f4;
-      }
-    .navbar .loginBar .signup {
-      background-color: #0386f4;
-      padding: 7px 15px;
-      border-radius: 3px;
-      transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
-    }
+  .loginBar li:hover a{
+    color: #0386f4;
+  }
+  .navbar .loginBar .signup {
+    background-color: #0386f4;
+    padding: 7px 15px;
+    border-radius: 3px;
+    transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
+  }
 
-    .navbar .loginBar .signup:hover{
-      background-color: #0862BB;
-      box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
-    }
-    .navbar .loginBar .signup a{
-      color: #ffffff;
-    }
-    .navbar .loginBar .login{
-      margin-right: 10px;
-      padding: 7px 15px;
-      transition: all 0.8s;
-    } 
+  .navbar .loginBar .signup:hover{
+    background-color: #0862BB;
+    box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+  }
+  .navbar .loginBar .signup a{
+    color: #ffffff;
+  }
+  .navbar .loginBar .login{
+    margin-right: 10px;
+    padding: 7px 15px;
+    transition: all 0.8s;
+  } 
     /* :hover 同時觸發兩個顏色變化 */
     .navbar .loginBar .login:hover{
       border-radius: 3px;
@@ -217,10 +217,10 @@
     .navbar .loginBar .login:hover a{
       color: #ffffff;
     } 
-/* toggle menu */
-.menu-wrapper{
-  display: none;
-}
+    /* toggle menu */
+    .menu-wrapper{
+      display: none;
+    }
 /* RWD */
 @media(max-width:800px){
   .navbar {
@@ -235,6 +235,10 @@
     grid-template-columns: 5fr 1fr;
     align-items: center;
     padding: 0px 20px;
+    transition: all .5s;
+  }
+  .menu-box{
+    left:0;
   }
   .menu-box{
     position: relative;

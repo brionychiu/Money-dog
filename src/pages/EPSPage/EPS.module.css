@@ -209,4 +209,9 @@
     .detail{
         grid-template-columns: 1fr 3fr;
     }
+    .ispending{
+        left:20%;
+        top:60%;
+        transform: translateY(-20%);
+    }
 }

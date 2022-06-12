@@ -55,3 +55,19 @@
     height:48px;
     cursor: pointer;
 }
+/* RWD */
+@media(max-width:800px){
+    .items{
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(5,1fr);
+    }
+}
+@media(max-width:550px){
+    .nodata-container{
+        padding: 10px;
+    }
+    .items{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(8,1fr);
+    }
+}
