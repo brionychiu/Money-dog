@@ -12,7 +12,8 @@
 + 測試帳號：`123123@mail.com`  密碼：`123123`
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173226725-9ce99604-a6c2-4b19-bf9c-3c5edac49116.gif" alt="money-dog-film-open" width = "450" height = "300"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173377484-06248fe4-1f93-49d3-937b-f95392f25ce5.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173358699-016b0cba-2fbc-49b2-ae9a-1319541914c6.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
 </p>
 
 
@@ -79,20 +80,20 @@
       
 ### Framer-motion
   + 浮出
-      - <img src="https://user-images.githubusercontent.com/94620926/173234164-1293e50c-0bcb-4652-83de-f7676ebbe1dc.gif" width = "250" height = "200" alt="emerge" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
   + 放大
-      - <img src="https://user-images.githubusercontent.com/94620926/173234465-a4204483-3ec2-4b4a-82f5-ec5151c614bc.gif" width = "150" height = "60" alt="enlarge" />
-      - <img src="https://user-images.githubusercontent.com/94620926/173234696-a7845839-8ae3-44a3-8ce9-53fa8c4bfa0d.gif" width = "80" height = "70" alt="enlarge" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173373669-f933009f-7e1c-45ab-82bf-6e56786209a1.gif" width = "150" height = "60" alt="enlarge" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173372769-d6038b2b-42d5-47d7-849e-bf5211dce46c.gif" width = "80" height = "70" alt="enlarge-check" />
   + 位移
-      - <img src="https://user-images.githubusercontent.com/94620926/173234677-1b4c5dbc-7d03-4fdc-b0ce-04a4c50d1705.gif" width = "70" height = "220" alt="moving" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173371316-03495e90-9451-40d9-b5b6-af5cd56a1b52.gif" width = "70" height = "220" alt="moving" />
   + 拖曳
-      - <img src="https://user-images.githubusercontent.com/94620926/173234783-2179c67c-9fc0-473d-a922-b9a6862328e9.gif" width = "300" height = "150" alt="drag" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173370011-a5489f85-0379-402b-9d8c-4e941c9c3058.gif" width = "300" height = "150" alt="drag" />
   + SVG動畫
-      - <img src="https://user-images.githubusercontent.com/94620926/173234511-31fa79bd-2539-4149-bef0-3fb12e0a069b.gif" width = "300" height = "200" alt="svg animation" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "250" alt="svg animation" />
 <a name="React-slick"></a>
 ### React Slick
   + 自動輪播
-      - <img src="https://user-images.githubusercontent.com/94620926/173234952-8bd2ae85-a115-4e96-b3ab-10931a13caa9.gif" width = "300" height = "200" alt="svg animation" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
   
 ### RWD
   + 桌機、筆電 
