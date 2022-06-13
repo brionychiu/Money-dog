@@ -10,8 +10,8 @@ import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
 
 const Login = () => {
-    const [ email , setEmail ] = useState('')
-    const [ password , setPassword ] = useState('')
+    const [ email , setEmail ] = useState('123123@mail.com')
+    const [ password , setPassword ] = useState('123123')
     const { googleLogin, fbLogin, login, error, isPending } = useLogin()
 
     const handleSubmit = (e) => {
@@ -36,20 +36,22 @@ const Login = () => {
                     <label className={styles.email}>
                         <div>輸入您的Email帳號：</div>
                         <input 
+                            required
                             type='email'
                             size='40'
                             value={email}
-                            placeholder="123123@mail.com"
+                            placeholder="email"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </label>
                     <label className={styles.password}>
                         <div>輸入您的密碼：</div>
                         <input 
+                            required
                             type='password'
-                            size='36'
+                            size='40'
                             value={password}
-                            placeholder="123123"
+                            placeholder="password"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>

@@ -63,7 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 92px;
+    width: 105px;
     height:34.3px;
     border: 1px solid #d3d3d3;
     background: #ededed;
@@ -137,7 +137,7 @@
 @media(max-width:700px){
     .wrapper{
         grid-template-columns: 1fr 0px minmax(360px, 465px) 1fr;
-        grid-template-rows: 80px 180px minmax(auto,max-content ) auto;
+        grid-template-rows: 80px 180px minmax(auto,max-content) auto;
         padding-left: 5px;
         padding-right: 5px;
     }

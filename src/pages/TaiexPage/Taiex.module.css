@@ -74,7 +74,7 @@
     line-height: 180%;
 }
 .summary ul li:nth-child(2){
-    font-size: 1.75em;
+    font-size: 1.5em;
     font-weight: bold;
     line-height: 180%;
 }
@@ -238,16 +238,19 @@
         grid-template-rows: 0.2fr 1fr;
     }
     .market-info{
-        grid-template-rows: 340px auto;
+        grid-template-rows: 300px auto;
         margin-top: 30px;
     }
     .svg{
         width: 300px;
     }
+    .summary ul li:nth-child(2){
+        font-size: 1.3em;
+    }
 }
 @media(max-width:400px){
     .market-info{
-        grid-template-rows: 300px max-content;
+        grid-template-rows: 250px max-content;
         margin-top: 30px;
     }
     .summary ul li:nth-child(1){

@@ -188,12 +188,13 @@ const Navbar = () => {
                             <motion.img className={styles.cross}
                                 initial={{ x: "-100vw"}}
                                 animate={{ x: 0}}
+                                transition={{ duration:0.6 }}
                                 onClick={()=>setMenu(false)}
                                 src={crossIcon} alt='cross'></motion.img>
                             <motion.ul className={styles['menu-detail']}
                                 initial={{ x: "-100vw"}}
                                 animate={{ x: 0}}
-                                transition={{ duration:0.8 }}>
+                                transition={{ duration:0.6 }}>
                                 {user && (
                                     <li ><Link to="/trckingList">我的追蹤</Link></li>  
                                 )}

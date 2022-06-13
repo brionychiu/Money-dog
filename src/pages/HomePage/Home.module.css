@@ -179,10 +179,9 @@
     background-color: #0862BB
 }
 .searchBtn .searchImg{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 0%;
+    left: 0%;
     filter: invert(100%);
     width: 36px;
 }
@@ -420,15 +419,11 @@
         display: flex;
         padding: 10px 20px;
     }
-    .menu-detail-container{
-        /* transition: left 0.5s; */
-        Transition-duration : 3s;
-    }
     .cross{
         width:40px;
         height:40px;
         position: fixed;
-        left: 180px;
+        left: 179px;
         top: 0%;
         z-index: 2;
         border:1px solid #fff;
@@ -439,7 +434,6 @@
         top: 0px;    
         z-index: 2;
         border-radius: 3px;
-        Transition-duration : 0.8s;
     }
     .menu-detail li{
         text-align: center;
@@ -478,8 +472,7 @@
     }
     .svg{
         width:max(340px,580px);
-        justify-self: center;
-        
+        justify-self: center;   
     }
     .linkToStock{
         grid-column: 1/2;

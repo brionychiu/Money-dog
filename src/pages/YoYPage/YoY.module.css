@@ -185,7 +185,7 @@
         grid-template-columns: 1fr 4fr;
     }
     .YoY-report{
-        grid-template-rows: 0.5fr 2fr;
+        grid-template-rows: 0.8fr 2fr;
     }
     .explain{
         grid-template-rows: 100px auto;
