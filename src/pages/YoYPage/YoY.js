@@ -21,13 +21,6 @@ const YoY = () => {
     ) 
     return ( 
     <div className={styles['YoY-container']}>
-        {longYoY ===null && monthPrice===null && 
-            <div className={styles.ispending}>
-                <img src={loadingGif} alt='loading...'/>
-                <span>趕緊處理資料中</span>
-                <img src={loadingGif} alt='加載中...'/>
-            </div>
-        }
         {longYoY && monthPrice? 
             (longYoY.length===0 && monthPrice.length===0 ? 
                 <NoDataPage></NoDataPage>:

@@ -180,7 +180,9 @@
 }
 .searchBtn .searchImg{
     position: relative;
-    left:-4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     filter: invert(100%);
     width: 36px;
 }
@@ -425,31 +427,34 @@
     .cross{
         width:40px;
         height:40px;
-        position: absolute;
-        left: 148px;
-        top: 0px;
+        position: fixed;
+        left: 180px;
+        top: 0%;
+        z-index: 2;
         border:1px solid #fff;
     }
     .menu-detail{
-        position: absolute;
+        position: fixed;
         left: 0px;
-        top: 0px;
-        width:150px;
-        height:396px;
-        background-color: #ffb703;
+        top: 0px;    
         z-index: 2;
         border-radius: 3px;
-        /* Transition-duration : 3s; */
+        Transition-duration : 0.8s;
     }
     .menu-detail li{
         text-align: center;
-        padding: 20px 30px;
-        font-size: 1.1em;
+        height:100%;
+        width: 100%;
+        background-color: #ffb703;
         cursor: pointer;
         border:1px solid #fff;
     }
     .menu-detail li a{
+        display: inline-block;
         color: #fff;
+        font-size: 1.2em;
+        font-weight: 700;
+        padding: 30px 40px;
     }
     .homePage-2{
         grid-template-columns: minmax(600px,800px);
@@ -524,7 +529,7 @@
     }
     .text_1{
         font-size: 20px;
-        margin:10px 5px 0px 0px;
+        margin: -20px 0px 0px 0px;
     }
     .linkToStock{
         margin: 20px auto 20px;

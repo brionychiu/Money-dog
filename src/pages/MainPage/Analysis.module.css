@@ -16,7 +16,7 @@
 }
 .wrapper .sidebar{
     grid-column: 2/3;
-    grid-row: 1/3;
+    grid-row: 1/2;
     margin-top: 20px;
 }
 .wrapper .stockInfo{
@@ -33,12 +33,12 @@
 .wrapper .stockInfo ul{
     display: flex;
 }
-.wrapper .stockInfo ul li:nth-child(1),.wrapper .stockInfo ul li:nth-child(3){
+.stockInfo ul li:nth-child(1),.stockInfo ul li:nth-child(3){
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
 }
-.wrapper .stockInfo ul li:nth-child(2){
+.stockInfo ul li:nth-child(2){
     font-size: 13px;
     font-weight: 400;
     margin: 4px 5px;
@@ -83,14 +83,37 @@
     grid-column: 3/4;
     grid-row: 2/3;
     margin-bottom: 30px;
+    position: relative;
 }
 .footer{
     grid-row: 3/4;
 }
-@media(max-width:600px){
+/* ispending */
+.ispending{
+    position: absolute ;
+    left:40%;
+    top:20%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+.ispending span{
+    position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    color: #434343;
+}
+.ispending img{
+    height:50px;
+}
+.rwdli{
+    display: none;
+}
+/* RWD */
+@media(max-width:900px){
     .wrapper{
         grid-template-columns: 1fr 0px minmax(360px, 912px) 1fr;
-        grid-template-rows: 100px 100px minmax(auto,max-content ) auto;
+        grid-template-rows: 80px 100px minmax(auto,max-content ) auto;
         padding-left: 20px;
     }
     .sidebar{
@@ -106,11 +129,15 @@
     .footer{
         grid-row: 4/5;
     }
+    .ispending{
+        left:40%;
+        top:0%;
+    }
 }
-@media(max-width:465px){
+@media(max-width:700px){
     .wrapper{
         grid-template-columns: 1fr 0px minmax(360px, 465px) 1fr;
-        grid-template-rows: 100px 180px minmax(auto,max-content ) auto;
+        grid-template-rows: 80px 180px minmax(auto,max-content ) auto;
         padding-left: 5px;
         padding-right: 5px;
     }
@@ -118,13 +145,27 @@
         grid-row: 2/3;
         height:140px;
     }
+    .dateli{
+        display: none;
+    }
+    .rwdli{
+        display: inline-block;
+        font-size: smaller;
+    }
+    .stockInfo ul li:nth-child(3){
+        font-size: 25px; display: inline-block;
+    }
     .wrapper .stockInfo ul{
         display: block;
     }
     .wrapper .stockInfo ul li{
-        margin: 20px 0px;
+        margin: 10px 5px;
     }
     .wrapper .stockInfo ul li:nth-child(2){
         margin-left:0px ;
+    }
+    .ispending{
+        left:20%;
+        top:0%;
     }
 }

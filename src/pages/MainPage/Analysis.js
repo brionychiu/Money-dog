@@ -11,7 +11,7 @@ import Navbar from "../../components/navbar/Navbar"
 import Footer from '../../components/footer/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
 import check from '../../components/img/check_icon.png'
-// import checkGif from "../../components/img/check.gif"
+import loadingGif from '../../components/img/loading.gif'
 
 // sytles
 import styles from './Analysis.module.css'
@@ -90,42 +90,48 @@ const Analysis = () => {
         <div className={styles['analysis-container']}>
             <Navbar className={styles.navbar}/>
             <div className={styles.wrapper}>
-                <div className={styles.sidebar}>
-                    <Sidebar />
-                </div>
+                <Sidebar />
                 {stockData && basicInfo && (
                     <div className={styles.stockInfo}>    
-                    <ul>
-                        <li>{basicInfo[0].sname}{stockData[0].id}</li>
-                        <li>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
-                        <li>{stockData[0].Close}元</li>
-                    </ul>
-                    {tracking ? 
-                    <motion.form 
-                        whileHover={{ scale:1.02 }} 
-                        onSubmit={clickTounTrack}>
-                        <button className={styles.tracked}>
-                            <motion.img 
-                                initial={{ scale: 0.1}}
-                                animate={{ scale: 1}}
-                                className={styles.check} 
-                                src={check} 
-                                alt="check add tracking list" />
-                            <span>已追蹤</span>
-                        </button>
-                    </motion.form>:
-                    <motion.form 
-                        whileHover={{ scale:1.02 }}
-                        onSubmit={clickToTrack}>  
-                        <button className={styles.untracked} type="submit">+ 追蹤</button>
-                    </motion.form>}
-                    {/* <img src={checkGif} alt="check add tracking list" /> */}
+                        <ul>
+                            <li>{basicInfo[0].sname}{stockData[0].id}</li>
+                            <li className={styles.dateli}>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
+                            <li>{stockData[0].Close}元</li>
+                            <li className={styles.rwdli}>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
+                        </ul>
+                {tracking ? 
+                <motion.form 
+                    whileHover={{ scale:1.02 }} 
+                    onSubmit={clickTounTrack}>
+                    <button className={styles.tracked}>
+                        <motion.img 
+                            initial={{ scale: 0.1}}
+                            animate={{ scale: 1}}
+                            className={styles.check} 
+                            src={check} 
+                            alt="check add tracking list" />
+                        <span>已追蹤</span>
+                    </button>
+                </motion.form>:
+                <motion.form 
+                    whileHover={{ scale:1.02 }}
+                    onSubmit={clickToTrack}>  
+                    <button className={styles.untracked} type="submit">+ 追蹤</button>
+                </motion.form>}
+                       
             </div>
             )}
                 <div className={styles.mainContent}>
                     {authIsReady && (
                     <Outlet />  
                     )}
+                    {!basicInfo && (
+                    <div className={styles.ispending}>
+                        <img src={loadingGif} alt='loading...'/>
+                        <span>趕緊處理資料中</span>
+                        <img src={loadingGif} alt='加載中...'/>
+                    </div>
+                )}
                 </div>
             </div>
             <Footer className={styles.footer}/>

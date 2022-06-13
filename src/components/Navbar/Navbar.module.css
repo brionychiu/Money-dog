@@ -209,18 +209,18 @@
     padding: 7px 15px;
     transition: all 0.8s;
   } 
-    /* :hover 同時觸發兩個顏色變化 */
-    .navbar .loginBar .login:hover{
-      border-radius: 3px;
-      background-color: #636363;
-    } 
-    .navbar .loginBar .login:hover a{
-      color: #ffffff;
-    } 
-    /* toggle menu */
-    .menu-wrapper{
-      display: none;
-    }
+  /* :hover 同時觸發兩個顏色變化 */
+  .navbar .loginBar .login:hover{
+    border-radius: 3px;
+    background-color: #636363;
+  } 
+  .navbar .loginBar .login:hover a{
+    color: #ffffff;
+  } 
+  /* toggle menu */
+  .menu-wrapper{
+    display: none;
+  }
 /* RWD */
 @media(max-width:800px){
   .navbar {
@@ -238,16 +238,14 @@
     transition: all .5s;
   }
   .menu-box{
+    position: relative; 
     left:0;
-  }
-  .menu-box{
-    position: relative;
   }
   .cross{
     width:40px;
     height:40px;
     position: fixed;
-    left: 150px;
+    left: 180px;
     top: 0px;
     border:1px solid #fff;
   }
@@ -255,21 +253,23 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    width:150px;
-    height:380px;
-    background-color: #0386f4;
     z-index: 2;
     border-radius: 3px;
   }
   .menu-detail li{
+    width:100%;
+    height:100%;
+    background-color: #0386f4;
     text-align: center;
-    font-size: 1.1em;
     cursor: pointer;
     border:1px solid #fff;
   }
 .menu-detail li a{
+    font-size: 1.2em;
     color: #fff;
     display: inline-block;
-    padding: 20px 30px;
+    padding: 30px 40px;
+    letter-spacing: 2px;
+    font-weight: 700;
   }
 }

@@ -108,10 +108,14 @@ const Home = () => {
                     <img className={styles.menu} src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
                     {menu &&(
                         <div className={styles['menu-detail-container']}>
-                            <img className={styles.cross}
+                            <motion.img className={styles.cross}
+                                initial={{ x: "-100vw"}}
+                                animate={{ x: 0}}
                                 onClick={()=>setMenu(false)}
-                                src={crossIcon} alt='cross'></img>
-                            <ul className={styles['menu-detail']}>
+                                src={crossIcon} alt='cross'></motion.img>
+                            <motion.ul className={styles['menu-detail']}
+                                initial={{ x: "-100vw"}}
+                                animate={{ x: 0}}>
                                 {user && (
                                     <li ><Link to="/trckingList">我的追蹤</Link></li>  
                                 )}
@@ -137,7 +141,7 @@ const Home = () => {
                                 {user && (
                                     <li onClick={logout}><Link to="/signup">登出</Link></li>
                                 )}
-                            </ul>
+                            </motion.ul>
                         </div>
                     )}
                 </div>
@@ -218,7 +222,7 @@ const Home = () => {
                     <div className={styles.linkToStock}><Link to="/analysis/2330">查看更多資訊</Link></div>
                 </div>
             </div>
-            <div div className={styles['homePage-3']}>
+            <div className={styles['homePage-3']}>
                     <h3>眾多媒體報導推薦</h3>
                     <AutoSlider></AutoSlider>
             </div>

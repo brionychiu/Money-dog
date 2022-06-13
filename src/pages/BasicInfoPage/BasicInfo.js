@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useReducer, useState } from "react";
 import { useCollection } from "../../hooks/useCollection";
-// import { useSelector } from 'react-redux'
 import { IndustyReducer } from '../../redux/Industry'
 
 // components
@@ -20,7 +19,6 @@ const BasicInfo = () => {
     ) 
     const [state, dispatch] = useReducer(IndustyReducer,{industry:""})
     const industyInfo = () => { dispatch({type:basicInfo[0].industry})}
-    // const { industry } = useSelector((state) => state.industry)
     const handleClick = () => {
         industyInfo()
         setShow(true)

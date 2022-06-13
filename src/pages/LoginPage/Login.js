@@ -39,6 +39,7 @@ const Login = () => {
                             type='email'
                             size='40'
                             value={email}
+                            placeholder="123123@mail.com"
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </label>
@@ -48,6 +49,7 @@ const Login = () => {
                             type='password'
                             size='36'
                             value={password}
+                            placeholder="123123"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>

@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useLogout } from '../../hooks/useLogout'
 import { useCollection } from '../../hooks/useCollection'
+import { motion } from 'framer-motion'
 
 // components
 import logoIcon from '../img/logo_icon.jpg'
@@ -12,7 +13,7 @@ import searchIcon from '../img/search_icon.png'
 import logoutIcon from '../img/logout_icon.png'
 import logoutIconHover from '../img/logout_icon_blue.png'
 import menuIcon from '../img/menu_icon_blue.png'
-import menuHoverIcon from '../img/menu_icon_blue.png'
+import menuIconHover from '../img/menu_icon_blue.png'
 import crossIcon from '../img/cross_icon_blue.png'
 
 // styles
@@ -29,6 +30,7 @@ const Navbar = () => {
     const [filteredData, setFilteredData] = useState([])
     const [tracking, setTracking] = useState(false)
     const [menu, setMenu] = useState(false)
+    const [hover, setHover] = useState(false)
 
     const handleFilter = (e) => {
         let searchWord = e.target.value
@@ -147,7 +149,9 @@ const Navbar = () => {
                 )}
             </div>
             <div className={styles['menu-wrapper']}>
-                    <img src={menuIcon} alt='menu'onClick={()=>setMenu(true)}/>
+                    <img src={menuIcon} alt='menu'onClick={()=>setMenu(true)}
+                        onMouseOver={e => e.currentTarget.src = menuIconHover}
+                        onMouseOut={e => e.currentTarget.src = menuIcon}/>
                     {user && (
                     <form className={styles.searchBar} onSubmit={handleSubmit}>
                         <input
@@ -181,10 +185,15 @@ const Navbar = () => {
                 )}
                     {menu &&(
                         <div className={styles['menu-box']}>
-                            <img className={styles.cross}
+                            <motion.img className={styles.cross}
+                                initial={{ x: "-100vw"}}
+                                animate={{ x: 0}}
                                 onClick={()=>setMenu(false)}
-                                src={crossIcon} alt='cross'></img>
-                            <ul className={styles['menu-detail']}>
+                                src={crossIcon} alt='cross'></motion.img>
+                            <motion.ul className={styles['menu-detail']}
+                                initial={{ x: "-100vw"}}
+                                animate={{ x: 0}}
+                                transition={{ duration:0.8 }}>
                                 {user && (
                                     <li ><Link to="/trckingList">我的追蹤</Link></li>  
                                 )}
@@ -210,7 +219,7 @@ const Navbar = () => {
                                 {user && (
                                     <li onClick={logout}><Link to="/signup">登出</Link></li>
                                 )}
-                            </ul>
+                            </motion.ul>
                         </div>
                     )}
             </div>

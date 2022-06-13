@@ -32,7 +32,7 @@ export const useLogin = () => {
                 if (err.message ==='Firebase: Error (auth/user-not-found).'){
                     setError('密碼或帳號錯誤，請重新輸入。')
                 }else{
-                    setError(err.message)
+                    setError('密碼或帳號錯誤，請重新輸入。')
                 }
                 setIsPending(false)
             }
@@ -63,7 +63,7 @@ export const useLogin = () => {
                 if (err.message ==='Firebase: Error (auth/user-not-found).'){
                     setError('密碼或帳號錯誤，請重新輸入。')
                 }else{
-                    setError(err.message)
+                    setError('密碼或帳號錯誤，請重新輸入。')
                 }
                 setIsPending(false)
             }
@@ -94,7 +94,7 @@ export const useLogin = () => {
                 if (err.message ==='Firebase: Error (auth/user-not-found).'){
                     setError('密碼或帳號錯誤，請重新輸入。')
                 }else{
-                    setError(err.message)
+                    setError('密碼或帳號錯誤，請重新輸入。')
                 }
                 setIsPending(false)
             }

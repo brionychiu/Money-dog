@@ -22,24 +22,7 @@ export const StockPriceSVG = ({HY_price}) => {
     const [stockClose, setStockClose] = useState('')
     const [stockVolume, setStockVolume] = useState('')
     const [stockTrancision, setStockTrancision] = useState('')
-    
-    // ------------moving line ---------------
-    const [movingX, setMovingX] = useState('')
 
-// --待解決---座標和svg畫布!!!
-    const showTopBar = (e) => {
-        //	建立 SVG 座標點（0, 0）
-        const clientPoint = e.createSVGPoint()
-        //	取得 CTM
-        const CTM = e.getScreenCTM()
-        //  將 SVG 座標點的 x, y 設成 client(x, y)
-        clientPoint.x = e.clientX
-        clientPoint.y = e.clientY
-        //	將 client 的座標點轉成 SVG 座標點
-        const SVGPoint = clientPoint.matrixTransform(CTM.inverse())
-        // console.log(SVGPoint)
-        return {SVGPoint}
-    }
     // ----------- horizontal line -------------
     let horizontalLine = () => {
         const horiLine = []
@@ -268,8 +251,7 @@ export const StockPriceSVG = ({HY_price}) => {
     const [twentyMA,setTwentyMA] = useState(true)
 
     const handleClick = (e) => {
-        e.target.style.fill = "pink"
-        e.target.style.stroke = "rgb(255,116,140)"
+        e.target.style.stroke = "rgb(251,226,45)"
         e.target.style.strokeWidth = "3"
     }
 
@@ -304,8 +286,6 @@ export const StockPriceSVG = ({HY_price}) => {
                 <div className={styles.kChart}>
                     <svg 
                         cursor="pointer"
-                        onMouseMove={(e) => {setMovingX(e.clientX)
-                       }}
                         width="2170" height="600"
                         viewBox="0 0 2170 600"
                         xmlns="<http://www.w3.org/2000/svg>"
@@ -410,10 +390,6 @@ export const StockPriceSVG = ({HY_price}) => {
                             width="18" height={item} fill={fillColor[index]}/>
                         ))}
 
-                        {/* moving line */}
-                        {/* <line 
-                            x1={movingX} y1="10" x2={movingX} y2="580" stroke='rgb(81,81,81)' strokeWidth='1'
-                            /> */}
                     </svg>
                 </div>
                 

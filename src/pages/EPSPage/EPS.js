@@ -4,7 +4,6 @@ import { useCollection } from "../../hooks/useCollection"
 
 // components
 import { EPSdrawSVG } from './EPSdrawSVG'
-import loadingGif from '../../components/img/loading.gif'
 import NoDataPage from "../NoDataPage/NoDataPage";
 
 // styles
@@ -21,22 +20,15 @@ const EPS = () => {
     ) 
     return ( 
         <div className={styles['EPS-container']}>
-        {Q_EPS ===null && monthPrice===null && 
-            <div className={styles.ispending}>
-                <img src={loadingGif} alt='loading...'/>
-                <span>趕緊處理資料中</span>
-                <img src={loadingGif} alt='加載中...'/>
-            </div>
-        }
-            {Q_EPS && monthPrice ? 
-            (Q_EPS.length===0 && monthPrice.length===0 ? 
-                <NoDataPage></NoDataPage>:
-            <EPSdrawSVG 
-                Q_EPS={Q_EPS[0].EPS}
-                Q_Date={Q_EPS[0].quarter}
-                M_Price={monthPrice[0].monthPrice}
-                M_Date={monthPrice[0].month}>
-            </EPSdrawSVG>)
+        {Q_EPS && monthPrice ? 
+        (Q_EPS.length===0 && monthPrice.length===0 ? 
+            <NoDataPage></NoDataPage>:
+        <EPSdrawSVG 
+            Q_EPS={Q_EPS[0].EPS}
+            Q_Date={Q_EPS[0].quarter}
+            M_Price={monthPrice[0].monthPrice}
+            M_Date={monthPrice[0].month}>
+        </EPSdrawSVG>)
         :null}
             <div className={styles['EPS-report']}>
                 <ul className={styles.toggleMenu}>

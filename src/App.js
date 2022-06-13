@@ -14,7 +14,6 @@ import EPS from './pages/EPSPage/EPS'
 import YoY from './pages/YoYPage/YoY'
 import BasicInfo from './pages/BasicInfoPage/BasicInfo'
 import StockPrice from './pages/StockPricePage/StockPrice'
-// import AccountSetting from './pages/AccountSetting/AccountSetting'
 
 // styles
 import './App.css';
@@ -61,10 +60,6 @@ function App() {
               path='/trckingList' 
               element={ user ? <TrackingList /> : <Navigate to="/login"/> } 
             /> 
-            {/* <Route 
-              path='/user/account' 
-              element={ user ? <AccountSetting /> : <Navigate to="/login"/> } 
-            />  */}
             <Route path='*' element={ <Error /> }  />  
         </Routes>
         </BrowserRouter>

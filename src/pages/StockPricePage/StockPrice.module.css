@@ -157,24 +157,6 @@
     height:48px;
     cursor: pointer;
 }
-/* ispending */
-.ispending{
-    position: absolute ;
-    left:50%;
-    top:50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-}
-.ispending span{
-    position: relative;
-    font-size: 22px;
-    font-weight: 700;
-    color: #434343;
-}
-.ispending img{
-    height:50px;
-}
 /* RWD */
 @media(max-width:800px){
     .price-container{
@@ -200,10 +182,5 @@
     .k-SVG .title span:nth-child(1){
         font-size: 12px;
         letter-spacing: 1px;
-    }
-    .ispending{
-        left:20%;
-        top:60%;
-        transform: translateY(-20%);
     }
 }
