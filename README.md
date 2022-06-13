@@ -17,8 +17,8 @@
 </p>
 
 
-Money dog is a website which can **visualize data by using listed corporations financial statement ,let easily distinguished its patterns, trends and correlations**。<br/>
-Users search stock id or company's name, to browse stock's price in half a year, PE ratio,Revenue Growth Rate (YoY) in each month、EPS in each quarter and basic company infomation.<br/>
+Money dog is a website which can **visualize data by using listed corporations financial statement, let easily distinguished its patterns, trends and correlations**.<br/>
+Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company infomation.<br/>
 With Bar chart, Line chart to observe the long term situation of corporate business management.
 
 ## Table of Content ##
@@ -38,12 +38,12 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 
 <a name="main-features"></a>
 ## Main Features
-+  **Realtime search**：User search company by stock Id or name.
++  **Realtime search**：User search company by stock Id or company's name.
 +  **Candlestick chart**：show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
-+  **Bar chart**：show every quarter EPS in the past three years. 
-+  **Line chart with dots**：show every month PE Ratio and YoY in the past three years.
-+  **Line chart**：show every month averge price in the past three years.
-+  **Basic information**：compony's name, industry introduction.
++  **Bar chart**：show each quarter EPS in the past three years. 
++  **Line chart with dots**：show each month PE Ratio and YoY in the past three years.
++  **Line chart**：show each month averge price in the past three years.
++  **Basic information**：compony and industry introduction.
 +  **Stock market**：include TAIEX and OTC general trend. 
 +  **Tracking list**：users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
 <a name="frontend"></a>
@@ -66,15 +66,15 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 
 <a name="svg"></a>
 ### SVG
-  + Candlestick chart、tradingView chart
+  + Candlestick chart、TradingView chart
       - rect, line
       - <img src="https://user-images.githubusercontent.com/94620926/173233555-81ebd22f-3129-42d0-8a09-ecb1cacae14d.png" alt="stockPrice" width = "400" height = "250"/>
   + Bar chart
-      - path, line, text
+      - reac, line, text
       - <img src="https://user-images.githubusercontent.com/94620926/173233838-cad9b089-5227-4d44-a19a-c61449df13ed.png" alt="histogram" width = "400" height = "250"/>
       
   + Line chart
-      - line, text
+      - path, line, circle, text
       - <img src="https://user-images.githubusercontent.com/94620926/173233773-f97ab08d-175d-4490-8227-61f4801f5cc3.png" alt="line chart" width = "400" height = "250"/>
       - <img src="https://user-images.githubusercontent.com/94620926/173233873-9ee125ad-bc44-48e0-b3cd-25620f543acb.png" alt="PEratio" width = "400" height = "250"/>
 
@@ -95,7 +95,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - <img src="https://user-images.githubusercontent.com/94620926/173234783-2179c67c-9fc0-473d-a922-b9a6862328e9.gif" width = "300" height = "150" alt="drag" />
   + SVG Animation
       - <img src="https://user-images.githubusercontent.com/94620926/173234511-31fa79bd-2539-4149-bef0-3fb12e0a069b.gif" width = "300" height = "200" alt="svg animation" />
-<a name="React-slick"></a>
+
 <a name="React-slick"></a>
 ### React Slick
   + Auto slider
@@ -126,7 +126,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
   + Source
     - 台灣證券交易所(TWSE)
     - 櫃檯買賣中心(TPEx)
-    - 財報狗(statement dog)
+    - 財報狗(Statement Dog)
   + Code
     - node.js
     - python
@@ -136,6 +136,6 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
   + more than 2000 data bulk import files
      - <img src="https://user-images.githubusercontent.com/94620926/173235178-4007de3d-d7cd-4859-b179-44dd4a60eb9b.png" width = "150" height = "60" alt="phone"/>
 <a name="contact"></a>
-## 聯絡我
+## Contact
   + Yu-Chien,Chiu
   + mail：yuikuta0618@gmail.com
