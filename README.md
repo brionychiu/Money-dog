@@ -41,14 +41,14 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 
 <a name="main-features"></a>
 ## Main Features
-+  **Realtime search**：User search company by stock Id or company's name.
-+  **Candlestick chart**：show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
-+  **Bar chart**：show each quarter EPS in the past three years. 
-+  **Line chart with dots**：show each month PE Ratio and YoY in the past three years.
-+  **Line chart**：show each month averge price in the past three years.
-+  **Basic information**：compony and industry introduction.
-+  **Stock market**：include TAIEX and OTC general trend. 
-+  **Tracking list**：users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
++  **Realtime search**：Users search company by stock Id or company's name.
++  **Candlestick chart**：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
++  **Bar chart**：Show each quarter EPS in the past three years. 
++  **Line chart with dots**：Show each month PE Ratio and YoY in the past three years.
++  **Line chart**：Show each month averge price in the past three years.
++  **Basic information**：Compony and industry introduction.
++  **Stock market**：Includes TAIEX and OTC general trend. 
++  **Tracking list**：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
 <a name="frontend"></a>
 ## Front-end Technique
 <a name="react"></a>
