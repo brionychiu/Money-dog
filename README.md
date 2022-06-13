@@ -1,24 +1,27 @@
 # 招財狗 Money dog   
 
 <h3 align="center">
-  Digging for treasure in stock market,<br/>
-    and get the new way to RICH.
+  Dig for treasure in the stock market,<br/>
+    and find a new way to get RICH.
 </h3>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173223066-31b830af-39ba-4a8e-801f-592b624c7472.jpg" width = "50"    height = "50" alt="logo" />
 </p>
 
+# Demo
 + Website URL：[招財狗 Money dog](https://truffle-dog-56562.web.app/)
 + Test account：`123@mail.com`  Password：`123123`
 + Test account：`123123@mail.com`  Password：`123123`
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173226725-9ce99604-a6c2-4b19-bf9c-3c5edac49116.gif" alt="money-dog-film-open" width = "450" height = "300"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173377484-06248fe4-1f93-49d3-937b-f95392f25ce5.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
+
+  <img src="https://user-images.githubusercontent.com/94620926/173358699-016b0cba-2fbc-49b2-ae9a-1319541914c6.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
 </p>
 
 
 Money dog is a website which can **visualize data by using listed corporations financial statement, let easily distinguished its patterns, trends and correlations**.<br/>
-Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company infomation.<br/>
+Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company information.<br/>
 With Bar chart, Line chart to observe the long term situation of corporate business management.
 
 ## Table of Content ##
@@ -38,14 +41,14 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 
 <a name="main-features"></a>
 ## Main Features
-+  **Realtime search**：User search company by stock Id or company's name.
-+  **Candlestick chart**：show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
-+  **Bar chart**：show each quarter EPS in the past three years. 
-+  **Line chart with dots**：show each month PE Ratio and YoY in the past three years.
-+  **Line chart**：show each month averge price in the past three years.
-+  **Basic information**：compony and industry introduction.
-+  **Stock market**：include TAIEX and OTC general trend. 
-+  **Tracking list**：users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
++  **Realtime search**：Users search company by stock Id or company's name.
++  **Candlestick chart**：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
++  **Bar chart**：Show each quarter EPS in the past three years. 
++  **Line chart with dots**：Show each month PE Ratio and YoY in the past three years.
++  **Line chart**：Show each month averge price in the past three years.
++  **Basic information**：Compony and industry introduction.
++  **Stock market**：Includes TAIEX and OTC general trend. 
++  **Tracking list**：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
 <a name="frontend"></a>
 ## Front-end Technique
 <a name="react"></a>
@@ -71,8 +74,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - <img src="https://user-images.githubusercontent.com/94620926/173233555-81ebd22f-3129-42d0-8a09-ecb1cacae14d.png" alt="stockPrice" width = "400" height = "250"/>
   + Bar chart
       - reac, line, text
-      - <img src="https://user-images.githubusercontent.com/94620926/173233838-cad9b089-5227-4d44-a19a-c61449df13ed.png" alt="histogram" width = "400" height = "250"/>
-      
+      - <img src="https://user-images.githubusercontent.com/94620926/173233838-cad9b089-5227-4d44-a19a-c61449df13ed.png" alt="histogram" width = "400" height = "250"/>  
   + Line chart
       - path, line, circle, text
       - <img src="https://user-images.githubusercontent.com/94620926/173233773-f97ab08d-175d-4490-8227-61f4801f5cc3.png" alt="line chart" width = "400" height = "250"/>
@@ -85,21 +87,22 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 <a name="framer-motion"></a>
 ### Framer-motion
   + Enmerge
-      - <img src="https://user-images.githubusercontent.com/94620926/173234164-1293e50c-0bcb-4652-83de-f7676ebbe1dc.gif" width = "250" height = "200" alt="emerge" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
   + Enlarge
-      - <img src="https://user-images.githubusercontent.com/94620926/173234465-a4204483-3ec2-4b4a-82f5-ec5151c614bc.gif" width = "150" height = "60" alt="enlarge" />
-      - <img src="https://user-images.githubusercontent.com/94620926/173234696-a7845839-8ae3-44a3-8ce9-53fa8c4bfa0d.gif" width = "80" height = "70" alt="enlarge" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173373669-f933009f-7e1c-45ab-82bf-6e56786209a1.gif" width = "300" height = "120" alt="enlarge" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173372769-d6038b2b-42d5-47d7-849e-bf5211dce46c.gif" width
+= "80" height = "70" alt="enlarge-check" />
   + Moving
-      - <img src="https://user-images.githubusercontent.com/94620926/173234677-1b4c5dbc-7d03-4fdc-b0ce-04a4c50d1705.gif" width = "70" height = "220" alt="moving" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173371316-03495e90-9451-40d9-b5b6-af5cd56a1b52.gif" width = "70" height = "290" alt="moving1" />
   + Drag
-      - <img src="https://user-images.githubusercontent.com/94620926/173234783-2179c67c-9fc0-473d-a922-b9a6862328e9.gif" width = "300" height = "150" alt="drag" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173370011-a5489f85-0379-402b-9d8c-4e941c9c3058.gif" width = "400" height = "200" alt="drag" />
   + SVG Animation
-      - <img src="https://user-images.githubusercontent.com/94620926/173234511-31fa79bd-2539-4149-bef0-3fb12e0a069b.gif" width = "300" height = "200" alt="svg animation" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "266" alt="svg animation" />
 
 <a name="React-slick"></a>
 ### React Slick
   + Auto slider
-      - <img src="https://user-images.githubusercontent.com/94620926/173234952-8bd2ae85-a115-4e96-b3ab-10931a13caa9.gif" width = "300" height = "200" alt="svg animation" />
+      - <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
 <a name="rwd"></a>
 ### RWD
   + Desktop 
