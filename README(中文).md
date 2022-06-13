@@ -17,7 +17,7 @@
 
 
 招財狗是一個**將上市上櫃公司財務數據，以視覺圖表呈現**的股票網站。<br/>
-使用者可以搜尋有興趣的股票代碼/名稱，瀏覽「近半年股價走勢」、「每月本益比」、「營收年增率」、「每季EPS」及「公司簡介」等資訊，且用長條圖、折線圖將數據圖形化，觀察公司經營概況長線趨勢。
+使用者搜尋有興趣的股票代碼/名稱，瀏覽「近半年股價走勢」、「每月本益比」、「營收年增率」、「每季EPS」及「公司簡介」等資訊，且用長條圖、折線圖將數據圖形化，觀察公司經營概況長線趨勢。
 ## 內容列表 ##
 + [核心功能](#核心功能)
 + [前端技術](#前端技術)
@@ -29,7 +29,7 @@
 + [後端技術](#後端技術)
     + [Firebase(version 9)](#Firebase)
     + [第三方登入](#第三方登入)
-    + [資料爬蟲](#資料爬蟲)
+    + [網路爬蟲](#網路爬蟲)
     + [FireKit](#FireKit)
 + [聯絡我](#聯絡我)
 
@@ -52,11 +52,11 @@
  + 自定義的 Hooks
       - useAuthContext：使用者登入狀態
       - useLogin：登入
-      - useLogout：登入
-      - useSignout：註冊
-      - useCollection：讀取資料
-      - useFirestore：增加/刪除資料
-      - useTrackingList：讀取會員追蹤清單資料
+      - useLogout：登出
+      - useSignup：註冊
+      - useCollection：串接firestore資料
+      - useFirestore：增加/刪除firestore資料
+      - useTrackingList：串接會員追蹤清單資料
 + Context：AuthContext
 
 ### SVG
@@ -64,11 +64,11 @@
       - rect, line
       - <img src="https://user-images.githubusercontent.com/94620926/173233555-81ebd22f-3129-42d0-8a09-ecb1cacae14d.png" alt="stockPrice" width = "400" height = "250"/>
   + 直條圖
-      - path, line, text
+      - line, ,circle, text
       - <img src="https://user-images.githubusercontent.com/94620926/173233838-cad9b089-5227-4d44-a19a-c61449df13ed.png" alt="histogram" width = "400" height = "250"/>
       
   + 折線圖
-      - line, text
+      - path, line, text
       - <img src="https://user-images.githubusercontent.com/94620926/173233773-f97ab08d-175d-4490-8227-61f4801f5cc3.png" alt="line chart" width = "400" height = "250"/>
       - <img src="https://user-images.githubusercontent.com/94620926/173233873-9ee125ad-bc44-48e0-b3cd-25620f543acb.png" alt="PEratio" width = "400" height = "250"/>
 
@@ -115,7 +115,7 @@
   + Facebook 快速登入
     - <img src="https://user-images.githubusercontent.com/94620926/173235044-40fa9e57-e0bd-4686-8135-fedcded4339e.png" width = "150" height = "250" alt="phone"/>
       
-### 資料爬蟲
+### 網路爬蟲
   + 資料來源
     - 台灣證券交易所
     - 櫃檯買賣中心
