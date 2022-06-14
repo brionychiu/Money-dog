@@ -12,7 +12,7 @@
 + Website URL：[招財狗 Money dog](https://truffle-dog-56562.web.app/)
 + Test account：`123@mail.com`  Password：`123123`
 + Test account：`123123@mail.com`  Password：`123123`
-+ [README.md(中文版)](https://github.com/brionychiu/Money-dog/blob/main/README(%E4%B8%AD%E6%96%87).md)
++ [README.md(Chinese)](https://github.com/brionychiu/Money-dog/blob/main/README(%E4%B8%AD%E6%96%87).md)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173377484-06248fe4-1f93-49d3-937b-f95392f25ce5.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
