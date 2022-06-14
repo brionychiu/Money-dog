@@ -66,6 +66,10 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
       - useFirestore：add/delete data from firestore database
       - useTrackingList：add/delete users tracking items from firestore database
 + Context：AuthContext
++ Structure
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/94620926/173554538-32c4dca6-6a89-476f-a407-8514e77ce842.svg" alt="2610-stockPrice" width = "600" height = "375"/>
+<p/>
 
 <a name="svg"></a>
 ### SVG
