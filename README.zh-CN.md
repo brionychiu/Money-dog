@@ -61,6 +61,10 @@
       - useFirestore：增加/刪除firestore資料
       - useTrackingList：串接會員追蹤清單資料
 + Context：AuthContext
++ Structure
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/94620926/173598321-36a4e7e0-2497-44e9-b821-8fc4a3308682.png" alt="2610-react structure" width = "600" height = "375"/>
+<p/>
 
 ### SVG
   + 股市 k 線圖、成交量圖 
