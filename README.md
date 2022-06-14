@@ -121,11 +121,10 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 <a name="rwd"></a>
 ### RWD
   + Desktop 
-      <img src="https://user-images.githubusercontent.com/94620926/173221116-c95ef7fb-d993-490e-96e6-04c9e1b93314.png" width = "300" height = "180" alt="laptop" />
   + Tablet 
-      <img src="https://user-images.githubusercontent.com/94620926/173221276-5f8e6011-4c83-4d4f-9aae-5688199ceb28.png" width = "100" height = "150" alt="tablet" />
   + Mobile phone 
-      <img src="https://user-images.githubusercontent.com/94620926/173221296-c813f019-aa64-4ad5-8939-40717966eed6.png" width = "80" height = "150" alt="phone"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173488721-c8e95efc-00c6-4509-9562-0ad0f0d5d1a7.png" width = "300" height = "200" alt="tablet" />
+
 <a name="backend"></a>
 ## Backend Technique (Firebase Cloud Services)
 <a name="firebase"></a>
@@ -138,7 +137,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 ### Social login
   + Support Google sign in.
   + Support Facebook sign in.
-    <img src="https://user-images.githubusercontent.com/94620926/173235044-40fa9e57-e0bd-4686-8135-fedcded4339e.png" width = "150" height = "250" alt="phone"/>
+  
 <a name="web-Crawler"></a>   
 ### Web Crawler
   + Source
