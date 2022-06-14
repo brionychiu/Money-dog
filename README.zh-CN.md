@@ -11,6 +11,7 @@
 + 測試帳號：`123@mail.com`  密碼：`123123`
 + 測試帳號：`123123@mail.com`  密碼：`123123`
 + [README.md(英文版)](https://github.com/brionychiu/Money-dog/blob/main/README.md)
++ 專案想法來自於[財報狗 Statement dog](https://statementdog.com/).
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173377484-06248fe4-1f93-49d3-937b-f95392f25ce5.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
