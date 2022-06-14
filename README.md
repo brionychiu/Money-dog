@@ -13,6 +13,7 @@
 + Test account：`123@mail.com`  Password：`123123`
 + Test account：`123123@mail.com`  Password：`123123`
 + [README.zh-CN.md](https://github.com/brionychiu/Money-dog/blob/main/README.zh-CN.md)
++ The UI of Money dog was inspired by [財報狗 Statement dog](https://statementdog.com/).
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173377484-06248fe4-1f93-49d3-937b-f95392f25ce5.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
