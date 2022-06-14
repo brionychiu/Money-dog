@@ -10,6 +10,7 @@
 + 網站連結：[招財狗 Money dog](https://truffle-dog-56562.web.app/)
 + 測試帳號：`123@mail.com`  密碼：`123123`
 + 測試帳號：`123123@mail.com`  密碼：`123123`
++ [README.md(英文版)](https://github.com/brionychiu/Money-dog/blob/main/README.md)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173377484-06248fe4-1f93-49d3-937b-f95392f25ce5.gif" alt="money-dog-film-open" width= "337.5" height = "225"/>
@@ -63,19 +64,32 @@
 ### SVG
   + 股市 k 線圖、成交量圖 
       - rect, line
-      - <img src="https://user-images.githubusercontent.com/94620926/173233555-81ebd22f-3129-42d0-8a09-ecb1cacae14d.png" alt="stockPrice" width = "400" height = "250"/>
+  <p align="center">
+     <img src="https://user-images.githubusercontent.com/94620926/173484362-409e4c3f-e775-4ba9-bb41-effb9bd35150.gif" alt="2330-stockPrice" width = "400" height = "250"/>
+     <img src="https://user-images.githubusercontent.com/94620926/173485145-955a1b1c-1661-44bc-b519-5795edee9da7.gif"
+ alt="2610-stockPrice" width = "400" height = "250"/>
+  <p/>
   + 直條圖
       - line, ,circle, text
-      - <img src="https://user-images.githubusercontent.com/94620926/173233838-cad9b089-5227-4d44-a19a-c61449df13ed.png" alt="histogram" width = "400" height = "250"/>
+  <p align="center">
+     <img src="https://user-images.githubusercontent.com/94620926/173485487-bdb4379c-fb85-4774-a320-512ca26e48f3.gif" alt="2610-eps" width = "400" height = "250"/>
+     <img src="https://user-images.githubusercontent.com/94620926/173485897-a635357a-f1a1-437a-8bef-f1cbf55fa36b.gif"
+ alt="2308-eps" width = "400" height = "250"/>
+ <p/>
       
   + 折線圖
       - path, line, text
-      - <img src="https://user-images.githubusercontent.com/94620926/173233773-f97ab08d-175d-4490-8227-61f4801f5cc3.png" alt="line chart" width = "400" height = "250"/>
-      - <img src="https://user-images.githubusercontent.com/94620926/173233873-9ee125ad-bc44-48e0-b3cd-25620f543acb.png" alt="PEratio" width = "400" height = "250"/>
+  <p align="center">
+      <img src="https://user-images.githubusercontent.com/94620926/173233873-9ee125ad-bc44-48e0-b3cd-25620f543acb.png" alt="taiex" width = "400" height = "250"/>
+      <img src="https://user-images.githubusercontent.com/94620926/173486046-6f25dfad-87cc-4054-953d-09cd03418ef9.gif" alt="2308-m-price" width = "400" height = "250"/>
+ <p/>
 
   + 圓點折線圖
       - circle, line, text
-      - <img src="https://user-images.githubusercontent.com/94620926/173233810-2326a310-ba11-4f7f-8a23-69eafd43a4e1.png" alt="dots line chart" width = "400" height = "250"/>
+  <p align="center">
+ <img src="https://user-images.githubusercontent.com/94620926/173486709-84478566-ab61-4704-b637-eb061b67ac79.gif" alt="2610-yoy" width = "400" height = "250"/>
+   <img src="https://user-images.githubusercontent.com/94620926/173486725-c885b6fa-a377-4ace-ae5a-4579142593b5.gif" alt="2610-pe" width = "400" height = "250"/>
+   <p/>
 
       
 ### Framer-motion
@@ -96,14 +110,12 @@
       - <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
   
 ### RWD
-  + 桌機、筆電 
-      - <img src="https://user-images.githubusercontent.com/94620926/173221116-c95ef7fb-d993-490e-96e6-04c9e1b93314.png" width = "300" height = "180" alt="laptop" />
-  + 平板 
-      - <img src="https://user-images.githubusercontent.com/94620926/173221276-5f8e6011-4c83-4d4f-9aae-5688199ceb28.png" width = "100" height = "150" alt="tablet" />
-  + 智慧型手機 
-      - <img src="https://user-images.githubusercontent.com/94620926/173221296-c813f019-aa64-4ad5-8939-40717966eed6.png" width = "80" height = "150" alt="phone"/>
+  + Desktop 
+  + Tablet 
+  + Mobile phone 
+  <img src="https://user-images.githubusercontent.com/94620926/173488721-c8e95efc-00c6-4509-9562-0ad0f0d5d1a7.png" width = "300" height = "200" alt="tablet" />
   
-## 後端技術
+## 後端技術(雲端服務技術)
 <a name="Firebase"></a>
 ### Firebase (version 9)
   + Authentication
@@ -114,7 +126,6 @@
 ### 整合Firebase Authentication第三方登入
   + Google 快速登入
   + Facebook 快速登入
-    - <img src="https://user-images.githubusercontent.com/94620926/173235044-40fa9e57-e0bd-4686-8135-fedcded4339e.png" width = "150" height = "250" alt="phone"/>
       
 ### 網路爬蟲
   + 資料來源
