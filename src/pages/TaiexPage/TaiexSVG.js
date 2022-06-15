@@ -105,12 +105,12 @@ export const TaiexSVG = ({taiex,otc}) => {
                 
                 {/* taiex */}
                 {closeY.map((item,index) => (
-                    <line x1={595-index*6.6} y1={item} x2={588.4-index*6.6} y2={closeY[index+1]} stroke='rgb(220,57,18)' strokeWidth='3'/>
+                    <line x1={595-index*6.6} y1={item} x2={588.4-index*6.6} y2={closeY[index+1]} stroke='rgb(220,57,18)' strokeWidth='3' strokeLinecap="round"/>
                 ))}
 
                 {/* taiex_otc */}
                 {otcCloseY.map((item,index) => (
-                    <line x1={595-index*6.6} y1={item} x2={588.4-index*6.6} y2={otcCloseY[index+1]} stroke='rgb(3,143,244)' strokeWidth='3'/>
+                    <line x1={595-index*6.6} y1={item} x2={588.4-index*6.6} y2={otcCloseY[index+1]} stroke='rgb(3,143,244)' strokeWidth='3' strokeLinecap="round"/>
                 ))}
 
             </svg>
