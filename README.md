@@ -22,14 +22,15 @@
 
 
 Money dog is a website which can **visualize data by using listed corporations financial statement, let easily distinguished its patterns, trends and correlations**.<br/>
+<p></p>
 Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company information.<br/>
-With Bar chart, Line chart to observe the long term situation of corporate business management.
+With bar chart, line chart to observe the long term situation of corporation business management.
 
 ## Table of Content ##
 + [Main Features](#main-features)
 + [Frontend Technique](#frontend)
     + [React](#react)
-    + [SVG](#svg)
+    + [SVG-without third party libraries](#svg)
     + [Framer Motion](#framer-motion)
     + [React Slick](#React-slick)
     + [RWD](#rwd)
@@ -43,7 +44,8 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 <a name="main-features"></a>
 ## Main Features
 +  **Realtime search**：Users search company by stock Id or company's name.
-+  **Candlestick chart**：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and Transaction.
++  **Build charts with SVG from scratch without third party libraries.**
++  **Candlestick chart**：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and transaction.
 +  **Bar chart**：Show each quarter EPS in the past three years. 
 +  **Line chart with dots**：Show each month PE Ratio and YoY in the past three years.
 +  **Line chart**：Show each month averge price in the past three years.
@@ -54,28 +56,27 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 ## Frontend Technique
 <a name="react"></a>
 ### React
- + Handle the SPA（Single Page Application) routing
- + React Router (version 6)
-      - Outlet, useParams, useLocation, Navigate, useNavigate, Link, Navigate, Routes, Route
- + Hooks API：useContext, useReducer, useState, useEffect
+ + Handle the SPA with React Router (version 6)
+      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Navigate`, `Routes`, `Route`
+ + Hooks API：`useContext`, `useReducer`, `useState`, `useEffect`
  + Extracting a Custom Hook
-      - useAuthContext：user state
-      - useLogin：login
-      - useLogout：logout
-      - useSignup：signup
-      - useCollection：get data from firestore database
-      - useFirestore：add/delete data from firestore database
-      - useTrackingList：add/delete users tracking items from firestore database
-+ Context：AuthContext
+      - `useAuthContext`：user state
+      - `useLogin`：login
+      - `useLogout`：logout
+      - `useSignup`：signup
+      - `useCollection`：get data from firestore database
+      - `useFirestore`：add/delete data from firestore database
+      - `useTrackingList`：add/delete users tracking items from firestore database
++ Context：`AuthContext`
 + Structure
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173761661-ea2c3dd1-cb13-42e3-b6ef-cef2b1440e30.png" alt="2610-react structure" width = "600" height = "375"/>
 <p/>
 
 <a name="svg"></a>
-### SVG
+### SVG-without third party libraries
   + Candlestick chart、TradingView chart
-      - rect, line
+      - svg-rect, svg-line
   <p align="center">
      <img src="https://user-images.githubusercontent.com/94620926/173484362-409e4c3f-e775-4ba9-bb41-effb9bd35150.gif" alt="2330-stockPrice" width = "400" height = "250"/>
      <img src="https://user-images.githubusercontent.com/94620926/173485145-955a1b1c-1661-44bc-b519-5795edee9da7.gif"
@@ -83,7 +84,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
     <p/>
 
   + Bar chart
-      - reac, line, text
+      - svg-reac, svg-line, svg-text
   <p align="center">
      <img src="https://user-images.githubusercontent.com/94620926/173485487-bdb4379c-fb85-4774-a320-512ca26e48f3.gif" alt="2610-eps" width = "400" height = "250"/>
      <img src="https://user-images.githubusercontent.com/94620926/173485897-a635357a-f1a1-437a-8bef-f1cbf55fa36b.gif"
@@ -91,14 +92,14 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
  <p/>
 
   + Line chart
-      - path, line, circle, text
+      - svg-path, svg-line, svg-circle, svg-text
   <p align="center">
       <img src="https://user-images.githubusercontent.com/94620926/173233873-9ee125ad-bc44-48e0-b3cd-25620f543acb.png" alt="taiex" width = "400" height = "250"/>
       <img src="https://user-images.githubusercontent.com/94620926/173486046-6f25dfad-87cc-4054-953d-09cd03418ef9.gif" alt="2308-m-price" width = "400" height = "250"/>
  <p/>
 
   + Line chart with dots
-      - circle, line, text
+      - svg-circle, svg-line, svg-text
   <p align="center">
  <img src="https://user-images.githubusercontent.com/94620926/173486709-84478566-ab61-4704-b637-eb061b67ac79.gif" alt="2610-yoy" width = "400" height = "250"/>
    <img src="https://user-images.githubusercontent.com/94620926/173486725-c885b6fa-a377-4ace-ae5a-4579142593b5.gif" alt="2610-pe" width = "400" height = "250"/>
@@ -107,17 +108,31 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 <a name="framer-motion"></a>
 ### Framer-motion
   + Enmerge
-      <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
+ <p>
+    <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
+ </p>
+ 
   + Enlarge
-      <img src="https://user-images.githubusercontent.com/94620926/173373669-f933009f-7e1c-45ab-82bf-6e56786209a1.gif" width = "300" height = "120" alt="enlarge" />
+  <p>
+     <img src="https://user-images.githubusercontent.com/94620926/173373669-f933009f-7e1c-45ab-82bf-6e56786209a1.gif" width = "300" height = "80" alt="enlarge" />
       <img src="https://user-images.githubusercontent.com/94620926/173372769-d6038b2b-42d5-47d7-849e-bf5211dce46c.gif" width
 = "80" height = "70" alt="enlarge-check" />
+ </p>
+ 
   + Moving
+  <p>
       <img src="https://user-images.githubusercontent.com/94620926/173371316-03495e90-9451-40d9-b5b6-af5cd56a1b52.gif" width = "70" height = "290" alt="moving1" />
+ </p>
+ 
   + Drag
+  <p>
       <img src="https://user-images.githubusercontent.com/94620926/173370011-a5489f85-0379-402b-9d8c-4e941c9c3058.gif" width = "400" height = "200" alt="drag" />
+ </p>
+ 
   + SVG Animation
+  <p>
       <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "266" alt="svg animation" />
+ </p>
 
 <a name="React-slick"></a>
 ### React Slick
