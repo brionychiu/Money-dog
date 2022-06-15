@@ -69,7 +69,7 @@ With Bar chart, Line chart to observe the long term situation of corporate busin
 + Context：AuthContext
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173598321-36a4e7e0-2497-44e9-b821-8fc4a3308682.png" alt="2610-react structure" width = "600" height = "375"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173761661-ea2c3dd1-cb13-42e3-b6ef-cef2b1440e30.png" alt="2610-react structure" width = "600" height = "375"/>
 <p/>
 
 <a name="svg"></a>
