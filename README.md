@@ -45,13 +45,13 @@ With bar chart, line chart to observe the long term situation of corporation bus
 ## Main Features
 +  **Realtime search**：Users search company by stock Id or company's name.
 +  **Build charts with SVG from scratch without third party libraries.**
-+  **Candlestick chart**：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and transaction.
-+  **Bar chart**：Show each quarter EPS in the past three years. 
-+  **Line chart with dots**：Show each month PE Ratio and YoY in the past three years.
-+  **Line chart**：Show each month averge price in the past three years.
-+  **Basic information**：Compony and industry introduction.
-+  **Stock market**：Includes TAIEX and OTC general trend. 
-+  **Tracking list**：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
+     - Candlestick chart：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and transaction.
+     - Bar chart：Show each quarter EPS in the past three years. 
+     - Line chart with dots：Show each month PE Ratio and YoY in the past three years.
+     - Line chart：Show each month averge price in the past three years.
+     - Basic information：Compony and industry introduction.
+     - Stock market：Includes TAIEX and OTC general trend. 
+     - Tracking list：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
 <a name="frontend"></a>
 ## Frontend Technique
 <a name="react"></a>
@@ -70,8 +70,9 @@ With bar chart, line chart to observe the long term situation of corporation bus
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173761661-ea2c3dd1-cb13-42e3-b6ef-cef2b1440e30.png" alt="2610-react structure" width = "600" height = "375"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173884655-298aa8c2-ac48-4a24-8d05-14761a1f45da.png" alt="2610-react structure" width = "600" height = "400"/>
 <p/>
+
 
 <a name="svg"></a>
 ### SVG-without third party libraries
@@ -84,7 +85,7 @@ With bar chart, line chart to observe the long term situation of corporation bus
     <p/>
 
   + Bar chart
-      - svg-reac, svg-line, svg-text
+      - svg-rect, svg-line, svg-text
   <p align="center">
      <img src="https://user-images.githubusercontent.com/94620926/173485487-bdb4379c-fb85-4774-a320-512ca26e48f3.gif" alt="2610-eps" width = "400" height = "250"/>
      <img src="https://user-images.githubusercontent.com/94620926/173485897-a635357a-f1a1-437a-8bef-f1cbf55fa36b.gif"
