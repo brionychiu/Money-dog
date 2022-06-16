@@ -138,7 +138,10 @@ With bar chart, line chart to observe the long term situation of corporation bus
 <a name="React-slick"></a>
 ### React Slick
   + Auto slider
+ <p>
       <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
+ </p>
+ 
 <a name="rwd"></a>
 ### RWD
   + Desktop 
