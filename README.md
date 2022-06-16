@@ -12,7 +12,7 @@
 + Website URL：[招財狗 Money dog](https://truffle-dog-56562.web.app/)
 + Test account：`123@mail.com`  Password：`123123`
 + Test account：`123123@mail.com`  Password：`123123`
-+ [README.zh-CN.md](https://github.com/brionychiu/Money-dog/blob/main/README.zh-CN.md)
++ [README(Chinese).md](https://github.com/brionychiu/Money-dog/blob/main/README.zh-CN.md)
 + The UI of Money dog was inspired by [財報狗 Statement dog](https://statementdog.com/).
 
 <p align="center">
