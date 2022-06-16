@@ -25,7 +25,7 @@
 + [核心功能](#核心功能)
 + [前端技術](#前端技術)
     + [React](#react)
-    + [SVG](#svg)
+    + [SVG(無使用任何第三方套件)](#svg)
     + [Framer-motion](#framer-motion)
     + [React Slick](#React-slick)
     + [RWD](#rwd)
@@ -38,44 +38,45 @@
 
 ## 核心功能
 + 使用者以中/數字搜尋股票名稱/代號
-+ 「最新動態」：以k線圖、直條圖表示該公司近半年股價走勢、5日均線、雙週線(10日線)、月線(20日線)、成交金額(百萬)及成交筆數
-+ 「價值評估」：以圓點折線圖表示該公司近三年每月本益比及月均價
-+ 「成長力分析」：以圓點折線圖表示該公司近三年單月營收年增率及月均價
-+ 「財務報表」：以直條圖表示該公司近三年單月營收年增率及月均價
-+ 「基本資料」：公司基本簡介及產業類別介紹
-+ 「大盤趨勢」：包含上市加權指數、櫃買指數近半年趨勢
-+ 使用者將股票加入追蹤清單，登入會員點選「我的清單」能瀏覽所有加入追蹤的股票每日動態。
++ **圖表皆以SVG(無第三方套件)繪製**
+       - 「最新動態」：以k線圖、直條圖表示該公司近半年股價走勢、5日均線、雙週線(10日線)、月線(20日線)、成交金額(百萬)及成交筆數
+       - 「價值評估」：以圓點折線圖表示該公司近三年每月本益比及月均價
+       - 「成長力分析」：以圓點折線圖表示該公司近三年單月營收年增率及月均價
+       - 「財務報表」：以直條圖表示該公司近三年單月營收年增率及月均價
+       - 「基本資料」：公司基本簡介及產業類別介紹
+       - 「大盤趨勢」：包含上市加權指數、櫃買指數近半年趨勢
+       - 使用者將股票加入追蹤清單，登入會員點選「我的清單」能瀏覽所有加入追蹤的股票每日動態。
 
 ## 前端技術
 ### React
- + 使用 react-router 實現 SPA（Single Page Application）架構
- + React Router (version 6)
-      - Outlet, useParams, useLocation, Navigate, useNavigate, Link, Navigate, Routes, Route
- + Hooks API：useContext, useReducer, useState, useEffect
+ + 使用 React Router (version 6) 實現 SPA（Single Page Application）架構
+      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Navigate`, `Routes`, `Route`
+ + Hooks API：`useContext`, `useReducer`, `useState`, `useEffect`
  + 自定義的 Hooks
-      - useAuthContext：使用者登入狀態
-      - useLogin：登入
-      - useLogout：登出
-      - useSignup：註冊
-      - useCollection：串接firestore資料
-      - useFirestore：增加/刪除firestore資料
-      - useTrackingList：串接會員追蹤清單資料
-+ Context：AuthContext
+      - `useAuthContext`：使用者登入狀態
+      - `useLogin`：登入
+      - `useLogout`：登出
+      - `useSignup`：註冊
+      - `useCollection`：串接firestore資料
+      - `useFirestore`：增加/刪除firestore資料
+      - `useTrackingList`：串接會員追蹤清單資料
++ Context：`AuthContext`
 + Structure
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94620926/173598321-36a4e7e0-2497-44e9-b821-8fc4a3308682.png" alt="2610-react structure" width = "600" height = "375"/>
 <p/>
 
-### SVG
+<a name="svg"><a/>
+### SVG(無使用任何第三方套件)
   + 股市 k 線圖、成交量圖 
-      - rect, line
+      - svg-rect, svg-line
   <p align="center">
      <img src="https://user-images.githubusercontent.com/94620926/173484362-409e4c3f-e775-4ba9-bb41-effb9bd35150.gif" alt="2330-stockPrice" width = "400" height = "250"/>
      <img src="https://user-images.githubusercontent.com/94620926/173485145-955a1b1c-1661-44bc-b519-5795edee9da7.gif"
  alt="2610-stockPrice" width = "400" height = "250"/>
   <p/>
   + 直條圖
-      - line, ,circle, text
+      - svg-line, svg-circle, svg-text
   <p align="center">
      <img src="https://user-images.githubusercontent.com/94620926/173485487-bdb4379c-fb85-4774-a320-512ca26e48f3.gif" alt="2610-eps" width = "400" height = "250"/>
      <img src="https://user-images.githubusercontent.com/94620926/173485897-a635357a-f1a1-437a-8bef-f1cbf55fa36b.gif"
@@ -83,14 +84,14 @@
  <p/>
       
   + 折線圖
-      - path, line, text
+      - svg-path, svg-line, svg-text
   <p align="center">
       <img src="https://user-images.githubusercontent.com/94620926/173233873-9ee125ad-bc44-48e0-b3cd-25620f543acb.png" alt="taiex" width = "400" height = "250"/>
       <img src="https://user-images.githubusercontent.com/94620926/173486046-6f25dfad-87cc-4054-953d-09cd03418ef9.gif" alt="2308-m-price" width = "400" height = "250"/>
  <p/>
 
   + 圓點折線圖
-      - circle, line, text
+      - svg-circle, svg-line, svg-text
   <p align="center">
  <img src="https://user-images.githubusercontent.com/94620926/173486709-84478566-ab61-4704-b637-eb061b67ac79.gif" alt="2610-yoy" width = "400" height = "250"/>
    <img src="https://user-images.githubusercontent.com/94620926/173486725-c885b6fa-a377-4ace-ae5a-4579142593b5.gif" alt="2610-pe" width = "400" height = "250"/>
@@ -99,26 +100,46 @@
       
 ### Framer-motion
   + 浮出
-      - <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
+ <p>
+    <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
+ </p>
+ 
   + 放大
-      - <img src="https://user-images.githubusercontent.com/94620926/173373669-f933009f-7e1c-45ab-82bf-6e56786209a1.gif" width = "150" height = "60" alt="enlarge" />
-      - <img src="https://user-images.githubusercontent.com/94620926/173372769-d6038b2b-42d5-47d7-849e-bf5211dce46c.gif" width = "80" height = "70" alt="enlarge-check" />
+ <p>
+     <img src="https://user-images.githubusercontent.com/94620926/173373669-f933009f-7e1c-45ab-82bf-6e56786209a1.gif" width = "300" height = "80" alt="enlarge" />
+      <img src="https://user-images.githubusercontent.com/94620926/173372769-d6038b2b-42d5-47d7-849e-bf5211dce46c.gif" width
+= "80" height = "70" alt="enlarge-check" />
+ </p>
+ 
   + 位移
-      - <img src="https://user-images.githubusercontent.com/94620926/173371316-03495e90-9451-40d9-b5b6-af5cd56a1b52.gif" width = "70" height = "220" alt="moving" />
+ <p>
+      <img src="https://user-images.githubusercontent.com/94620926/173371316-03495e90-9451-40d9-b5b6-af5cd56a1b52.gif" width = "70" height = "290" alt="moving1" />
+ </p>
+ 
   + 拖曳
-      - <img src="https://user-images.githubusercontent.com/94620926/173370011-a5489f85-0379-402b-9d8c-4e941c9c3058.gif" width = "300" height = "150" alt="drag" />
+  <p>
+      <img src="https://user-images.githubusercontent.com/94620926/173370011-a5489f85-0379-402b-9d8c-4e941c9c3058.gif" width = "400" height = "200" alt="drag" />
+ </p>
+ 
   + SVG動畫
-      - <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "250" alt="svg animation" />
+  <p>
+      <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "266" alt="svg animation" />
+ </p>
+
 <a name="React-slick"></a>
 ### React Slick
   + 自動輪播
-      - <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
+  <p>
+      <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
+ </p>
   
 ### RWD
   + Desktop 
   + Tablet 
   + Mobile phone 
+ <p>
   <img src="https://user-images.githubusercontent.com/94620926/173488721-c8e95efc-00c6-4509-9562-0ad0f0d5d1a7.png" width = "300" height = "200" alt="tablet" />
+</p>
   
 ## 後端技術(雲端服務技術)
 <a name="Firebase"></a>
