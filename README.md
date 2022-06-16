@@ -24,7 +24,7 @@
 Money dog is a website which can **visualize data by using listed corporations financial statement, let easily distinguished its patterns, trends and correlations**.<br/>
 <p></p>
 Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company information.<br/>
-With bar chart, line chart to observe the long term situation of corporation business management.
+With bar chart, line chart to observe corporation business management in the long term.
 
 ## Table of Content ##
 + [Main Features](#main-features)
@@ -51,7 +51,7 @@ With bar chart, line chart to observe the long term situation of corporation bus
      - Line chart：Show each month averge price in the past three years.
      - Basic information：Compony and industry introduction.
      - Stock market：Includes TAIEX and OTC general trend. 
-     - Tracking list：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
++  Tracking list：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
 <a name="frontend"></a>
 ## Frontend Technique
 <a name="react"></a>
