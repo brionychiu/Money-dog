@@ -22,7 +22,7 @@ import styles from './Navbar.module.css'
 const Navbar = () => {
     const location = useLocation()
     const navigate = useNavigate() 
-    const { user } = useAuthContext()
+    const {authIsReady, user } = useAuthContext()
     const { logout } = useLogout()  
     const { documents:stockInfo } = useCollection('basicInfo')
     const [stockName, setStockName] = useState('')
@@ -30,7 +30,6 @@ const Navbar = () => {
     const [filteredData, setFilteredData] = useState([])
     const [tracking, setTracking] = useState(false)
     const [menu, setMenu] = useState(false)
-    const [hover, setHover] = useState(false)
 
     const handleFilter = (e) => {
         let searchWord = e.target.value
@@ -119,13 +118,13 @@ const Navbar = () => {
                     </form> 
                 )}
                
-                {!user && (
+                {authIsReady&&!user && (
                     <ul className={styles.loginBar}>
                         <li className={styles.login}><Link to="/login">登入</Link></li>
                         <li className={styles.signup}><Link to="/signup">立即註冊</Link></li>
                     </ul>
                 )}
-                {user && (
+                {authIsReady&&user && (
                     <ul className={styles.rightBar}>
                         <li className={styles.tracking}
                             onMouseOver={()=>setTracking(true)}

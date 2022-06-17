@@ -165,7 +165,6 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
                     ))}
 
                     {/* month price */}
-                    {/* 這邊要加 stroke-linecap="round" 讓line不會有斷點*/}
                     {monthPrice && (
                     <>
                         {lineY1.map((item,index) => (

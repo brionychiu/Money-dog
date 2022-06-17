@@ -20,7 +20,7 @@ import styles from './Home.module.css'
 
 const Home = () => {
     const navigate = useNavigate()
-    const { user } = useAuthContext()
+    const {authIsReady, user } = useAuthContext()
     const { logout } = useLogout()
     const { documents:stockInfo } = useCollection('basicInfo')
     const [ stockId , setStockId ] = useState('')
@@ -85,13 +85,13 @@ const Home = () => {
                         }
                         <li><Link to="/taiex">大盤產業</Link></li>
                     </ul>
-                    {!user && (
+                    {authIsReady&&!user && (
                         <ul className={styles.loginBar}> 
                             <li className={styles.login} ><Link to="/login">登入</Link></li>
                             <li className={styles.signup} ><Link to="/signup">立即註冊</Link></li>
                         </ul>
                     )}
-                    {user && (
+                    {authIsReady&&user && (
                         <ul className={styles.rightBar}>
                             <li>
                                 <Link to="/trckingList">
@@ -117,7 +117,7 @@ const Home = () => {
                                 initial={{ x: "-100vw"}}
                                 animate={{ x: 0}}
                                 transition={{ duration:0.6 }}>
-                                {user && (
+                                {authIsReady&&user && (
                                     <li ><Link to="/trckingList">我的追蹤</Link></li>  
                                 )}
                                 <li><Link to="/">招財狗首頁</Link></li>
@@ -133,7 +133,7 @@ const Home = () => {
                                 </>
                                 )}
                                 <li><Link to="/taiex">大盤產業</Link></li>
-                                {!user && (
+                                {authIsReady&&!user && (
                                     <>
                                         <li><Link to="/login">登入</Link></li>
                                         <li ><Link to="/signup">立即註冊</Link></li>
