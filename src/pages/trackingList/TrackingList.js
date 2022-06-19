@@ -63,13 +63,6 @@ const TrackingList = () => {
     const millNum = trackingList&&(trackingList.length===0?null:priceChange(trackingList).millNum)
     const changeColor = trackingList&&(trackingList.length===0?null:priceChange(trackingList).changeColor)
 
-    // // ------ topbar onclick ---------------
-    // const handleClick = (e) => {
-    //     setDaily(prevState => !(prevState))
-    //     點下之後，顏色就回不來
-    //     e.target.style.color = 'red'
-    // }
-
     return ( 
     <div className={styles['trackingList-container']}>
         <Navbar />
