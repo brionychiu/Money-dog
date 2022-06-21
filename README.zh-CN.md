@@ -63,7 +63,7 @@
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "400"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "430"/>
 <p/>
 
 <a name="svg"><a/>
