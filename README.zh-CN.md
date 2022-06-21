@@ -29,7 +29,7 @@
     + [Framer-motion](#framer-motion)
     + [React Slick](#React-slick)
     + [RWD](#rwd)
-+ [後端技術](#後端技術)
++ [後端技術(雲端服務技術)](#後端技術)
     + [Firebase(version 9)](#Firebase)
     + [第三方登入](#第三方登入)
     + [網路爬蟲](#網路爬蟲)
@@ -63,7 +63,7 @@
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "375"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "400"/>
 <p/>
 
 <a name="svg"><a/>
@@ -149,6 +149,10 @@
   + Firestore Database
   + Hoisting
   + Functions
+     - [basicInfoAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/basicInfoAPI)
+     - [dailyPriceAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/)
+     - [dailyPEratioAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPEratioAPI)
+
 <a name="第三方登入"></a> 
 ### 整合Firebase Authentication第三方登入
   + Google 快速登入
