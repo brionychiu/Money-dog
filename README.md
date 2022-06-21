@@ -34,7 +34,7 @@ With bar chart, line chart to observe corporation business management in the lon
     + [Framer Motion](#framer-motion)
     + [React Slick](#React-slick)
     + [RWD](#rwd)
-+ [Backend Technique](#backend)
++ [Backend Technique (Firebase Cloud Services)](#backend)
     + [Firebase(version 9)](#firebase)
     + [Social Login](#social-login)
     + [Web Crawler](#web-Crawler)
@@ -157,6 +157,9 @@ With bar chart, line chart to observe corporation business management in the lon
   + Firestore Database
   + Hoisting
   + Functions
+    - [basicInfoAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/basicInfoAPI)
+    - [dailyPriceAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPriceAPI)
+    - [dailyPEratioAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPEratioAPI)
 <a name="social-login"></a>
 ### Social login
   + Support Google sign in.
