@@ -107,7 +107,7 @@ With bar chart, line chart to observe corporation business management in the lon
    <p/>
 
 <a name="framer-motion"></a>
-### Framer-motion
+### Framer Motion
   + Enmerge
  <p>
     <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
