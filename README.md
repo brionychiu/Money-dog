@@ -183,3 +183,4 @@ With bar chart, line chart to observe corporation business management in the lon
 ## Contact
   + Yu-Chien,Chiu
   + mail：yuikuta0618@gmail.com
+  + LinkedIn：[Chiu,Yu-Chien](https://www.linkedin.com/in/%E6%84%89%E8%AC%99-%E9%82%B1-853700200/)
