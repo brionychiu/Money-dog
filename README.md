@@ -21,7 +21,7 @@
 </p>
 
 
-Money dog is a website which can **visualize data by using listed corporations financial statement, let easily distinguished its patterns, trends and correlations**.<br/>
+Money dog is a website which can **visualize data by using listed corporations financial statements, let easily distinguished its patterns, trends and correlations**.<br/>
 <p></p>
 Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company information.<br/>
 With bar chart, line chart to observe corporation business management in the long term.
