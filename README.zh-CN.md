@@ -25,7 +25,7 @@
 + [核心功能](#核心功能)
 + [前端技術](#前端技術)
     + [React](#react)
-    + [SVG(無使用任何第三方套件)](#svg)
+    + [SVG (無使用任何第三方套件)](#svg)
     + [Framer-motion](#framer-motion)
     + [React Slick](#React-slick)
     + [RWD](#rwd)
@@ -38,8 +38,8 @@
 
 ## 核心功能
 + 使用者以中/數字搜尋股票名稱/代號
-+ **圖表皆以SVG(無第三方套件)繪製**
-     - 「最新動態」：以k線圖、直條圖表示該公司近半年股價走勢、5日均線、雙週線(10日線)、月線(20日線)、成交金額(百萬)及成交筆數
++ **圖表皆以 SVG (無第三方套件)繪製**
+     - 「最新動態」：以 k 線圖、直條圖表示該公司近半年股價走勢、5 日均線、雙週線( 10 日線)、月線( 20 日線)、成交金額(百萬)及成交筆數
      - 「價值評估」：以圓點折線圖表示該公司近三年每月本益比及月均價
      - 「成長力分析」：以圓點折線圖表示該公司近三年單月營收年增率及月均價
      - 「財務報表」：以直條圖表示該公司近三年單月營收年增率及月均價
@@ -67,7 +67,7 @@
 <p/>
 
 <a name="svg"><a/>
-### SVG(無使用任何第三方套件)
+### SVG (無使用任何第三方套件)
   + 股市 k 線圖、成交量圖 
       - svg-rect, svg-line
   <p align="center">
@@ -154,7 +154,7 @@
      - [dailyPEratioAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPEratioAPI)
 
 <a name="第三方登入"></a> 
-### 整合Firebase Authentication第三方登入
+### 整合 Firebase Authentication 第三方登入
   + Google 快速登入
   + Facebook 快速登入
       
