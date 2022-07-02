@@ -57,7 +57,7 @@ With bar chart, line chart to observe corporation business management in the lon
 <a name="react"></a>
 ### React
  + Handle the SPA with React Router (version 6)
-      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Navigate`, `Routes`, `Route`
+      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Routes`, `Route`
  + Hooks API：`useContext`, `useReducer`, `useState`, `useEffect`
  + Extracting a Custom Hook
       - `useAuthContext`：user state
