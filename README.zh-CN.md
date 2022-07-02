@@ -50,7 +50,7 @@
 ## 前端技術
 ### React
  + 使用 React Router (version 6) 實現 SPA（Single Page Application）架構
-      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Navigate`, `Routes`, `Route`
+      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Routes`, `Route`
  + Hooks API：`useContext`, `useReducer`, `useState`, `useEffect`
  + 自定義的 Hooks
       - `useAuthContext`：使用者登入狀態
