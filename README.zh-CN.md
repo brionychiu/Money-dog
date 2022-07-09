@@ -25,11 +25,11 @@
 + [核心功能](#核心功能)
 + [前端技術](#前端技術)
     + [React](#react)
-    + [SVG(無使用任何第三方套件)](#svg)
+    + [SVG (無使用任何第三方套件)](#svg)
     + [Framer-motion](#framer-motion)
     + [React Slick](#React-slick)
     + [RWD](#rwd)
-+ [後端技術](#後端技術)
++ [後端技術(雲端服務技術)](#後端技術)
     + [Firebase(version 9)](#Firebase)
     + [第三方登入](#第三方登入)
     + [網路爬蟲](#網路爬蟲)
@@ -38,11 +38,11 @@
 
 ## 核心功能
 + 使用者以中/數字搜尋股票名稱/代號
-+ **圖表皆以SVG(無第三方套件)繪製**
-     - 「最新動態」：以k線圖、直條圖表示該公司近半年股價走勢、5日均線、雙週線(10日線)、月線(20日線)、成交金額(百萬)及成交筆數
++ **圖表皆以 SVG (無第三方套件)繪製**
+     - 「最新動態」：以 k 線圖、直條圖表示該公司近半年股價走勢、5 日均線、雙週線( 10 日線)、月線( 20 日線)、成交金額(百萬)及成交筆數
      - 「價值評估」：以圓點折線圖表示該公司近三年每月本益比及月均價
      - 「成長力分析」：以圓點折線圖表示該公司近三年單月營收年增率及月均價
-     - 「財務報表」：以直條圖表示該公司近三年單月營收年增率及月均價
+     - 「財務報表」：以直條圖表示該公司近三年每季 EPS 及月均價
      - 「基本資料」：公司基本簡介及產業類別介紹
      - 「大盤趨勢」：包含上市加權指數、櫃買指數近半年趨勢
 + 使用者將股票加入追蹤清單，登入會員點選「我的清單」能瀏覽所有加入追蹤的股票每日動態。
@@ -50,7 +50,7 @@
 ## 前端技術
 ### React
  + 使用 React Router (version 6) 實現 SPA（Single Page Application）架構
-      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Navigate`, `Routes`, `Route`
+      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Routes`, `Route`
  + Hooks API：`useContext`, `useReducer`, `useState`, `useEffect`
  + 自定義的 Hooks
       - `useAuthContext`：使用者登入狀態
@@ -63,11 +63,11 @@
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "375"/>
+  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "430"/>
 <p/>
 
 <a name="svg"><a/>
-### SVG(無使用任何第三方套件)
+### SVG (無使用任何第三方套件)
   + 股市 k 線圖、成交量圖 
       - svg-rect, svg-line
   <p align="center">
@@ -149,8 +149,12 @@
   + Firestore Database
   + Hoisting
   + Functions
+     - [basicInfoAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/basicInfoAPI)
+     - [dailyPriceAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/)
+     - [dailyPEratioAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPEratioAPI)
+
 <a name="第三方登入"></a> 
-### 整合Firebase Authentication第三方登入
+### 整合 Firebase Authentication 第三方登入
   + Google 快速登入
   + Facebook 快速登入
       
@@ -171,3 +175,4 @@
 ## 聯絡我
   + Yu-Chien,Chiu
   + mail：yuikuta0618@gmail.com
+  + LinkedIn：[Chiu,Yu-Chien](https://www.linkedin.com/in/%E6%84%89%E8%AC%99-%E9%82%B1-853700200/)

@@ -1,7 +1,7 @@
 # 招財狗 Money dog   
 
 <h3 align="center">
-  Dig for treasure in the stock market,<br/>
+ Dig for treasure in the stock market,<br/>
     and find a new way to get RICH.
 </h3>
 <p align="center">
@@ -21,7 +21,7 @@
 </p>
 
 
-Money dog is a website which can **visualize data by using listed corporations financial statement, let easily distinguished its patterns, trends and correlations**.<br/>
+Money dog is a website which can **visualize data by using listed corporations financial statements, let easily distinguished its patterns, trends and correlations**.<br/>
 <p></p>
 Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company information.<br/>
 With bar chart, line chart to observe corporation business management in the long term.
@@ -30,11 +30,12 @@ With bar chart, line chart to observe corporation business management in the lon
 + [Main Features](#main-features)
 + [Frontend Technique](#frontend)
     + [React](#react)
-    + [SVG-without third party libraries](#svg)
-    + [Framer Motion](#framer-motion)
-    + [React Slick](#React-slick)
+    + [SVG (without third party library)](#svg)
+    + [Third Party Library](#library)
+      - [Framer Motion](#framer-motion)
+      - [React Slick](#react-slick)
     + [RWD](#rwd)
-+ [Backend Technique](#backend)
++ [Backend Technique (Firebase Cloud Services)](#backend)
     + [Firebase(version 9)](#firebase)
     + [Social Login](#social-login)
     + [Web Crawler](#web-Crawler)
@@ -57,7 +58,7 @@ With bar chart, line chart to observe corporation business management in the lon
 <a name="react"></a>
 ### React
  + Handle the SPA with React Router (version 6)
-      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Navigate`, `Routes`, `Route`
+      - `Outlet`, `useParams`, `useLocation`, `Navigate`, `useNavigate`, `Link`, `Routes`, `Route`
  + Hooks API：`useContext`, `useReducer`, `useState`, `useEffect`
  + Extracting a Custom Hook
       - `useAuthContext`：user state
@@ -70,12 +71,13 @@ With bar chart, line chart to observe corporation business management in the lon
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173884655-298aa8c2-ac48-4a24-8d05-14761a1f45da.png" alt="2610-react structure" width = "600" height = "400"/>
+  <img src="https://user-images.githubusercontent.com/94620926/178095409-3d41a632-e338-4156-9590-6bd0c8bc09b9.png" alt="2610-react structure" width = "600" height = "430"/>
+
 <p/>
 
 
 <a name="svg"></a>
-### SVG-without third party libraries
+### SVG (without third party library)
   + Candlestick chart、TradingView chart
       - svg-rect, svg-line
   <p align="center">
@@ -106,8 +108,10 @@ With bar chart, line chart to observe corporation business management in the lon
    <img src="https://user-images.githubusercontent.com/94620926/173486725-c885b6fa-a377-4ace-ae5a-4579142593b5.gif" alt="2610-pe" width = "400" height = "250"/>
    <p/>
 
+<a name="library"></a>
+### Third Party Library
 <a name="framer-motion"></a>
-### Framer-motion
+#### Framer Motion
   + Enmerge
  <p>
     <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
@@ -134,9 +138,10 @@ With bar chart, line chart to observe corporation business management in the lon
   <p>
       <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "266" alt="svg animation" />
  </p>
+ 
+<a name="react-slick"></a>
+#### React Slick
 
-<a name="React-slick"></a>
-### React Slick
   + Auto slider
  <p>
       <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
@@ -157,6 +162,9 @@ With bar chart, line chart to observe corporation business management in the lon
   + Firestore Database
   + Hoisting
   + Functions
+    - [basicInfoAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/basicInfoAPI)
+    - [dailyPriceAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPriceAPI)
+    - [dailyPEratioAPI](https://us-central1-truffle-dog-56562.cloudfunctions.net/dailyPEratioAPI)
 <a name="social-login"></a>
 ### Social login
   + Support Google sign in.
@@ -180,3 +188,4 @@ With bar chart, line chart to observe corporation business management in the lon
 ## Contact
   + Yu-Chien,Chiu
   + mail：yuikuta0618@gmail.com
+  + LinkedIn：[Chiu,Yu-Chien](https://www.linkedin.com/in/%E6%84%89%E8%AC%99-%E9%82%B1-853700200/)
