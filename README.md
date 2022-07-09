@@ -30,9 +30,10 @@ With bar chart, line chart to observe corporation business management in the lon
 + [Main Features](#main-features)
 + [Frontend Technique](#frontend)
     + [React](#react)
-    + [SVG-without third party libraries](#svg)
-    + [Framer Motion](#framer-motion)
-    + [React Slick](#React-slick)
+    + [SVG (without third party library)](#svg)
+    + [Third Party Library](#library)
+      - [Framer Motion](#framer-motion)
+      - [React Slick](#react-slick)
     + [RWD](#rwd)
 + [Backend Technique (Firebase Cloud Services)](#backend)
     + [Firebase(version 9)](#firebase)
@@ -75,7 +76,7 @@ With bar chart, line chart to observe corporation business management in the lon
 
 
 <a name="svg"></a>
-### SVG-without third party libraries
+### SVG (without third party library)
   + Candlestick chart、TradingView chart
       - svg-rect, svg-line
   <p align="center">
@@ -106,8 +107,10 @@ With bar chart, line chart to observe corporation business management in the lon
    <img src="https://user-images.githubusercontent.com/94620926/173486725-c885b6fa-a377-4ace-ae5a-4579142593b5.gif" alt="2610-pe" width = "400" height = "250"/>
    <p/>
 
+<a name="library"></a>
+### Third Party Library
 <a name="framer-motion"></a>
-### Framer Motion
+#### Framer Motion
   + Enmerge
  <p>
     <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
@@ -134,9 +137,10 @@ With bar chart, line chart to observe corporation business management in the lon
   <p>
       <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "266" alt="svg animation" />
  </p>
+ 
+<a name="react-slick"></a>
+#### React Slick
 
-<a name="React-slick"></a>
-### React Slick
   + Auto slider
  <p>
       <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
