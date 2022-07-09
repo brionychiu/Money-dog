@@ -71,8 +71,7 @@ With bar chart, line chart to observe corporation business management in the lon
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/178095409-3d41a632-e338-4156-9590-6bd0c8bc09b9.png" alt="2610-react structure" width = "600" height = "430"/>
-
+  <img src="https://user-images.githubusercontent.com/94620926/178096667-fd66254d-718d-4300-ac37-6c0ca4df0c13.png" alt="2610-react structure" width = "600" height = "430"/>
 <p/>
 
 
