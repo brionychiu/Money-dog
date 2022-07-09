@@ -23,11 +23,11 @@ const YoY = () => {
         {longYoY && monthPrice? 
             (longYoY.length===0 && monthPrice.length===0 ? 
                 <NoDataPage></NoDataPage>:
-            <YoYdrawSVG 
-            longYoY={longYoY[0].YoY}
-            M_Price={monthPrice[0].monthPrice}
-            M_Date={monthPrice[0].month}>
-            </YoYdrawSVG>)
+                <YoYdrawSVG 
+                longYoY={longYoY[0].YoY}
+                M_Price={monthPrice[0].monthPrice}
+                M_Date={monthPrice[0].month}>
+                </YoYdrawSVG>)
         :null}
         <div className={styles['YoY-report']}>
             <ul className={styles.toggleMenu}>

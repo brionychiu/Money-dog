@@ -78,7 +78,6 @@ const TrackingList = () => {
                 {trackingList && (
                     <div className={styles['left-box']}>
                         <ul className={styles.category}>
-                            {/* 待解決:要把頁面選取做fix color */}
                                 <li onClick={()=>setDaily(true)}>今日動態</li>
                                 <li onClick={()=>setDaily(false)}>成交資訊</li>
                         </ul>

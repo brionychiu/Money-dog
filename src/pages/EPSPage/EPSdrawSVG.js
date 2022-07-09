@@ -22,22 +22,22 @@ export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
     const [epsText_Y, setEPSText_Y] = useState(null)
 
     // -------- left index (eps) ---------- 
-    let mm = Math.floor(Math.min(...Q_EPS))
-    let MM = Math.ceil(Math.max(...Q_EPS))
+    let eps_min = Math.floor(Math.min(...Q_EPS))
+    let eps_max = Math.ceil(Math.max(...Q_EPS))
     let roundDecimal = (val, precision) => {
         return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0))
     }
 
-    let leftIndex = (mm,MM,Q_EPS) => {
+    let leftIndex = (eps_min,eps_max,Q_EPS) => {
         const leftIndexValue = []
         const rectangleY1 = []
         const rectangleHeight = []
         const minusValue = []
         let num1, y1Num, heightNum, difference, btw, minusHeight, minusStrokeWidth
 
-        if (mm<0 && MM>0){
-            const topDifference = Math.abs(MM)
-            const downDifference = Math.abs(mm)
+        if (eps_min<0 && eps_max>0){
+            const topDifference = Math.abs(eps_max)
+            const downDifference = Math.abs(eps_min)
             const topbtw = roundDecimal(topDifference/4,1)
             const downbtw = roundDecimal(downDifference/4,1)
             for (let i = 1 ; i < 5 ; i++){
@@ -73,8 +73,8 @@ export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
 
             return {leftIndexValue,rectangleHeight,rectangleY1,minusValue}
 
-        }else if(mm<0 && MM<0){
-            difference = Math.abs(mm - 0)
+        }else if(eps_min<0 && eps_max<0){
+            difference = Math.abs(eps_min - 0)
             btw = roundDecimal(difference/8,1)
             for (let i = 1 ; i < 9 ; i++){
                 let a = 0 + btw*i
@@ -98,7 +98,7 @@ export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
             return {leftIndexValue,rectangleHeight,rectangleY1,minusValue}
 
         }else{
-            difference = Math.abs(MM - 0)
+            difference = Math.abs(eps_max - 0)
             btw = roundDecimal(difference/8,1)
             leftIndexValue.push(0)
             for (let i = 1 ; i < 9 ; i++){
@@ -123,44 +123,44 @@ export const EPSdrawSVG = ({Q_EPS,Q_Date,M_Price,M_Date}) => {
             return {leftIndexValue,rectangleHeight,rectangleY1,minusValue}
         }
     }
-    const leftIndexValue = leftIndex(mm,MM,Q_EPS).leftIndexValue
-    const rectangleHeight = leftIndex(mm,MM,Q_EPS).rectangleHeight
-    const rectangleY1 = leftIndex(mm,MM,Q_EPS).rectangleY1
-    const minusValue = leftIndex(mm,MM,Q_EPS).minusValue
+    const leftIndexValue = leftIndex(eps_min,eps_max,Q_EPS).leftIndexValue
+    const rectangleHeight = leftIndex(eps_min,eps_max,Q_EPS).rectangleHeight
+    const rectangleY1 = leftIndex(eps_min,eps_max,Q_EPS).rectangleY1
+    const minusValue = leftIndex(eps_min,eps_max,Q_EPS).minusValue
 
     // ------------ M_Price & right index --------------
-    let nn = Math.floor(Math.min(...M_Price))
-    let NN = Math.ceil(Math.max(...M_Price))
-    let rightIndex = (nn,NN,M_Price) => {
+    let price_min = Math.floor(Math.min(...M_Price))
+    let price_max = Math.ceil(Math.max(...M_Price))
+    let rightIndex = (price_min,price_max,M_Price) => {
         const rightIndexValue = []
         const lineY1 = []
         const lineY2 = []
-        const btw = roundDecimal(((NN-nn)/8),1)
+        const btw = roundDecimal(((price_max-price_min)/8),1)
         let yNum
         for (let i = 0 ; i < 9 ; i++){
-            let a = nn + btw*i
+            let a = price_min + btw*i
             a = a.toFixed(0)
             rightIndexValue.push(a)
         }
         for (let i = 0 ; i < 42 ; i++){
             if(i<M_Price.length-1){
                 // lineY1移除最後一個元素
-                yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
+                yNum = Math.abs(((M_Price[i]-price_min)/btw)*50)
                 yNum= (450-yNum).toFixed(1)
                 lineY1.push(yNum)
             }
             if(i!==0){
                 //  lineY2移除第一個元素
-                yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
+                yNum = Math.abs(((M_Price[i]-price_min)/btw)*50)
                 yNum= (450-yNum).toFixed(1)
                 lineY2.push(yNum)
             }
         }
         return{rightIndexValue,lineY1,lineY2}
     }
-    const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
-    const lineY1 = rightIndex(nn,NN,M_Price).lineY1
-    const lineY2 = rightIndex(nn,NN,M_Price).lineY2
+    const rightIndexValue = rightIndex(price_min,price_max,M_Price).rightIndexValue
+    const lineY1 = rightIndex(price_min,price_max,M_Price).lineY1
+    const lineY2 = rightIndex(price_min,price_max,M_Price).lineY2
 
     return(
         <div className={styles['EPS-SVG']}>

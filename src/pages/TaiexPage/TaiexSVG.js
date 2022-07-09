@@ -6,22 +6,18 @@ export const TaiexSVG = ({taiex,otc}) => {
 
     const close = taiex[0].taiexClose
     const otcClose = otc[0].otcClose
-    // const date = taiex[0].taiexDate
-    // const high = taiex[0].taiexHigh
-    // const low = taiex[0].taiexLow
-    // const open = taiex[0].taiexOpen
 
     // right price index    
-    const mm = Math.floor(Math.min(...close))-100
-    const MM = Math.ceil(Math.max(...close))+100
+    const close_min = Math.floor(Math.min(...close))-100
+    const close_max = Math.ceil(Math.max(...close))+100
 
-    let rightIndex = (mm,MM,close) => {
-        const btw = ((MM-mm)/10).toFixed(0)
+    let rightIndex = (close_min,close_max,close) => {
+        const btw = ((close_max-close_min)/10).toFixed(0)
         const rightIndexValue = []
         const closeY = []
         let a, numY
         for(let i = 0 ; i < 9 ; i++){
-            a = mm + btw*i
+            a = close_min + btw*i
             a = a.toFixed(0)
             rightIndexValue.push(a)
         }
@@ -32,8 +28,8 @@ export const TaiexSVG = ({taiex,otc}) => {
         }
         return {rightIndexValue,closeY}
     }
-    const rightIndexValue = rightIndex(mm,MM,close).rightIndexValue
-    const closeY = rightIndex(mm,MM,close).closeY
+    const rightIndexValue = rightIndex(close_min,close_max,close).rightIndexValue
+    const closeY = rightIndex(close_min,close_max,close).closeY
 
     // left price index    
     const nn = Math.floor(Math.min(...otcClose))

@@ -23,12 +23,12 @@ const EPS = () => {
         {Q_EPS && monthPrice ? 
         (Q_EPS.length===0 && monthPrice.length===0 ? 
             <NoDataPage></NoDataPage>:
-        <EPSdrawSVG 
-            Q_EPS={Q_EPS[0].EPS}
-            Q_Date={Q_EPS[0].quarter}
-            M_Price={monthPrice[0].monthPrice}
-            M_Date={monthPrice[0].month}>
-        </EPSdrawSVG>)
+            <EPSdrawSVG 
+                Q_EPS={Q_EPS[0].EPS}
+                Q_Date={Q_EPS[0].quarter}
+                M_Price={monthPrice[0].monthPrice}
+                M_Date={monthPrice[0].month}>
+            </EPSdrawSVG>)
         :null}
             <div className={styles['EPS-report']}>
                 <ul className={styles.toggleMenu}>

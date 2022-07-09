@@ -146,7 +146,6 @@
     padding: 6px 7.5px 12px;
   }
   .tracking{
-    /* padding: 17px 7.5px 6px; */
     border-bottom: 3px solid transparent;
     cursor: pointer;
     margin-right: 19px;
@@ -169,10 +168,6 @@
   }
   .tracking:hover{
     border-bottom: 3px solid #ffb703;
-  }
-  /* 未穩定作用 , 在tracking頁面focus */
-  .rightBar li a:focus{
-    color: #0386f4;
   }
   /* loginBar */
   .loginBar{

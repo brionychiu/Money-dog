@@ -60,12 +60,12 @@ const Navbar = () => {
         setFilteredData([])
         setStockName('')
         }
-    //用location找前一頁
+    //prev page
     const sidebarLink = location.pathname.split('/')
     const handleSubmit = (e) => {
         e.preventDefault()
         clearInput()
-        // 找網址去篩字串-->做前一頁(ok!)
+        // filter website link
         if(sidebarLink[3]===undefined){
             navigate(`/analysis/${stockId}/`)
         }else{

@@ -25,41 +25,41 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
     const [peCircleStrokeWidth, setPECircleStrokeWidth] = useState('0')
 
     // ------------ M_Price --------------
-    let nn = Math.floor(Math.min(...M_Price))
-    let NN = Math.ceil(Math.max(...M_Price))
+    let price_min = Math.floor(Math.min(...M_Price))
+    let price_max = Math.ceil(Math.max(...M_Price))
     let roundDecimal = (val, precision) => {
         return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0))
     }
-    let rightIndex = (nn,NN,M_Price) => {
+    let rightIndex = (price_min,price_max,M_Price) => {
         const rightIndexValue = []
         const lineY1 = []
         const lineY2 = []
-        const btw = roundDecimal(((NN-nn)/8),1)
+        const btw = roundDecimal(((price_max-price_min)/8),1)
         let yNum
         for (let i = 0 ; i < 9 ; i++){
-            let a = nn + btw*i
+            let a = price_min + btw*i
             a = a.toFixed(0)
             rightIndexValue.push(a)
         }
         for (let i = 0 ; i < M_Price.length ; i++){
             if(i<M_Price.length-1){
                 // lineY1移除最後一個元素
-                yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
+                yNum = Math.abs(((M_Price[i]-price_min)/btw)*50)
                 yNum= (450-yNum).toFixed(1)
                 lineY1.push(yNum)
             }
             if(i!==0){
                 //  lineY2移除第一個元素
-                yNum = Math.abs(((M_Price[i]-nn)/btw)*50)
+                yNum = Math.abs(((M_Price[i]-price_min)/btw)*50)
                 yNum= (450-yNum).toFixed(1)
                 lineY2.push(yNum)
             }
         }
         return{rightIndexValue,lineY1,lineY2}
     }
-    const rightIndexValue = rightIndex(nn,NN,M_Price).rightIndexValue
-    const lineY1 = rightIndex(nn,NN,M_Price).lineY1
-    const lineY2 = rightIndex(nn,NN,M_Price).lineY2
+    const rightIndexValue = rightIndex(price_min,price_max,M_Price).rightIndexValue
+    const lineY1 = rightIndex(price_min,price_max,M_Price).lineY1
+    const lineY2 = rightIndex(price_min,price_max,M_Price).lineY2
 
     // ---------- long PERatio -----------
     let newPEratio = longPEratio.map(e => {
@@ -69,18 +69,18 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
         return e 
     });
     let leftIndex = (newPEratio) => {
-    let mm = Math.floor(Math.min(...newPEratio))
-    mm = mm - (mm*0.01)
-    let MM = Math.ceil(Math.max(...newPEratio))
-    MM = MM + (MM*0.01)
+    let pe_min = Math.floor(Math.min(...newPEratio))
+    pe_min = pe_min - (pe_min*0.01)
+    let pe_max = Math.ceil(Math.max(...newPEratio))
+    pe_max = pe_max + (pe_max*0.01)
     const leftIndexValue = []
     const circleCy = []
     const strokeWidth = []
     const circleR = []
-    const difference = Math.abs(MM - mm)
+    const difference = Math.abs(pe_max - pe_min)
     const btw = roundDecimal(difference/8,1)
     for (let i = 0 ; i < 9 ; i++){
-        let a = mm + btw*i
+        let a = pe_min + btw*i
         a = a.toFixed(0)
         leftIndexValue.push(a)
     }
@@ -96,7 +96,7 @@ export const PEdrawSVG = ({longPEratio,M_Price,M_Date}) => {
             strokeWidth.push(0)
             circleR.push(0)
         }else{
-            cyNum = newPEratio[i]-mm
+            cyNum = newPEratio[i]-pe_min
             cyNum = Math.abs((cyNum/btw)*50)
             cyNum = (450-cyNum).toFixed(0)
             circleCy.push(cyNum)

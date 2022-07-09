@@ -40,16 +40,16 @@ export const StockPriceSVG = ({HY_price}) => {
         return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0))
         }
     let candleAndIndex = (high,low,open,close) => {
-        let mm = Math.floor(Math.min(...low))
-        mm = mm - (mm*0.01)
-        let MM = Math.ceil(Math.max(...high))
-        MM = MM + (MM*0.01)
-        let difference = MM - mm
+        let low_min = Math.floor(Math.min(...low))
+        low_min = low_min - (low_min*0.01)
+        let high_max = Math.ceil(Math.max(...high))
+        high_max = high_max + (high_max*0.01)
+        let difference = high_max - low_min
         const btw = roundDecimal(difference/8,1)
         //  price index
         const priceIndex = []
         for (let i = 0 ; i < 9 ; i++){
-            let a = mm + btw*i
+            let a = low_min + btw*i
             a = a.toFixed(1)
             priceIndex.push(a)
         }
@@ -319,7 +319,7 @@ export const StockPriceSVG = ({HY_price}) => {
                                 <text x="2078" y={425-item} fill="rgb(106,106,106)" fontSize='13'>{priceIndex[index]}</text>
                             </g>
                         ))}
-                        {/* <path d="M 147 357.2 l 20 5.6 M 167 362.8 l 20 -5.6 M 187 357.2 l 20 -5.6 M 207 351.6 l 20 -5.6 M 227 346.0" stroke='rgb(255, 109, 0)' strokeWidth='2'/> */}
+    
                         {twentyMA && (
                             <>
                             {MA_20pathX.map((item,index) => (

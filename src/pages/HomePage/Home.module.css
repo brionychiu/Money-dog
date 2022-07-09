@@ -58,12 +58,12 @@
     font-size: 18px;
     font-weight: bold;
     padding-right: 10px;
-  }
-  .trackingIcon{
-    margin-right: 5px;
-    width: 25px;
-    height: 25px;
-    filter: invert(100%);
+}
+.trackingIcon{
+margin-right: 5px;
+width: 25px;
+height: 25px;
+filter: invert(100%);
 }
 .logout{
     margin: 25px 0px 42px;

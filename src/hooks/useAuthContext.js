@@ -2,7 +2,7 @@ import { AuthContext } from "../context/AuthContext"
 import { useContext } from "react"
 
 export const useAuthContext = () => {
-    // context 會放 ...state & dispatch
+    // context put in ...state & dispatch
     const context = useContext(AuthContext)
 
     if (!context) {
