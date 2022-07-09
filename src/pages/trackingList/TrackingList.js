@@ -8,10 +8,10 @@ import { motion } from 'framer-motion'
 // components
 import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
-import rightArrow from '../../components/img/right_arrow_icon.png'
-import dollarIcon from '../../components/img/dollar_icon.png'
-import dollarGif from '../../components/img/dollar_hover.gif'
-import loadingGif from '../../components/img/loading.gif'
+import rightArrow from '../../assets/right_arrow_icon.png'
+import dollarIcon from '../../assets/dollar_icon.png'
+import dollarGif from '../../assets/dollar_hover.gif'
+import loadingGif from '../../assets/loading.gif'
 
 // styles
 import styles from './TrackingList.module.css'

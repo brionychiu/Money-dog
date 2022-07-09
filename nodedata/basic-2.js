@@ -12,7 +12,7 @@ const getBasicListedInfo = function () {
     }
       try {
         const user = JSON.parse(response.body)
-        // console.log(user)
+        console.log(user)
       } catch(err) {
         console.error(err)
       }

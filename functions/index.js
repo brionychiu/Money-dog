@@ -1,12 +1,6 @@
 const functions = require("firebase-functions");
 const axios = require("axios")
 
-
-exports.randomNumber = functions.https.onRequest((request, response) => {
-    const number = Math.round(Math.random() * 100)
-    response.send(number.toString());
-  });
-
 exports.basicInfoAPI = functions.https.onRequest( async (req, res) => {
     try{
         const response = await axios.get("https://openapi.twse.com.tw/v1/opendata/t187ap03_L")

@@ -4,7 +4,7 @@ import { useCollection } from "../../hooks/useCollection";
 import { IndustyReducer } from '../../redux/Industry'
 
 // components
-import dogList from '../../components/img/dog_list.png'
+import dogList from '../../assets/dog_list.png'
 // styles
 import styles from './BasicInfo.module.css'
 

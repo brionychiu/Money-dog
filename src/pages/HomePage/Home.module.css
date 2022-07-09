@@ -8,7 +8,7 @@
     display: grid;
     grid-template-rows: 0.5fr 1fr 0.8fr 0.8fr 2.3fr;
     grid-template-columns: 1fr minmax(300px,1024px) 1fr;  
-    background-image: url(../../components/img/home_bg.svg);
+    background-image: url(../../assets/home_bg.svg);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover; 

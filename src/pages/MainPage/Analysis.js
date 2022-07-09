@@ -10,8 +10,8 @@ import { motion } from 'framer-motion'
 import Navbar from "../../components/navbar/Navbar"
 import Footer from '../../components/footer/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
-import check from '../../components/img/check_icon.png'
-import loadingGif from '../../components/img/loading.gif'
+import check from '../../assets/check_icon.png'
+import loadingGif from '../../assets/loading.gif'
 
 // sytles
 import styles from './Analysis.module.css'

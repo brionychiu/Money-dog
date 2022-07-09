@@ -4,7 +4,7 @@ import { useCollection } from "../../hooks/useCollection"
 import Navbar from "../../components/navbar/Navbar"
 import Footer from '../../components/footer/Footer'
 import { TaiexSVG } from "./TaiexSVG"
-import loadingGif from '../../components/img/loading.gif'
+import loadingGif from '../../assets/loading.gif'
 
 // styles
 import styles from './Taiex.module.css'

@@ -4,7 +4,6 @@ import { useCollection } from "../../hooks/useCollection"
 
 // components
 import { PEdrawSVG } from './PEdrawSVG'
-import loadingGif from '../../components/img/loading.gif'
 import NoDataPage from "../NoDataPage/NoDataPage"
 
 // styles

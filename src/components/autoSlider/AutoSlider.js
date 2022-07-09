@@ -6,10 +6,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // components
-import thumbsUpIcon from '../img/thumbs_up_icon.png'
-import thumbsUpYellowIcon from '../img/thumbs_up_icon_yellow.png'
-import recommedIcon1 from '../img/recommend_icon_1.png'
-import recommedIcon2 from '../img/recommend_icon_2.png'
+import thumbsUpIcon from '../../assets/thumbs_up_icon.png'
+import thumbsUpYellowIcon from '../../assets/thumbs_up_icon_yellow.png'
+import recommedIcon1 from '../../assets/recommend_icon_1.png'
+import recommedIcon2 from '../../assets/recommend_icon_2.png'
 
 const AutoSlider = () => {
     const settings = {

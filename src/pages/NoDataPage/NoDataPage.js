@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { Link } from "react-router-dom"
 
 // components
-import nodataDogIcon from '../../components/img/no_data_icon.svg'
-import dogBoneIcon from '../../components/img/dog_bone.png'
+import nodataDogIcon from '../../assets/no_data_icon.svg'
+import dogBoneIcon from '../../assets/dog_bone.png'
 
 // styles
 import styles from './NoDataPage.module.css'

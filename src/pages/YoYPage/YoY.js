@@ -4,7 +4,6 @@ import { useCollection } from "../../hooks/useCollection"
 
 // components
 import { YoYdrawSVG } from "./YoYdrawSVG"
-import loadingGif from '../../components/img/loading.gif'
 import NoDataPage from "../NoDataPage/NoDataPage"
 
 // styles

@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 // components
-import newestIcon from '../img/newest-1.svg'
-import PEratioIcon from '../img/PEratio-2.svg'
-import YoYiIcon from '../img/YoY-3.svg'
-import EPSIcon from '../img/EPS-4.svg'
-import infoIcon from '../img/basicInfo-5.svg'
+import newestIcon from '../../assets/newest-1.svg'
+import PEratioIcon from '../../assets/PEratio-2.svg'
+import YoYiIcon from '../../assets/YoY-3.svg'
+import EPSIcon from '../../assets/EPS-4.svg'
+import infoIcon from '../../assets/basicInfo-5.svg'
 
 // styles
 import styles from './Sidebar.module.css'

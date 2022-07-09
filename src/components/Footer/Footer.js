@@ -2,7 +2,7 @@
 import styles from './Footer.module.css'
 
 // components
-import footerIcon from '../img/footer_icon.png'
+import footerIcon from '../../assets/footer_icon.png'
 const Footer = () => {
     return ( 
         <div className={styles.footer}>

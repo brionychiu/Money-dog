@@ -7,11 +7,11 @@ import { motion } from 'framer-motion'
 
 // components
 import Footer from '../../components/footer/Footer'
-import logoIcon from '../../components/img/logo_icon.jpg'
-import searchIcon from '../../components/img/search_icon.png'
-import trackingIcon from '../../components/img/tracking_icon.png'
-import menuIcon from '../../components/img/menu_icon.png'
-import crossIcon from '../../components/img/cross_icon.png'
+import logoIcon from '../../assets/logo_icon.jpg'
+import searchIcon from '../../assets/search_icon.png'
+import trackingIcon from '../../assets/tracking_icon.png'
+import menuIcon from '../../assets/menu_icon.png'
+import crossIcon from '../../assets/cross_icon.png'
 import AutoSlider from '../../components/autoSlider/AutoSlider'
 import HomeSVG from './HomeSVG'
 

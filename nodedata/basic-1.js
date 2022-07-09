@@ -18,6 +18,7 @@ const getBasicListedInfo = function () {
             "name":obj["公司名稱"],"sname":obj["公司簡稱"],
             "industry":obj["產業別"],"date":obj["出表日期"]})
         })
+        console.log(json)
 
       } catch(err) {
         console.error(err)
