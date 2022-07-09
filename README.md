@@ -176,9 +176,9 @@ With bar chart, line chart to observe corporation business management in the lon
     - 櫃檯買賣中心(TPEx)
     - 財報狗(Statement Dog)
   + Code
-    - node.js
-    - python
-    - express
+    - Node.js
+    - Python
+    - Express
 <a name="FireKit"></a>
 ### FireKit
   + more than 2000 data bulk import files
