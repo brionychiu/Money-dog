@@ -25,9 +25,10 @@
 + [核心功能](#核心功能)
 + [前端技術](#前端技術)
     + [React](#react)
-    + [SVG (無使用任何第三方套件)](#svg)
-    + [Framer-motion](#framer-motion)
-    + [React Slick](#React-slick)
+    + [SVG (圖表無使用任何第三方套件)](#svg)
+    + [第三方套件](#第三方套件)
+      - [Framer-motion](#framer-motion)
+      - [React Slick](#React-slick)
     + [RWD](#rwd)
 + [後端技術(雲端服務技術)](#後端技術)
     + [Firebase(version 9)](#Firebase)
@@ -63,7 +64,8 @@
 + Context：`AuthContext`
 + Structure
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/94620926/173986913-d8306e4c-866a-4cb1-b985-a7fb836b4c74.png" alt="2610-react structure" width = "600" height = "430"/>
+  <img src="https://user-images.githubusercontent.com/94620926/178259034-3a7ac02e-4a9d-4647-893f-6656f3b1a0be.png" alt="2610-react structure" width = "600" height = "430"/>
+
 <p/>
 
 <a name="svg"><a/>
@@ -97,9 +99,10 @@
  <img src="https://user-images.githubusercontent.com/94620926/173486709-84478566-ab61-4704-b637-eb061b67ac79.gif" alt="2610-yoy" width = "400" height = "250"/>
    <img src="https://user-images.githubusercontent.com/94620926/173486725-c885b6fa-a377-4ace-ae5a-4579142593b5.gif" alt="2610-pe" width = "400" height = "250"/>
    <p/>
-
-      
-### Framer-motion
+  
+<a name="第三方套件"></a>
+### 第三方套件     
+## Framer-motion
   + 浮出
  <p>
     <img src="https://user-images.githubusercontent.com/94620926/173374421-b17d6b55-5b68-4fd3-a604-60969813f2be.gif" width = "250" height = "200" alt="emerge" />
@@ -122,13 +125,13 @@
       <img src="https://user-images.githubusercontent.com/94620926/173370011-a5489f85-0379-402b-9d8c-4e941c9c3058.gif" width = "400" height = "200" alt="drag" />
  </p>
  
-  + SVG動畫
+  + SVG 動畫
   <p>
       <img src="https://user-images.githubusercontent.com/94620926/173375214-43819478-c066-4dcb-bebe-bdf92e485760.gif" width = "400" height = "266" alt="svg animation" />
  </p>
 
 <a name="React-slick"></a>
-### React Slick
+#### React Slick
   + 自動輪播
   <p>
       <img src="https://user-images.githubusercontent.com/94620926/173367835-3a5029af-8a4a-48b8-8bdc-c0e617e4b792.gif" width = "300" height = "200" alt="svg animation" />
@@ -142,6 +145,7 @@
   <img src="https://user-images.githubusercontent.com/94620926/173488721-c8e95efc-00c6-4509-9562-0ad0f0d5d1a7.png" width = "300" height = "200" alt="tablet" />
 </p>
   
+<a name="後端技術"></a>  
 ## 後端技術(雲端服務技術)
 <a name="Firebase"></a>
 ### Firebase (version 9)
