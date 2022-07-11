@@ -21,7 +21,7 @@
 </p>
 
 
-Money dog is a website which can **visualize data by using listed corporations financial statements, let easily distinguished its patterns, trends and correlations**.<br/>
+Money dog is a website which can **visualize data by using listed corporations financial statements, easily distinguishing its patterns, trends and correlations**.<br/>
 <p></p>
 Users search stock id or company's name, to browse stock's price in half a year, PE ratio, Revenue Growth Rate (YoY) in each month, EPS in each quarter and basic company information.<br/>
 With bar chart, line chart to observe corporation business management in the long term.
@@ -44,15 +44,15 @@ With bar chart, line chart to observe corporation business management in the lon
 
 <a name="main-features"></a>
 ## Main Features
-+  **Realtime search**：Users search company by stock Id or company's name.
++  **Realtime search**：Users search companies by stock Id or company's name.
 +  **Build charts with SVG from scratch without third party libraries.**
      - Candlestick chart：Show stock price in half a year, 5MA(moving average), 10MA, 20MA, trading volume and transaction.
-     - Bar chart：Show each quarter EPS in the past three years. 
+     - Bar chart：Each quarter EPS in the past three years. 
      - Line chart with dots：Show each month PE Ratio and YoY in the past three years.
      - Line chart：Show each month averge price in the past three years.
      - Basic information：Compony and industry introduction.
      - Stock market：Includes TAIEX and OTC general trend. 
-+  Tracking list：Users can add stock in tracking list, when login-users check My List, it will show all information of stock price.
++  Tracking list：Users can add stock  in the tracking list, when login-users check My List, it will show all information of stock price.
 <a name="frontend"></a>
 ## Frontend Technique
 <a name="react"></a>
@@ -123,7 +123,7 @@ With bar chart, line chart to observe corporation business management in the lon
 = "80" height = "70" alt="enlarge-check" />
  </p>
  
-  + Moving
+  + Move
   <p>
       <img src="https://user-images.githubusercontent.com/94620926/173371316-03495e90-9451-40d9-b5b6-af5cd56a1b52.gif" width = "70" height = "290" alt="moving1" />
  </p>
