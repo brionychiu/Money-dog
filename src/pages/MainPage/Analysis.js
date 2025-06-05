@@ -6,14 +6,12 @@ import { useTrackingList } from "../../hooks/useTrackingList"
 import { useFirestore } from "../../hooks/useFirestore"
 import { motion } from 'framer-motion'
 
-// components
 import Navbar from "../../components/layout/Navbar"
 import Footer from '../../components/layout/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
 import check from '../../assets/check_icon.png'
 import loadingGif from '../../assets/loading.gif'
 
-// sytles
 import styles from './Analysis.module.css'
 
 const Analysis = () => {
@@ -78,7 +76,6 @@ const Analysis = () => {
                 alert('加入清單失敗，請再次點擊')
             });
         }
-       
     }
     const clickTounTrack = async(e) => {
         e.preventDefault()
@@ -94,10 +91,10 @@ const Analysis = () => {
                 {stockData && basicInfo && (
                     <div className={styles.stockInfo}>    
                         <ul>
-                            <li>{basicInfo[0].sname}{stockData[0].id}</li>
-                            <li className={styles.dateli}>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
+                            <li>{basicInfo[0].sname} {stockData[0].id}</li>
+                            <li className={styles.dateli}>台灣 {basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)} 收盤價</li>
                             <li>{stockData[0].Close}元</li>
-                            <li className={styles.rwdli}>台灣{basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)}收盤價</li>
+                            <li className={styles.rwdli}>台灣 {basicInfo[0].date.slice(3,5)}/{basicInfo[0].date.slice(5,8)} 收盤價</li>
                         </ul>
                 {tracking ? 
                 <motion.form 
@@ -118,7 +115,6 @@ const Analysis = () => {
                     onSubmit={clickToTrack}>  
                     <button className={styles.untracked} type="submit">+ 追蹤</button>
                 </motion.form>}
-                       
             </div>
             )}
                 <div className={styles.mainContent}>
@@ -136,7 +132,6 @@ const Analysis = () => {
             </div>
             <Footer className={styles.footer}/>
         </div>
-     );
+    );
 }
- 
 export default Analysis;
