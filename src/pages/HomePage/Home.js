@@ -6,7 +6,7 @@ import { useCollection } from '../../hooks/useCollection';
 import { motion } from 'framer-motion'
 
 // components
-import Footer from '../../components/footer/Footer'
+import Footer from '../../components/layout/Footer'
 import logoIcon from '../../assets/logo_icon.jpg'
 import searchIcon from '../../assets/search_icon.png'
 import trackingIcon from '../../assets/tracking_icon.png'

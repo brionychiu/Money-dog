@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
-import { useReducer, useState } from "react";
+import { useReducer,useEffect, useState } from "react";
 import { useCollection } from "../../hooks/useCollection";
-import { IndustyReducer } from '../../redux/Industry'
+import { IndustryReducer } from '../../redux/Industry'
 
 // components
 import dogList from '../../assets/dog_list.png'
@@ -11,18 +11,17 @@ import styles from './BasicInfo.module.css'
 const BasicInfo = () => { 
     const { stockId } = useParams()
     const [show, setShow] = useState(false)
-    const { documents:basicInfo } = useCollection(
-        'basicInfo',stockId
-    ) 
-    const { documents:dailyPE } = useCollection(
-        'dailyPE',stockId
-    ) 
-    const [state, dispatch] = useReducer(IndustyReducer,{industry:""})
-    const industyInfo = () => { dispatch({type:basicInfo[0].industry})}
-    const handleClick = () => {
-        industyInfo()
-        setShow(true)
-    }
+    const { documents: basicInfo } = useCollection('basicInfo', stockId) 
+    const { documents: dailyPE } = useCollection('dailyPE', stockId) 
+    const [state, dispatch] = useReducer(IndustryReducer, { industry: "" })
+
+    useEffect(() => {
+        if (basicInfo && basicInfo.length > 0) {
+            dispatch({ type: basicInfo[0].industry })
+            setShow(true)
+        }
+    }, [basicInfo])
+
     return ( 
         <div className={styles['info-container']}>
             {basicInfo && (
@@ -44,7 +43,6 @@ const BasicInfo = () => {
                         <img src={dogList} alt='dog_list'/>
                         交易所：{basicInfo[0].listed}
                     </li>
-                    <button onClick={handleClick}>查看產業類別</button>
                 </ul>
             )}
             {dailyPE &&

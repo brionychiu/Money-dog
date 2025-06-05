@@ -2,10 +2,10 @@
     display: grid;
     grid-template-columns: minmax(450px,auto) 130px;
     column-gap: 10px;
+    min-height: calc(100vh - 102px);;
 }
 .info-box{
     grid-column: 1/2;
-    display: grid;
     padding: 10px;
     width: 97%;
     justify-self: center;
@@ -13,8 +13,8 @@
     border-radius: 3px;
     border: 1px solid #dfdfdf;
     color: #434343;
-    line-height: 250%;
     font-size: 18px;
+    line-height: 2.5;
 }
 .info-box div{
     font-size: 20px;

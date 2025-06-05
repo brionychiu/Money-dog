@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { IndustyReducer } from './Industry'
+import { IndustryReducer } from './Industry'
 
 export default configureStore({
   reducer: {
-    industry : IndustyReducer,
+    industry : IndustryReducer,
   }
 })
