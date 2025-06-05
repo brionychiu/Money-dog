@@ -7,8 +7,8 @@ import { useFirestore } from "../../hooks/useFirestore"
 import { motion } from 'framer-motion'
 
 // components
-import Navbar from "../../components/navbar/Navbar"
-import Footer from '../../components/footer/Footer'
+import Navbar from "../../components/layout/Navbar"
+import Footer from '../../components/layout/Footer'
 import Sidebar from '../../components/sidebar/Sidebar'
 import check from '../../assets/check_icon.png'
 import loadingGif from '../../assets/loading.gif'

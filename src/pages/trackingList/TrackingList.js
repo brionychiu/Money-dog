@@ -6,8 +6,8 @@ import { Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 // components
-import Navbar from '../../components/navbar/Navbar'
-import Footer from '../../components/footer/Footer'
+import Navbar from '../../components/layout/Navbar'
+import Footer from '../../components/layout/Footer'
 import rightArrow from '../../assets/right_arrow_icon.png'
 import dollarIcon from '../../assets/dollar_icon.png'
 import dollarGif from '../../assets/dollar_hover.gif'
