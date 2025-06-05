@@ -108,7 +108,7 @@ export const IndustrySlice = createSlice({
 export const { increment, decrement } = IndustrySlice.actions
 export default IndustrySlice.reducer
 
-export const IndustyReducer = (state,action) => {
+export const IndustryReducer = (state,action) => {
     switch(action.type){
         case '01':
             return { industry: '水泥工業', 
